@@ -1,7 +1,11 @@
-package org.example;
+package org.fiuba.algo3;
 
 public class Main {
     public static void main(String[] args) {
-        System.out.println("Hello world!");
+        Consola consola = new Consola();
+
     }
 }
+
+
+
