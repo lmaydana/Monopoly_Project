@@ -1,4 +1,6 @@
 package org.fiuba.algo3;
+import java.util.*;
+import java.util.Scanner;
 
 public class Consola {
     public Consola(){
@@ -6,6 +8,7 @@ public class Consola {
         ASCIIArt arte = new ASCIIArt();
         arte.run();
         bienvenida();
+        pedirDatosIniciales();
 
     }
 
@@ -19,6 +22,30 @@ public class Consola {
                 """);
     }
 
+    public int mostrarOpciones(List<String> elementos){
+
+        Scanner scanner = new Scanner(System.in);
+        int eleccion;
+        for (int i = 1; i<= elementos.size(); i++){
+
+            System.out.println(i + "." + elementos.get(i));
+        }
+        eleccion = scanner.nextInt();
+        scanner.close();
+        return eleccion;
+    }
+
+    public void pedirDatosIniciales(){
+
+    }
+
+    public void decirOrdenJugadores(){
+
+    }
+
+    public void lanzarDados(){
+
+    }
 }
 
 
