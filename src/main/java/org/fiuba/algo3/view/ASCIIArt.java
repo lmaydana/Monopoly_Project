@@ -1,4 +1,4 @@
-package org.fiuba.algo3;
+package org.fiuba.algo3.view;
 
 import picocli.CommandLine;
 

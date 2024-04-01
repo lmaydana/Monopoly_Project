@@ -1,4 +1,6 @@
-package org.fiuba.algo3;
+package org.fiuba.algo3.view;
+import org.fiuba.algo3.view.ASCIIArt;
+
 import java.util.*;
 import java.util.Scanner;
 
