@@ -1,5 +1,5 @@
 package Casilleros;
 
 public interface Comprable {
-    void seCompradaPor(Comprador comprador ) throws CantidadInsuficiente;
+    void seCompradaPor(Jugador comprador ) throws CantidadInsuficiente;
 }

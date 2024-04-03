@@ -1,19 +1,24 @@
 package Casilleros;
 
-public class ContratoDeVenta {
+public class ContratoDeVenta implements Contrato{
 
-    Comprador comprador;
+    Jugador comprador;
     CasillaComprable propiedad;
-    public ContratoDeVenta(Comprador comprador, CasillaComprable propiedad) {
+    public ContratoDeVenta(Jugador comprador, CasillaComprable propiedad) {
         this.comprador = comprador;
         this.propiedad = propiedad;
     }
 
-    public void aceptarContrato(){
+    public void aceptar(){
         try {
             propiedad.seCompradaPor(this.comprador);
         }catch (CantidadInsuficiente e){
 
         }
+    }
+
+    @Override
+    public void rechazar() {
+        this.comprador.perderOferta();
     }
 }
