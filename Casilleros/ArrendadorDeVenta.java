@@ -26,8 +26,7 @@ public class ArrendadorDeVenta implements Arrendador{
     }
 
     @Override
-    public void cesarPropiedad(CasillaComprable propiedad, Comprador comprador) {
-        comprador.recibir(propiedad);
+    public void despojarseDeCasilla(CasillaComprable propiedad, Comprador comprador) {
         this.propiedades.remove(propiedad);
     }
 }

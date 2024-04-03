@@ -26,8 +26,8 @@ public class Propiedad extends CasillaComprable{
     }
 
     @Override
-    public void seCompradaPor(Comprador comprador) throws CantidadInsuficiente {
-        super.seCompradaPor(comprador);
+    public void seCompradaPor(Jugador jugador) throws CantidadInsuficiente {
+        super.seCompradaPor(jugador);
         this.controladorDeHipotecas = new ControladorDeHipotecaActivo(this.nombrePropiedad, this.arrendador);
     }
 
@@ -47,4 +47,10 @@ public class Propiedad extends CasillaComprable{
     public Double tasar() {
         return this.terreno.tasar();
     }
+
+    @Override
+    protected void cesarA(Jugador jugador) {
+        jugador.recibir(this);
+    }
+
 }

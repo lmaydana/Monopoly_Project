@@ -11,7 +11,7 @@ public class OfertadorDePropiedad implements Ofertador {
 
     @Override
     public void ofertar(Jugador comprador) {
-        ContratoDeVenta contrato = new ContratoDeVenta(comprador, this, propiedad);
-        jugador.recibir(contrato);
+        ContratoDeVenta contrato = new ContratoDeVenta(comprador, this.propiedad);
+        comprador.recibir(contrato);
     }
 }

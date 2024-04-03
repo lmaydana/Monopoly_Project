@@ -1,7 +1,5 @@
 package Casilleros;
 
-import java.util.ArrayList;
-
 public abstract class CasillaComprable implements Casillero, Comprable {
     private Double costoDeVenta;
     protected Arrendador arrendador;
@@ -14,10 +12,11 @@ public abstract class CasillaComprable implements Casillero, Comprable {
     }
 
     @Override
-    public void seCompradaPor(Comprador comprador) throws CantidadInsuficiente{
-        comprador.transferir(this.costoDeVenta, this.arrendador);
-        arrendador.cesarPropiedad(this, comprador);
-        this.arrendador = comprador.tranformarEnArrendador();
+    public void seCompradaPor(Jugador jugador) throws CantidadInsuficiente{
+        jugador.transferir(this.costoDeVenta, this.arrendador);
+        this.arrendador.despojarseDeCasilla(this, jugador);
+        this.cesarA(jugador);
+        this.arrendador = jugador;
         this.ofertador = new OfertadorNulo();
     }
 
@@ -36,4 +35,7 @@ public abstract class CasillaComprable implements Casillero, Comprable {
     public boolean esElMismoPropietario(Arrendador arrendador) {
        return this.arrendador.equals(arrendador);
     }
+
+    protected abstract void cesarA(Jugador jugador);
+
 }

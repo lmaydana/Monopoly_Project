@@ -14,8 +14,8 @@ public class ArrendadorHipotecado implements Arrendador {
     }
 
     @Override
-    public void cesarPropiedad(CasillaComprable propiedad, Comprador comprador) {
-        arrendador.cesarPropiedad(propiedad, comprador);
+    public void despojarseDeCasilla(CasillaComprable propiedad, Comprador comprador) {
+        arrendador.despojarseDeCasilla(propiedad, comprador);
     }
 
     @Override
