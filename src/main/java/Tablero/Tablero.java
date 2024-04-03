@@ -1,5 +1,6 @@
 package Tablero;
-import java.util.Random;
+import java.util.ArrayList;
+import java.util.Collections;
 public class Tablero {
     private ListaCircular<Casillero> tablero;
     private Config config;
@@ -9,51 +10,46 @@ public class Tablero {
         this.inicializarTablero();
     }
 
-    //TODO: cambiar por los distintos tipos de casilleros
-    private Casillero devolerCasilleroRandom(Random random){
-        Casillero casillero = null;
-        int numeroRandom = random.nextInt(5);
-        switch (numeroRandom){
-            case 0:
-                //de paso
-                casillero = new Casillero();
-            case 1:
-                //propiedad
-                casillero = new Casillero();
-            case 2:
-                //loteria
-                casillero = new Casillero();
-            case 3:
-                //Multa
-                casillero = new Casillero();
-            case 4:
-                //transporte
-                casillero = new Casillero();
-        }
-        return casillero;
-    }
-    
-    //TODO: Que verifique que se agreguen solamente 4 de loteria, 2 de multa, etc.
+    /**
+     * Nose si se puede hacer mejor por el momento lo dejo asi, lo que hace es generar de manera aleatoria un tablero
+     * cumpliendo que no haya mas de los tipos de casilleros que dice la config.
+     *
+     */
     private void inicializarTablero() {
-        Random random = new Random();
-        int posicionCarcel = random.nextInt(config.cantTotalCasillas);
-        int posicionIrCarcel;
-        do {
-            posicionIrCarcel = random.nextInt(config.cantTotalCasillas);
-        } while (posicionCarcel == posicionIrCarcel);
-
-        for (int i = 0; i < config.cantTotalCasillas; i++) {
-            if(i == posicionCarcel){
-                //casillero de carcel
-                this.tablero.append(new Casillero());
-            } else if (i == posicionIrCarcel){
-                //casillero de ir Carcel
-                this.tablero.append(new Casillero());
-            }
-            Casillero casilleroAgregar = devolerCasilleroRandom(random);
-            this.tablero.append(casilleroAgregar);
-
+        ArrayList<Casillero> lista = generarListaRandom();
+        for (Casillero casillero : lista) {
+            tablero.append(casillero);
         }
+    }
+
+    //TODO: cambiar a los distintos tipos de casilleros
+    private ArrayList<Casillero> generarListaRandom(){
+        ArrayList<Casillero> lista = new ArrayList<Casillero>();
+        for (int i = 0; i < config.cantCasillasPaso; i++) {
+            lista.add(new Casillero());
+        }
+        for (int i = 0; i < config.cantCasillasPropiedades; i++) {
+            lista.add(new Casillero());
+        }
+        for (int i = 0; i < config.cantCasillasLoterias; i++) {
+            lista.add(new Casillero());
+        }
+        for (int i = 0; i < config.cantCasillasMulta; i++) {
+            lista.add(new Casillero());
+        }
+        for (int i = 0; i < config.cantCasillasIrCarcel; i++) {
+            lista.add(new Casillero());
+        }
+        for (int i = 0; i < config.cantCasillasCarcel; i++) {
+            lista.add(new Casillero());
+        }
+        for (int i = 0; i < config.cantCasillasTransporte; i++) {
+            lista.add(new Casillero());
+        }
+        Collections.shuffle(lista);
+        //cambiar al inicio
+        lista.addFirst(new Casillero());
+        return lista;
     }
 
     public Casillero mover(int origen, int pasos){
