@@ -8,6 +8,7 @@ public class Loteria extends CasillaTransferidora{
 
     @Override
     public void recibirJugador(Jugador jugador) {
+        super.recibirJugador(jugador);
         Banco banco = Banco.getBanco();
         banco.transferir(this.montoACobrar, jugador);
     }

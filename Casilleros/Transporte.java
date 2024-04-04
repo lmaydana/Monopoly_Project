@@ -2,19 +2,20 @@ package Casilleros;
 
 public class Transporte extends CasillaComprable{
 
+    private Double costoRenta;
 
-    public Transporte(Double costoDeVenta, Double costoRenta) {
+    private CentroDeTransportes centroDeTransportes;
+
+
+    public Transporte(Double costoDeVenta, Double costoRenta, CentroDeTransportes centroDeTransportes) {
         super(costoDeVenta);
+        this.costoRenta = costoRenta;
+        this.centroDeTransportes = centroDeTransportes;
     }
 
     @Override
     public Double tasar() {
-        return null;
-    }
-
-    @Override
-    protected void cesarA(Jugador jugador) {
-        jugador.recibir(this);
+        return this.centroDeTransportes.devolverPrecioTotal(this.arrendador, this.costoRenta);
     }
 
 }

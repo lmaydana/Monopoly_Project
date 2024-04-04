@@ -1,6 +1,6 @@
 package Casilleros;
 
-public class IrALaCarcel implements Casillero{
+public class IrALaCarcel extends Casillero{
 
     private Carcel carcel;
 
@@ -10,6 +10,8 @@ public class IrALaCarcel implements Casillero{
 
     @Override
     public void recibirJugador(Jugador jugador) {
+        super.recibirJugador(jugador);
+        this.carcel.recibirJugador(jugador);
         this.carcel.encarcelar(jugador);
     }
 }

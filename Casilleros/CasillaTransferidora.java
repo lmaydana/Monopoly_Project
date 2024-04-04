@@ -1,6 +1,6 @@
 package Casilleros;
 
-public abstract class CasillaTransferidora implements Casillero{
+public abstract class CasillaTransferidora extends Casillero {
 
     protected Double montoACobrar;
 
