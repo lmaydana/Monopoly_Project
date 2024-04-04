@@ -5,23 +5,24 @@ import java.util.ArrayList;
 public class Propiedad extends CasillaComprable{
 
     private String nombrePropiedad;
-    private Grupo grupo;
+    private Barrio barrio;
     private Constructor constructor;
     private Terreno terreno;
     private ControladorDeHipotecas controladorDeHipotecas;
     private ArrayList<Double> preciosDeVenta;
-    public Propiedad(String nombrePropiedad, Double costoDeVenta, Grupo grupo, ArrayList<Inmueble> inmueblesPorPoner, ArrayList<Double> rentas) {
+    public Propiedad(String nombrePropiedad, Double costoDeVenta, Barrio barrio, ArrayList<Inmueble> inmueblesPorPoner, ArrayList<Double> rentas, ArrayList<Double> preciosDeVenta) {
         super(costoDeVenta);
         this.nombrePropiedad = nombrePropiedad;
-        this.grupo = grupo;
+        this.barrio = barrio;
         this.constructor = new ConstructorNulo();
         Tasador tasador = new Tasador(rentas);
         this.terreno = new Terreno(inmueblesPorPoner, tasador, this.arrendador);
         this.controladorDeHipotecas = new ControladorDeHipotecaNulo(this.arrendador);
+        this.preciosDeVenta = preciosDeVenta;
     }
 
     public void construirVivienda(Cartera cartera){
-        this.constructor = this.grupo.obtenerConstructor(this.arrendador, this.terreno, this.preciosDeVenta);
+        this.constructor = this.barrio.obtenerConstructorAprobado(this.arrendador, this.terreno, this.preciosDeVenta);
         this.constructor.construir(cartera);
     }
 
@@ -29,6 +30,13 @@ public class Propiedad extends CasillaComprable{
     public void seCompradaPor(Jugador jugador) throws CantidadInsuficiente {
         super.seCompradaPor(jugador);
         this.controladorDeHipotecas = new ControladorDeHipotecaActivo(this.nombrePropiedad, this.arrendador);
+    }
+
+
+    @Override
+    public void recibirJugador(Jugador jugador) {
+        super.recibirJugador(jugador);
+        jugador.recibir(this);
     }
 
     public void hipotecar(Cartera cartera){
@@ -46,11 +54,6 @@ public class Propiedad extends CasillaComprable{
     @Override
     public Double tasar() {
         return this.terreno.tasar();
-    }
-
-    @Override
-    protected void cesarA(Jugador jugador) {
-        jugador.recibir(this);
     }
 
 }

@@ -13,15 +13,11 @@ public class ConstructorDeInmuebles implements Constructor{
     }
 
     @Override
-    public void construir(Cartera cartera) {
-        try {
-            Double precioInmueble = this.precios.getFirst();
-            cartera.transferir(precioInmueble);
-            this.precios.removeFirst();
-            this.terreno.edificar();
-
-        }catch (CantidadInsuficiente e){
-
-        }
+    public void construir(Cartera cartera) throws CantidadInsuficiente{
+        Banco banco = Banco.getBanco();
+        Double precioInmueble = this.precios.getFirst();
+        cartera.transferir(precioInmueble, banco);
+        this.precios.removeFirst();
+        this.terreno.edificar();
     }
 }

@@ -8,7 +8,8 @@ public class Multa extends CasillaTransferidora{
 
     @Override
     public void recibirJugador(Jugador jugador) {
+        super.recibirJugador(jugador);
         Banco banco = Banco.getBanco();
-        jugador.transferir(this.montoACobrar, jugador);
+        jugador.transferir(this.montoACobrar, banco);
     }
 }

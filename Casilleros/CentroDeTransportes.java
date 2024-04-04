@@ -13,13 +13,29 @@ public class CentroDeTransportes {
         this.transportes.add(transporte);
     }
 
-    public int determinarMultiplicidadDeCosto(Arrendador arrendador){
+    private int determinarMultiplicidadDeCosto(Arrendador arrendador){
         int multiplicidad = 0;
         for (Transporte transporte: this.transportes){
-            if( transporte.esElMismoPropietario(arrendador) )
+            if( transporte.tieneArrendador(arrendador) )
                 multiplicidad++;
         }
 
         return multiplicidad;
+    }
+
+    public boolean esCompaniero(Arrendador arrendador) {
+        boolean esCompaniero = false;
+        for (Transporte transporte: this.transportes){
+            if (transporte.tieneArrendador(arrendador)){
+                esCompaniero = true;
+            }
+        }
+
+        return esCompaniero;
+    }
+
+    public Double devolverPrecioTotal(Arrendador arrendador, Double precioBase){
+        int multiplicidad = this.determinarMultiplicidadDeCosto(arrendador);
+        return precioBase*multiplicidad;
     }
 }

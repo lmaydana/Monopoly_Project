@@ -1,8 +1,12 @@
 package Casilleros;
 
-import java.util.LinkedList;
+import java.util.ArrayList;
 
-public interface Casillero {
+public abstract class Casillero {
 
-        public void recibirJugador(Jugador jugador);
+        public void recibirJugador(Jugador jugador){
+                jugador.posicionarEn(this);
+        }
+
+
 }

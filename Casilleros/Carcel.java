@@ -1,12 +1,8 @@
 package Casilleros;
 
-public class Carcel implements Casillero{
-    @Override
-    public void recibirJugador(Jugador jugador) {
-
-    }
+public class Carcel extends Casillero{
 
     public void encarcelar(Jugador jugador){
-
+        jugador.encarcelar();
     }
 }
