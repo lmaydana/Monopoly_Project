@@ -1,4 +1,4 @@
-package Tablero;
+package org.fiuba.algo3.Tablero;
 public class Tablero {
     private ListaCircular<Casillero> tablero;
     private Config config;
@@ -14,10 +14,15 @@ public class Tablero {
     }
 
 
-
-    public Casillero mover(int origen, int pasos){
+    public Casillero mover(int origen, int pasos, Jugador jugador){
+        if (origen + pasos > this.tablero.getLen() + 1){
+            //paso por el origen
+            Casillero inicio = this.tablero.get(0);
+            inicio.recibirJugador(jugador);
+        }
         return this.tablero.mover(origen, pasos);
     }
+
 
     public Casillero getCasillero(int indice){
         return this.tablero.get(indice);

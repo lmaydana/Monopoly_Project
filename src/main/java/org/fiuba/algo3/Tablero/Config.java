@@ -1,4 +1,4 @@
-package Tablero;
+package org.fiuba.algo3.Tablero;
 
 public class Config {
     //definir bien la cantidad de cada una

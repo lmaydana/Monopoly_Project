@@ -1,4 +1,4 @@
-package Tablero;
+package org.fiuba.algo3.Tablero;
 
 public class ListaCircular<T> {
     private Nodo<T> primero;
@@ -7,7 +7,7 @@ public class ListaCircular<T> {
 
     public ListaCircular(){
         this.primero = null;
-        this.ultimo= null;
+        this.ultimo = null;
         this.len = 0;
     }
 

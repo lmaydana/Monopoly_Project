@@ -1,4 +1,4 @@
-package Tablero;
+package org.fiuba.algo3.Tablero;
 
 public class Nodo<T> {
     protected T dato;
