@@ -1,5 +1,7 @@
 package Casilleros;
 
+import Banco.Banco;
+
 public abstract class CasillaTransferidora extends Casillero {
 
     protected Double montoACobrar;

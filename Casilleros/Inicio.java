@@ -2,6 +2,9 @@ package Casilleros;
 
 //Probablemente no se necesite esta clase, ya que el casillero de loteria hace lo mismo.
 
+import Banco.Banco;
+import Jugador.Jugador;
+
 public class Inicio extends CasillaTransferidora {
 
     public Inicio(Double montoACobrar, Banco banco) {

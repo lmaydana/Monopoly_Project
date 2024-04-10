@@ -1,5 +1,8 @@
 package Casilleros;
 
+import Banco.Banco;
+import Jugador.Jugador;
+
 public class Loteria extends CasillaTransferidora{
 
     public Loteria(Double montoACobrar, Banco banco) {

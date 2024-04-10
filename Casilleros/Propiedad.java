@@ -1,5 +1,17 @@
 package Casilleros;
 
+import Banco.Banco;
+import Cartera.Cartera;
+import Casilleros.Constructor.Constructor;
+import Casilleros.Constructor.ConstructorNulo;
+import Casilleros.ControladorDeHipotecas.ControladorDeHipotecaActivo;
+import Casilleros.ControladorDeHipotecas.ControladorDeHipotecaNulo;
+import Casilleros.ControladorDeHipotecas.ControladorDeHipotecas;
+import Casilleros.Inmueble.Inmueble;
+import Jugador.Jugador;
+import Cartera.CantidadInsuficiente;
+
+
 import java.util.ArrayList;
 
 public class Propiedad extends CasillaComprable{

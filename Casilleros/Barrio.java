@@ -1,5 +1,11 @@
 package Casilleros;
 
+import Banco.Banco;
+import Casilleros.Arrendador.Arrendador;
+import Casilleros.Constructor.Constructor;
+import Casilleros.Constructor.ConstructorDeInmuebles;
+import Casilleros.Constructor.ConstructorNulo;
+
 import java.util.ArrayList;
 
 public abstract class Barrio {
