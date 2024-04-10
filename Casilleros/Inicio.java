@@ -4,14 +4,13 @@ package Casilleros;
 
 public class Inicio extends CasillaTransferidora {
 
-    public Inicio(Double montoACobrar) {
-        super(montoACobrar);
+    public Inicio(Double montoACobrar, Banco banco) {
+        super(montoACobrar, banco);
     }
 
     @Override
     public void recibirJugador(Jugador jugador) {
         super.recibirJugador(jugador);
-        Banco banco = Banco.getBanco();
-        banco.transferir(this.montoACobrar, jugador);
+        this.banco.transferir(this.montoACobrar, jugador);
     }
 }

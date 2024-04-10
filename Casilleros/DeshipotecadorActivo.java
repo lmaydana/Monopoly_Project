@@ -4,15 +4,17 @@ public class DeshipotecadorActivo implements Deshipotecador {
 
     private String nombrePropiedad;
     private Arrendador arrendador;
-    public DeshipotecadorActivo(String nombrePropiedad, Arrendador arrendador) {
-        this.nombrePropiedad =nombrePropiedad;
+    private Banco banco;
+
+    public DeshipotecadorActivo(String nombrePropiedad, Arrendador arrendador, Banco banco) {
+        this.nombrePropiedad = nombrePropiedad;
         this.arrendador = arrendador;
+        this.banco = banco;
     }
 
     @Override
     public Arrendador deshipotecar(Cartera cartera) throws CantidadInsuficiente {
-        Banco banco = Banco.getBanco();
-        banco.deshipotecar(this.nombrePropiedad, cartera);
+        this.banco.deshipotecar(this.nombrePropiedad, cartera);
         return this.arrendador;
     }
 }

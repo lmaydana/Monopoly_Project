@@ -5,6 +5,7 @@ public abstract class CasillaComprable extends Casillero implements Comprable {
     protected Arrendador arrendador;
 
     public CasillaComprable(Double costoDeVenta){
+        super();
         this.arrendador = new ArrendadorDeVenta();
         this.costoDeVenta = costoDeVenta;
     }
