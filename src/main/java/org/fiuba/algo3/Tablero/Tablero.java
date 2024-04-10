@@ -1,4 +1,8 @@
 package org.fiuba.algo3.Tablero;
+
+import org.fiuba.algo3.Casilleros.Casillero;
+import org.fiuba.algo3.Jugador.Jugador;
+
 public class Tablero {
     private ListaCircular<Casillero> tablero;
     private Config config;
