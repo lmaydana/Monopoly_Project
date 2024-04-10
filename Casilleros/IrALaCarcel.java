@@ -1,5 +1,7 @@
 package Casilleros;
 
+import Jugador.Jugador;
+
 public class IrALaCarcel extends Casillero{
 
     private Carcel carcel;

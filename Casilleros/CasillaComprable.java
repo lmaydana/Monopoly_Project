@@ -1,5 +1,10 @@
 package Casilleros;
 
+import Cartera.CantidadInsuficiente;
+import Casilleros.Arrendador.Arrendador;
+import Casilleros.Arrendador.ArrendadorDeVenta;
+import Jugador.Jugador;
+
 public abstract class CasillaComprable extends Casillero implements Comprable {
     private Double costoDeVenta;
     protected Arrendador arrendador;
@@ -11,7 +16,7 @@ public abstract class CasillaComprable extends Casillero implements Comprable {
     }
 
     @Override
-    public void seCompradaPor(Jugador jugador) throws CantidadInsuficiente{
+    public void seCompradaPor(Jugador jugador) throws CantidadInsuficiente {
         jugador.transferir(this.costoDeVenta, this.arrendador);
         this.arrendador.despojarseDeCasilla(this, jugador);
         this.arrendador = jugador;

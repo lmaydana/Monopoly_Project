@@ -1,4 +1,8 @@
-package Casilleros;
+package Casilleros.Contrato;
+
+import Cartera.CantidadInsuficiente;
+import Casilleros.CasillaComprable;
+import Jugador.Jugador;
 
 public class ContratoDeVenta implements Contrato{
 

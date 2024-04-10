@@ -1,5 +1,7 @@
 package Casilleros;
 
+import Casilleros.Arrendador.Arrendador;
+
 import java.util.ArrayList;
 
 public class CentroDeTransportes {

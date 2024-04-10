@@ -1,4 +1,9 @@
-package Casilleros;
+package Casilleros.ControladorDeHipotecas.Hipotecador;
+
+import Casilleros.Arrendador.Arrendador;
+import Casilleros.Arrendador.ArrendadorHipotecado;
+import Banco.Banco;
+import Cartera.Cartera;
 
 public class HipotecadorActivo implements Hipotecador{
 

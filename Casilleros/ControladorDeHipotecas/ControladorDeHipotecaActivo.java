@@ -1,4 +1,16 @@
-package Casilleros;
+package Casilleros.ControladorDeHipotecas;
+
+import Banco.Banco;
+import Cartera.Cartera;
+import Casilleros.Arrendador.Arrendador;
+import Casilleros.Arrendador.ArrendadorHipotecado;
+import Casilleros.ControladorDeHipotecas.Deshipotecador.Deshipotecador;
+import Casilleros.ControladorDeHipotecas.Deshipotecador.DeshipotecadorActivo;
+import Casilleros.ControladorDeHipotecas.Deshipotecador.DeshipotecadorNulo;
+import Casilleros.ControladorDeHipotecas.Hipotecador.Hipotecador;
+import Casilleros.ControladorDeHipotecas.Hipotecador.HipotecadorActivo;
+import Casilleros.ControladorDeHipotecas.Hipotecador.HipotecadorNulo;
+import Cartera.CantidadInsuficiente;
 
 public class ControladorDeHipotecaActivo implements ControladorDeHipotecas {
 
@@ -25,7 +37,7 @@ public class ControladorDeHipotecaActivo implements ControladorDeHipotecas {
     }
 
     @Override
-    public Arrendador deshipotecar(Cartera cartera) throws CantidadInsuficiente{
+    public Arrendador deshipotecar(Cartera cartera) throws CantidadInsuficiente {
         Arrendador arrendador = this.deshipotecador.deshipotecar(cartera);
         this.hipotecador = new HipotecadorActivo(this.nombrePropiedad, this.arrendador, this.banco);
         this.deshipotecador = new DeshipotecadorNulo(new ArrendadorHipotecado(this.arrendador));

@@ -1,5 +1,8 @@
 package Casilleros;
 
+import Cartera.Cartera;
+import Casilleros.Inmueble.Inmueble;
+
 import java.util.ArrayList;
 
 public class Terreno {

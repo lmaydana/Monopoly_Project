@@ -1,8 +1,13 @@
-package Casilleros;
+package Casilleros.Arrendador;
+
+import Casilleros.CasillaComprable;
+import Jugador.Comprador;
+import Casilleros.Contrato.ContratoDeVenta;
+import Jugador.Jugador;
 
 import java.util.ArrayList;
 
-public class ArrendadorDeVenta implements Arrendador{
+public class ArrendadorDeVenta implements Arrendador {
 
     private ArrayList<CasillaComprable> propiedades;
 

@@ -1,4 +1,9 @@
-package Casilleros;
+package Casilleros.Constructor;
+
+import Banco.Banco;
+import Cartera.CantidadInsuficiente;
+import Cartera.Cartera;
+import Casilleros.Terreno;
 
 import java.util.ArrayList;
 

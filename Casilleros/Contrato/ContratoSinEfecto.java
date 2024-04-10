@@ -1,4 +1,4 @@
-package Casilleros;
+package Casilleros.Contrato;
 
 public class ContratoSinEfecto implements Contrato{
     @Override

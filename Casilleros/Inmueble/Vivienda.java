@@ -1,6 +1,8 @@
-package Casilleros;
+package Casilleros.Inmueble;
 
-public class Vivienda implements Inmueble{
+import Cartera.Cartera;
+
+public class Vivienda implements Inmueble {
 
     private Double precioDeVenta;
 

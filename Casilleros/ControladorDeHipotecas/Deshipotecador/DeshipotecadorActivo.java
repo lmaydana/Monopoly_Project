@@ -1,4 +1,9 @@
-package Casilleros;
+package Casilleros.ControladorDeHipotecas.Deshipotecador;
+
+import Casilleros.Arrendador.Arrendador;
+import Banco.Banco;
+import Cartera.CantidadInsuficiente;
+import Cartera.Cartera;
 
 public class DeshipotecadorActivo implements Deshipotecador {
 

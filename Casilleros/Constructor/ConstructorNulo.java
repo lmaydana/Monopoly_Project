@@ -1,4 +1,6 @@
-package Casilleros;
+package Casilleros.Constructor;
+
+import Cartera.Cartera;
 
 public class ConstructorNulo implements Constructor {
     @Override

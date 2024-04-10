@@ -1,4 +1,4 @@
-package Casilleros;
+package Casilleros.Contrato;
 
 public interface Contrato {
     void aceptar();

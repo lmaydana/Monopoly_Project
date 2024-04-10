@@ -1,5 +1,7 @@
 package Casilleros;
 
+import Jugador.Jugador;
+
 import java.util.ArrayList;
 
 public class Casillero {

@@ -1,4 +1,7 @@
-package Casilleros;
+package Casilleros.ControladorDeHipotecas;
+
+import Casilleros.Arrendador.Arrendador;
+import Cartera.Cartera;
 
 public class ControladorDeHipotecaNulo implements ControladorDeHipotecas {
 
