@@ -1,0 +1,1226 @@
+Index: src/main/java/org/fiuba/algo3/Casilleros/Multa.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/org/fiuba/algo3/Casilleros/Multa.java b/src/main/java/org/fiuba/algo3/Casilleros/Multa.java
+new file mode 100644
+--- /dev/null	(date 1712759497260)
++++ b/src/main/java/org/fiuba/algo3/Casilleros/Multa.java	(date 1712759497260)
+@@ -0,0 +1,17 @@
++package org.fiuba.algo3.Casilleros;
++
++import Banco.Banco;
++import Jugador.Jugador;
++
++public class Multa extends CasillaTransferidora{
++
++    public Multa(Double montoACobrar, Banco banco) {
++        super(montoACobrar, banco);
++    }
++
++    @Override
++    public void recibirJugador(Jugador jugador) {
++        super.recibirJugador(jugador);
++        jugador.transferir(this.montoACobrar, this.banco);
++    }
++}
+Index: src/main/java/org/fiuba/algo3/Casilleros/Comprable.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/org/fiuba/algo3/Casilleros/Comprable.java b/src/main/java/org/fiuba/algo3/Casilleros/Comprable.java
+new file mode 100644
+--- /dev/null	(date 1712759497252)
++++ b/src/main/java/org/fiuba/algo3/Casilleros/Comprable.java	(date 1712759497252)
+@@ -0,0 +1,8 @@
++package org.fiuba.algo3.Casilleros;
++
++import Cartera.CantidadInsuficiente;
++import Jugador.Jugador;
++
++public interface Comprable {
++    void seCompradaPor(Jugador comprador ) throws CantidadInsuficiente;
++}
+Index: src/main/java/org/fiuba/algo3/Casilleros/ControladorDeHipotecas/Hipotecador/Hipotecador.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/org/fiuba/algo3/Casilleros/ControladorDeHipotecas/Hipotecador/Hipotecador.java b/src/main/java/org/fiuba/algo3/Casilleros/ControladorDeHipotecas/Hipotecador/Hipotecador.java
+new file mode 100644
+--- /dev/null	(date 1712759497288)
++++ b/src/main/java/org/fiuba/algo3/Casilleros/ControladorDeHipotecas/Hipotecador/Hipotecador.java	(date 1712759497288)
+@@ -0,0 +1,8 @@
++package org.fiuba.algo3.Casilleros.ControladorDeHipotecas.Hipotecador;
++
++import Cartera.Cartera;
++import Casilleros.Arrendador.Arrendador;
++
++public interface Hipotecador {
++    Arrendador hipotecar(Cartera cartera );
++}
+Index: src/main/java/org/fiuba/algo3/Casilleros/ControladorDeHipotecas/Hipotecador/HipotecadorNulo.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/org/fiuba/algo3/Casilleros/ControladorDeHipotecas/Hipotecador/HipotecadorNulo.java b/src/main/java/org/fiuba/algo3/Casilleros/ControladorDeHipotecas/Hipotecador/HipotecadorNulo.java
+new file mode 100644
+--- /dev/null	(date 1712759497212)
++++ b/src/main/java/org/fiuba/algo3/Casilleros/ControladorDeHipotecas/Hipotecador/HipotecadorNulo.java	(date 1712759497212)
+@@ -0,0 +1,17 @@
++package org.fiuba.algo3.Casilleros.ControladorDeHipotecas.Hipotecador;
++
++import Cartera.Cartera;
++import Casilleros.Arrendador.Arrendador;
++
++public class HipotecadorNulo implements Hipotecador {
++
++    private Arrendador arrendadorHipotecado;
++    public HipotecadorNulo(Arrendador arrendadorHipotecado) {
++        this.arrendadorHipotecado = arrendadorHipotecado;
++    }
++
++    @Override
++    public Arrendador hipotecar(Cartera cartera) {
++        return this.arrendadorHipotecado;
++    }
++}
+Index: src/main/java/org/fiuba/algo3/Casilleros/IrALaCarcel.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/org/fiuba/algo3/Casilleros/IrALaCarcel.java b/src/main/java/org/fiuba/algo3/Casilleros/IrALaCarcel.java
+new file mode 100644
+--- /dev/null	(date 1712759497268)
++++ b/src/main/java/org/fiuba/algo3/Casilleros/IrALaCarcel.java	(date 1712759497268)
+@@ -0,0 +1,19 @@
++package org.fiuba.algo3.Casilleros;
++
++import Jugador.Jugador;
++
++public class IrALaCarcel extends Casillero{
++
++    private Carcel carcel;
++
++    public IrALaCarcel(Carcel carcel){
++        this.carcel = carcel;
++    }
++
++    @Override
++    public void recibirJugador(Jugador jugador) {
++        super.recibirJugador(jugador);
++        this.carcel.recibirJugador(jugador);
++        this.carcel.encarcelar(jugador);
++    }
++}
+Index: src/main/java/org/fiuba/algo3/Jugador/Posicionable.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/org/fiuba/algo3/Jugador/Posicionable.java b/src/main/java/org/fiuba/algo3/Jugador/Posicionable.java
+new file mode 100644
+--- /dev/null	(date 1712759497228)
++++ b/src/main/java/org/fiuba/algo3/Jugador/Posicionable.java	(date 1712759497228)
+@@ -0,0 +1,7 @@
++package org.fiuba.algo3.Jugador;
++
++import Casilleros.Casillero;
++
++public interface Posicionable {
++    void posicionarEn(Casillero casillero);
++}
+Index: src/main/java/org/fiuba/algo3/Cartera/CantidadInsuficiente.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/org/fiuba/algo3/Cartera/CantidadInsuficiente.java b/src/main/java/org/fiuba/algo3/Cartera/CantidadInsuficiente.java
+new file mode 100644
+--- /dev/null	(date 1712759497272)
++++ b/src/main/java/org/fiuba/algo3/Cartera/CantidadInsuficiente.java	(date 1712759497272)
+@@ -0,0 +1,7 @@
++package org.fiuba.algo3.Cartera;
++
++public class CantidadInsuficiente extends Exception {
++    public CantidadInsuficiente(String mensaje){
++        super(mensaje);
++    }
++}
+Index: src/main/java/org/fiuba/algo3/Casilleros/Barrio.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/org/fiuba/algo3/Casilleros/Barrio.java b/src/main/java/org/fiuba/algo3/Casilleros/Barrio.java
+new file mode 100644
+--- /dev/null	(date 1712759497220)
++++ b/src/main/java/org/fiuba/algo3/Casilleros/Barrio.java	(date 1712759497220)
+@@ -0,0 +1,44 @@
++package org.fiuba.algo3.Casilleros;
++
++import Banco.Banco;
++import Casilleros.Arrendador.Arrendador;
++import Casilleros.Constructor.Constructor;
++import Casilleros.Constructor.ConstructorDeInmuebles;
++import Casilleros.Constructor.ConstructorNulo;
++
++import java.util.ArrayList;
++
++public abstract class Barrio {
++
++    private String nombreBarrio;
++    private ArrayList<Propiedad> propiedadesDelBarrio;
++
++    private Banco banco;
++
++
++    public Barrio(String nombreGrupo, Banco banco){
++        this.nombreBarrio = nombreGrupo;
++        this.propiedadesDelBarrio = new ArrayList<>();
++        this.banco = banco;
++    }
++
++    public void agregarPropiedad( Propiedad propiedad ){
++        this.propiedadesDelBarrio.add(propiedad);
++    }
++
++    private boolean tienenElMismoArrendador(Arrendador arrendador){
++        for( Propiedad propiedad: this.propiedadesDelBarrio){
++            if( !propiedad.tieneArrendador(arrendador) )
++                return false;
++        }
++        return true;
++    }
++
++    public Constructor obtenerConstructorAprobado(Arrendador arrendador, Terreno terreno, ArrayList<Double> precios){
++        if( this.tienenElMismoArrendador(arrendador) ){
++            return new ConstructorDeInmuebles(this.banco, terreno, precios);
++        }
++        return new ConstructorNulo();
++
++    }
++}
+Index: src/main/java/org/fiuba/algo3/Casilleros/CasillaTransferidora.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/org/fiuba/algo3/Casilleros/CasillaTransferidora.java b/src/main/java/org/fiuba/algo3/Casilleros/CasillaTransferidora.java
+new file mode 100644
+--- /dev/null	(date 1712759497212)
++++ b/src/main/java/org/fiuba/algo3/Casilleros/CasillaTransferidora.java	(date 1712759497212)
+@@ -0,0 +1,14 @@
++package org.fiuba.algo3.Casilleros;
++
++import Banco.Banco;
++
++public abstract class CasillaTransferidora extends Casillero {
++
++    protected Double montoACobrar;
++    protected Banco banco;
++
++    public CasillaTransferidora(Double montoACobrar, Banco banco){
++        this.montoACobrar = montoACobrar;
++        this.banco = banco;
++    }
++}
+Index: src/main/java/org/fiuba/algo3/Casilleros/Arrendador/Arrendador.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/org/fiuba/algo3/Casilleros/Arrendador/Arrendador.java b/src/main/java/org/fiuba/algo3/Casilleros/Arrendador/Arrendador.java
+new file mode 100644
+--- /dev/null	(date 1712759497208)
++++ b/src/main/java/org/fiuba/algo3/Casilleros/Arrendador/Arrendador.java	(date 1712759497208)
+@@ -0,0 +1,12 @@
++package org.fiuba.algo3.Casilleros.Arrendador;
++
++import Casilleros.CasillaComprable;
++import Jugador.Comprador;
++import Jugador.Jugador;
++import Jugador.Transferible;
++
++public interface Arrendador extends Transferible {
++
++    void acordar(Jugador jugador, CasillaComprable propiedad);
++    void despojarseDeCasilla(CasillaComprable propiedad, Comprador comprador);
++}
+Index: src/main/java/org/fiuba/algo3/Casilleros/Inmueble/Vivienda.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/org/fiuba/algo3/Casilleros/Inmueble/Vivienda.java b/src/main/java/org/fiuba/algo3/Casilleros/Inmueble/Vivienda.java
+new file mode 100644
+--- /dev/null	(date 1712759497204)
++++ b/src/main/java/org/fiuba/algo3/Casilleros/Inmueble/Vivienda.java	(date 1712759497204)
+@@ -0,0 +1,17 @@
++package org.fiuba.algo3.Casilleros.Inmueble;
++
++import Cartera.Cartera;
++
++public class Vivienda implements Inmueble {
++
++    private Double precioDeVenta;
++
++    public Vivienda(Double precioDeVenta) {
++        this.precioDeVenta = precioDeVenta;
++    }
++
++    @Override
++    public void vender(Cartera cartera) {
++        cartera.recibir(this.precioDeVenta);
++    }
++}
+Index: src/main/java/org/fiuba/algo3/Casilleros/ControladorDeHipotecas/Deshipotecador/DeshipotecadorNulo.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/org/fiuba/algo3/Casilleros/ControladorDeHipotecas/Deshipotecador/DeshipotecadorNulo.java b/src/main/java/org/fiuba/algo3/Casilleros/ControladorDeHipotecas/Deshipotecador/DeshipotecadorNulo.java
+new file mode 100644
+--- /dev/null	(date 1712759497232)
++++ b/src/main/java/org/fiuba/algo3/Casilleros/ControladorDeHipotecas/Deshipotecador/DeshipotecadorNulo.java	(date 1712759497232)
+@@ -0,0 +1,18 @@
++package org.fiuba.algo3.Casilleros.ControladorDeHipotecas.Deshipotecador;
++
++import Cartera.CantidadInsuficiente;
++import Cartera.Cartera;
++import Casilleros.Arrendador.Arrendador;
++
++public class DeshipotecadorNulo implements Deshipotecador {
++    private Arrendador arrendador;
++
++    public DeshipotecadorNulo(Arrendador arrendadorHipotecado) {
++        this.arrendador = arrendadorHipotecado;
++    }
++
++    @Override
++    public Arrendador deshipotecar(Cartera cartera) throws CantidadInsuficiente {
++        return this.arrendador;
++    }
++}
+Index: src/main/java/org/fiuba/algo3/Casilleros/ControladorDeHipotecas/Deshipotecador/Deshipotecador.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/org/fiuba/algo3/Casilleros/ControladorDeHipotecas/Deshipotecador/Deshipotecador.java b/src/main/java/org/fiuba/algo3/Casilleros/ControladorDeHipotecas/Deshipotecador/Deshipotecador.java
+new file mode 100644
+--- /dev/null	(date 1712759497252)
++++ b/src/main/java/org/fiuba/algo3/Casilleros/ControladorDeHipotecas/Deshipotecador/Deshipotecador.java	(date 1712759497252)
+@@ -0,0 +1,9 @@
++package org.fiuba.algo3.Casilleros.ControladorDeHipotecas.Deshipotecador;
++
++import Cartera.CantidadInsuficiente;
++import Cartera.Cartera;
++import Casilleros.Arrendador.Arrendador;
++
++public interface Deshipotecador {
++    Arrendador deshipotecar(Cartera cartera ) throws CantidadInsuficiente;
++}
+Index: src/main/java/org/fiuba/algo3/Casilleros/Constructor/ConstructorDeInmuebles.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/org/fiuba/algo3/Casilleros/Constructor/ConstructorDeInmuebles.java b/src/main/java/org/fiuba/algo3/Casilleros/Constructor/ConstructorDeInmuebles.java
+new file mode 100644
+--- /dev/null	(date 1712759497236)
++++ b/src/main/java/org/fiuba/algo3/Casilleros/Constructor/ConstructorDeInmuebles.java	(date 1712759497236)
+@@ -0,0 +1,27 @@
++package org.fiuba.algo3.Casilleros.Constructor;
++
++import Banco.Banco;
++import Cartera.CantidadInsuficiente;
++import Cartera.Cartera;
++import Casilleros.Terreno;
++
++import java.util.ArrayList;
++
++public class ConstructorDeInmuebles implements Constructor{
++    private Banco banco;
++    private Terreno terreno;
++    private ArrayList<Double> precios;
++    public ConstructorDeInmuebles(Banco banco, Terreno terreno, ArrayList<Double> precios){
++        this.banco = banco;
++        this.terreno = terreno;
++        this.precios = precios;
++    }
++
++    @Override
++    public void construir(Cartera cartera) throws CantidadInsuficiente {
++        Double precioInmueble = this.precios.getFirst();
++        cartera.transferir(precioInmueble, this.banco);
++        this.precios.removeFirst();
++        this.terreno.edificar();
++    }
++}
+Index: src/main/java/org/fiuba/algo3/Casilleros/Arrendador/ArrendadorHipotecado.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/org/fiuba/algo3/Casilleros/Arrendador/ArrendadorHipotecado.java b/src/main/java/org/fiuba/algo3/Casilleros/Arrendador/ArrendadorHipotecado.java
+new file mode 100644
+--- /dev/null	(date 1712759497216)
++++ b/src/main/java/org/fiuba/algo3/Casilleros/Arrendador/ArrendadorHipotecado.java	(date 1712759497216)
+@@ -0,0 +1,29 @@
++package org.fiuba.algo3.Casilleros.Arrendador;
++
++import Casilleros.CasillaComprable;
++import Jugador.Comprador;
++import Jugador.Jugador;
++
++public class ArrendadorHipotecado implements Arrendador {
++
++    private Arrendador arrendador;
++
++    public ArrendadorHipotecado(Arrendador arrendador) {
++        this.arrendador = arrendador;
++    }
++
++    @Override
++    public void acordar(Jugador jugador, CasillaComprable propiedad) {
++        //Poner Log
++    }
++
++    @Override
++    public void despojarseDeCasilla(CasillaComprable propiedad, Comprador comprador) {
++        arrendador.despojarseDeCasilla(propiedad, comprador);
++    }
++
++    @Override
++    public void recibirTransferencia(Double monto) {
++        arrendador.recibirTransferencia(monto);
++    }
++}
+Index: src/main/java/org/fiuba/algo3/Casilleros/Inmueble/Inmueble.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/org/fiuba/algo3/Casilleros/Inmueble/Inmueble.java b/src/main/java/org/fiuba/algo3/Casilleros/Inmueble/Inmueble.java
+new file mode 100644
+--- /dev/null	(date 1712759497280)
++++ b/src/main/java/org/fiuba/algo3/Casilleros/Inmueble/Inmueble.java	(date 1712759497280)
+@@ -0,0 +1,7 @@
++package org.fiuba.algo3.Casilleros.Inmueble;
++
++import Cartera.Cartera;
++
++public interface Inmueble {
++    void vender(Cartera cartera);
++}
+Index: src/main/java/org/fiuba/algo3/Casilleros/Contrato/Contrato.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/org/fiuba/algo3/Casilleros/Contrato/Contrato.java b/src/main/java/org/fiuba/algo3/Casilleros/Contrato/Contrato.java
+new file mode 100644
+--- /dev/null	(date 1712759497224)
++++ b/src/main/java/org/fiuba/algo3/Casilleros/Contrato/Contrato.java	(date 1712759497224)
+@@ -0,0 +1,6 @@
++package org.fiuba.algo3.Casilleros.Contrato;
++
++public interface Contrato {
++    void aceptar();
++    void rechazar();
++}
+Index: src/main/java/org/fiuba/algo3/Casilleros/Contrato/ContratoDeVenta.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/org/fiuba/algo3/Casilleros/Contrato/ContratoDeVenta.java b/src/main/java/org/fiuba/algo3/Casilleros/Contrato/ContratoDeVenta.java
+new file mode 100644
+--- /dev/null	(date 1712759497264)
++++ b/src/main/java/org/fiuba/algo3/Casilleros/Contrato/ContratoDeVenta.java	(date 1712759497264)
+@@ -0,0 +1,28 @@
++package org.fiuba.algo3.Casilleros.Contrato;
++
++import Cartera.CantidadInsuficiente;
++import Casilleros.CasillaComprable;
++import Jugador.Jugador;
++
++public class ContratoDeVenta implements Contrato{
++
++    Jugador comprador;
++    CasillaComprable propiedad;
++    public ContratoDeVenta(Jugador comprador, CasillaComprable propiedad) {
++        this.comprador = comprador;
++        this.propiedad = propiedad;
++    }
++
++    public void aceptar(){
++        try {
++            propiedad.seCompradaPor(this.comprador);
++        }catch (CantidadInsuficiente e){
++
++        }
++    }
++
++    @Override
++    public void rechazar() {
++        this.comprador.perderOferta();
++    }
++}
+Index: src/main/java/org/fiuba/algo3/Casilleros/Contrato/ContratoSinEfecto.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/org/fiuba/algo3/Casilleros/Contrato/ContratoSinEfecto.java b/src/main/java/org/fiuba/algo3/Casilleros/Contrato/ContratoSinEfecto.java
+new file mode 100644
+--- /dev/null	(date 1712759497276)
++++ b/src/main/java/org/fiuba/algo3/Casilleros/Contrato/ContratoSinEfecto.java	(date 1712759497276)
+@@ -0,0 +1,13 @@
++package org.fiuba.algo3.Casilleros.Contrato;
++
++public class ContratoSinEfecto implements Contrato{
++    @Override
++    public void aceptar() {
++        // Log
++    }
++
++    @Override
++    public void rechazar() {
++        // Log
++    }
++}
+Index: src/main/java/org/fiuba/algo3/Casilleros/ControladorDeHipotecas/ControladorDeHipotecas.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/org/fiuba/algo3/Casilleros/ControladorDeHipotecas/ControladorDeHipotecas.java b/src/main/java/org/fiuba/algo3/Casilleros/ControladorDeHipotecas/ControladorDeHipotecas.java
+new file mode 100644
+--- /dev/null	(date 1712759497228)
++++ b/src/main/java/org/fiuba/algo3/Casilleros/ControladorDeHipotecas/ControladorDeHipotecas.java	(date 1712759497228)
+@@ -0,0 +1,7 @@
++package org.fiuba.algo3.Casilleros.ControladorDeHipotecas;
++
++import Casilleros.ControladorDeHipotecas.Deshipotecador.Deshipotecador;
++import Casilleros.ControladorDeHipotecas.Hipotecador.Hipotecador;
++
++public interface ControladorDeHipotecas extends Hipotecador, Deshipotecador {
++}
+Index: src/main/java/org/fiuba/algo3/Casilleros/CasillaComprable.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/org/fiuba/algo3/Casilleros/CasillaComprable.java b/src/main/java/org/fiuba/algo3/Casilleros/CasillaComprable.java
+new file mode 100644
+--- /dev/null	(date 1712759497268)
++++ b/src/main/java/org/fiuba/algo3/Casilleros/CasillaComprable.java	(date 1712759497268)
+@@ -0,0 +1,39 @@
++package org.fiuba.algo3.Casilleros;
++
++import Cartera.CantidadInsuficiente;
++import Casilleros.Arrendador.Arrendador;
++import Casilleros.Arrendador.ArrendadorDeVenta;
++import Jugador.Jugador;
++
++public abstract class CasillaComprable extends Casillero implements Comprable {
++    private Double costoDeVenta;
++    protected Arrendador arrendador;
++
++    public CasillaComprable(Double costoDeVenta){
++        super();
++        this.arrendador = new ArrendadorDeVenta();
++        this.costoDeVenta = costoDeVenta;
++    }
++
++    @Override
++    public void seCompradaPor(Jugador jugador) throws CantidadInsuficiente {
++        jugador.transferir(this.costoDeVenta, this.arrendador);
++        this.arrendador.despojarseDeCasilla(this, jugador);
++        this.arrendador = jugador;
++    }
++
++    @Override
++    public void recibirJugador(Jugador jugador) {
++        super.recibirJugador(jugador);
++        if( !this.tieneArrendador(jugador) ) {
++            this.arrendador.acordar(jugador, this);
++        }
++    }
++
++    public abstract Double tasar();
++
++    public boolean tieneArrendador(Arrendador arrendador) {
++       return this.arrendador.equals(arrendador);
++    }
++
++}
+Index: src/main/java/org/fiuba/algo3/Casilleros/Casillero.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/org/fiuba/algo3/Casilleros/Casillero.java b/src/main/java/org/fiuba/algo3/Casilleros/Casillero.java
+new file mode 100644
+--- /dev/null	(date 1712759497192)
++++ b/src/main/java/org/fiuba/algo3/Casilleros/Casillero.java	(date 1712759497192)
+@@ -0,0 +1,25 @@
++package org.fiuba.algo3.Casilleros;
++
++import Jugador.Jugador;
++
++import java.util.ArrayList;
++
++public class Casillero {
++
++        private ArrayList<Jugador> jugdoresEnCassila;
++
++        public Casillero(){
++                this.jugdoresEnCassila = new ArrayList<>();
++        }
++
++        public void recibirJugador(Jugador jugador){
++                this.jugdoresEnCassila.add(jugador);
++                jugador.posicionarEn(this);
++        }
++
++        public void sacarDeCasillero(Jugador jugador){
++                this.jugdoresEnCassila.remove(jugador);
++        }
++
++
++}
+Index: src/main/java/org/fiuba/algo3/Casilleros/Carcel.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/org/fiuba/algo3/Casilleros/Carcel.java b/src/main/java/org/fiuba/algo3/Casilleros/Carcel.java
+new file mode 100644
+--- /dev/null	(date 1712759497280)
++++ b/src/main/java/org/fiuba/algo3/Casilleros/Carcel.java	(date 1712759497280)
+@@ -0,0 +1,10 @@
++package org.fiuba.algo3.Casilleros;
++
++import Jugador.Jugador;
++
++public class Carcel extends Casillero{
++
++    public void encarcelar(Jugador jugador){
++        jugador.encarcelar();
++    }
++}
+Index: .idea/misc.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<project version=\"4\">\n  <component name=\"ExternalStorageConfigurationManager\" enabled=\"true\" />\n  <component name=\"MavenProjectsManager\">\n    <option name=\"originalFiles\">\n      <list>\n        <option value=\"$PROJECT_DIR$/pom.xml\" />\n      </list>\n    </option>\n  </component>\n  <component name=\"ProjectRootManager\" version=\"2\" languageLevel=\"JDK_21\" default=\"true\" project-jdk-name=\"azul-21\" project-jdk-type=\"JavaSDK\">\n    <output url=\"file://$PROJECT_DIR$/out\" />\n  </component>\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/misc.xml b/.idea/misc.xml
+--- a/.idea/misc.xml	(revision cec14205c2ff29eb3cc2eea932db1fb57d8b022e)
++++ b/.idea/misc.xml	(date 1712757661053)
+@@ -8,7 +8,7 @@
+       </list>
+     </option>
+   </component>
+-  <component name="ProjectRootManager" version="2" languageLevel="JDK_21" default="true" project-jdk-name="azul-21" project-jdk-type="JavaSDK">
++  <component name="ProjectRootManager" version="2" languageLevel="JDK_21" default="true" project-jdk-name="corretto-21" project-jdk-type="JavaSDK">
+     <output url="file://$PROJECT_DIR$/out" />
+   </component>
+ </project>
+\ No newline at end of file
+Index: src/main/java/org/fiuba/algo3/Casilleros/CentroDeTransportes.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/org/fiuba/algo3/Casilleros/CentroDeTransportes.java b/src/main/java/org/fiuba/algo3/Casilleros/CentroDeTransportes.java
+new file mode 100644
+--- /dev/null	(date 1712759497220)
++++ b/src/main/java/org/fiuba/algo3/Casilleros/CentroDeTransportes.java	(date 1712759497220)
+@@ -0,0 +1,43 @@
++package org.fiuba.algo3.Casilleros;
++
++import Casilleros.Arrendador.Arrendador;
++
++import java.util.ArrayList;
++
++public class CentroDeTransportes {
++    private ArrayList<Transporte> transportes;
++
++    public CentroDeTransportes(){
++        this.transportes = new ArrayList<>();
++    }
++
++    public void agregarTransporte(Transporte transporte){
++        this.transportes.add(transporte);
++    }
++
++    private int determinarMultiplicidadDeCosto(Arrendador arrendador){
++        int multiplicidad = 0;
++        for (Transporte transporte: this.transportes){
++            if( transporte.tieneArrendador(arrendador) )
++                multiplicidad++;
++        }
++
++        return multiplicidad;
++    }
++
++    public boolean esCompaniero(Arrendador arrendador) {
++        boolean esCompaniero = false;
++        for (Transporte transporte: this.transportes){
++            if (transporte.tieneArrendador(arrendador)){
++                esCompaniero = true;
++            }
++        }
++
++        return esCompaniero;
++    }
++
++    public Double devolverPrecioTotal(Arrendador arrendador, Double precioBase){
++        int multiplicidad = this.determinarMultiplicidadDeCosto(arrendador);
++        return precioBase*multiplicidad;
++    }
++}
+Index: src/main/java/org/fiuba/algo3/Casilleros/Arrendador/ArrendadorDeVenta.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/org/fiuba/algo3/Casilleros/Arrendador/ArrendadorDeVenta.java b/src/main/java/org/fiuba/algo3/Casilleros/Arrendador/ArrendadorDeVenta.java
+new file mode 100644
+--- /dev/null	(date 1712759497272)
++++ b/src/main/java/org/fiuba/algo3/Casilleros/Arrendador/ArrendadorDeVenta.java	(date 1712759497272)
+@@ -0,0 +1,37 @@
++package org.fiuba.algo3.Casilleros.Arrendador;
++
++import Casilleros.CasillaComprable;
++import Casilleros.Contrato.ContratoDeVenta;
++import Jugador.Comprador;
++import Jugador.Jugador;
++
++import java.util.ArrayList;
++
++public class ArrendadorDeVenta implements Arrendador {
++
++    private ArrayList<CasillaComprable> propiedades;
++
++    public ArrendadorDeVenta() {
++        this.propiedades = new ArrayList<>();
++    }
++
++    public void agregarPropiedad(CasillaComprable propiedad){
++        this.propiedades.add(propiedad);
++    }
++
++    @Override
++    public void acordar(Jugador jugador, CasillaComprable propiedad) {
++        ContratoDeVenta contrato = new ContratoDeVenta(jugador, propiedad);
++        jugador.recibir(contrato);
++    }
++
++    @Override
++    public void recibirTransferencia(Double monto) {
++
++    }
++
++    @Override
++    public void despojarseDeCasilla(CasillaComprable propiedad, Comprador comprador) {
++        this.propiedades.remove(propiedad);
++    }
++}
+Index: src/main/java/org/fiuba/algo3/Casilleros/Propiedad.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/org/fiuba/algo3/Casilleros/Propiedad.java b/src/main/java/org/fiuba/algo3/Casilleros/Propiedad.java
+new file mode 100644
+--- /dev/null	(date 1712759497264)
++++ b/src/main/java/org/fiuba/algo3/Casilleros/Propiedad.java	(date 1712759497264)
+@@ -0,0 +1,71 @@
++package org.fiuba.algo3.Casilleros;
++
++import Banco.Banco;
++import Cartera.Cartera;
++import Casilleros.Constructor.Constructor;
++import Casilleros.Constructor.ConstructorNulo;
++import Casilleros.ControladorDeHipotecas.ControladorDeHipotecaActivo;
++import Casilleros.ControladorDeHipotecas.ControladorDeHipotecaNulo;
++import Casilleros.ControladorDeHipotecas.ControladorDeHipotecas;
++import Casilleros.Inmueble.Inmueble;
++import Jugador.Jugador;
++
++import java.util.ArrayList;
++
++public class Propiedad extends CasillaComprable{
++
++    private String nombrePropiedad;
++    private Barrio barrio;
++    private Constructor constructor;
++    private Terreno terreno;
++    private ControladorDeHipotecas controladorDeHipotecas;
++    private ArrayList<Double> preciosDeVenta;
++    private Banco banco;
++    public Propiedad(String nombrePropiedad, Double costoDeVenta, Barrio barrio, ArrayList<Inmueble> inmueblesPorPoner, ArrayList<Double> rentas, ArrayList<Double> preciosDeVenta, Banco banco) {
++        super(costoDeVenta);
++        this.nombrePropiedad = nombrePropiedad;
++        this.barrio = barrio;
++        this.constructor = new ConstructorNulo();
++        Tasador tasador = new Tasador(rentas);
++        this.terreno = new Terreno(inmueblesPorPoner, tasador);
++        this.controladorDeHipotecas = new ControladorDeHipotecaNulo(this.arrendador);
++        this.preciosDeVenta = preciosDeVenta;
++        this.banco = banco;
++    }
++
++    public void construirVivienda(Cartera cartera) throws CantidadInsuficiente {
++        this.constructor = this.barrio.obtenerConstructorAprobado(this.arrendador, this.terreno, this.preciosDeVenta);
++        this.constructor.construir(cartera);
++    }
++
++    @Override
++    public void seCompradaPor(Jugador jugador) throws CantidadInsuficiente {
++        super.seCompradaPor(jugador);
++        this.controladorDeHipotecas = new ControladorDeHipotecaActivo(this.nombrePropiedad, this.arrendador, this.banco);
++    }
++
++
++    @Override
++    public void recibirJugador(Jugador jugador) {
++        super.recibirJugador(jugador);
++        jugador.recibir(this);
++    }
++
++    public void hipotecar(Cartera cartera){
++        this.arrendador = this.controladorDeHipotecas.hipotecar(cartera);
++    }
++
++    public void venderConstrucciones( int cantidadAVender, Cartera cartera ){
++        this.terreno.venderInmuebles(cantidadAVender, cartera);
++    }
++
++    public void deshipotecar(Cartera cartera) throws CantidadInsuficiente {
++        this.arrendador = this.controladorDeHipotecas.deshipotecar(cartera);
++    }
++
++    @Override
++    public Double tasar() {
++        return this.terreno.tasar();
++    }
++
++}
+Index: src/main/java/org/fiuba/algo3/Casilleros/ControladorDeHipotecas/Hipotecador/HipotecadorActivo.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/org/fiuba/algo3/Casilleros/ControladorDeHipotecas/Hipotecador/HipotecadorActivo.java b/src/main/java/org/fiuba/algo3/Casilleros/ControladorDeHipotecas/Hipotecador/HipotecadorActivo.java
+new file mode 100644
+--- /dev/null	(date 1712759497236)
++++ b/src/main/java/org/fiuba/algo3/Casilleros/ControladorDeHipotecas/Hipotecador/HipotecadorActivo.java	(date 1712759497236)
+@@ -0,0 +1,26 @@
++package org.fiuba.algo3.Casilleros.ControladorDeHipotecas.Hipotecador;
++
++import Banco.Banco;
++import Cartera.Cartera;
++import Casilleros.Arrendador.Arrendador;
++import Casilleros.Arrendador.ArrendadorHipotecado;
++
++public class HipotecadorActivo implements Hipotecador{
++
++
++    private String nombrePropiedad;
++    private Arrendador arrendador;
++    private Banco banco;
++
++    public HipotecadorActivo(String nombrePropiedad, Arrendador arrendador, Banco banco) {
++        this.nombrePropiedad = nombrePropiedad;
++        this.arrendador = arrendador;
++        this.banco = banco;
++    }
++
++    @Override
++    public Arrendador hipotecar(Cartera cartera) {
++        this.banco.hipotecar( this.nombrePropiedad, cartera );
++        return new ArrendadorHipotecado(this.arrendador);
++    }
++}
+Index: src/main/java/org/fiuba/algo3/Casilleros/Terreno.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/org/fiuba/algo3/Casilleros/Terreno.java b/src/main/java/org/fiuba/algo3/Casilleros/Terreno.java
+new file mode 100644
+--- /dev/null	(date 1712759497244)
++++ b/src/main/java/org/fiuba/algo3/Casilleros/Terreno.java	(date 1712759497244)
+@@ -0,0 +1,33 @@
++package org.fiuba.algo3.Casilleros;
++
++import Cartera.Cartera;
++import Casilleros.Inmueble.Inmueble;
++
++import java.util.ArrayList;
++
++public class Terreno {
++    private ArrayList<Inmueble> inmueblesActuales;
++    private ArrayList<Inmueble> inmueblesPorPoner;
++    private Tasador tasador;
++
++    public Terreno(ArrayList<Inmueble> inmueblesPorPoner, Tasador tasador){
++        this.inmueblesPorPoner = inmueblesPorPoner;
++        this.inmueblesActuales = new ArrayList<>();
++        this.tasador = tasador;}
++
++    public void edificar(){
++        this.inmueblesActuales.add(this.inmueblesPorPoner.removeFirst());
++    }
++
++    public Double tasar( ){
++        return this.tasador.tasarTerreno(this.inmueblesActuales);
++    }
++
++    public void venderInmuebles(int cantidadAVender, Cartera cartera){
++        for( int i = 0; !this.inmueblesActuales.isEmpty() && i < cantidadAVender; i ++) {
++            Inmueble inmueble = this.inmueblesActuales.removeLast();
++            inmueble.vender(cartera);
++            this.inmueblesPorPoner.addFirst(inmueble);
++        }
++    }
++}
+Index: src/main/java/org/fiuba/algo3/Jugador/Comprador.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/org/fiuba/algo3/Jugador/Comprador.java b/src/main/java/org/fiuba/algo3/Jugador/Comprador.java
+new file mode 100644
+--- /dev/null	(date 1712759497284)
++++ b/src/main/java/org/fiuba/algo3/Jugador/Comprador.java	(date 1712759497284)
+@@ -0,0 +1,6 @@
++package org.fiuba.algo3.Jugador;
++
++public interface Comprador {
++    void transferir(Double monto, Transferible vendedor);
++
++}
+Index: src/main/java/org/fiuba/algo3/Casilleros/Constructor/ConstructorNulo.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/org/fiuba/algo3/Casilleros/Constructor/ConstructorNulo.java b/src/main/java/org/fiuba/algo3/Casilleros/Constructor/ConstructorNulo.java
+new file mode 100644
+--- /dev/null	(date 1712759497208)
++++ b/src/main/java/org/fiuba/algo3/Casilleros/Constructor/ConstructorNulo.java	(date 1712759497208)
+@@ -0,0 +1,10 @@
++package org.fiuba.algo3.Casilleros.Constructor;
++
++import Cartera.Cartera;
++
++public class ConstructorNulo implements Constructor {
++    @Override
++    public void construir(Cartera cartera) {
++        //Poner Log
++    }
++}
+Index: src/main/java/org/fiuba/algo3/Jugador/Transferible.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/org/fiuba/algo3/Jugador/Transferible.java b/src/main/java/org/fiuba/algo3/Jugador/Transferible.java
+new file mode 100644
+--- /dev/null	(date 1712759497224)
++++ b/src/main/java/org/fiuba/algo3/Jugador/Transferible.java	(date 1712759497224)
+@@ -0,0 +1,5 @@
++package org.fiuba.algo3.Jugador;
++
++public interface Transferible {
++    public abstract void recibirTransferencia(Double monto);
++}
+Index: src/main/java/org/fiuba/algo3/Casilleros/Transporte.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/org/fiuba/algo3/Casilleros/Transporte.java b/src/main/java/org/fiuba/algo3/Casilleros/Transporte.java
+new file mode 100644
+--- /dev/null	(date 1712759497216)
++++ b/src/main/java/org/fiuba/algo3/Casilleros/Transporte.java	(date 1712759497216)
+@@ -0,0 +1,21 @@
++package org.fiuba.algo3.Casilleros;
++
++public class Transporte extends CasillaComprable{
++
++    private Double costoRenta;
++
++    private CentroDeTransportes centroDeTransportes;
++
++
++    public Transporte(Double costoDeVenta, Double costoRenta, CentroDeTransportes centroDeTransportes) {
++        super(costoDeVenta);
++        this.costoRenta = costoRenta;
++        this.centroDeTransportes = centroDeTransportes;
++    }
++
++    @Override
++    public Double tasar() {
++        return this.centroDeTransportes.devolverPrecioTotal(this.arrendador, this.costoRenta);
++    }
++
++}
+Index: src/main/java/org/fiuba/algo3/Casilleros/ControladorDeHipotecas/ControladorDeHipotecaActivo.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/org/fiuba/algo3/Casilleros/ControladorDeHipotecas/ControladorDeHipotecaActivo.java b/src/main/java/org/fiuba/algo3/Casilleros/ControladorDeHipotecas/ControladorDeHipotecaActivo.java
+new file mode 100644
+--- /dev/null	(date 1712759497244)
++++ b/src/main/java/org/fiuba/algo3/Casilleros/ControladorDeHipotecas/ControladorDeHipotecaActivo.java	(date 1712759497244)
+@@ -0,0 +1,45 @@
++package org.fiuba.algo3.Casilleros.ControladorDeHipotecas;
++
++import Banco.Banco;
++import Cartera.Cartera;
++import Casilleros.Arrendador.Arrendador;
++import Casilleros.Arrendador.ArrendadorHipotecado;
++import Casilleros.ControladorDeHipotecas.Deshipotecador.Deshipotecador;
++import Casilleros.ControladorDeHipotecas.Deshipotecador.DeshipotecadorActivo;
++import Casilleros.ControladorDeHipotecas.Deshipotecador.DeshipotecadorNulo;
++import Casilleros.ControladorDeHipotecas.Hipotecador.Hipotecador;
++import Casilleros.ControladorDeHipotecas.Hipotecador.HipotecadorActivo;
++import Casilleros.ControladorDeHipotecas.Hipotecador.HipotecadorNulo;
++
++public class ControladorDeHipotecaActivo implements ControladorDeHipotecas {
++
++    private String nombrePropiedad;
++    private Arrendador arrendador;
++    private Hipotecador hipotecador;
++    private Deshipotecador deshipotecador;
++    private Banco banco;
++
++    public ControladorDeHipotecaActivo(String nombrePropiedad, Arrendador arrendador, Banco banco) {
++        this.nombrePropiedad = nombrePropiedad;
++        this.arrendador = arrendador;
++        this.banco = banco;
++        this.hipotecador = new HipotecadorActivo(this.nombrePropiedad, this.arrendador, this.banco);
++        this.deshipotecador = new DeshipotecadorNulo(new ArrendadorHipotecado(this.arrendador));
++    }
++
++    @Override
++    public Arrendador hipotecar(Cartera cartera) {
++        Arrendador arrendadorHipotecado = this.hipotecador.hipotecar(cartera);
++        this.hipotecador = new HipotecadorNulo(arrendadorHipotecado);
++        this.deshipotecador = new DeshipotecadorActivo(this.nombrePropiedad, this.arrendador, this.banco);
++        return arrendadorHipotecado;
++    }
++
++    @Override
++    public Arrendador deshipotecar(Cartera cartera) throws CantidadInsuficiente {
++        Arrendador arrendador = this.deshipotecador.deshipotecar(cartera);
++        this.hipotecador = new HipotecadorActivo(this.nombrePropiedad, this.arrendador, this.banco);
++        this.deshipotecador = new DeshipotecadorNulo(new ArrendadorHipotecado(this.arrendador));
++        return arrendador;
++    }
++}
+Index: src/main/java/org/fiuba/algo3/Casilleros/Loteria.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/org/fiuba/algo3/Casilleros/Loteria.java b/src/main/java/org/fiuba/algo3/Casilleros/Loteria.java
+new file mode 100644
+--- /dev/null	(date 1712759497256)
++++ b/src/main/java/org/fiuba/algo3/Casilleros/Loteria.java	(date 1712759497256)
+@@ -0,0 +1,17 @@
++package org.fiuba.algo3.Casilleros;
++
++import Banco.Banco;
++import Jugador.Jugador;
++
++public class Loteria extends CasillaTransferidora{
++
++    public Loteria(Double montoACobrar, Banco banco) {
++        super(montoACobrar, banco);
++    }
++
++    @Override
++    public void recibirJugador(Jugador jugador) {
++        super.recibirJugador(jugador);
++        banco.transferir(this.montoACobrar, jugador);
++    }
++}
+Index: src/main/java/org/fiuba/algo3/Casilleros/ControladorDeHipotecas/ControladorDeHipotecaNulo.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/org/fiuba/algo3/Casilleros/ControladorDeHipotecas/ControladorDeHipotecaNulo.java b/src/main/java/org/fiuba/algo3/Casilleros/ControladorDeHipotecas/ControladorDeHipotecaNulo.java
+new file mode 100644
+--- /dev/null	(date 1712759497240)
++++ b/src/main/java/org/fiuba/algo3/Casilleros/ControladorDeHipotecas/ControladorDeHipotecaNulo.java	(date 1712759497240)
+@@ -0,0 +1,23 @@
++package org.fiuba.algo3.Casilleros.ControladorDeHipotecas;
++
++import Cartera.Cartera;
++import Casilleros.Arrendador.Arrendador;
++
++public class ControladorDeHipotecaNulo implements ControladorDeHipotecas {
++
++    private Arrendador arrendador;
++
++    public ControladorDeHipotecaNulo(Arrendador arrendador) {
++        this.arrendador = arrendador;
++    }
++
++    @Override
++    public Arrendador hipotecar( Cartera cartera ) {
++        return this.arrendador;
++    }
++
++    @Override
++    public Arrendador deshipotecar( Cartera cartera ) {
++        return this.arrendador;
++    }
++}
+Index: src/main/java/org/fiuba/algo3/Casilleros/Constructor/Constructor.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/org/fiuba/algo3/Casilleros/Constructor/Constructor.java b/src/main/java/org/fiuba/algo3/Casilleros/Constructor/Constructor.java
+new file mode 100644
+--- /dev/null	(date 1712759497240)
++++ b/src/main/java/org/fiuba/algo3/Casilleros/Constructor/Constructor.java	(date 1712759497240)
+@@ -0,0 +1,8 @@
++package org.fiuba.algo3.Casilleros.Constructor;
++
++import Cartera.CantidadInsuficiente;
++import Cartera.Cartera;
++
++public interface Constructor {
++    void construir(Cartera cartera) throws CantidadInsuficiente;
++}
+Index: src/main/java/org/fiuba/algo3/Casilleros/Inicio.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/org/fiuba/algo3/Casilleros/Inicio.java b/src/main/java/org/fiuba/algo3/Casilleros/Inicio.java
+new file mode 100644
+--- /dev/null	(date 1712759497288)
++++ b/src/main/java/org/fiuba/algo3/Casilleros/Inicio.java	(date 1712759497288)
+@@ -0,0 +1,19 @@
++package org.fiuba.algo3.Casilleros;
++
++//Probablemente no se necesite esta clase, ya que el casillero de loteria hace lo mismo.
++
++import Banco.Banco;
++import Jugador.Jugador;
++
++public class Inicio extends CasillaTransferidora {
++
++    public Inicio(Double montoACobrar, Banco banco) {
++        super(montoACobrar, banco);
++    }
++
++    @Override
++    public void recibirJugador(Jugador jugador) {
++        super.recibirJugador(jugador);
++        this.banco.transferir(this.montoACobrar, jugador);
++    }
++}
+Index: src/main/java/org/fiuba/algo3/Cartera/Cartera.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/org/fiuba/algo3/Cartera/Cartera.java b/src/main/java/org/fiuba/algo3/Cartera/Cartera.java
+new file mode 100644
+--- /dev/null	(date 1712759497260)
++++ b/src/main/java/org/fiuba/algo3/Cartera/Cartera.java	(date 1712759497260)
+@@ -0,0 +1,9 @@
++package org.fiuba.algo3.Cartera;
++
++import Jugador.Transferible;
++
++public interface Cartera {
++    void transferir(Double monto, Transferible arrendador) throws CantidadInsuficiente;
++
++    void recibir(Double precioDeVenta);
++}
+Index: src/main/java/org/fiuba/algo3/Casilleros/Tasador.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/org/fiuba/algo3/Casilleros/Tasador.java b/src/main/java/org/fiuba/algo3/Casilleros/Tasador.java
+new file mode 100644
+--- /dev/null	(date 1712759497284)
++++ b/src/main/java/org/fiuba/algo3/Casilleros/Tasador.java	(date 1712759497284)
+@@ -0,0 +1,20 @@
++package org.fiuba.algo3.Casilleros;
++
++import Casilleros.Inmueble.Inmueble;
++
++import java.util.ArrayList;
++
++public class Tasador {
++
++    private ArrayList<Double> rentasPorCantidadDeInmuebles;
++
++    public Tasador( ArrayList<Double> rentasPorCantidadDeInmuebles ){
++        this.rentasPorCantidadDeInmuebles = rentasPorCantidadDeInmuebles;
++    }
++
++    public Double tasarTerreno(ArrayList<Inmueble> inmueblesActuales) {
++        if( inmueblesActuales.size() + 1 > this.rentasPorCantidadDeInmuebles.size() )
++            return rentasPorCantidadDeInmuebles.getLast();
++        return this.rentasPorCantidadDeInmuebles.get(inmueblesActuales.size());
++    }
++}
+Index: src/main/java/org/fiuba/algo3/Casilleros/ControladorDeHipotecas/Deshipotecador/DeshipotecadorActivo.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/org/fiuba/algo3/Casilleros/ControladorDeHipotecas/Deshipotecador/DeshipotecadorActivo.java b/src/main/java/org/fiuba/algo3/Casilleros/ControladorDeHipotecas/Deshipotecador/DeshipotecadorActivo.java
+new file mode 100644
+--- /dev/null	(date 1712759497200)
++++ b/src/main/java/org/fiuba/algo3/Casilleros/ControladorDeHipotecas/Deshipotecador/DeshipotecadorActivo.java	(date 1712759497200)
+@@ -0,0 +1,25 @@
++package org.fiuba.algo3.Casilleros.ControladorDeHipotecas.Deshipotecador;
++
++import Banco.Banco;
++import Cartera.CantidadInsuficiente;
++import Cartera.Cartera;
++import Casilleros.Arrendador.Arrendador;
++
++public class DeshipotecadorActivo implements Deshipotecador {
++
++    private String nombrePropiedad;
++    private Arrendador arrendador;
++    private Banco banco;
++
++    public DeshipotecadorActivo(String nombrePropiedad, Arrendador arrendador, Banco banco) {
++        this.nombrePropiedad = nombrePropiedad;
++        this.arrendador = arrendador;
++        this.banco = banco;
++    }
++
++    @Override
++    public Arrendador deshipotecar(Cartera cartera) throws CantidadInsuficiente {
++        this.banco.deshipotecar(this.nombrePropiedad, cartera);
++        return this.arrendador;
++    }
++}
