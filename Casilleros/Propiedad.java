@@ -10,18 +10,20 @@ public class Propiedad extends CasillaComprable{
     private Terreno terreno;
     private ControladorDeHipotecas controladorDeHipotecas;
     private ArrayList<Double> preciosDeVenta;
-    public Propiedad(String nombrePropiedad, Double costoDeVenta, Barrio barrio, ArrayList<Inmueble> inmueblesPorPoner, ArrayList<Double> rentas, ArrayList<Double> preciosDeVenta) {
+    private Banco banco;
+    public Propiedad(String nombrePropiedad, Double costoDeVenta, Barrio barrio, ArrayList<Inmueble> inmueblesPorPoner, ArrayList<Double> rentas, ArrayList<Double> preciosDeVenta, Banco banco) {
         super(costoDeVenta);
         this.nombrePropiedad = nombrePropiedad;
         this.barrio = barrio;
         this.constructor = new ConstructorNulo();
         Tasador tasador = new Tasador(rentas);
-        this.terreno = new Terreno(inmueblesPorPoner, tasador, this.arrendador);
+        this.terreno = new Terreno(inmueblesPorPoner, tasador);
         this.controladorDeHipotecas = new ControladorDeHipotecaNulo(this.arrendador);
         this.preciosDeVenta = preciosDeVenta;
+        this.banco = banco;
     }
 
-    public void construirVivienda(Cartera cartera){
+    public void construirVivienda(Cartera cartera) throws CantidadInsuficiente {
         this.constructor = this.barrio.obtenerConstructorAprobado(this.arrendador, this.terreno, this.preciosDeVenta);
         this.constructor.construir(cartera);
     }
@@ -29,7 +31,7 @@ public class Propiedad extends CasillaComprable{
     @Override
     public void seCompradaPor(Jugador jugador) throws CantidadInsuficiente {
         super.seCompradaPor(jugador);
-        this.controladorDeHipotecas = new ControladorDeHipotecaActivo(this.nombrePropiedad, this.arrendador);
+        this.controladorDeHipotecas = new ControladorDeHipotecaActivo(this.nombrePropiedad, this.arrendador, this.banco);
     }
 
 
@@ -43,8 +45,8 @@ public class Propiedad extends CasillaComprable{
         this.arrendador = this.controladorDeHipotecas.hipotecar(cartera);
     }
 
-    public void venderConstrucciones( int cantidadAVender ){
-        this.terreno.venderInmuebles(cantidadAVender);
+    public void venderConstrucciones( int cantidadAVender, Cartera cartera ){
+        this.terreno.venderInmuebles(cantidadAVender, cartera);
     }
 
     public void deshipotecar(Cartera cartera) throws CantidadInsuficiente {

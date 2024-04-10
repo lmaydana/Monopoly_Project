@@ -1,5 +1,5 @@
 package Casilleros;
 
 public interface Inmueble {
-    void vender();
+    void vender(Cartera cartera);
 }
