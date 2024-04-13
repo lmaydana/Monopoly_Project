@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="07dc97c6-3377-42b3-ade1-3be1d80c5067" name="Changes" comment="pequeño cambio para tomar el commit.">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Banco/Banco.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/fiuba/algo3/Banco/Banco.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Cartera/CantidadInsuficiente.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Cartera/Cartera.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/fiuba/algo3/Cartera/Cartera.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Casilleros/Arrendador.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Casilleros/Arrendador/Arrendador.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/fiuba/algo3/Casilleros/Arrendador/Arrendador.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Casilleros/Arrendador/ArrendadorDeVenta.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/fiuba/algo3/Casilleros/Arrendador/ArrendadorDeVenta.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Casilleros/Arrendador/ArrendadorHipotecado.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/fiuba/algo3/Casilleros/Arrendador/ArrendadorHipotecado.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Casilleros/ArrendadorDeVenta.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Casilleros/ArrendadorHipotecado.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Casilleros/Banco.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Casilleros/Barrio.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/fiuba/algo3/Casilleros/Barrio.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Casilleros/CantidadInsuficiente.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/fiuba/algo3/Cartera/CantidadInsuficiente.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Casilleros/Carcel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/fiuba/algo3/Casilleros/Carcel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Casilleros/Cartera.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Casilleros/CasillaComprable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/fiuba/algo3/Casilleros/CasillaComprable.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Casilleros/CasillaTransferidora.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/fiuba/algo3/Casilleros/CasillaTransferidora.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Casilleros/Casillero.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/fiuba/algo3/Casilleros/Casillero.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Casilleros/CentroDeTransportes.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/fiuba/algo3/Casilleros/CentroDeTransportes.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Casilleros/Comprable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/fiuba/algo3/Casilleros/Comprable.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Casilleros/Comprador.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/fiuba/algo3/Jugador/Comprador.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Casilleros/Constructor.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Casilleros/Constructor/Constructor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/fiuba/algo3/Casilleros/Constructor/Constructor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Casilleros/Constructor/ConstructorDeInmuebles.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/fiuba/algo3/Casilleros/Constructor/ConstructorDeInmuebles.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Casilleros/Constructor/ConstructorNulo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/fiuba/algo3/Casilleros/Constructor/ConstructorNulo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Casilleros/ConstructorDeInmuebles.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Casilleros/ConstructorNulo.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Casilleros/Contrato.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Casilleros/Contrato/Contrato.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/fiuba/algo3/Casilleros/Contrato/Contrato.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Casilleros/Contrato/ContratoDeVenta.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/fiuba/algo3/Casilleros/Contrato/ContratoDeVenta.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Casilleros/Contrato/ContratoSinEfecto.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Casilleros/ContratoDeVenta.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Casilleros/ContratoSinEfecto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/fiuba/algo3/Casilleros/Contrato/ContratoSinEfecto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Casilleros/ControladorDeHipotecaActivo.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Casilleros/ControladorDeHipotecaNulo.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Casilleros/ControladorDeHipotecas.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Casilleros/ControladorDeHipotecas/ControladorDeHipotecaActivo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/fiuba/algo3/Casilleros/ControladorDeHipotecas/ControladorDeHipotecaActivo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Casilleros/ControladorDeHipotecas/ControladorDeHipotecaNulo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/fiuba/algo3/Casilleros/ControladorDeHipotecas/ControladorDeHipotecaNulo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Casilleros/ControladorDeHipotecas/ControladorDeHipotecas.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/fiuba/algo3/Casilleros/ControladorDeHipotecas/ControladorDeHipotecas.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Casilleros/ControladorDeHipotecas/Deshipotecador/Deshipotecador.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/fiuba/algo3/Casilleros/ControladorDeHipotecas/Deshipotecador/Deshipotecador.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Casilleros/ControladorDeHipotecas/Deshipotecador/DeshipotecadorActivo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/fiuba/algo3/Casilleros/ControladorDeHipotecas/Deshipotecador/DeshipotecadorActivo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Casilleros/ControladorDeHipotecas/Deshipotecador/DeshipotecadorNulo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/fiuba/algo3/Casilleros/ControladorDeHipotecas/Deshipotecador/DeshipotecadorNulo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Casilleros/ControladorDeHipotecas/Hipotecador/Hipotecador.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/fiuba/algo3/Casilleros/ControladorDeHipotecas/Hipotecador/Hipotecador.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Casilleros/ControladorDeHipotecas/Hipotecador/HipotecadorActivo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/fiuba/algo3/Casilleros/ControladorDeHipotecas/Hipotecador/HipotecadorActivo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Casilleros/ControladorDeHipotecas/Hipotecador/HipotecadorNulo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/fiuba/algo3/Casilleros/ControladorDeHipotecas/Hipotecador/HipotecadorNulo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Casilleros/Deshipotecador.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Casilleros/DeshipotecadorActivo.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Casilleros/DeshipotecadorNulo.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Casilleros/Hipotecador.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Casilleros/HipotecadorActivo.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Casilleros/HipotecadorNulo.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Casilleros/Inicio.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/fiuba/algo3/Casilleros/Inicio.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Casilleros/Inmueble.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Casilleros/Inmueble/Inmueble.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/fiuba/algo3/Casilleros/Inmueble/Inmueble.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Casilleros/Inmueble/Vivienda.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/fiuba/algo3/Casilleros/Inmueble/Vivienda.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Casilleros/IrALaCarcel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/fiuba/algo3/Casilleros/IrALaCarcel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Casilleros/Loteria.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/fiuba/algo3/Casilleros/Loteria.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Casilleros/Multa.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/fiuba/algo3/Casilleros/Multa.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Casilleros/Posicionable.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Casilleros/Propiedad.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/fiuba/algo3/Casilleros/Propiedad.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Casilleros/Receptor.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Casilleros/ReceptorDePropiedades.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Casilleros/ReceptorDeTransporte.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Casilleros/Tasador.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/fiuba/algo3/Casilleros/Tasador.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Casilleros/Terreno.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/fiuba/algo3/Casilleros/Terreno.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Casilleros/Transferible.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/fiuba/algo3/Jugador/Transferible.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Casilleros/Transporte.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/fiuba/algo3/Casilleros/Transporte.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Casilleros/Vivienda.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Jugador/Comprador.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Jugador/Jugador.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/fiuba/algo3/Jugador/Jugador.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Jugador/Posicionable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/fiuba/algo3/Jugador/Posicionable.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Jugador/Transferible.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/fiuba/algo3/Banco.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/fiuba/algo3/Jugador.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/fiuba/algo3/Tablero.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/fiuba/algo3/Tablero/Tablero.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/fiuba/algo3/Tablero/Tablero.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="main" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;lmaydana&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">
+    <option name="selectedUrlAndAccountId">
+      <UrlAndAccount>
+        <option name="accountId" value="d35a708a-fdbc-4595-9885-e79766ddd58a" />
+        <option name="url" value="https://github.com/oswald1511/polimorphic.git" />
+      </UrlAndAccount>
+    </option>
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 6
+}</component>
+  <component name="ProjectId" id="2eub9PwQYd7OQuiRuqXCKWrnIa7" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "main",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "/home/lionel/IdeaProjects/Tps-paradigmas/polimorphic/src/main/java/org/fiuba/algo3",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/java/org/fiuba/algo3" />
+      <recent name="$PROJECT_DIR$/src/main/java/org/fiuba/algo3/Casilleros" />
+      <recent name="$PROJECT_DIR$" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/java/org/fiuba/algo3" />
+    </key>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="jdk-21.0.2-azul-21.0.2-4caba194b151-d9714894" />
+        <option value="jdk-21.0.2-corretto-21.0.2-4caba194b151-fd297b8c" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="07dc97c6-3377-42b3-ade1-3be1d80c5067" name="Changes" comment="" />
+      <created>1712757257763</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1712757257763</updated>
+      <workItem from="1712757258817" duration="2103000" />
+    </task>
+    <task id="LOCAL-00001" summary="Guardando cambios al traer maven.">
+      <option name="closed" value="true" />
+      <created>1712760211254</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1712760211254</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Guardando cambios al traer maven." />
+    <MESSAGE value="pequeño cambio para tomar el commit." />
+    <option name="LAST_COMMIT_MESSAGE" value="pequeño cambio para tomar el commit." />
+  </component>
+</project>
