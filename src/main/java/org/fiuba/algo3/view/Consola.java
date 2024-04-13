@@ -1,17 +1,26 @@
 package org.fiuba.algo3.view;
-import org.fiuba.algo3.view.ASCIIArt;
 
+import org.fiuba.algo3.model.Validacion;
 import java.util.*;
 import java.util.Scanner;
 
 public class Consola {
-    public Consola(){
+    public String value;
+    private static Consola instance;
 
+    private Consola(String value) {
+        this.value = value;
         ASCIIArt arte = new ASCIIArt();
         arte.run();
         bienvenida();
         pedirDatosIniciales();
+    }
 
+    public static Consola getInstance(String value) {
+        if (instance == null) {
+            instance = new Consola(value);
+        }
+        return instance;
     }
 
     private void bienvenida(){
@@ -24,29 +33,42 @@ public class Consola {
                 """);
     }
 
-    public int mostrarOpciones(List<String> elementos){
+    public int mostrarOpciones(List<String> opciones){
 
         Scanner scanner = new Scanner(System.in);
-        int eleccion;
-        for (int i = 1; i<= elementos.size(); i++){
+        for (int i = 1; i<= opciones.size(); i++){
 
-            System.out.println(i + "." + elementos.get(i));
+            System.out.println(i + "." + opciones.get(i));
         }
-        eleccion = scanner.nextInt();
-        scanner.close();
+        int eleccion = scanner.nextInt();
+        Validacion validacion = new Validacion();
+        validacion.indiceCorrecto(eleccion, opciones.size());
+
         return eleccion;
     }
 
     public void pedirDatosIniciales(){
 
+        System.out.println("Ingrese en el siguiente orden los datos iniciales:\n" +
+                "Cantidad de juagdores.\n Nombres de jugadores.\n");
+
     }
 
-    public void decirOrdenJugadores(){
+    public void mostrarOrdenJugadores(){
 
     }
 
-    public void lanzarDados(){
+    public void mostrarDado(){
 
+    }
+
+    public void mostrarTablero(){
+
+
+    }
+
+    public void mensajeDeError(String mensaje){
+        System.out.println(mensaje);
     }
 }
 
