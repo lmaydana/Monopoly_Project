@@ -3,6 +3,7 @@ package org.fiuba.algo3.view;
 import org.fiuba.algo3.model.Validacion;
 import java.util.*;
 import java.util.Scanner;
+import org.fiuba.algo3.model.Config;
 
 public class Consola {
     public String value;
@@ -49,9 +50,22 @@ public class Consola {
 
     public void pedirDatosIniciales(){
 
-        System.out.println("Ingrese en el siguiente orden los datos iniciales:\n" +
-                "Cantidad de juagdores.\n Nombres de jugadores.\n");
+        System.out.println("""
+    Ingrese en el siguiente orden los datos iniciales:
+    Cantidad de jugadores.
+    Nombres de los jugadores.
+    Colores de los jugadores.
 
+    Los colores disponibles son: """);
+        this.mostrarColores();
+
+    }
+
+    private void mostrarColores() {
+        for (Config.colores color : Config.colores.values()) {
+
+            System.out.print(color.name() + ' ');
+        }
     }
 
     public void mostrarOrdenJugadores(){

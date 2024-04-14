@@ -12,4 +12,11 @@ public class Config {
     protected int cantCasillasTransporte = 4;
 
     protected double cantDineroJugadorInicial = 1500;
+
+    public enum colores {
+        ROJO,
+        AZUL,
+        AMARILLO,
+        VERDE
+    };
 }

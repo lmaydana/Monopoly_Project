@@ -9,6 +9,8 @@ import java.util.ArrayList;
 
 public class Jugador implements Arrendador, Comprador, Posicionable {
 
+    //faltaria un atributo para el color de cada jugador
+
     private ArrayList<Transporte> transportes;
 
     private ArrayList<Propiedad> propiedades;
