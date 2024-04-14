@@ -5,7 +5,8 @@ import org.fiuba.algo3.view.Consola;
 
 public class Main {
     public static void main(String[] args) {
-        Consola consola = Consola.getInstance("ye");
+        JuegoMaster juegoMaster = new JuegoMaster();
+        juegoMaster.iniciar();
 
     }
 }

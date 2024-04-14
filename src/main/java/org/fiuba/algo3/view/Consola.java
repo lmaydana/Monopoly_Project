@@ -13,7 +13,6 @@ public class Consola {
         ASCIIArt arte = new ASCIIArt();
         arte.run();
         bienvenida();
-        pedirDatosIniciales();
     }
 
     public static Consola getInstance(String value) {
@@ -47,19 +46,6 @@ public class Consola {
         return eleccion;
     }
 
-    public void pedirDatosIniciales(){
-
-        System.out.println("""
-    Ingrese en el siguiente orden los datos iniciales:
-    Cantidad de jugadores.
-    Nombres de los jugadores.
-    Colores de los jugadores.
-
-    Los colores disponibles son: """);
-        this.mostrarColores();
-
-    }
-
     private void mostrarColores() {
         Colores[] colores = Colores.values();
         for (int i = 1; i < colores.length; i++) {
@@ -71,11 +57,30 @@ public class Consola {
 
     }
 
-    public void mostrarDado(){
-
-    }
+    public void mostrarDado(){System.out.println(juego.jugarDado);}
 
     public void mensajeDeError(String mensaje){System.out.println(mensaje);}
+
+    public int pedirCantidadJugadores() {
+        String dato = this.pedirDato("Ingrese la cantidad de jugadores:");
+        return Integer.parseInt(dato);
+    }
+
+    public String pedirDato(String opcion) {
+        System.out.print(opcion);
+        Scanner scanner = new Scanner(System.in);
+        String eleccion = scanner.next();
+        scanner.close();
+        return eleccion;
+    }
+
+    public String pedirNombre() {
+        return this.pedirDato("Ingrese el nombre de su jugador:");
+    }
+
+    public String pedirColor() {
+        return this.pedirDato("Ingrese el color de su jugador:");
+    }
 }
 
 
