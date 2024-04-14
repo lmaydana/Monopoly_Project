@@ -3,7 +3,6 @@ package org.fiuba.algo3.view;
 import org.fiuba.algo3.model.Validacion;
 import java.util.*;
 import java.util.Scanner;
-import org.fiuba.algo3.model.Config;
 
 public class Consola {
     public String value;
@@ -62,9 +61,9 @@ public class Consola {
     }
 
     private void mostrarColores() {
-        for (Config.colores color : Config.colores.values()) {
-
-            System.out.print(color.name() + ' ');
+        Colores[] colores = Colores.values();
+        for (int i = 1; i < colores.length; i++) {
+            System.out.print(colores[i].name() + ' ');
         }
     }
 
@@ -76,14 +75,7 @@ public class Consola {
 
     }
 
-    public void mostrarTablero(){
-
-
-    }
-
-    public void mensajeDeError(String mensaje){
-        System.out.println(mensaje);
-    }
+    public void mensajeDeError(String mensaje){System.out.println(mensaje);}
 }
 
 

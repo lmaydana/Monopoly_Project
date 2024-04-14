@@ -1,8 +1,10 @@
 package org.fiuba.algo3.model;
 
+
 public class Config {
+
     //definir bien la cantidad de cada una
-    protected int cantTotalCasillas = 50;
+    public int cantTotalCasillas = 50;
     protected int cantCasillasPaso = 16;
     protected int cantCasillasPropiedades = 21;
     protected int cantCasillasLoterias = 4;
@@ -13,10 +15,4 @@ public class Config {
 
     protected double cantDineroJugadorInicial = 1500;
 
-    public enum colores {
-        ROJO,
-        AZUL,
-        AMARILLO,
-        VERDE
-    };
 }

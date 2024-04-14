@@ -5,9 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="07dc97c6-3377-42b3-ade1-3be1d80c5067" name="Changes" comment="pequeño cambio para tomar el commit.">
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/fiuba/algo3/view/Colores.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/fiuba/algo3/model/Config.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/fiuba/algo3/model/Config.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/fiuba/algo3/model/Jugador/Jugador.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/fiuba/algo3/model/Jugador/Jugador.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/fiuba/algo3/view/CasilleroVista.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/fiuba/algo3/view/CasilleroVista.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/fiuba/algo3/view/Consola.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/fiuba/algo3/view/Consola.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/fiuba/algo3/view/JuegoVista.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/fiuba/algo3/view/JuegoVista.java" afterDir="false" />
@@ -23,6 +23,7 @@
       <list>
         <option value="Interface" />
         <option value="Class" />
+        <option value="Enum" />
       </list>
     </option>
   </component>
@@ -120,7 +121,7 @@
       <option name="presentableId" value="Default" />
       <updated>1712757257763</updated>
       <workItem from="1712757258817" duration="2103000" />
-      <workItem from="1713030891083" duration="15818000" />
+      <workItem from="1713030891083" duration="22578000" />
     </task>
     <task id="LOCAL-00001" summary="Guardando cambios al traer maven.">
       <option name="closed" value="true" />
@@ -141,7 +142,13 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="CUSTOM_BOOLEAN_PROPERTIES">
+                <map>
+                  <entry key="Show.Git.Branches" value="true" />
+                </map>
+              </option>
+            </State>
           </value>
         </entry>
       </map>
