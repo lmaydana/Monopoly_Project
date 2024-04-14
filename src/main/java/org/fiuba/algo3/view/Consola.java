@@ -1,6 +1,7 @@
 package org.fiuba.algo3.view;
 
 import org.fiuba.algo3.model.Validacion;
+import org.fiuba.algo3.model.Juego;
 import java.util.*;
 import java.util.Scanner;
 
@@ -74,12 +75,35 @@ public class Consola {
         return eleccion;
     }
 
+    public Integer pedirDatoInt(String opcion){
+        Integer respuesta = Integer.parseInt(this.pedirDato(opcion));
+        return respuesta;
+    }
+
+    public String pedirDato(ArrayList<String> strings, String encabezado){
+        System.out.print(encabezado);
+        this.pedirDato(this.string(strings));
+    }
+
     public String pedirNombre() {
         return this.pedirDato("Ingrese el nombre de su jugador:");
     }
 
     public String pedirColor() {
         return this.pedirDato("Ingrese el color de su jugador:");
+    }
+
+    public Integer mostrarOpciones(){
+        //todo
+        return Integer.parseInt(pedirDato("Opciones del turno"));
+    }
+
+    private String string(ArrayList<String> arrayStrings){
+        String res = "";
+        for (int i = 0; i < arrayStrings.size(); i++) {
+            res += i + ". "+  arrayStrings.get(i) + "\n";
+        }
+        return res;
     }
 }
 

@@ -4,30 +4,51 @@ import org.fiuba.algo3.model.Casilleros.Casillero;
 import org.fiuba.algo3.model.Config;
 import org.fiuba.algo3.model.Jugador.Jugador;
 
+import java.util.ArrayList;
+
 public class Tablero {
     private ListaCircular<Casillero> tablero;
     private Config config;
-    public Tablero(){
+    private ArrayList<Iterador<Casillero>> iteradores;
+    public Tablero(Integer cantJugadores){
         this.tablero = new ListaCircular<Casillero>();
         this.config = new Config();
+        this.iteradores = this.obtenerIteradores(cantJugadores);
         this.inicializarTablero();
     }
 
+    private ArrayList<Iterador<Casillero>> obtenerIteradores(Integer cantJugadores){
+        ArrayList<Iterador<Casillero>> iteradores= new ArrayList<>();
+        for(Integer i = 0; i < cantJugadores; i++){
+            iteradores.add(this.tablero.iterador());
+        }
+        return iteradores;
+    }
 
     private void inicializarTablero() {
-        //me dijo el profe que lo hardcodee en la config u otro lado por ahora
+        config.distribucion();
     }
 
-
-    public Casillero mover(int origen, int pasos, Jugador jugador){
-        if (origen + pasos > this.tablero.getLen() + 1){
-            //paso por el origen
-            Casillero inicio = this.tablero.get(0);
-            inicio.recibirJugador(jugador);
+    public void mover(int origen, int pasos, Jugador jugador) throws Exception{
+        Iterador<Casillero> iterador = this.iteradores.get(origen);
+        Casillero casillero = iterador.obtenerActual();
+        casillero.sacarDeCasillero(jugador);
+        for(int i = 0; i < pasos && iterador.tieneSiguiente(); i++){
+            iterador.avanzar();
+            if(iterador.estaAlPrincipio() && i < pasos - 1){
+                casillero = iterador.obtenerActual();
+                casillero.recibirJugador(jugador);
+                casillero.sacarDeCasillero(jugador);
+            }
         }
-        return this.tablero.mover(origen, pasos);
+        casillero = iterador.obtenerActual();
+        casillero.recibirJugador(jugador);
+
     }
 
+    public void addCasillero(Casillero casillero){
+        this.tablero.append(casillero);
+    }
 
     public Casillero getCasillero(int indice){
         return this.tablero.get(indice);

@@ -71,6 +71,10 @@ public class ListaCircular<T> {
         this.len++;
     }
 
+    public Iterador<T> iterador(){
+        return new Iterador<>(primero);
+    }
+
     public int getLen(){
         return this.len;
     }

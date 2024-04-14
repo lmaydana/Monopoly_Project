@@ -13,12 +13,8 @@ public class ContratoDeVenta implements Contrato{
         this.propiedad = propiedad;
     }
 
-    public void aceptar(){
-        try {
-            propiedad.seCompradaPor(this.comprador);
-        }catch (CantidadInsuficiente e){
-
-        }
+    public void aceptar() throws CantidadInsuficiente{
+        propiedad.seCompradaPor(this.comprador);
     }
 
     @Override

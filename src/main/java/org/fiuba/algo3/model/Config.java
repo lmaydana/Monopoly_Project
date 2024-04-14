@@ -1,18 +1,34 @@
 package org.fiuba.algo3.model;
+import org.fiuba.algo3.model.Casilleros.CasillaTransferidora;
+import org.fiuba.algo3.model.Casilleros.Casillero;
+import org.fiuba.algo3.model.Casilleros.Inicio;
+import org.fiuba.algo3.model.Casilleros.Propiedad;
+import org.fiuba.algo3.model.Tablero.Tablero;
 
+import java.util.ArrayList;
+import java.util.List;
 
 public class Config {
 
-    //definir bien la cantidad de cada una
-    public int cantTotalCasillas = 50;
-    protected int cantCasillasPaso = 16;
-    protected int cantCasillasPropiedades = 21;
-    protected int cantCasillasLoterias = 4;
-    protected int cantCasillasMulta= 2;
-    protected int cantCasillasIrCarcel = 1;
-    protected int cantCasillasCarcel = 1;
-    protected int cantCasillasTransporte = 4;
+    public Integer cantTotalCasillas = 50;
+    protected Integer cantCasillasPaso = 16;
+    protected Integer cantCasillasPropiedades = 21;
+    protected Integer cantCasillasLoterias = 4;
+    protected Integer cantCasillasMulta= 2;
+    protected Integer cantCasillasIrCarcel = 1;
+    protected Integer cantCasillasCarcel = 1;
+    protected Integer cantCasillasTransporte = 4;
 
-    protected double cantDineroJugadorInicial = 1500;
+    protected Double cantDineroJugadorInicial = 1500.0;
+    protected Double cantDineroCasilleroInicial = 500.0;
 
+    public List<Casillero> distribucion(){
+        ArrayList<Casillero> casilleros = new ArrayList<>();
+//        casilleros.add(new Inicio(cantDineroCasilleroInicial,));
+        return casilleros;
+    }
+
+    public Double obtenerMontoDePlataIncial() {
+        return this.cantDineroJugadorInicial;
+    }
 }

@@ -3,6 +3,7 @@ package org.fiuba.algo3.model.Casilleros;
 //Probablemente no se necesite esta clase, ya que el casillero de loteria hace lo mismo.
 
 import org.fiuba.algo3.model.Banco.Banco;
+import org.fiuba.algo3.model.Cartera.CantidadInsuficiente;
 import org.fiuba.algo3.model.Jugador.Jugador;
 
 public class Inicio extends CasillaTransferidora {
@@ -12,7 +13,7 @@ public class Inicio extends CasillaTransferidora {
     }
 
     @Override
-    public void recibirJugador(Jugador jugador) {
+    public void recibirJugador(Jugador jugador) throws CantidadInsuficiente {
         super.recibirJugador(jugador);
         this.banco.transferir(this.montoACobrar, jugador);
     }

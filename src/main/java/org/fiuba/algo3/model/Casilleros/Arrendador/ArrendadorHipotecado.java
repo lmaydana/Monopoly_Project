@@ -1,6 +1,7 @@
 package org.fiuba.algo3.model.Casilleros.Arrendador;
 
 import org.fiuba.algo3.model.Casilleros.CasillaComprable;
+import org.fiuba.algo3.model.Casilleros.Propiedad;
 import org.fiuba.algo3.model.Jugador.Comprador;
 import org.fiuba.algo3.model.Jugador.Jugador;
 
@@ -13,12 +14,12 @@ public class ArrendadorHipotecado implements Arrendador {
     }
 
     @Override
-    public void acordar(Jugador jugador, CasillaComprable propiedad) {
+    public void acordar(Jugador jugador, String propiedad) {
         //Poner Log
     }
 
     @Override
-    public void despojarseDeCasilla(CasillaComprable propiedad, Comprador comprador) {
+    public void despojarseDeCasilla(String propiedad, Comprador comprador) {
         arrendador.despojarseDeCasilla(propiedad, comprador);
     }
 

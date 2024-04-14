@@ -1,6 +1,7 @@
 package org.fiuba.algo3.model.Casilleros;
 
 import org.fiuba.algo3.model.Banco.Banco;
+import org.fiuba.algo3.model.Cartera.CantidadInsuficiente;
 import org.fiuba.algo3.model.Jugador.Jugador;
 
 public class Loteria extends CasillaTransferidora{
@@ -10,7 +11,7 @@ public class Loteria extends CasillaTransferidora{
     }
 
     @Override
-    public void recibirJugador(Jugador jugador) {
+    public void recibirJugador(Jugador jugador) throws CantidadInsuficiente {
         super.recibirJugador(jugador);
         banco.transferir(this.montoACobrar, jugador);
     }
