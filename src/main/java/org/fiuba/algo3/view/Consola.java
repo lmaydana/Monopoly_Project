@@ -58,8 +58,6 @@ public class Consola {
 
     }
 
-    public void mostrarDado(){System.out.println(juego.jugarDado);}
-
     public void mensajeDeError(String mensaje){System.out.println(mensaje);}
 
     public int pedirCantidadJugadores() {
@@ -82,7 +80,7 @@ public class Consola {
 
     public String pedirDato(ArrayList<String> strings, String encabezado){
         System.out.print(encabezado);
-        this.pedirDato(this.string(strings));
+        return this.pedirDato(this.string(strings));
     }
 
     public String pedirNombre() {
@@ -106,5 +104,3 @@ public class Consola {
         return res;
     }
 }
-
-

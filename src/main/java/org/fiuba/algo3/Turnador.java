@@ -1,8 +1,8 @@
-package src.main.java.org.fiuba.algo3;
+package org.fiuba.algo3;
 
-import src.main.java.org.fiuba.algo3.model.Juego;
-import src.main.java.org.fiuba.algo3.model.Jugador.Jugador;
-import src.main.java.org.fiuba.algo3.view.Consola;
+import org.fiuba.algo3.model.Juego;
+import org.fiuba.algo3.model.Jugador.Jugador;
+import org.fiuba.algo3.view.Consola;
 
 import java.util.ArrayList;
 import java.util.Iterator;

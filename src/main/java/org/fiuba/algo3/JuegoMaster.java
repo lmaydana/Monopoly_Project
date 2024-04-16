@@ -17,9 +17,9 @@ public class JuegoMaster {
     protected void iniciar() {
         this.inicializarDatos();
         while(!(juego.seAcabo())){
-                for (int i=0; i < cantidadJugadores && !(juego.seAcabo()); i++){
-                    turnador.jugarTurno(i);
-                }
+            for (int i=0; i < cantidadJugadores && !(juego.seAcabo()); i++){
+                turnador.jugarTurno();
+            }
         }
     }
 
@@ -36,7 +36,7 @@ public class JuegoMaster {
         }
         List<Jugador> jugadores = this.crearJugadores(nombresJugadores, coloresJugadores);
         this.juego = new Juego(jugadores);
-        this.turnador = new Turnador(consola,juego);
+        this.turnador = new Turnador(consola,juego, jugadores);
     }
 
     private List<Jugador> crearJugadores(List<String> nombresJugadores, List<String> coloresJugadores) {
@@ -48,4 +48,5 @@ public class JuegoMaster {
     }
 
 }
+
 

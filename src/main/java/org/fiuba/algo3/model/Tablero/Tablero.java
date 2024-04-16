@@ -5,32 +5,33 @@ import org.fiuba.algo3.model.Config;
 import org.fiuba.algo3.model.Jugador.Jugador;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 
 public class Tablero {
     private ListaCircular<Casillero> tablero;
     private Config config;
-    private ArrayList<Iterador<Casillero>> iteradores;
-    public Tablero(Integer cantJugadores){
+    private HashMap<Jugador,Iterador<Casillero>> iteradores;
+    public Tablero(List<Jugador> jugadores){
         this.tablero = new ListaCircular<Casillero>();
         this.config = new Config();
-        this.iteradores = this.obtenerIteradores(cantJugadores);
+        this.iteradores = new HashMap<>();
+        this.llenarIteradores(jugadores);
         this.inicializarTablero();
     }
 
-    private ArrayList<Iterador<Casillero>> obtenerIteradores(Integer cantJugadores){
-        ArrayList<Iterador<Casillero>> iteradores= new ArrayList<>();
-        for(Integer i = 0; i < cantJugadores; i++){
-            iteradores.add(this.tablero.iterador());
+    private void llenarIteradores(List<Jugador> jugadores){
+        for(Jugador jugador: jugadores){
+            this.iteradores.put(jugador, this.tablero.iterador());
         }
-        return iteradores;
     }
 
     private void inicializarTablero() {
         config.distribucion();
     }
 
-    public void mover(int origen, int pasos, Jugador jugador) throws Exception{
-        Iterador<Casillero> iterador = this.iteradores.get(origen);
+    public void mover(int pasos, Jugador jugador) throws Exception{
+        Iterador<Casillero> iterador = this.iteradores.get(jugador);
         Casillero casillero = iterador.obtenerActual();
         casillero.sacarDeCasillero(jugador);
         for(int i = 0; i < pasos && iterador.tieneSiguiente(); i++){

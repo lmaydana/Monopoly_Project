@@ -13,20 +13,15 @@ public class Juego {
 
     public Juego(List<Jugador> jugadores){
         this.jugadores = jugadores;
-        this.tablero = new Tablero(this.jugadores.size());
+        this.tablero = new Tablero(this.jugadores);
     }
 
-    public void moverJugador(int indiceJugador) throws Exception{
-        Jugador jugador = this.getJugador(indiceJugador);
-        this.tablero.mover(indiceJugador,jugarDado(),jugador);
+    public void moverJugador(Jugador jugador) throws Exception{
+        this.tablero.mover(jugarDado(), jugador);
     }
 
     public Integer jugarDado(){
         return this.dado.nextInt(1,7);
-    }
-
-    public Jugador getJugador(int inidiceJugador){
-        return this.jugadores.get(inidiceJugador);
     }
 
     public boolean seAcabo(){
