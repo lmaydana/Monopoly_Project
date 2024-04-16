@@ -21,7 +21,7 @@ public class Turnador {
     }
 
     public void jugarTurno() {
-        //Opciones:
+        //Opciones :
         //● Terminar su turno x
         //● Construir o reformar en una de sus propiedades  x
         //● Vender alguna de sus construcciones x
