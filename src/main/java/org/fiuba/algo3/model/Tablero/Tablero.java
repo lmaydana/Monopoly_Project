@@ -29,6 +29,7 @@ public class Tablero {
         config.distribucion();
     }
 
+    
     public void mover(int pasos, Jugador jugador) throws Exception{
         Iterador<Casillero> iterador = this.iteradores.get(jugador);
         Casillero casillero = iterador.obtenerActual();
