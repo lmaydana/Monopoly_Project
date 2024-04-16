@@ -1,7 +1,7 @@
-package src.main.java.org.fiuba.algo3.model.Casilleros.ControladorDeHipotecas;
+package org.fiuba.algo3.model.Casilleros.ControladorDeHipotecas;
 
-import src.main.java.org.fiuba.algo3.model.Casilleros.ControladorDeHipotecas.Deshipotecador.Deshipotecador;
-import src.main.java.org.fiuba.algo3.model.Casilleros.ControladorDeHipotecas.Hipotecador.Hipotecador;
+import org.fiuba.algo3.model.Casilleros.ControladorDeHipotecas.Deshipotecador.Deshipotecador;
+import org.fiuba.algo3.model.Casilleros.ControladorDeHipotecas.Hipotecador.Hipotecador;
 
 public interface ControladorDeHipotecas extends Hipotecador, Deshipotecador {
 }

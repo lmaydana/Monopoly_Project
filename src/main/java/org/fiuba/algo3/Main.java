@@ -1,7 +1,7 @@
-package src.main.java.org.fiuba.algo3;
+package org.fiuba.algo3;
 
 
-import src.main.java.org.fiuba.algo3.view.Consola;
+import org.fiuba.algo3.view.Consola;
 
 public class Main {
     public static void main(String[] args) {

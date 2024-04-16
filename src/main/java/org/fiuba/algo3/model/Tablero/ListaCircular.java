@@ -1,7 +1,4 @@
-package src.main.java.org.fiuba.algo3.model.Tablero;
-
-import src.main.java.org.fiuba.algo3.model.Tablero.Nodo;
-import src.main.java.org.fiuba.algo3.model.Tablero.Iterador;
+package org.fiuba.algo3.model.Tablero;
 
 public class ListaCircular<T> {
     private Nodo<T> primero;

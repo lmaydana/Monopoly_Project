@@ -1,9 +1,9 @@
-package src.main.java.org.fiuba.algo3.model.Casilleros.ControladorDeHipotecas.Hipotecador;
+package org.fiuba.algo3.model.Casilleros.ControladorDeHipotecas.Hipotecador;
 
-import src.main.java.org.fiuba.algo3.model.Banco.Banco;
-import src.main.java.org.fiuba.algo3.model.Cartera.Cartera;
-import src.main.java.org.fiuba.algo3.model.Casilleros.Arrendador.Arrendador;
-import src.main.java.org.fiuba.algo3.model.Casilleros.Arrendador.ArrendadorHipotecado;
+import org.fiuba.algo3.model.Banco.Banco;
+import org.fiuba.algo3.model.Cartera.Cartera;
+import org.fiuba.algo3.model.Casilleros.Arrendador.Arrendador;
+import org.fiuba.algo3.model.Casilleros.Arrendador.ArrendadorHipotecado;
 
 public class HipotecadorActivo implements Hipotecador{
 

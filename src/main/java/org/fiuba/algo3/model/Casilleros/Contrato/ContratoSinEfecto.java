@@ -1,4 +1,4 @@
-package src.main.java.org.fiuba.algo3.model.Casilleros.Contrato;
+package org.fiuba.algo3.model.Casilleros.Contrato;
 
 public class ContratoSinEfecto implements Contrato{
     @Override
