@@ -1,9 +1,9 @@
-package src.main.java.org.fiuba.algo3.model;
-import src.main.java.org.fiuba.algo3.model.Casilleros.CasillaTransferidora;
-import src.main.java.org.fiuba.algo3.model.Casilleros.Casillero;
-import src.main.java.org.fiuba.algo3.model.Casilleros.Inicio;
-import src.main.java.org.fiuba.algo3.model.Casilleros.Propiedad;
-import src.main.java.org.fiuba.algo3.model.Tablero.Tablero;
+package org.fiuba.algo3.model;
+import org.fiuba.algo3.model.Casilleros.CasillaTransferidora;
+import org.fiuba.algo3.model.Casilleros.Casillero;
+import org.fiuba.algo3.model.Casilleros.Inicio;
+import org.fiuba.algo3.model.Casilleros.Propiedad;
+import org.fiuba.algo3.model.Tablero.Tablero;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,8 +1,7 @@
-package src.main.java.org.fiuba.algo3.view;
+package org.fiuba.algo3.view;
 
-import src.main.java.org.fiuba.algo3.model.Validacion;
-import src.main.java.org.fiuba.algo3.model.Juego;
-import src.main.java.org.fiuba.algo3.view.Colores;
+import org.fiuba.algo3.model.Validacion;
+import org.fiuba.algo3.model.Juego;
 import java.util.*;
 import java.util.Scanner;
 
@@ -59,6 +58,8 @@ public class Consola {
 
     }
 
+    public void mostrarDado(){System.out.println(juego.jugarDado);}
+
     public void mensajeDeError(String mensaje){System.out.println(mensaje);}
 
     public int pedirCantidadJugadores() {
@@ -81,7 +82,7 @@ public class Consola {
 
     public String pedirDato(ArrayList<String> strings, String encabezado){
         System.out.print(encabezado);
-        return this.pedirDato(this.string(strings));
+        this.pedirDato(this.string(strings));
     }
 
     public String pedirNombre() {

@@ -1,6 +1,6 @@
-package src.main.java.org.fiuba.algo3.model.Cartera;
+package org.fiuba.algo3.model.Cartera;
 
-import src.main.java.org.fiuba.algo3.model.Jugador.Transferible;
+import org.fiuba.algo3.model.Jugador.Transferible;
 
 public class Billetera implements Cartera{
 
@@ -14,7 +14,7 @@ public class Billetera implements Cartera{
         if(this.montoDisponible < monto)
             throw new CantidadInsuficiente("No hay suficientes existencias para afrontar el costo.");
 
-        transferible.recibir(monto);
+        transferible.recibirTransferencia(monto);
         this.montoDisponible -= monto;
     }
 

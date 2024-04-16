@@ -1,4 +1,4 @@
-package src.main.java.org.fiuba.algo3.view;
+package org.fiuba.algo3.view;
 
 public enum Colores {
     RESET("\u001B[0m"),
