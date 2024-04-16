@@ -1,9 +1,9 @@
-package src.main.java.org.fiuba.algo3.model.Casilleros.Constructor;
+package org.fiuba.algo3.model.Casilleros.Constructor;
 
-import src.main.java.org.fiuba.algo3.model.Banco.Banco;
-import src.main.java.org.fiuba.algo3.model.Cartera.CantidadInsuficiente;
-import src.main.java.org.fiuba.algo3.model.Cartera.Cartera;
-import src.main.java.org.fiuba.algo3.model.Casilleros.Terreno;
+import org.fiuba.algo3.model.Banco.Banco;
+import org.fiuba.algo3.model.Cartera.CantidadInsuficiente;
+import org.fiuba.algo3.model.Cartera.Cartera;
+import org.fiuba.algo3.model.Casilleros.Terreno;
 
 import java.util.ArrayList;
 

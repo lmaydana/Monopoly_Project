@@ -1,6 +1,6 @@
-package src.main.java.org.fiuba.algo3.model.Casilleros.Inmueble;
+package org.fiuba.algo3.model.Casilleros.Inmueble;
 
-import src.main.java.org.fiuba.algo3.model.Jugador.Transferible;
+import org.fiuba.algo3.model.Cartera.Cartera;
 
 public class Vivienda implements Inmueble {
 
@@ -11,7 +11,7 @@ public class Vivienda implements Inmueble {
     }
 
     @Override
-    public void vender(Transferible cartera) {
+    public void vender(Cartera cartera) {
         cartera.recibir(this.precioDeVenta);
     }
 }

@@ -1,6 +1,4 @@
-package src.main.java.org.fiuba.algo3.model.Tablero;
-
-import src.main.java.org.fiuba.algo3.model.Tablero.Nodo;
+package org.fiuba.algo3.model.Tablero;
 
 public class Iterador<T> {
     private Nodo<T> nodoActual;
@@ -11,7 +9,7 @@ public class Iterador<T> {
     }
 
     public boolean tieneSiguiente(){
-        return (this.nodoActual != null);
+        return (this.nodoActual.siguiente != null);
     }
 
     public void avanzar(){

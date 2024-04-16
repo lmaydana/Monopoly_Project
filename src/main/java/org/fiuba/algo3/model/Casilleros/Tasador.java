@@ -1,6 +1,6 @@
-package src.main.java.org.fiuba.algo3.model.Casilleros;
+package org.fiuba.algo3.model.Casilleros;
 
-import src.main.java.org.fiuba.algo3.model.Casilleros.Inmueble.Inmueble;
+import org.fiuba.algo3.model.Casilleros.Inmueble.Inmueble;
 
 import java.util.ArrayList;
 

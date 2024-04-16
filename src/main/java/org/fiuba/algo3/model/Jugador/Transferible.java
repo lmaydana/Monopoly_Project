@@ -1,5 +1,5 @@
-package src.main.java.org.fiuba.algo3.model.Jugador;
+package org.fiuba.algo3.model.Jugador;
 
 public interface Transferible {
-    public abstract void recibir(Double monto);
+    public abstract void recibirTransferencia(Double monto);
 }

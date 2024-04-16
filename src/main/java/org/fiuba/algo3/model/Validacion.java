@@ -1,7 +1,7 @@
-package src.main.java.org.fiuba.algo3.model;
+package org.fiuba.algo3.model;
 
 
-import src.main.java.org.fiuba.algo3.view.Consola;
+import org.fiuba.algo3.view.Consola;
 
 public class Validacion {
 

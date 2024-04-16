@@ -1,15 +1,15 @@
-package src.main.java.org.fiuba.algo3.model.Casilleros;
+package org.fiuba.algo3.model.Casilleros;
 
-import src.main.java.org.fiuba.algo3.model.Banco.Banco;
-import src.main.java.org.fiuba.algo3.model.Cartera.CantidadInsuficiente;
-import src.main.java.org.fiuba.algo3.model.Cartera.Cartera;
-import src.main.java.org.fiuba.algo3.model.Casilleros.Constructor.Constructor;
-import src.main.java.org.fiuba.algo3.model.Casilleros.Constructor.ConstructorNulo;
-import src.main.java.org.fiuba.algo3.model.Casilleros.ControladorDeHipotecas.ControladorDeHipotecaActivo;
-import src.main.java.org.fiuba.algo3.model.Casilleros.ControladorDeHipotecas.ControladorDeHipotecaNulo;
-import src.main.java.org.fiuba.algo3.model.Casilleros.ControladorDeHipotecas.ControladorDeHipotecas;
-import src.main.java.org.fiuba.algo3.model.Casilleros.Inmueble.Inmueble;
-import src.main.java.org.fiuba.algo3.model.Jugador.Jugador;
+import org.fiuba.algo3.model.Banco.Banco;
+import org.fiuba.algo3.model.Cartera.CantidadInsuficiente;
+import org.fiuba.algo3.model.Cartera.Cartera;
+import org.fiuba.algo3.model.Casilleros.Constructor.Constructor;
+import org.fiuba.algo3.model.Casilleros.Constructor.ConstructorNulo;
+import org.fiuba.algo3.model.Casilleros.ControladorDeHipotecas.ControladorDeHipotecaActivo;
+import org.fiuba.algo3.model.Casilleros.ControladorDeHipotecas.ControladorDeHipotecaNulo;
+import org.fiuba.algo3.model.Casilleros.ControladorDeHipotecas.ControladorDeHipotecas;
+import org.fiuba.algo3.model.Casilleros.Inmueble.Inmueble;
+import org.fiuba.algo3.model.Jugador.Jugador;
 
 import java.util.ArrayList;
 

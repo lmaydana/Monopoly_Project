@@ -1,7 +1,6 @@
-package src.main.java.org.fiuba.algo3.view;
+package org.fiuba.algo3.view;
 
-import src.main.java.org.fiuba.algo3.model.Config;
-import src.main.java.org.fiuba.algo3.view.CasilleroVista;
+import org.fiuba.algo3.model.Config;
 
 public class TableroVista {
 

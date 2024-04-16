@@ -1,4 +1,4 @@
-package src.main.java.org.fiuba.algo3.model.Tablero;
+package org.fiuba.algo3.model.Tablero;
 
 public class Nodo<T> {
     protected T dato;
