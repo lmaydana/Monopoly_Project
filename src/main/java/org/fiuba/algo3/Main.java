@@ -7,20 +7,13 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 import org.fiuba.algo3.view.Consola;
+import org.fiuba.algo3.view.TableroView;
 
-public class Main extends Application
-{
-    /*public static void main(String[] args) {
-        JuegoMaster juegoMaster = new JuegoMaster();
-        juegoMaster.iniciar();
-    }*/
+public class Main extends Application {
 
     @Override
     public void start(Stage stage) {
-        String javaVersion = System.getProperty("java.version");
-        String javafxVersion = System.getProperty("javafx.version");
-        Label l = new Label("Hello, JavaFX " + javafxVersion + ", running on Java " + javaVersion + ".");
-        Scene scene = new Scene(new StackPane(l), 640, 480);
+        Scene scene = new Scene(new TableroView(), 640, 480);
         stage.setScene(scene);
         stage.show();
     }
