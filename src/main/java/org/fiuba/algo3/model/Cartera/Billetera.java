@@ -14,7 +14,7 @@ public class Billetera implements Cartera{
         if(this.montoDisponible < monto)
             throw new CantidadInsuficiente("No hay suficientes existencias para afrontar el costo.");
 
-        transferible.recibirTransferencia(monto);
+        transferible.recibir(monto);
         this.montoDisponible -= monto;
     }
 

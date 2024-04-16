@@ -28,7 +28,7 @@ public class ArrendadorDeVenta implements Arrendador{
     }
 
     @Override
-    public void recibirTransferencia(Double monto) {
+    public void recibir(Double monto) {
 
     }
 

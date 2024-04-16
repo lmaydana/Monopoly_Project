@@ -46,7 +46,7 @@ public class Jugador implements Arrendador, Comprador{
     }
 
     @Override
-    public void recibirTransferencia(Double monto) {
+    public void recibir(Double monto) {
         this.cartera.recibir(monto);
     }
 
