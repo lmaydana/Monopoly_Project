@@ -1,9 +1,7 @@
-package org.fiuba.algo3.model.Casilleros.Arrendador;
+package src.main.java.org.fiuba.algo3.model.Casilleros.Arrendador;
 
-import org.fiuba.algo3.model.Casilleros.CasillaComprable;
-import org.fiuba.algo3.model.Casilleros.Propiedad;
-import org.fiuba.algo3.model.Jugador.Comprador;
-import org.fiuba.algo3.model.Jugador.Jugador;
+import src.main.java.org.fiuba.algo3.model.Jugador.Comprador;
+import src.main.java.org.fiuba.algo3.model.Jugador.Jugador;
 
 public class ArrendadorHipotecado implements Arrendador {
 
@@ -24,7 +22,7 @@ public class ArrendadorHipotecado implements Arrendador {
     }
 
     @Override
-    public void recibirTransferencia(Double monto) {
-        arrendador.recibirTransferencia(monto);
+    public void recibir(Double monto) {
+        arrendador.recibir(monto);
     }
 }

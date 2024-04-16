@@ -1,9 +1,9 @@
-package org.fiuba.algo3.model.Jugador.Estado;
+package src.main.java.org.fiuba.algo3.model.Jugador.Estado;
 
-import org.fiuba.algo3.model.Banco.Banco;
-import org.fiuba.algo3.model.Cartera.CantidadInsuficiente;
-import org.fiuba.algo3.model.Casilleros.Propiedad;
-import org.fiuba.algo3.model.Jugador.Jugador;
+import src.main.java.org.fiuba.algo3.model.Banco.Banco;
+import src.main.java.org.fiuba.algo3.model.Cartera.CantidadInsuficiente;
+import src.main.java.org.fiuba.algo3.model.Casilleros.Propiedad;
+import src.main.java.org.fiuba.algo3.model.Jugador.Jugador;
 
 import java.util.Map;
 

@@ -1,10 +1,10 @@
-package org.fiuba.algo3.model.Casilleros.Arrendador;
+package src.main.java.org.fiuba.algo3.model.Casilleros.Arrendador;
 
-import org.fiuba.algo3.model.Casilleros.CasillaComprable;
-import org.fiuba.algo3.model.Casilleros.Contrato.ContratoDeVenta;
-import org.fiuba.algo3.model.Casilleros.Propiedad;
-import org.fiuba.algo3.model.Jugador.Comprador;
-import org.fiuba.algo3.model.Jugador.Jugador;
+import src.main.java.org.fiuba.algo3.model.Casilleros.CasillaComprable;
+import src.main.java.org.fiuba.algo3.model.Casilleros.Contrato.ContratoDeVenta;
+import src.main.java.org.fiuba.algo3.model.Casilleros.Propiedad;
+import src.main.java.org.fiuba.algo3.model.Jugador.Comprador;
+import src.main.java.org.fiuba.algo3.model.Jugador.Jugador;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -28,7 +28,7 @@ public class ArrendadorDeVenta implements Arrendador{
     }
 
     @Override
-    public void recibirTransferencia(Double monto) {
+    public void recibir(Double monto) {
 
     }
 

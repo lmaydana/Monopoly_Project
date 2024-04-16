@@ -1,4 +1,4 @@
-package org.fiuba.algo3.model.Casilleros;
+package src.main.java.org.fiuba.algo3.model.Casilleros;
 
 
 public class Transporte extends CasillaComprable{

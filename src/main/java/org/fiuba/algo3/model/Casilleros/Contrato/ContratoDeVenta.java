@@ -1,8 +1,8 @@
-package org.fiuba.algo3.model.Casilleros.Contrato;
+package src.main.java.org.fiuba.algo3.model.Casilleros.Contrato;
 
-import org.fiuba.algo3.model.Cartera.CantidadInsuficiente;
-import org.fiuba.algo3.model.Casilleros.CasillaComprable;
-import org.fiuba.algo3.model.Jugador.Jugador;
+import src.main.java.org.fiuba.algo3.model.Cartera.CantidadInsuficiente;
+import src.main.java.org.fiuba.algo3.model.Casilleros.CasillaComprable;
+import src.main.java.org.fiuba.algo3.model.Jugador.Jugador;
 
 public class ContratoDeVenta implements Contrato{
 

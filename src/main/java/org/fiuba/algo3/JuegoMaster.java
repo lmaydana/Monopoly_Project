@@ -1,8 +1,8 @@
-package org.fiuba.algo3;
+package src.main.java.org.fiuba.algo3;
 
-import org.fiuba.algo3.model.Juego;
-import org.fiuba.algo3.model.Jugador.Jugador;
-import org.fiuba.algo3.view.Consola;
+import src.main.java.org.fiuba.algo3.model.Juego;
+import src.main.java.org.fiuba.algo3.model.Jugador.Jugador;
+import src.main.java.org.fiuba.algo3.view.Consola;
 
 
 import java.util.ArrayList;
@@ -18,7 +18,7 @@ public class JuegoMaster {
         this.inicializarDatos();
         while(!(juego.seAcabo())){
                 for (int i=0; i < cantidadJugadores && !(juego.seAcabo()); i++){
-                    turnador.jugarTurno(i);
+                    turnador.jugarTurno();
                 }
         }
     }
@@ -36,7 +36,7 @@ public class JuegoMaster {
         }
         List<Jugador> jugadores = this.crearJugadores(nombresJugadores, coloresJugadores);
         this.juego = new Juego(jugadores);
-        this.turnador = new Turnador(consola,juego);
+        this.turnador = new Turnador(consola,juego, jugadores);
     }
 
     private List<Jugador> crearJugadores(List<String> nombresJugadores, List<String> coloresJugadores) {

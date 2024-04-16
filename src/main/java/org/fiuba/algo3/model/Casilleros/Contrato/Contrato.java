@@ -1,6 +1,6 @@
-package org.fiuba.algo3.model.Casilleros.Contrato;
+package src.main.java.org.fiuba.algo3.model.Casilleros.Contrato;
 
-import org.fiuba.algo3.model.Cartera.CantidadInsuficiente;
+import src.main.java.org.fiuba.algo3.model.Cartera.CantidadInsuficiente;
 
 public interface Contrato {
     void aceptar() throws CantidadInsuficiente;

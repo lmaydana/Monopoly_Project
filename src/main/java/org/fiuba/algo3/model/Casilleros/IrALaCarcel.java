@@ -1,7 +1,7 @@
-package org.fiuba.algo3.model.Casilleros;
+package src.main.java.org.fiuba.algo3.model.Casilleros;
 
-import org.fiuba.algo3.model.Cartera.CantidadInsuficiente;
-import org.fiuba.algo3.model.Jugador.Jugador;
+import src.main.java.org.fiuba.algo3.model.Cartera.CantidadInsuficiente;
+import src.main.java.org.fiuba.algo3.model.Jugador.Jugador;
 
 public class IrALaCarcel extends Casillero{
 

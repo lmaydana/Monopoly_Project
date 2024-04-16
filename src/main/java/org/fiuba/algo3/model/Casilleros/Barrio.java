@@ -1,10 +1,10 @@
-package org.fiuba.algo3.model.Casilleros;
+package src.main.java.org.fiuba.algo3.model.Casilleros;
 
-import org.fiuba.algo3.model.Banco.Banco;
-import org.fiuba.algo3.model.Casilleros.Arrendador.Arrendador;
-import org.fiuba.algo3.model.Casilleros.Constructor.Constructor;
-import org.fiuba.algo3.model.Casilleros.Constructor.ConstructorDeInmuebles;
-import org.fiuba.algo3.model.Casilleros.Constructor.ConstructorNulo;
+import src.main.java.org.fiuba.algo3.model.Banco.Banco;
+import src.main.java.org.fiuba.algo3.model.Casilleros.Arrendador.Arrendador;
+import src.main.java.org.fiuba.algo3.model.Casilleros.Constructor.Constructor;
+import src.main.java.org.fiuba.algo3.model.Casilleros.Constructor.ConstructorDeInmuebles;
+import src.main.java.org.fiuba.algo3.model.Casilleros.Constructor.ConstructorNulo;
 
 import java.util.ArrayList;
 

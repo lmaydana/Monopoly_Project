@@ -1,4 +1,4 @@
-package org.fiuba.algo3.view;
+package src.main.java.org.fiuba.algo3.view;
 
 
 import java.util.ArrayList;

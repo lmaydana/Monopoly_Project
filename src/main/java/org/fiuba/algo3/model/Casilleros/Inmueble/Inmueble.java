@@ -1,7 +1,7 @@
-package org.fiuba.algo3.model.Casilleros.Inmueble;
+package src.main.java.org.fiuba.algo3.model.Casilleros.Inmueble;
 
-import org.fiuba.algo3.model.Cartera.Cartera;
-import org.fiuba.algo3.model.Jugador.Transferible;
+import src.main.java.org.fiuba.algo3.model.Cartera.Cartera;
+import src.main.java.org.fiuba.algo3.model.Jugador.Transferible;
 
 public interface Inmueble {
     void vender(Transferible cartera);

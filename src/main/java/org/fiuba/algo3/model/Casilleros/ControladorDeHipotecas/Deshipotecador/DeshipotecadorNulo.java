@@ -1,8 +1,8 @@
-package org.fiuba.algo3.model.Casilleros.ControladorDeHipotecas.Deshipotecador;
+package src.main.java.org.fiuba.algo3.model.Casilleros.ControladorDeHipotecas.Deshipotecador;
 
-import org.fiuba.algo3.model.Cartera.CantidadInsuficiente;
-import org.fiuba.algo3.model.Cartera.Cartera;
-import org.fiuba.algo3.model.Casilleros.Arrendador.Arrendador;
+import src.main.java.org.fiuba.algo3.model.Cartera.CantidadInsuficiente;
+import src.main.java.org.fiuba.algo3.model.Cartera.Cartera;
+import src.main.java.org.fiuba.algo3.model.Casilleros.Arrendador.Arrendador;
 
 public class DeshipotecadorNulo implements Deshipotecador {
     private Arrendador arrendador;

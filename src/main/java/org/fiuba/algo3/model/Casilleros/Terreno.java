@@ -1,7 +1,7 @@
-package org.fiuba.algo3.model.Casilleros;
+package src.main.java.org.fiuba.algo3.model.Casilleros;
 
-import org.fiuba.algo3.model.Casilleros.Inmueble.Inmueble;
-import org.fiuba.algo3.model.Jugador.Transferible;
+import src.main.java.org.fiuba.algo3.model.Casilleros.Inmueble.Inmueble;
+import src.main.java.org.fiuba.algo3.model.Jugador.Transferible;
 
 import java.util.ArrayList;
 

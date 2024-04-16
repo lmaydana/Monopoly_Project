@@ -1,15 +1,15 @@
-package org.fiuba.algo3.model.Jugador;
+package src.main.java.org.fiuba.algo3.model.Jugador;
 
-import org.fiuba.algo3.model.Banco.Banco;
-import org.fiuba.algo3.model.Cartera.Billetera;
-import org.fiuba.algo3.model.Cartera.CantidadInsuficiente;
-import org.fiuba.algo3.model.Cartera.Cartera;
-import org.fiuba.algo3.model.Casilleros.*;
-import org.fiuba.algo3.model.Casilleros.Arrendador.Arrendador;
-import org.fiuba.algo3.model.Casilleros.Contrato.Contrato;
-import org.fiuba.algo3.model.Casilleros.Contrato.ContratoSinEfecto;
-import org.fiuba.algo3.model.Config;
-import org.fiuba.algo3.model.Jugador.Estado.*;
+import src.main.java.org.fiuba.algo3.model.Banco.Banco;
+import src.main.java.org.fiuba.algo3.model.Cartera.Billetera;
+import src.main.java.org.fiuba.algo3.model.Cartera.CantidadInsuficiente;
+import src.main.java.org.fiuba.algo3.model.Cartera.Cartera;
+import src.main.java.org.fiuba.algo3.model.Casilleros.*;
+import src.main.java.org.fiuba.algo3.model.Casilleros.Arrendador.Arrendador;
+import src.main.java.org.fiuba.algo3.model.Casilleros.Contrato.Contrato;
+import src.main.java.org.fiuba.algo3.model.Casilleros.Contrato.ContratoSinEfecto;
+import src.main.java.org.fiuba.algo3.model.Config;
+import src.main.java.org.fiuba.algo3.model.Jugador.Estado.*;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -46,7 +46,7 @@ public class Jugador implements Arrendador, Comprador{
     }
 
     @Override
-    public void recibirTransferencia(Double monto) {
+    public void recibir(Double monto) {
         this.cartera.recibir(monto);
     }
 

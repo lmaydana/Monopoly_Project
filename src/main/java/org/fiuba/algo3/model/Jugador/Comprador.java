@@ -1,6 +1,6 @@
-package org.fiuba.algo3.model.Jugador;
+package src.main.java.org.fiuba.algo3.model.Jugador;
 
-import org.fiuba.algo3.model.Cartera.CantidadInsuficiente;
+import src.main.java.org.fiuba.algo3.model.Cartera.CantidadInsuficiente;
 
 public interface Comprador {
     void transferir(Double monto, Transferible vendedor) throws CantidadInsuficiente;

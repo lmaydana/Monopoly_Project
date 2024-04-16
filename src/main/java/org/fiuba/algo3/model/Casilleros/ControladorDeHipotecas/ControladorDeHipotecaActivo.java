@@ -1,16 +1,16 @@
-package org.fiuba.algo3.model.Casilleros.ControladorDeHipotecas;
+package src.main.java.org.fiuba.algo3.model.Casilleros.ControladorDeHipotecas;
 
-import org.fiuba.algo3.model.Banco.Banco;
-import org.fiuba.algo3.model.Cartera.CantidadInsuficiente;
-import org.fiuba.algo3.model.Cartera.Cartera;
-import org.fiuba.algo3.model.Casilleros.Arrendador.Arrendador;
-import org.fiuba.algo3.model.Casilleros.Arrendador.ArrendadorHipotecado;
-import org.fiuba.algo3.model.Casilleros.ControladorDeHipotecas.Deshipotecador.Deshipotecador;
-import org.fiuba.algo3.model.Casilleros.ControladorDeHipotecas.Deshipotecador.DeshipotecadorActivo;
-import org.fiuba.algo3.model.Casilleros.ControladorDeHipotecas.Deshipotecador.DeshipotecadorNulo;
-import org.fiuba.algo3.model.Casilleros.ControladorDeHipotecas.Hipotecador.Hipotecador;
-import org.fiuba.algo3.model.Casilleros.ControladorDeHipotecas.Hipotecador.HipotecadorActivo;
-import org.fiuba.algo3.model.Casilleros.ControladorDeHipotecas.Hipotecador.HipotecadorNulo;
+import src.main.java.org.fiuba.algo3.model.Banco.Banco;
+import src.main.java.org.fiuba.algo3.model.Cartera.CantidadInsuficiente;
+import src.main.java.org.fiuba.algo3.model.Cartera.Cartera;
+import src.main.java.org.fiuba.algo3.model.Casilleros.Arrendador.Arrendador;
+import src.main.java.org.fiuba.algo3.model.Casilleros.Arrendador.ArrendadorHipotecado;
+import src.main.java.org.fiuba.algo3.model.Casilleros.ControladorDeHipotecas.Deshipotecador.Deshipotecador;
+import src.main.java.org.fiuba.algo3.model.Casilleros.ControladorDeHipotecas.Deshipotecador.DeshipotecadorActivo;
+import src.main.java.org.fiuba.algo3.model.Casilleros.ControladorDeHipotecas.Deshipotecador.DeshipotecadorNulo;
+import src.main.java.org.fiuba.algo3.model.Casilleros.ControladorDeHipotecas.Hipotecador.Hipotecador;
+import src.main.java.org.fiuba.algo3.model.Casilleros.ControladorDeHipotecas.Hipotecador.HipotecadorActivo;
+import src.main.java.org.fiuba.algo3.model.Casilleros.ControladorDeHipotecas.Hipotecador.HipotecadorNulo;
 
 public class ControladorDeHipotecaActivo implements ControladorDeHipotecas {
 
