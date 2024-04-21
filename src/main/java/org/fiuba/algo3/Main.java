@@ -10,18 +10,21 @@ import org.fiuba.algo3.model.Tablero.Tablero;
 import org.fiuba.algo3.view.OpcionesView;
 import org.fiuba.algo3.view.TableroView;
 
+import javafx.geometry.Rectangle2D;
+
 public class Main extends Application {
 
     @Override
     public void start(Stage stage) {
-        double screenHeight = Screen.getPrimary().getBounds().getHeight();
-        System.out.println("Alto pantalla:" + screenHeight);
-        TableroView t = new TableroView();
-        BorderPane b = new BorderPane();
-        b.setCenter(t);
+        Rectangle2D dimensionesPantalla = Screen.getPrimary().getBounds();
+        Double altoPantalla = dimensionesPantalla.getHeight();
+        Double anchoPantalla = dimensionesPantalla.getWidth();
+        TableroView tablero = new TableroView();
+        BorderPane disposicionPrincipal = new BorderPane();
+        disposicionPrincipal.setCenter(tablero);
         OpcionesView opcionesView = new OpcionesView();
-        b.setRight(opcionesView);
-        Scene scene = new Scene(b, screenHeight*0.865740741, screenHeight*0.865740741);
+        disposicionPrincipal.setRight(opcionesView);
+        Scene scene = new Scene(disposicionPrincipal, anchoPantalla, altoPantalla*0.865740741);
         stage.setResizable(true);
         stage.setScene(scene);
         stage.show();
