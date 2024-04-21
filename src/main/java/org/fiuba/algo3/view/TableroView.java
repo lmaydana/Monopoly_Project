@@ -12,7 +12,7 @@ public class TableroView extends BorderPane {
     public TableroView(){
         double alturaTotalUtilizable = (Screen.getPrimary().getBounds().getHeight()*0.865740741);
         this.setPrefSize(alturaTotalUtilizable, alturaTotalUtilizable);
-        Image centroMonopolio = new Image("file:/home/lionel/tps_paradigmas/polimorphic/src/main/java/org/fiuba/algo3/view/imagenes/Monopoly-Logo-2008.png");
+        Image centroMonopolio = new Image("file:src/main/java/org/fiuba/algo3/view/imagenes/Monopoly-Logo-2008.png");
         ImageView centroMonopolioImageView = new ImageView(centroMonopolio);
         centroMonopolioImageView.setFitWidth(alturaTotalUtilizable*0.25);
         centroMonopolioImageView.setPreserveRatio(true);
@@ -25,7 +25,7 @@ public class TableroView extends BorderPane {
         this.setCenter(contenedorCentral);
         Double anchoCasilla = alturaTotalUtilizable/7;
         Double altoCasilla = anchoCasilla*2;
-        String direccion = "file:/home/lionel/tps_paradigmas/polimorphic/src/main/java/org/fiuba/algo3/view/imagenes/personaje_monopoly.png";
+        String direccion = "file:src/main/java/org/fiuba/algo3/view/imagenes/personaje_monopoly.png";
         CasilleroView cv = new CasilleroView(altoCasilla, altoCasilla, direccion, "Casilla de paso", Orientacion.PORTRAIT);
         HBox filaAbajo = new HBox(cv,new PropiedadView( anchoCasilla, altoCasilla, Color.RED, direccion, "La casa de donia florinda", "$30000",Orientacion.PORTRAIT),new PropiedadView( anchoCasilla, altoCasilla, Color.ORANGE, direccion, "La escuela del profesor jirafales","$30000", Orientacion.PORTRAIT),new PropiedadView( anchoCasilla, altoCasilla, Color.ORANGE, direccion, "La peluqueria de Don Ramon", "$35000",Orientacion.PORTRAIT),new PropiedadView( anchoCasilla, altoCasilla, Color.ORANGE, direccion, "La casa del senior Barriga", "$50000",Orientacion.PORTRAIT),new PropiedadView( anchoCasilla, altoCasilla, Color.ORANGE, direccion, "El barril del Chavo del 8", "$55000",Orientacion.PORTRAIT));
         VBox columnaIzquierda = new VBox(new PropiedadView( anchoCasilla, altoCasilla, Color.BROWN,direccion,"La casa de la bruja del 71","$30000", Orientacion.LANDSCAPE),new PropiedadView( anchoCasilla, altoCasilla, Color.BROWN, direccion, "La casa de Jaimito", "$1000000", Orientacion.LANDSCAPE), new PropiedadView( anchoCasilla, altoCasilla, Color.BROWN, direccion,  "La casa de Don Ramon", "$200000", Orientacion.LANDSCAPE));

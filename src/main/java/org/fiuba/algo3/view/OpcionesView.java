@@ -73,7 +73,7 @@ public class OpcionesView extends VBox {
         columnaPreciosDeVentaDeLasConstrucciones.add("70.0");
         columnaPreciosDeVentaDeLasConstrucciones.add("90.0");
         /*-------------------------------------------------------------------------------------------*/
-        Image imagen = new Image("file:/home/lionel/tps_paradigmas/polimorphic/src/main/java/org/fiuba/algo3/view/imagenes/personaje_monopoly.png");
+        Image imagen = new Image("file:src/main/java/org/fiuba/algo3/view/imagenes/personaje_monopoly.png");
 
         return new CartaDePropiedad(anchoCarta, altoCarta, Color.RED, "El barril del chavo del 8", imagen,columnaCantidadDeViviendas, columnaPreciosDeRentaPorConstrucciones, columnaPreciosDeCompraDeLasConstrucciones, columnaPreciosDeVentaDeLasConstrucciones);
 
