@@ -5,17 +5,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="07dc97c6-3377-42b3-ade1-3be1d80c5067" name="Changes" comment="pequeño cambio para tomar el commit.">
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/fiuba/algo3/view/CartaDePropiedad.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/fiuba/algo3/view/CasilleroView.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/fiuba/algo3/view/OpcionesView.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/fiuba/algo3/view/Orientacion.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/fiuba/algo3/view/PropiedadView.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/fiuba/algo3/view/TransporteView.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/fiuba/algo3/view/imagenes/Monopoly-Logo-2008.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/fiuba/algo3/view/imagenes/personaje_monopoly.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_10_4_24_11_40_[Changes]1/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_10_4_24_11_40__Changes_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Merge_at_10_4_24_11_38_[Changes]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Merge_at_10_4_24_11_38__Changes_.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/fiuba/algo3/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/fiuba/algo3/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/fiuba/algo3/model/Banco/Banco.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/fiuba/algo3/model/Banco/Banco.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/fiuba/algo3/model/Cartera/Billetera.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/fiuba/algo3/model/Cartera/Billetera.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/fiuba/algo3/model/Cartera/Cartera.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/fiuba/algo3/model/Cartera/Cartera.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/fiuba/algo3/model/Casilleros/Arrendador/ArrendadorDeVenta.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/fiuba/algo3/model/Casilleros/Arrendador/ArrendadorDeVenta.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/fiuba/algo3/model/Casilleros/Arrendador/ArrendadorHipotecado.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/fiuba/algo3/model/Casilleros/Arrendador/ArrendadorHipotecado.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/fiuba/algo3/model/Casilleros/Inmueble/Vivienda.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/fiuba/algo3/model/Casilleros/Inmueble/Vivienda.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/fiuba/algo3/model/Jugador/Jugador.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/fiuba/algo3/model/Jugador/Jugador.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/fiuba/algo3/model/Jugador/Transferible.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/fiuba/algo3/model/Jugador/Transferible.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/fiuba/algo3/view/TableroView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/fiuba/algo3/view/TableroView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/fiuba/algo3/view/imagenes/innovadores-disenos-de-bordes-de-monopoly-board-con-espacio-de-copia-central-2ctmbey.jpg" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -25,8 +30,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Interface" />
         <option value="Enum" />
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
@@ -81,7 +86,7 @@
     "git-widget-placeholder": "main",
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "/home/lionel/tps paradigmas/polimorphic",
+    "last_opened_file_path": "/home/lionel/tps_paradigmas/polimorphic",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -94,7 +99,11 @@
   }
 }]]></component>
   <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="org.fiuba.algo3.view" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/java/org/fiuba/algo3/view/imagenes" />
       <recent name="$PROJECT_DIR$/src/main/java/org/fiuba/algo3" />
       <recent name="$PROJECT_DIR$/src/main/java/org/fiuba/algo3/Casilleros" />
       <recent name="$PROJECT_DIR$" />
@@ -102,23 +111,15 @@
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/main/java/org/fiuba/algo3" />
     </key>
+    <key name="ExtractSuperBase.RECENT_KEYS">
+      <recent name="org.fiuba.algo3.view" />
+    </key>
   </component>
   <component name="RunManager">
     <configuration name="Main" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="org.fiuba.algo3.Main" />
       <module name="polymorphic" />
-      <option name="VM_PARAMETERS" value="--module-path /path/to/javafx-sdk-22/lib --add-modules javafx.controls,javafx.fxml" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration default="true" type="JetRunConfigurationType">
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
-      <option name="filePath" />
+      <option name="VM_PARAMETERS" value="--module-path javafx-sdk-22/lib --add-modules javafx.controls,javafx.fxml" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -144,6 +145,8 @@
       <workItem from="1713030891083" duration="22578000" />
       <workItem from="1713294746828" duration="896000" />
       <workItem from="1713299024773" duration="3815000" />
+      <workItem from="1713446467238" duration="55080000" />
+      <workItem from="1713621917207" duration="9378000" />
     </task>
     <task id="LOCAL-00001" summary="Guardando cambios al traer maven.">
       <option name="closed" value="true" />
