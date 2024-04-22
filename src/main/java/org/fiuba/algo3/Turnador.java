@@ -13,11 +13,14 @@ public class Turnador {
     private Juego juego;
     private final List<Jugador> jugadores;
 
+    private Iterator<Jugador> iteradorJugadores;
+
 
     public Turnador(Consola consola, Juego juego, List<Jugador> jugadores){
         this.consola = consola;
         this.juego = juego;
         this.jugadores = jugadores;
+        this.iteradorJugadores = this.jugadores.iterator();
     }
 
     public void jugarTurno() {
@@ -32,7 +35,6 @@ public class Turnador {
         //  ○ Pagar la fianza
         // ● En caso de estar sobre una casilla de propiedad vacía:
         //  ○ Comprar la propiedad
-        Iterator<Jugador> iteradorJugadores = this.jugadores.iterator();
         try {
             if(!iteradorJugadores.hasNext())
                 iteradorJugadores = this.jugadores.iterator();

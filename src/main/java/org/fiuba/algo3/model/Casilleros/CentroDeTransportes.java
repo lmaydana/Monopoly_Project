@@ -25,7 +25,7 @@ public class CentroDeTransportes {
         return multiplicidad;
     }
 
-    public boolean esCompaniero(Arrendador arrendador) {
+    private boolean esCompaniero(Arrendador arrendador) {
         boolean esCompaniero = false;
         for (Transporte transporte: this.transportes){
             if (transporte.tieneArrendador(arrendador)){
@@ -37,6 +37,8 @@ public class CentroDeTransportes {
     }
 
     public Double devolverPrecioTotal(Arrendador arrendador, Double precioBase){
+        if( esCompaniero(arrendador) )
+            return 0.0;
         int multiplicidad = this.determinarMultiplicidadDeCosto(arrendador);
         return precioBase*multiplicidad;
     }

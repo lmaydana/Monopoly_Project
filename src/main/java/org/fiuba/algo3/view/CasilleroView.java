@@ -8,18 +8,26 @@ import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.TextAlignment;
+import org.fiuba.algo3.model.Casilleros.Casillero;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class CasilleroView extends Pane {
 
     protected double anchoCasilla;
     protected double altoCasilla;
-    private Orientacion orientacion;
+    protected Orientacion orientacion;
     protected Pane cajaInformacion;
 
-    public CasilleroView(Double anchoCasilla, Double altoCasilla, String direccionImagen, String nombre, Orientacion orientacion){
+    protected Casillero casillero;
+
+    protected HashMap<String, String> informacionCasillero;
+
+    public CasilleroView(Double anchoCasilla, Double altoCasilla, Casillero casillero, HashMap<String, String> informacionCasillero, String direccionImagen, Orientacion orientacion){
         this.orientacion = orientacion;
         this.anchoCasilla = anchoCasilla;
+        this.informacionCasillero = informacionCasillero;
+        this.casillero = casillero;
         this.altoCasilla = altoCasilla;
         this.cajaInformacion = this.orientacion.obtenerPaneAcorde();
         cajaInformacion.setLayoutX(obtenerProyeccion(comienzoSectorInformacionX(), comienzoSectorInformacionY()));
@@ -28,9 +36,9 @@ public class CasilleroView extends Pane {
         cajaInformacion.setPrefWidth(obtenerProyeccion(anchoSectorInformacion(), altoSectorInformacion()));
         Rectangle informacionDeLaCasilla = new Rectangle(obtenerProyeccion(comienzoCasillaX(),comienzoCasillaY()),obtenerProyeccion(comienzoCasillaY(),comienzoCasillaX()), obtenerProyeccion(this.anchoCasilla, this.altoCasilla), obtenerProyeccion(this.altoCasilla, this.anchoCasilla));
         informacionDeLaCasilla.setStrokeWidth(3);
-        informacionDeLaCasilla.setFill(Color.rgb(149,213,227));
+        informacionDeLaCasilla.setFill(Color.WHITE);
         informacionDeLaCasilla.setStroke(Color.BLACK);
-        Label nombreEtiqueta = new Label(nombre);
+        Label nombreEtiqueta = new Label(this.obtenerTextoCasilla());
         nombreEtiqueta.setMaxWidth(anchoMaximoNombre());
         nombreEtiqueta.setMaxHeight(altoMaximoNombre());
         nombreEtiqueta.setTextAlignment(TextAlignment.CENTER);
@@ -45,6 +53,18 @@ public class CasilleroView extends Pane {
         cajaInformacion.getChildren().add(new Group(imageView));
         this.getChildren().add(new Group(informacionDeLaCasilla));
         this.getChildren().add(new Group(cajaInformacion));
+    }
+
+    public CasilleroView(Double anchoCasilla, Double altoCasilla, Casillero casillero, HashMap<String, String> informacionCasillero, Orientacion orientacion){
+        this(anchoCasilla, altoCasilla, casillero, informacionCasillero, rutaImagenPorDefecto(), orientacion);
+    }
+
+    protected String obtenerTextoCasilla(){
+        return this.informacionCasillero.get("tipo");
+    }
+
+    protected static String rutaImagenPorDefecto(){
+        return "file:src/main/java/org/fiuba/algo3/view/imagenes/personaje_monopoly.png";
     }
 
     protected Double obtenerProyeccion(Double portraitValor, Double landscapeValor){

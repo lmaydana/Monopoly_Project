@@ -5,16 +5,31 @@ import javafx.scene.Group;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
 import javafx.scene.image.Image;
-import javafx.scene.paint.Color;
 import javafx.stage.Screen;
+import org.fiuba.algo3.model.Casilleros.Casillero;
+import org.fiuba.algo3.model.Config;
+import org.fiuba.algo3.model.Tablero.ListaCircular;
+
+import java.util.ArrayList;
+import java.util.HashMap;
 
 public class TableroView extends BorderPane {
-    public TableroView(){
-        double alturaTotalUtilizable = (Screen.getPrimary().getBounds().getHeight()*0.865740741);
-        this.setPrefSize(alturaTotalUtilizable, alturaTotalUtilizable);
-        Image centroMonopolio = new Image("file:src/main/java/org/fiuba/algo3/view/imagenes/Monopoly-Logo-2008.png");
+
+    private ArrayList<CasilleroView> casilleros;
+    private Double largoLadoTablero;
+
+    public TableroView( Config config ){
+        this.largoLadoTablero = (Screen.getPrimary().getBounds().getHeight() * factorCantidadUtilizable());
+        this.setPrefSize(largoLadoTablero, largoLadoTablero);
+        this.llenarlistaCasilleros(config);
+        this.crearCentroDelTablero();
+        //this.crearLadosDelTablero();
+    }
+
+    private void crearCentroDelTablero() {
+        Image centroMonopolio = new Image(obtenerDireccionImagenCentral());
         ImageView centroMonopolioImageView = new ImageView(centroMonopolio);
-        centroMonopolioImageView.setFitWidth(alturaTotalUtilizable*0.25);
+        centroMonopolioImageView.setFitWidth(largoLadoTablero * factorAnchoImagenCentral());
         centroMonopolioImageView.setPreserveRatio(true);
         VBox contenedorCentral = new VBox();
         contenedorCentral.setAlignment(Pos.CENTER);
@@ -23,36 +38,151 @@ public class TableroView extends BorderPane {
                 "-fx-background-color: linear-gradient(to bottom right, #5cd781, #577fe5 100%);");
         contenedorCentral.getChildren().add(new Group(centroMonopolioImageView));
         this.setCenter(contenedorCentral);
-        Double anchoCasilla = alturaTotalUtilizable/7;
-        Double altoCasilla = anchoCasilla*2;
-        String direccion = "file:src/main/java/org/fiuba/algo3/view/imagenes/personaje_monopoly.png";
-        CasilleroView cv = new CasilleroView(altoCasilla, altoCasilla, direccion, "Casilla de paso", Orientacion.PORTRAIT);
-        HBox filaAbajo = new HBox(cv,new PropiedadView( anchoCasilla, altoCasilla, Color.RED, direccion, "La casa de donia florinda", "$30000",Orientacion.PORTRAIT),new PropiedadView( anchoCasilla, altoCasilla, Color.ORANGE, direccion, "La escuela del profesor jirafales","$30000", Orientacion.PORTRAIT),new PropiedadView( anchoCasilla, altoCasilla, Color.ORANGE, direccion, "La peluqueria de Don Ramon", "$35000",Orientacion.PORTRAIT),new CasilleroView( altoCasilla, altoCasilla, direccion, "Casilla Inicio", Orientacion.PORTRAIT));
-        VBox columnaIzquierda = new VBox(new PropiedadView( anchoCasilla, altoCasilla, Color.BROWN,direccion,"La casa de la bruja del 71","$30000", Orientacion.LANDSCAPE),new PropiedadView( anchoCasilla, altoCasilla, Color.BROWN, direccion, "La casa de Jaimito", "$1000000", Orientacion.LANDSCAPE), new PropiedadView( anchoCasilla, altoCasilla, Color.BROWN, direccion,  "La casa de Don Ramon", "$200000", Orientacion.LANDSCAPE));
-        HBox filaArriba = new HBox(new PropiedadView( anchoCasilla, altoCasilla, Color.RED, direccion, "La fonda de donia florinda", "$10000",Orientacion.PORTRAIT),new PropiedadView( anchoCasilla, altoCasilla, Color.RED, direccion, "La pileta de Acapulco", "$25000",Orientacion.PORTRAIT),new PropiedadView( anchoCasilla, altoCasilla, Color.RED, direccion, "La casa de donia florinda", "$30000",Orientacion.PORTRAIT),new PropiedadView( anchoCasilla, altoCasilla, Color.ORANGE, direccion, "La escuela del profesor jirafales","$30000",Orientacion.PORTRAIT),new PropiedadView( anchoCasilla, altoCasilla, Color.ORANGE, direccion, "La peluqueria de Don Ramon", "$35000",Orientacion.PORTRAIT),new PropiedadView( anchoCasilla, altoCasilla, Color.ORANGE, direccion, "La casa del senior Barriga", "$50000",Orientacion.PORTRAIT),new PropiedadView( anchoCasilla, altoCasilla, Color.ORANGE, direccion, "El barril del Chavo del 8", "$55000",Orientacion.PORTRAIT));
-        PropiedadView p = new PropiedadView( anchoCasilla, altoCasilla, Color.BROWN, direccion, "La fuente de la vecindad", "$250000",Orientacion.LANDSCAPE);
-        PropiedadView p2 = new PropiedadView( anchoCasilla, altoCasilla, Color.BROWN, direccion, "La fuente de la vecindad", "$250000",Orientacion.LANDSCAPE);
-        TransporteView p3 = new TransporteView( anchoCasilla, altoCasilla, direccion,"El coche del señor Barriga","$30000",Orientacion.LANDSCAPE);
-        VBox columnaDerecha = new VBox(p,p2,p3);
-        PropiedadView p4 = new PropiedadView( anchoCasilla, altoCasilla, Color.BROWN, direccion, "La fuente de la vecindad", "$250000",Orientacion.PORTRAIT);
-        PropiedadView p5 = new PropiedadView( anchoCasilla, altoCasilla, Color.BROWN, direccion, "La fuente de la vecindad", "$250000",Orientacion.PORTRAIT);
-        PropiedadView p6 = new PropiedadView( anchoCasilla, altoCasilla, Color.BROWN,direccion,"La casa de la bruja del 71","$30000",Orientacion.PORTRAIT);
-        PropiedadView p7 = new PropiedadView( anchoCasilla, altoCasilla, Color.BROWN, direccion, "La fuente de la vecindad", "$250000",Orientacion.PORTRAIT);
-        PropiedadView p8 = new PropiedadView( anchoCasilla, altoCasilla, Color.BROWN, direccion, "La fuente de la vecindad", "$250000",Orientacion.PORTRAIT);
-        PropiedadView p9 = new PropiedadView( anchoCasilla, altoCasilla, Color.BROWN,direccion,"La casa de la bruja del 71","$30000",Orientacion.PORTRAIT);
-        PropiedadView p10 = new PropiedadView( anchoCasilla, altoCasilla, Color.BROWN,direccion,"La casa de la bruja del 71","$30000",Orientacion.PORTRAIT);
-        HBox pruebav = new HBox(new Group(p4),new Group(p5), new Group(p6));
-        pruebav.setRotate(90);
-        pruebav.setPrefWidth((Screen.getPrimary().getBounds().getHeight()-150)/7);
-        //columnaIzquierda.setRotate(Orientacion.IZQUIERDA.obtenerGrados());
-        filaArriba.setRotate(180);
-        columnaIzquierda.setRotate(180);
-        columnaIzquierda.setPrefWidth((Screen.getPrimary().getBounds().getHeight()-150)/7);
-        this.setBottom(filaAbajo);
-        this.setLeft(new Group(columnaIzquierda));
-        //this.setLeft(new Group(pruebav));
-        this.setTop(filaArriba);
-        columnaDerecha.setPrefWidth((Screen.getPrimary().getBounds().getHeight()-150)/7);
-        this.setRight(new Group(columnaDerecha));
     }
+
+    private String obtenerDireccionImagenCentral() {
+        return "file:src/main/java/org/fiuba/algo3/view/imagenes/Monopoly-Logo-2008.png";
+    }
+
+    private void crearLadosDelTablero() {
+        Integer cantidadDeCasillasPorLado = this.casilleros.size() / ladosDelTablero();
+        BordeTablero borde = new FilaTablero(cantidadDeCasillasPorLado, 0, this);
+        for ( int i = 0; i < this.casilleros.size(); i++){
+            borde = borde.obtenerSiguienteBorde( this );
+            //borde.agregar(this.casilleros.get(i));
+            borde.darVuelta();
+            if( hayQueInvertir(i) ){
+
+            }
+            borde.posicionar();
+        }
+    }
+
+    private Double obtenerGrados( Integer indice ) {
+        return hayQueInvertir(indice) ? 180.0 : 0.0;
+    }
+
+    private boolean hayQueInvertir(Integer indice) {
+        return ladoActual(indice) >= 2;
+    }
+
+    private Integer ladoActual(Integer indice) {
+        Integer cantidadDeCasillasPorLado = this.casilleros.size() / ladosDelTablero();
+        return indice / cantidadDeCasillasPorLado;
+    }
+
+    private boolean cambioDeLado(int i, Integer cantidadDeCasillasPorLado) {
+
+        return i % cantidadDeCasillasPorLado == 1;
+    }
+
+    private Pane obtenerDisposicionAcorde(Integer indice) {
+        Integer lado = ladoActual(indice);
+        Pane disposicion;
+        Integer espaciosOcupadosEnLasFilas = this.espaciosQueSeOcupaEnFilas( this.casilleros.size() );
+        Double anchoCasilla = largoLadoTablero/espaciosOcupadosEnLasFilas;
+        Double altoCasilla = anchoCasilla * 2;
+
+        if(lado % 2 == 0){
+            disposicion = new HBox();
+            disposicion.setPrefHeight(altoCasilla);
+            return disposicion;
+        }
+
+        disposicion  = new VBox();
+        disposicion.setPrefWidth(altoCasilla);
+        return disposicion;
+    }
+
+    private double factorAnchoImagenCentral() {
+        return 0.25;
+    }
+
+    private double factorCantidadUtilizable() {
+        return 0.865740741;
+    }
+
+    private void llenarlistaCasilleros(Config config) {
+        ListaCircular<Casillero> casillas = config.obtenerCasilleros();
+        Integer cantidadDeCasillasPorLado = casillas.getLen() / ladosDelTablero();
+        this.casilleros = new ArrayList<>();
+        BordeTablero bordeTablero = new FilaTablero(cantidadDeCasillasPorLado, 0, this);
+        for (int i = 0; i < casillas.getLen(); i++){
+            bordeTablero = bordeTablero.obtenerSiguienteBorde(this);
+            this.llenarConCasilleroCorrespondiente(casillas.get(i), casillas.getLen(), i, bordeTablero);
+
+        }
+
+    }
+
+    private Double obtenerGrados( Integer cantidadDeCasillasPorLado,Integer indice ) {
+        return hayQueInvertir(cantidadDeCasillasPorLado, indice) ? 180.0 : 0.0;
+    }
+
+    private boolean hayQueInvertir( Integer cantidadDeCasillasPorLado, Integer indice) {
+        return ladoActual(cantidadDeCasillasPorLado, indice) == 1 && ladoActual(cantidadDeCasillasPorLado, indice) == 2;
+    }
+
+
+    private Integer ladoActual(Integer cantidadDeCasillasPorLado, Integer indice){
+        return indice / cantidadDeCasillasPorLado;
+    }
+
+    private void llenarConCasilleroCorrespondiente(Casillero casillero, Integer largoCasillas, Integer indice, BordeTablero bordeTablero){
+        Integer espaciosOcupadosEnLasFilas = this.espaciosQueSeOcupaEnFilas( largoCasillas );
+        Double anchoCasilla = this.largoLadoTablero/espaciosOcupadosEnLasFilas;
+        Double altoCasilla = anchoCasilla*incrementoDeAncho();
+        HashMap<String, String> informacionCasillero = casillero.obtenerInfoCasillero();
+        CasilleroView casilleroView;
+        switch (casillero.obtenerTipoCasillero()){
+            case TRANSPORTE:
+                casilleroView = new TransporteView(anchoCasilla, altoCasilla, casillero, informacionCasillero, bordeTablero.obtenerOrientacion());
+                break;
+            case PROPIEDAD:
+                casilleroView = new PropiedadView(anchoCasilla, altoCasilla, casillero, informacionCasillero, bordeTablero.obtenerOrientacion());
+                break;
+            case MULTA:
+                casilleroView = new CasilleroView(anchoCasilla, altoCasilla, casillero, informacionCasillero, bordeTablero.obtenerOrientacion());
+                break;
+            case LOTERIA:
+                casilleroView = new CasilleroView(anchoCasilla, altoCasilla, casillero, informacionCasillero, bordeTablero.obtenerOrientacion());
+                break;
+            default :
+                casilleroView = new CasilleroView(altoCasilla, altoCasilla, casillero, informacionCasillero, bordeTablero.obtenerOrientacion());
+        }
+
+        try {
+            bordeTablero.agregar(casilleroView);
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+        bordeTablero.posicionar();
+    }
+
+    private int incrementoDeAncho() {
+        return 2;
+    }
+
+    private Orientacion obtenerOrientacionCorrecta(Integer indice, Integer largoLadoTablero){
+         if( laCasillaActualEstaEnFila(indice, largoLadoTablero) ) return Orientacion.PORTRAIT;
+         return Orientacion.LANDSCAPE;
+    }
+
+    private boolean laCasillaActualEstaEnFila(Integer indice, Integer largoLadoTablero) {
+        return (indice / largoLadoTablero) % 2 == 0;
+    }
+
+    private Integer espaciosQueSeOcupaEnFilas(Integer totalDeCasillas){
+        return cantidadDeEspaciosPorLado(totalDeCasillas) + 3;
+    }
+
+    private Integer cantidadDeEspaciosPorLado(Integer totalDeCasillas) {
+        return totalDeCasillas / ladosDelTablero();
+    }
+
+    private int ladosDelTablero() {
+        return 4;
+    }
+
+
 }

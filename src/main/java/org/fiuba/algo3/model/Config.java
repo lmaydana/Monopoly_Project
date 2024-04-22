@@ -1,12 +1,9 @@
 package org.fiuba.algo3.model;
-import org.fiuba.algo3.model.Casilleros.CasillaTransferidora;
 import org.fiuba.algo3.model.Casilleros.Casillero;
-import org.fiuba.algo3.model.Casilleros.Inicio;
-import org.fiuba.algo3.model.Casilleros.Propiedad;
-import org.fiuba.algo3.model.Tablero.Tablero;
+import org.fiuba.algo3.model.Parsers.RecursosExternos;
+import org.fiuba.algo3.model.Tablero.ListaCircular;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashMap;
 
 public class Config {
 
@@ -22,10 +19,18 @@ public class Config {
     protected Double cantDineroJugadorInicial = 1500.0;
     protected Double cantDineroCasilleroInicial = 500.0;
 
-    public List<Casillero> distribucion(){
-        ArrayList<Casillero> casilleros = new ArrayList<>();
-//        casilleros.add(new Inicio(cantDineroCasilleroInicial,));
-        return casilleros;
+    RecursosExternos parsers;
+
+    public Config(){
+        this.parsers = new RecursosExternos();
+    }
+
+    public HashMap<Casillero, HashMap<String, String>> obtenerInfoCasilleros(){
+        return this.parsers.obtenerInfoCasilleros();
+    }
+
+    public ListaCircular<Casillero> obtenerCasilleros(){
+        return this.parsers.obtenerCasilleros();
     }
 
     public Double obtenerMontoDePlataIncial() {

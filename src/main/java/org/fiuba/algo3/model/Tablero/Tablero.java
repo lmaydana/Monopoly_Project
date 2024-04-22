@@ -4,7 +4,6 @@ import org.fiuba.algo3.model.Casilleros.Casillero;
 import org.fiuba.algo3.model.Config;
 import org.fiuba.algo3.model.Jugador.Jugador;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
@@ -13,8 +12,8 @@ public class Tablero {
     private Config config;
     private HashMap<Jugador,Iterador<Casillero>> iteradores;
     public Tablero(List<Jugador> jugadores){
-        this.tablero = new ListaCircular<Casillero>();
         this.config = new Config();
+        this.tablero = this.config.obtenerCasilleros();
         this.iteradores = new HashMap<>();
         this.llenarIteradores(jugadores);
         this.inicializarTablero();
@@ -27,7 +26,7 @@ public class Tablero {
     }
 
     private void inicializarTablero() {
-        config.distribucion();
+        config.obtenerCasilleros();
     }
 
     public void mover(int pasos, Jugador jugador) throws Exception{

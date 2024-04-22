@@ -6,6 +6,8 @@ import org.fiuba.algo3.model.Banco.Banco;
 import org.fiuba.algo3.model.Cartera.CantidadInsuficiente;
 import org.fiuba.algo3.model.Jugador.Jugador;
 
+import java.util.HashMap;
+
 public class Inicio extends CasillaTransferidora {
 
     public Inicio(Double montoACobrar, Banco banco) {
@@ -16,5 +18,15 @@ public class Inicio extends CasillaTransferidora {
     public void recibirJugador(Jugador jugador) throws CantidadInsuficiente {
         super.recibirJugador(jugador);
         this.banco.transferir(this.montoACobrar, jugador);
+    }
+
+    public TipoCasillero obtenerTipoCasillero(){
+        return TipoCasillero.INICIO;
+    }
+
+    public HashMap<String, String> obtenerInfoCasillero(){
+        HashMap<String, String> infoCasillero = super.obtenerInfoCasillero();
+        infoCasillero.put("tipo", "Inicio");
+        return infoCasillero;
     }
 }

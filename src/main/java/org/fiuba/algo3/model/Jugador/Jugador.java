@@ -103,7 +103,7 @@ public class Jugador implements Arrendador, Comprador{
     public void moverse(int tirada) throws NoPuedeMoverse{
         estado.moverse(tirada);
     }
-    public void pagarFianza(double monto,Banco banco) throws CantidadInsuficiente{
+    public void pagarFianza(double monto, Banco banco) throws CantidadInsuficiente{
         estado.pagarFianza(monto,banco);
     }
 }

@@ -39,7 +39,7 @@ public class OpcionesView extends VBox {
     }
 
     private CartaDePropiedad getCartaDePropiedad(Double anchoCarta, Double altoCarta){
-        /*--------------ArrayLists que se deben obtener de Info harcodeados para muestra------------------------*/
+        /*--------------ArrayLists que se deben obtener de Config harcodeados para muestra------------------------*/
         ArrayList<String> columnaCantidadDeViviendas = new ArrayList<>();
         columnaCantidadDeViviendas.add("Viviendas");
         columnaCantidadDeViviendas.add("0 casas");

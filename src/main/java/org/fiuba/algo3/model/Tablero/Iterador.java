@@ -9,7 +9,7 @@ public class Iterador<T> {
     }
 
     public boolean tieneSiguiente(){
-        return (this.nodoActual.siguiente != null);
+        return ( this.nodoActual != null && this.nodoActual.siguiente != null);
     }
 
     public void avanzar(){

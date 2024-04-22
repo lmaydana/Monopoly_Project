@@ -1,6 +1,8 @@
 package org.fiuba.algo3.model.Casilleros;
 
 
+import java.util.HashMap;
+
 public class Transporte extends CasillaComprable{
 
     private Double costoRenta;
@@ -8,8 +10,8 @@ public class Transporte extends CasillaComprable{
     private CentroDeTransportes centroDeTransportes;
 
 
-    public Transporte(Double costoDeVenta, Double costoRenta, CentroDeTransportes centroDeTransportes) {
-        super(costoDeVenta);
+    public Transporte(String nombreTransporte, Double costoDeVenta, Double costoRenta, CentroDeTransportes centroDeTransportes) {
+        super(nombreTransporte, costoDeVenta);
         this.costoRenta = costoRenta;
         this.centroDeTransportes = centroDeTransportes;
     }
@@ -17,6 +19,16 @@ public class Transporte extends CasillaComprable{
     @Override
     public Double tasar() {
         return this.centroDeTransportes.devolverPrecioTotal(this.arrendador, this.costoRenta);
+    }
+
+    public TipoCasillero obtenerTipoCasillero(){
+        return TipoCasillero.TRANSPORTE;
+    }
+
+    public HashMap<String, String> obtenerInfoCasillero(){
+        HashMap<String, String> infoCasillero = super.obtenerInfoCasillero();
+        infoCasillero.put("tipo", "Transporte");
+        return infoCasillero;
     }
 
 }

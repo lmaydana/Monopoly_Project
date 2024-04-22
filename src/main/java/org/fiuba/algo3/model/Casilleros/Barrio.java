@@ -7,8 +7,9 @@ import org.fiuba.algo3.model.Casilleros.Constructor.ConstructorDeInmuebles;
 import org.fiuba.algo3.model.Casilleros.Constructor.ConstructorNulo;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
-public abstract class Barrio {
+public class Barrio {
 
     private String nombreBarrio;
     private ArrayList<Propiedad> propiedadesDelBarrio;
@@ -40,5 +41,9 @@ public abstract class Barrio {
         }
         return new ConstructorNulo();
 
+    }
+
+    public void agegarInfoColor(HashMap<String, String> infoCasillero) {
+        infoCasillero.put("color", this.nombreBarrio);
     }
 }

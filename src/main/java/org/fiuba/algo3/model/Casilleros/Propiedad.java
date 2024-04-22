@@ -12,6 +12,7 @@ import org.fiuba.algo3.model.Casilleros.Inmueble.Inmueble;
 import org.fiuba.algo3.model.Jugador.Jugador;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class Propiedad extends CasillaComprable{
 
@@ -20,22 +21,21 @@ public class Propiedad extends CasillaComprable{
     private Constructor constructor;
     private Terreno terreno;
     private ControladorDeHipotecas controladorDeHipotecas;
-    private ArrayList<Double> preciosDeVenta;
+    private ArrayList<Double> preciosDeCompraViviendas;
     private Banco banco;
-    public Propiedad(String nombrePropiedad, Double costoDeVenta, Barrio barrio, ArrayList<Inmueble> inmueblesPorPoner, ArrayList<Double> rentas, ArrayList<Double> preciosDeVenta, Banco banco) {
-        super(costoDeVenta);
-        this.nombrePropiedad = nombrePropiedad;
+    public Propiedad(String nombrePropiedad, Double costoDeVenta, Barrio barrio, ArrayList<Inmueble> inmueblesPorPoner, ArrayList<Double> rentas, ArrayList<Double> preciosDeCompraViviendas, Banco banco) {
+        super(nombrePropiedad, costoDeVenta);
         this.barrio = barrio;
         this.constructor = new ConstructorNulo();
         Tasador tasador = new Tasador(rentas);
         this.terreno = new Terreno(inmueblesPorPoner, tasador);
         this.controladorDeHipotecas = new ControladorDeHipotecaNulo(this.arrendador);
-        this.preciosDeVenta = preciosDeVenta;
+        this.preciosDeCompraViviendas = preciosDeCompraViviendas;
         this.banco = banco;
     }
 
     public void construirVivienda(Cartera cartera) throws CantidadInsuficiente {
-        this.constructor = this.barrio.obtenerConstructorAprobado(this.arrendador, this.terreno, this.preciosDeVenta);
+        this.constructor = this.barrio.obtenerConstructorAprobado(this.arrendador, this.terreno, this.preciosDeCompraViviendas);
         this.constructor.construir(cartera);
     }
 
@@ -67,6 +67,17 @@ public class Propiedad extends CasillaComprable{
     @Override
     public Double tasar() {
         return this.terreno.tasar();
+    }
+
+    public TipoCasillero obtenerTipoCasillero(){
+        return TipoCasillero.PROPIEDAD;
+    }
+
+    public HashMap<String, String> obtenerInfoCasillero(){
+        HashMap<String, String> infoCasillero = super.obtenerInfoCasillero();
+        infoCasillero.put("tipo", "Propiedad");
+        this.barrio.agegarInfoColor(infoCasillero);
+        return infoCasillero;
     }
 
 }

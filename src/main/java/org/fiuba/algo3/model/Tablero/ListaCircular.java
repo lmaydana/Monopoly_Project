@@ -26,6 +26,10 @@ public class ListaCircular<T> {
         return nodoActual.dato;
     }
 
+    public boolean estaVacia(){
+        return this.len == 0;
+    }
+
     private Nodo<T> obtenerOrigen(int origen){
         //casos en donde es el primero o el ultimo el origen
         if(origen == 0){

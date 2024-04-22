@@ -35,5 +35,9 @@ public enum Orientacion {
         return panesPosibles.get(this.valor);
     }
 
+    public Orientacion rotar(){
+        return  (valor == 1)? LANDSCAPE : PORTRAIT;
+    }
+
     private Integer valor;
 }
