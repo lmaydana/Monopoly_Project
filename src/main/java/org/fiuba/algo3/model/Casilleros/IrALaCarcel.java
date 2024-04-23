@@ -14,10 +14,10 @@ public class IrALaCarcel extends Casillero{
     }
 
     @Override
-    public void recibirJugador(Jugador jugador) throws CantidadInsuficiente {
-        super.recibirJugador(jugador);
-        this.sacarDeCasillero(jugador);
-        this.carcel.recibirJugador(jugador);
+    public void recibir(Jugador jugador) throws CantidadInsuficiente {
+        super.recibir(jugador);
+        this.sacar(jugador);
+        this.carcel.recibir(jugador);
         this.carcel.encarcelar(jugador);
     }
 

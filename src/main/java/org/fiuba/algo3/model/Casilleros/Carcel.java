@@ -6,8 +6,18 @@ import java.util.HashMap;
 
 public class Carcel extends Casillero{
 
+    private Integer diasCondena;
+
+    public Carcel(Integer diasCondena){
+        this.diasCondena = diasCondena;
+    }
+
     public void encarcelar(Jugador jugador){
-        jugador.encarcelar();
+        jugador.encarcelar(this.diasCondena);
+    }
+
+    public void sacar(Jugador jugador){
+        super.sacar(jugador);
     }
 
     public TipoCasillero obtenerTipoCasillero(){

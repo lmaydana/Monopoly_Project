@@ -44,8 +44,8 @@ public class Propiedad extends CasillaComprable{
 
 
     @Override
-    public void recibirJugador(Jugador jugador) throws CantidadInsuficiente{
-        super.recibirJugador(jugador);
+    public void recibir(Jugador jugador) throws CantidadInsuficiente{
+        super.recibir(jugador);
     }
 
 

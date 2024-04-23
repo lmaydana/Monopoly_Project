@@ -15,8 +15,8 @@ public class Inicio extends CasillaTransferidora {
     }
 
     @Override
-    public void recibirJugador(Jugador jugador) throws CantidadInsuficiente {
-        super.recibirJugador(jugador);
+    public void recibir(Jugador jugador) throws CantidadInsuficiente {
+        super.recibir(jugador);
         this.banco.transferir(this.montoACobrar, jugador);
     }
 

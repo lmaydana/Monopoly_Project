@@ -13,8 +13,8 @@ public class Loteria extends CasillaTransferidora{
     }
 
     @Override
-    public void recibirJugador(Jugador jugador) throws CantidadInsuficiente {
-        super.recibirJugador(jugador);
+    public void recibir(Jugador jugador) throws CantidadInsuficiente {
+        super.recibir(jugador);
         banco.transferir(this.montoACobrar, jugador);
     }
 

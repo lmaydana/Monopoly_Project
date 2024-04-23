@@ -24,11 +24,12 @@ public abstract class CasillaComprable extends Casillero implements Comprable {
         jugador.transferir(this.costoDeVenta, this.arrendador);
         this.arrendador.despojarseDeCasilla(this.nombre, jugador);
         this.arrendador = jugador;
+        jugador.recibir(this.nombre, this);
     }
 
     @Override
-    public void recibirJugador(Jugador jugador) throws CantidadInsuficiente{
-        super.recibirJugador(jugador);
+    public void recibir(Jugador jugador) throws CantidadInsuficiente{
+        super.recibir(jugador);
         if( !this.tieneArrendador(jugador) ) {
             this.arrendador.acordar(jugador, this.nombre);
         }

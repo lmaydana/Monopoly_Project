@@ -3,9 +3,11 @@ package org.fiuba.algo3.model.Tablero;
 public class Iterador<T> {
     private Nodo<T> nodoActual;
     private Nodo<T> nodoInicial;
+    private Nodo<T> nodoReferencia;
     public Iterador(Nodo<T> nodoActual){
         this.nodoInicial = nodoActual;
         this.nodoActual = nodoActual;
+        this.nodoReferencia = nodoActual;
     }
 
     public boolean tieneSiguiente(){
@@ -22,5 +24,13 @@ public class Iterador<T> {
 
     public boolean estaAlPrincipio(){
         return nodoActual.dato == nodoInicial.dato;
+    }
+
+    public void avanzarHasta(T valor) {
+        this.nodoReferencia = nodoActual;
+        do{
+            nodoActual = nodoActual.siguiente;
+
+        }while(nodoActual != nodoReferencia && nodoActual.dato != valor);
     }
 }

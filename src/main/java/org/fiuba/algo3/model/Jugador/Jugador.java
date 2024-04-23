@@ -26,8 +26,11 @@ public class Jugador implements Arrendador, Comprador{
     private Map<String, Propiedad> propiedades;
     private Contrato contratoActual;
 
+    private HashMap<String, CasillaComprable> activos;
+
     public Jugador(String nombreJugador, Color color, Config config){
         this.nombreJugador = nombreJugador;
+        this.activos = new HashMap<>();
         this.color = color;
         this.propiedades = new HashMap<>();
         this.contratoActual = new ContratoSinEfecto();
@@ -37,7 +40,7 @@ public class Jugador implements Arrendador, Comprador{
 
     @Override
     public void acordar(Jugador jugador, String propiedad) throws CantidadInsuficiente{
-        estado.acordar(jugador,propiedad,propiedades);
+        estado.acordar(jugador,propiedad,this.activos);
     }
 
     @Override
@@ -68,8 +71,8 @@ public class Jugador implements Arrendador, Comprador{
         this.contratoActual = new ContratoSinEfecto();
     }
 
-    public void encarcelar() {
-        estado = new EstadoPreso(this);
+    public void encarcelar(Integer diasCondena) {
+        estado = new EstadoPreso(this, diasCondena);
     }
 
     public void setEstado(Estado estado) {
@@ -101,7 +104,7 @@ public class Jugador implements Arrendador, Comprador{
         this.contratoActual = new ContratoSinEfecto();
     }
 
-    public void moverse(int tirada) throws NoPuedeMoverse{
+    public void moverse(int tirada) throws JugadorEncarcelado {
         estado.moverse(tirada);
     }
     public void pagarFianza(double monto, Banco banco) throws CantidadInsuficiente{
@@ -122,5 +125,9 @@ public class Jugador implements Arrendador, Comprador{
 
     public String obtenerPlataDisponible() {
         return this.cartera.toString();
+    }
+
+    public void recibir(String nombreActivo, CasillaComprable activo) {
+        this.activos.put(nombreActivo, activo);
     }
 }

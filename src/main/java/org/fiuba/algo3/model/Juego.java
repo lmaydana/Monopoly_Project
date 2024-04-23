@@ -30,6 +30,7 @@ public class Juego {
     }
 
     public void moverJugador() throws Exception{
+        this.jugadorActual.perderOferta();
         this.tablero.mover(jugarDado(), this.jugadorActual);
     }
 

@@ -13,11 +13,11 @@ public class Casillero {
                 this.jugdoresEnCassila = new ArrayList<>();
         }
 
-        public void recibirJugador(Jugador jugador) throws CantidadInsuficiente {
+        public void recibir(Jugador jugador) throws CantidadInsuficiente {
                 this.jugdoresEnCassila.add(jugador);
         }
 
-        public void sacarDeCasillero(Jugador jugador){
+        public void sacar(Jugador jugador){
                 this.jugdoresEnCassila.remove(jugador);
         }
 

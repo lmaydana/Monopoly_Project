@@ -1,22 +1,31 @@
 package org.fiuba.algo3.model.Tablero;
 
+import org.fiuba.algo3.model.Casilleros.Carcel;
 import org.fiuba.algo3.model.Casilleros.Casillero;
+import org.fiuba.algo3.model.Casilleros.IrALaCarcel;
 import org.fiuba.algo3.model.Config;
+import org.fiuba.algo3.model.Jugador.Estado.JugadorEncarcelado;
 import org.fiuba.algo3.model.Jugador.Jugador;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
 public class Tablero {
+    private final Carcel carcel;
     private ListaCircular<Casillero> tablero;
     private Config config;
     private HashMap<Jugador,Iterador<Casillero>> iteradores;
+
+    private ArrayList<IrALaCarcel> casillerosIrALaCarcel;
     public Tablero(List<Jugador> jugadores, Config config){
         this.config = config;
         this.tablero = this.config.obtenerCasilleros();
         this.iteradores = new HashMap<>();
+        this.carcel = this.config.obtenerCarcel();
+        this.casillerosIrALaCarcel = this.config.obtenerCasillerosIrALaCarcel();
         this.llenarIteradores(jugadores);
-        this.inicializarTablero();
+
     }
 
     private void llenarIteradores(List<Jugador> jugadores){
@@ -25,32 +34,24 @@ public class Tablero {
         }
     }
 
-    private void inicializarTablero() {
-        config.obtenerCasilleros();
-    }
-
     public void mover(int pasos, Jugador jugador) throws Exception{
         Iterador<Casillero> iterador = this.iteradores.get(jugador);
         Casillero casillero = iterador.obtenerActual();
-        casillero.sacarDeCasillero(jugador);
+        jugador.moverse(pasos);
+        casillero.sacar(jugador);
         for(int i = 0; i < pasos && iterador.tieneSiguiente(); i++){
             iterador.avanzar();
             if(iterador.estaAlPrincipio() && i < pasos - 1){
                 casillero = iterador.obtenerActual();
-                casillero.recibirJugador(jugador);
-                casillero.sacarDeCasillero(jugador);
+                casillero.recibir(jugador);
+                casillero.sacar(jugador);
             }
         }
         casillero = iterador.obtenerActual();
-        casillero.recibirJugador(jugador);
-
+        casillero.recibir(jugador);
+        if( this.casillerosIrALaCarcel.contains(casillero) ){
+            iterador.avanzarHasta(this.carcel);
+        }
     }
 
-    public void addCasillero(Casillero casillero){
-        this.tablero.append(casillero);
-    }
-
-    public Casillero getCasillero(int indice){
-        return this.tablero.get(indice);
-    }
 }

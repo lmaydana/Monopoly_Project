@@ -29,20 +29,29 @@ public class TableroJsonParser extends JsonParser {
 
     private Carcel carcel;
 
+    private final Integer DIAS_DE_CONDENA = 5;
+
     private HashMap<String, Color> coloresDePropiedades;
     private HashMap<String,ArrayList<ArrayList<String>>> preciosInmueblesPorNombreDePropiedad;
+    private ArrayList<IrALaCarcel> casillerosIrALaCarcel;
+
+    private enum EstadoCreacionCarcel{ NO_SE_CREO_UNA_CARCEL, SE_CREO_UNA_CARCEL, SE_CREO_MAS_DE_UNA_CARCEL};
+
+    private EstadoCreacionCarcel estadoCreacionCarcel;
 
     public TableroJsonParser(String fileName) throws InvalidJson {
         super(fileName);
         this.coloresDePropiedades =new HashMap<>();
+        this.casillerosIrALaCarcel = new ArrayList<>();
         this.preciosInmueblesPorNombreDePropiedad = new HashMap<>();
+        this.estadoCreacionCarcel = EstadoCreacionCarcel.NO_SE_CREO_UNA_CARCEL;
         this.infoCasilla = new HashMap<>();
         this.casilleros = new ListaCircular<>();
         this.banco = new Banco();
         this.centroDeTransportes = new CentroDeTransportes();
         this.barrios = new HashMap<>();
         this.fianza = 0.0;
-        this.carcel = new Carcel();
+        this.carcel = new Carcel(DIAS_DE_CONDENA);
         this.cargarTablero();
     }
 
@@ -59,6 +68,10 @@ public class TableroJsonParser extends JsonParser {
         for (int i = 0; i < tableroJSONArray.length(); i++){
             JSONObject casilleroJson = tableroJSONArray.getJSONObject(i);
             this.casilleros.append(this.crearCasillero(casilleroJson));
+        }
+
+        if( this.estadoCreacionCarcel != EstadoCreacionCarcel.SE_CREO_UNA_CARCEL){
+            throw new InvalidJson("El archivo no posee una carcel o no es unica");
         }
 
     }
@@ -97,6 +110,10 @@ public class TableroJsonParser extends JsonParser {
         return this.infoCasilla;
     }
 
+    public ArrayList<IrALaCarcel> obtenerCasillerosIrALa8Carcel() {
+        return this.casillerosIrALaCarcel;
+    }
+
     public ListaCircular<Casillero> obtenerCasilleros(){
         return this.casilleros;
     }
@@ -109,7 +126,7 @@ public class TableroJsonParser extends JsonParser {
         return this.preciosInmueblesPorNombreDePropiedad.get(nombrePropiedad);
     }
 
-    public Color obtenerColorDeProopiedad( String nombrePropiedad ){
+    public Color obtenerColorDePropiedad(String nombrePropiedad ){
         return this.coloresDePropiedades.get(nombrePropiedad);
     }
 
@@ -119,11 +136,18 @@ public class TableroJsonParser extends JsonParser {
     }
 
     private Casillero crearCasilleroIrALaCarcel() {
-        return new IrALaCarcel(this.carcel);
+        this.casillerosIrALaCarcel.add(new IrALaCarcel(this.carcel));
+        return this.casillerosIrALaCarcel.getLast();
     }
 
     private Casillero crearCasilleroCarcel(JSONObject casilleroJson) {
         this.fianza = casilleroJson.getDouble("fianza");
+
+        if(this.estadoCreacionCarcel == EstadoCreacionCarcel.SE_CREO_UNA_CARCEL || this.estadoCreacionCarcel == EstadoCreacionCarcel.SE_CREO_MAS_DE_UNA_CARCEL)
+            this.estadoCreacionCarcel = EstadoCreacionCarcel.SE_CREO_MAS_DE_UNA_CARCEL;
+        else
+            this.estadoCreacionCarcel = EstadoCreacionCarcel.SE_CREO_UNA_CARCEL;
+
         return this.carcel;
     }
 
@@ -153,9 +177,9 @@ public class TableroJsonParser extends JsonParser {
         this.coloresDePropiedades.put(nombrePropiedad, Color.valueOf(color));
         this.barrios.putIfAbsent(color, new Barrio(color));
         Barrio barrio = this.barrios.get(color);
-        JSONObject preciosDeVentaInmuebles = casilleroJson.getJSONObject("precio venta viviendas");
-        JSONObject preciosDeRentasPorCantidadDeInmuebles = casilleroJson.getJSONObject("rentas");
-        JSONObject preciosDeCompraInmuebles = casilleroJson.getJSONObject("precio compra viviendas");
+        JSONArray preciosDeVentaInmuebles = casilleroJson.getJSONArray("precio venta viviendas");
+        JSONArray preciosDeRentasPorCantidadDeInmuebles = casilleroJson.getJSONArray("rentas");
+        JSONArray preciosDeCompraInmuebles = casilleroJson.getJSONArray("precio compra viviendas");
         ArrayList<Inmueble> inmuebles = this.obtenerInmuebles(nombrePropiedad, preciosDeVentaInmuebles, preciosDeRentasPorCantidadDeInmuebles, preciosDeCompraInmuebles);
         Propiedad propiedad = new Propiedad(nombrePropiedad, costoDeVenta,barrio,inmuebles, banco);
         barrio.agregarPropiedad(propiedad);
@@ -175,17 +199,18 @@ public class TableroJsonParser extends JsonParser {
         return elementosEnCadenas;
     }
 
-    private ArrayList<Double> obtenerPrecios(JSONObject preciosJson){
+    private ArrayList<Double> obtenerPrecios(JSONArray preciosJson){
         ArrayList<Double> preciosArray = new ArrayList<>();
-        Iterator<String> claves = preciosJson.keys();
-        while ( claves.hasNext() ){
-            Double precio = preciosJson.getDouble(claves.next());
+
+        for ( int i = 0; i < preciosJson.length(); i++ ){
+            Double precio = preciosJson.getDouble(i);
             preciosArray.add(precio);
         }
+
         return preciosArray;
     }
 
-    private ArrayList<Inmueble> obtenerInmuebles(String nombrePropiedad, JSONObject preciosDeVentaInmuebles, JSONObject preciosDeRentasPorCantidadDeInmuebles, JSONObject preciosDeCompraInmuebles) throws InvalidJson {
+    private ArrayList<Inmueble> obtenerInmuebles(String nombrePropiedad, JSONArray preciosDeVentaInmuebles, JSONArray preciosDeRentasPorCantidadDeInmuebles, JSONArray preciosDeCompraInmuebles) throws InvalidJson {
         ArrayList<Inmueble> inmuebles = new ArrayList<>();
         ArrayList<Double> preciosDeVenta = this.obtenerPrecios(preciosDeVentaInmuebles);
         ArrayList<Double> preciosDeCompra = this.obtenerPrecios(preciosDeCompraInmuebles);
@@ -234,4 +259,7 @@ public class TableroJsonParser extends JsonParser {
     }
 
 
+    public Carcel obtenerCarcel() {
+        return this.carcel;
+    }
 }

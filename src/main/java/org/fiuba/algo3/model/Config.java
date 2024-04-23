@@ -3,6 +3,7 @@ import javafx.scene.paint.Color;
 import org.fiuba.algo3.model.Banco.Banco;
 import org.fiuba.algo3.model.Casilleros.Carcel;
 import org.fiuba.algo3.model.Casilleros.Casillero;
+import org.fiuba.algo3.model.Casilleros.IrALaCarcel;
 import org.fiuba.algo3.model.Parsers.RecursosExternos;
 import org.fiuba.algo3.model.Tablero.ListaCircular;
 
@@ -50,8 +51,8 @@ public class Config {
         return this.parsers.obtenerInfoCasilleros();
     }
 
-    public Color obtenerColorDeProopiedad( String nombrePropiedad ){
-        return this.parsers.obtenerColorDeProopiedad(nombrePropiedad);
+    public Color obtenerColorDePropiedad(String nombrePropiedad ){
+        return this.parsers.obtenerColorDePropiedad(nombrePropiedad);
     }
 
     public Banco obtenerBanco(){
@@ -76,5 +77,13 @@ public class Config {
 
     public Double obtnerMontoFianza(){
         return this.fianza;
+    }
+
+    public Carcel obtenerCarcel() {
+        return this.parsers.obtenerCarcel();
+    }
+
+    public ArrayList<IrALaCarcel> obtenerCasillerosIrALaCarcel() {
+        return this.parsers.obtenerCasillerosIrALacarcel();
     }
 }

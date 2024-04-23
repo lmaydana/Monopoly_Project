@@ -44,18 +44,16 @@ public class OpcionesView extends VBox {
         this.ancho = tamanioPantalla.getWidth() - tamanioPantalla.getHeight()*0.865740741;
         this.alto = tamanioPantalla.getHeight()*0.8;
         this.setPrefSize(this.ancho, this.alto );
-        actualizarCartas();
-        this.cartaActual = new CartaDePropiedadVacia(anchoCarta(), altoCarta(), juego);
+        try {
+            juego.moverJugador();
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+        this.actualizarCartas();
 
         //--------------------Caja informacion jugador--------------------
         this.actualizarInformacionJugador();
         //---------------------------------------------------------------
-
-        if( !this.cartasActuales.isEmpty() ){
-            this.cartaActual = this.cartasActuales.getFirst();
-        }
-
-        this.contenedorDeCartaActual.getChildren().add(cartaActual);
 
         Button botonIrHaciaIzquierda = new Button("<");
         botonIrHaciaIzquierda.setOnAction( e->{
@@ -85,6 +83,7 @@ public class OpcionesView extends VBox {
         pagarFianza.setOnAction(e-> {
             try {
                 juego.pagarFianza();
+                this.actualizarInformacionJugador();
             } catch (CantidadInsuficiente ex) {
                 System.out.println("Implementar que pasa si no se puede pagar la fianza en OpcionesView->Constructor");
             }
@@ -167,14 +166,16 @@ public class OpcionesView extends VBox {
         this.cartasActuales.clear();
         for( String nombrePropiedad: nombresPropiedadesEnPosesion ){
             ArrayList<ArrayList<String>> informacionInmuebles = this.configuracion.obtenerInformacionDeInmueblesSobre(nombrePropiedad);
-            CartaDePropiedad cartaDePropiedad = new CartaDePropiedad(anchoCarta(), altoCarta(), this.configuracion.obtenerColorDeProopiedad(nombrePropiedad), nombrePropiedad, this.juego, informacionInmuebles.get(0), informacionInmuebles.get(1),informacionInmuebles.get(2), informacionInmuebles.get(3));
-            this.cartasActuales.add(cartaDePropiedad);
+            CartaDePropiedad cartaDePropiedad = new CartaDePropiedad(anchoCarta(), altoCarta(), this.configuracion.obtenerColorDePropiedad(nombrePropiedad), nombrePropiedad, this.juego, informacionInmuebles.get(0), informacionInmuebles.get(1),informacionInmuebles.get(2), informacionInmuebles.get(3));
+            this.cartasActuales.addFirst(cartaDePropiedad);
         }
         this.iteradorDeCartas = this.cartasActuales.listIterator();
-        if ( !this.cartasActuales.isEmpty() ) {
-            this.contenedorDeCartaActual.getChildren().clear();
-            this.contenedorDeCartaActual.getChildren().add(this.cartasActuales.getLast());
+        this.cartaActual = new CartaDePropiedadVacia(anchoCarta(), altoCarta(), this.juego);
+        if ( this.iteradorDeCartas.hasNext() ) {
+            this.cartaActual = this.iteradorDeCartas.next();
         }
+        this.contenedorDeCartaActual.getChildren().clear();
+        this.contenedorDeCartaActual.getChildren().add(this.cartaActual);
     }
 
     private Button obtenerBotonDeOpcion(String texto){

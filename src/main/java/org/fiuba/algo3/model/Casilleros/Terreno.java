@@ -12,9 +12,13 @@ public class Terreno {
     private ArrayList<Inmueble> inmueblesPorPoner;
     private Tasador tasador;
 
+    private Double rentaBase;
+
     public Terreno(ArrayList<Inmueble> inmueblesPorPoner){
         this.inmueblesPorPoner = inmueblesPorPoner;
         this.inmueblesActuales = new ArrayList<>();
+        this.rentaBase = 0.0;
+        this.rentaBase = this.inmueblesPorPoner.removeFirst().devolverRentaSumadaA(this.rentaBase);
         this.tasador = new Tasador();
     }
 
@@ -25,7 +29,7 @@ public class Terreno {
     }
 
     public Double tasar( ){
-        return this.tasador.tasarTerreno(this.inmueblesActuales);
+        return this.rentaBase + this.tasador.tasarTerreno(this.inmueblesActuales);
     }
 
     public void venderInmueble(Transferible transferible){
