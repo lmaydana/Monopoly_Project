@@ -63,7 +63,7 @@ public class CartaDePropiedad extends VBox {
         try {
             juego.construirEn(this.nombre);
         } catch (CantidadInsuficiente e) {
-            System.out.println("Ver como avisar en caso de no poder construir en la vivienda seleccionada CartaDePropiedad-> construirVivienda (tambien ver si conviene extender la excepcion)");
+            this.juego.hacerPerderAlJugadorActual();
         }
     }
 
@@ -79,7 +79,8 @@ public class CartaDePropiedad extends VBox {
         try {
             this.juego.deshipotecar(this.nombre);
         } catch (CantidadInsuficiente e) {
-            System.out.println("Ver como avisar en caso de no poder deshipotecar en la vivienda seleccionada CartaDePropiedad-> deshipotecar (tambien ver si conviene extender la excepcion)");
+            this.juego.hacerPerderAlJugadorActual();
         }
     }
+    
 }

@@ -3,7 +3,7 @@ package org.fiuba.algo3.model.Casilleros.ControladorDeHipotecas.Hipotecador;
 import org.fiuba.algo3.model.Banco.Banco;
 import org.fiuba.algo3.model.Cartera.Cartera;
 import org.fiuba.algo3.model.Casilleros.Arrendador.Arrendador;
-import org.fiuba.algo3.model.Casilleros.Arrendador.ArrendadorHipotecado;
+import org.fiuba.algo3.model.Casilleros.Arrendador.ArrendadorSinAcuerdo;
 
 public class HipotecadorActivo implements Hipotecador{
 
@@ -21,6 +21,6 @@ public class HipotecadorActivo implements Hipotecador{
     @Override
     public Arrendador hipotecar(Cartera cartera) {
         this.banco.hipotecar( this.nombrePropiedad, cartera );
-        return new ArrendadorHipotecado(this.arrendador);
+        return new ArrendadorSinAcuerdo(this.arrendador);
     }
 }

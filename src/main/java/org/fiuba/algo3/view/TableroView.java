@@ -46,15 +46,16 @@ public class TableroView extends BorderPane {
         BordeTablero bordeTablero = new FilaTablero(cantidadDeCasillasPorLado, 0, this);
         for (int i = 0; i < casillas.getLen(); i++){
             bordeTablero = bordeTablero.obtenerSiguienteBorde(this);
-            this.llenarConCasilleroCorrespondiente(casillas.get(i), casillas.getLen(), i, bordeTablero);
+            this.llenarConCasilleroCorrespondiente(casillas.get(i), casillas.getLen(), bordeTablero);
         }
     }
 
-    private void llenarConCasilleroCorrespondiente(Casillero casillero, Integer largoCasillas, Integer indice, BordeTablero bordeTablero){
+    private void llenarConCasilleroCorrespondiente(Casillero casillero, Integer largoCasillas, BordeTablero bordeTablero){
         Integer espaciosOcupadosEnLasFilas = this.espaciosQueSeOcupaEnFilas( largoCasillas );
         Double anchoCasilla = this.largoLadoTablero/espaciosOcupadosEnLasFilas;
         Double altoCasilla = anchoCasilla*incrementoDeAncho();
-        HashMap<String, String> informacionCasillero = casillero.obtenerInfoCasillero();
+        HashMap<String, String> informacionCasillero = new HashMap<>();
+        casillero.obtenerInfoCasillero(informacionCasillero);
         CasilleroView casilleroView;
         switch (casillero.obtenerTipoCasillero()){
             case TRANSPORTE:

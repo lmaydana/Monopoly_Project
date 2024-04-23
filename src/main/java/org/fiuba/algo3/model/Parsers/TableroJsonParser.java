@@ -174,6 +174,10 @@ public class TableroJsonParser extends JsonParser {
         String nombrePropiedad = casilleroJson.getString("nombre");
         Double costoDeVenta = casilleroJson.getDouble("precio");
         String color = casilleroJson.getString("color");
+        Double precioHipoteca = casilleroJson.getDouble("hipoteca");
+        Double precioDehipoteca = casilleroJson.getDouble("deshipoteca");
+        this.banco.agregarHipoteca(nombrePropiedad, precioHipoteca);
+        this.banco.agregarDeshipoteca(nombrePropiedad, precioDehipoteca);
         this.coloresDePropiedades.put(nombrePropiedad, Color.valueOf(color));
         this.barrios.putIfAbsent(color, new Barrio(color));
         Barrio barrio = this.barrios.get(color);

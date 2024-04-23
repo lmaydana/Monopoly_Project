@@ -36,10 +36,11 @@ public class CentroDeTransportes {
         return esCompaniero;
     }
 
-    public Double devolverPrecioTotal(Arrendador arrendador, Double precioBase){
-        if( esCompaniero(arrendador) )
+    public Double devolverPrecioTotal(Arrendador arrendadorDeTransporte, Arrendador arrendadorLLegado, Double precioBase){
+        if( this.esCompaniero(arrendadorLLegado) ) {
             return 0.0;
-        int multiplicidad = this.determinarMultiplicidadDeCosto(arrendador);
+        }
+        int multiplicidad = this.determinarMultiplicidadDeCosto(arrendadorDeTransporte);
         return precioBase*multiplicidad;
     }
 }

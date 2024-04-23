@@ -4,7 +4,7 @@ import org.fiuba.algo3.model.Banco.Banco;
 import org.fiuba.algo3.model.Cartera.CantidadInsuficiente;
 import org.fiuba.algo3.model.Cartera.Cartera;
 import org.fiuba.algo3.model.Casilleros.Arrendador.Arrendador;
-import org.fiuba.algo3.model.Casilleros.Arrendador.ArrendadorHipotecado;
+import org.fiuba.algo3.model.Casilleros.Arrendador.ArrendadorSinAcuerdo;
 import org.fiuba.algo3.model.Casilleros.ControladorDeHipotecas.Deshipotecador.Deshipotecador;
 import org.fiuba.algo3.model.Casilleros.ControladorDeHipotecas.Deshipotecador.DeshipotecadorActivo;
 import org.fiuba.algo3.model.Casilleros.ControladorDeHipotecas.Deshipotecador.DeshipotecadorNulo;
@@ -25,19 +25,20 @@ public class ControladorDeHipotecaActivo implements ControladorDeHipotecas {
         this.arrendador = arrendador;
         this.banco = banco;
         this.hipotecador = new HipotecadorActivo(this.nombrePropiedad, this.arrendador, this.banco);
-        this.deshipotecador = new DeshipotecadorNulo(new ArrendadorHipotecado(this.arrendador));
+        this.deshipotecador = new DeshipotecadorNulo(new ArrendadorSinAcuerdo(this.arrendador));
     }
 
     @Override
     public Arrendador deshipotecar(Cartera cartera) throws CantidadInsuficiente {
         Arrendador arrendador = this.deshipotecador.deshipotecar(cartera);
         this.hipotecador = new HipotecadorActivo(this.nombrePropiedad, this.arrendador, this.banco);
-        this.deshipotecador = new DeshipotecadorNulo(new ArrendadorHipotecado(this.arrendador));
+        this.deshipotecador = new DeshipotecadorNulo(new ArrendadorSinAcuerdo(this.arrendador));
         return arrendador;
     }
 
     @Override
     public Arrendador hipotecar(Cartera cartera) {
+        System.out.println(">>>>>>>>>>>>Entree<<<<<<<<<<<<<");
         Arrendador arrendadorHipotecado = this.hipotecador.hipotecar(cartera);
         this.hipotecador = new HipotecadorNulo(arrendadorHipotecado);
         this.deshipotecador = new DeshipotecadorActivo(this.nombrePropiedad, this.arrendador, this.banco);

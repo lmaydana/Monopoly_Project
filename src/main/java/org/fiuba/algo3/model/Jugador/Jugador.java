@@ -14,6 +14,7 @@ import org.fiuba.algo3.model.Jugador.Estado.*;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.Map;
 
 public class Jugador implements Arrendador, Comprador{
@@ -129,5 +130,12 @@ public class Jugador implements Arrendador, Comprador{
 
     public void recibir(String nombreActivo, CasillaComprable activo) {
         this.activos.put(nombreActivo, activo);
+    }
+
+    public void desactivarActivos() {
+        Iterator<String> clavesActvos = this.activos.keySet().iterator();
+        while (clavesActvos.hasNext()){
+            this.activos.get(clavesActvos.next()).desactivar();
+        }
     }
 }

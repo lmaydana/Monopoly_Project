@@ -71,11 +71,11 @@ public class Propiedad extends CasillaComprable{
         return TipoCasillero.PROPIEDAD;
     }
 
-    public HashMap<String, String> obtenerInfoCasillero(){
-        HashMap<String, String> infoCasillero = super.obtenerInfoCasillero();
+    public void obtenerInfoCasillero(HashMap<String, String> infoCasillero){
+        super.obtenerInfoCasillero(infoCasillero);
         infoCasillero.put("tipo", "Propiedad");
+        infoCasillero.put("cantidad de construcciones", this.terreno.cantidadDeConstruccionesEdificadas());
         this.barrio.agegarInfoColor(infoCasillero);
-        return infoCasillero;
     }
 
 }

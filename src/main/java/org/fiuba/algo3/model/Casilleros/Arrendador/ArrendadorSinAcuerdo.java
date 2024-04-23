@@ -3,11 +3,11 @@ package org.fiuba.algo3.model.Casilleros.Arrendador;
 import org.fiuba.algo3.model.Jugador.Comprador;
 import org.fiuba.algo3.model.Jugador.Jugador;
 
-public class ArrendadorHipotecado implements Arrendador {
+public class ArrendadorSinAcuerdo implements Arrendador {
 
     private Arrendador arrendador;
 
-    public ArrendadorHipotecado(Arrendador arrendador) {
+    public ArrendadorSinAcuerdo(Arrendador arrendador) {
         this.arrendador = arrendador;
     }
 

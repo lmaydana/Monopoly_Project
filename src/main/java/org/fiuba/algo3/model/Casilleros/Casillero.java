@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 public class Casillero {
-        private ArrayList<Jugador> jugdoresEnCassila;
+        protected ArrayList<Jugador> jugdoresEnCassila;
 
         public Casillero(){
                 this.jugdoresEnCassila = new ArrayList<>();
@@ -25,10 +25,8 @@ public class Casillero {
                 return TipoCasillero.DE_PASO;
         }
 
-       public HashMap<String, String> obtenerInfoCasillero(){
-                HashMap<String, String> infoCasillero = new HashMap<>();
+       public void obtenerInfoCasillero(HashMap<String, String> infoCasillero){
                 infoCasillero.put("tipo", "De Paso");
-                return infoCasillero;
        }
 
 
@@ -39,4 +37,5 @@ public class Casillero {
             }
             return coloresJugadores;
     }
+
 }

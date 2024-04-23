@@ -29,7 +29,7 @@ public class Juego {
         this.dado = new Random();
     }
 
-    public void moverJugador() throws Exception{
+    public void moverJugador() throws CantidadInsuficiente{
         this.jugadorActual.perderOferta();
         this.tablero.mover(jugarDado(), this.jugadorActual);
     }
@@ -88,5 +88,10 @@ public class Juego {
 
     public String obtenerPlataDisponibleDelJugadorActual() {
         return this.jugadorActual.obtenerPlataDisponible();
+    }
+
+    public void hacerPerderAlJugadorActual() {
+        this.jugadores.remove(this.jugadorActual);
+        this.jugadorActual.desactivarActivos();
     }
 }

@@ -9,7 +9,6 @@ import javafx.scene.shape.Rectangle;
 import javafx.stage.Screen;
 import java.util.ArrayList;
 import java.util.ListIterator;
-
 import javafx.scene.paint.Color;
 import org.fiuba.algo3.model.Cartera.CantidadInsuficiente;
 import org.fiuba.algo3.model.Config;
@@ -79,43 +78,47 @@ public class OpcionesView extends VBox {
         Button construirReformar = this.obtenerBotonDeOpcion("Construir o reformar");
         Button venderConstruccion = this.obtenerBotonDeOpcion("Vender Construccion");
         Button hipotecar = this.obtenerBotonDeOpcion("Hipotecar");
+        Button deshipotecar = this.obtenerBotonDeOpcion("Deshipotecar");
         Button comprarPropiedad = this.obtenerBotonDeOpcion("Comprar propiedad");
         pagarFianza.setOnAction(e-> {
             try {
                 juego.pagarFianza();
                 this.actualizarInformacionJugador();
             } catch (CantidadInsuficiente ex) {
-                System.out.println("Implementar que pasa si no se puede pagar la fianza en OpcionesView->Constructor");
+                juego.hacerPerderAlJugadorActual();
             }
         });
         terminarTurno.setOnAction(e-> {
             juego.pasarTurno();
             try {
                 juego.moverJugador();
-            } catch (Exception ex) {
-                System.out.println("Implementar que pasa si el jugador no pudo moverse o pagar la fianza <- Ver como cambiar este comportammiento en OpcionesView->Constructor");
+            } catch (CantidadInsuficiente ex) {
+                juego.hacerPerderAlJugadorActual();
             }
-            this.actualizarCartas();
+            this. actualizarCartas();
             this.actualizarInformacionJugador();
             this.tableroVista.dibujar();
         });
 
         construirReformar.setOnAction( e ->{
             this.cartaActual.construirVivienda();
+            this.tableroVista.dibujar();
+            this.actualizarInformacionJugador();
         });
 
         venderConstruccion.setOnAction( e -> {
             this.cartaActual.venderConstruccion();
             this.actualizarInformacionJugador();
+            this.tableroVista.dibujar();
         });
 
         hipotecar.setOnAction( e-> {
             this.cartaActual.hipotecar();
-            hipotecar.setText("Deshipotecar");
-            hipotecar.setOnAction( ev->{
-                this.cartaActual.deshipotecar();
-                hipotecar.setText("Hipotecar");
-            });
+            this.actualizarInformacionJugador();
+        });
+
+        deshipotecar.setOnAction( e->{
+            this.cartaActual.deshipotecar();
             this.actualizarInformacionJugador();
         });
 
@@ -124,13 +127,14 @@ public class OpcionesView extends VBox {
                 this.juego.comprarPropiedadOfrecida();
                 this.actualizarCartas();
             } catch (CantidadInsuficiente ex) {
-                System.out.println("Ver como avisar en caso de no poder comprar la vivienda actual OpcionesView-> constructor (tambien ver si conviene extender la excepcion)");
+                this.juego.hacerPerderAlJugadorActual();
+                this.juego.pasarTurno();
             }
             this.actualizarInformacionJugador();
         });
 
 
-        this.getChildren().addAll(pagarFianza, sectorSeleccionDePropiedad, terminarTurno, construirReformar, venderConstruccion, hipotecar, comprarPropiedad);
+        this.getChildren().addAll(pagarFianza, sectorSeleccionDePropiedad, terminarTurno, construirReformar, venderConstruccion, hipotecar, deshipotecar, comprarPropiedad);
         this.setAlignment(Pos.BASELINE_CENTER);
         this.setSpacing(20);
         this.tableroVista.dibujar();
@@ -142,7 +146,7 @@ public class OpcionesView extends VBox {
         Rectangle marcoConColor = new Rectangle(0,0, 20, 20);
         marcoConColor.setStroke(null);
         marcoConColor.setFill(Color.valueOf(this.juego.obtenerColorJugadorActual()));
-        Label plataJugador = new Label("Dinero disponible: $"+this.juego.obtenerPlataDisponibleDelJugadorActual());
+        Label plataJugador = new Label("Dinero disponible: $" + this.juego.obtenerPlataDisponibleDelJugadorActual());
         cajaInformacionJugador.getChildren().addAll(marcoConColor, nombreJugador , plataJugador);
         cajaInformacionJugador.setAlignment(Pos.CENTER);
         cajaInformacionJugador.setSpacing(30);

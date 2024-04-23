@@ -22,9 +22,8 @@ public class Loteria extends CasillaTransferidora{
         return TipoCasillero.LOTERIA;
     }
 
-    public HashMap<String, String> obtenerInfoCasillero(){
-        HashMap<String, String> infoCasillero = super.obtenerInfoCasillero();
+    public void obtenerInfoCasillero( HashMap<String, String> infoCasillero ){
+         super.obtenerInfoCasillero(infoCasillero);
         infoCasillero.put("tipo", "Loteria");
-        return infoCasillero;
     }
 }

@@ -9,8 +9,6 @@ import java.util.HashMap;
 
 public class TransporteView extends CasilleroView{
 
-    private Orientacion orientacion;
-
     public TransporteView(Double anchoCasilla, Double altoCasilla, Casillero casillero, HashMap<String, String> informacionCasillero, String direccionImagen, Orientacion orientacion) {
         super(anchoCasilla, altoCasilla, casillero, informacionCasillero, direccionImagen, orientacion);
         this.orientacion = orientacion;
@@ -28,7 +26,9 @@ public class TransporteView extends CasilleroView{
     }
 
     protected String obtenerTextoCasilla(){
-        return this.casillero.obtenerInfoCasillero().get("nombre");
+        HashMap<String, String> informacionCasillero = new HashMap<>();
+        this.casillero.obtenerInfoCasillero(informacionCasillero);
+        return informacionCasillero.get("nombre");
     }
 
     public Double altoMaximoPrecio() {

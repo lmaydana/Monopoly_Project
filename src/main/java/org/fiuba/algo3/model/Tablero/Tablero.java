@@ -1,5 +1,6 @@
 package org.fiuba.algo3.model.Tablero;
 
+import org.fiuba.algo3.model.Cartera.CantidadInsuficiente;
 import org.fiuba.algo3.model.Casilleros.Carcel;
 import org.fiuba.algo3.model.Casilleros.Casillero;
 import org.fiuba.algo3.model.Casilleros.IrALaCarcel;
@@ -34,23 +35,27 @@ public class Tablero {
         }
     }
 
-    public void mover(int pasos, Jugador jugador) throws Exception{
+    public void mover(int pasos, Jugador jugador) throws CantidadInsuficiente {
         Iterador<Casillero> iterador = this.iteradores.get(jugador);
         Casillero casillero = iterador.obtenerActual();
-        jugador.moverse(pasos);
-        casillero.sacar(jugador);
-        for(int i = 0; i < pasos && iterador.tieneSiguiente(); i++){
-            iterador.avanzar();
-            if(iterador.estaAlPrincipio() && i < pasos - 1){
-                casillero = iterador.obtenerActual();
-                casillero.recibir(jugador);
-                casillero.sacar(jugador);
+        try {
+            jugador.moverse(pasos);
+            casillero.sacar(jugador);
+            for(int i = 0; i < pasos && iterador.tieneSiguiente(); i++){
+                iterador.avanzar();
+                if(iterador.estaAlPrincipio() && i < pasos - 1){
+                    casillero = iterador.obtenerActual();
+                    casillero.recibir(jugador);
+                    casillero.sacar(jugador);
+                }
             }
-        }
-        casillero = iterador.obtenerActual();
-        casillero.recibir(jugador);
-        if( this.casillerosIrALaCarcel.contains(casillero) ){
-            iterador.avanzarHasta(this.carcel);
+            casillero = iterador.obtenerActual();
+            casillero.recibir(jugador);
+            if( this.casillerosIrALaCarcel.contains(casillero) ){
+                iterador.avanzarHasta(this.carcel);
+            }
+        }catch (JugadorEncarcelado excepcion){
+            //Log "El jugador esta encarcelado, no puede ser movido
         }
     }
 

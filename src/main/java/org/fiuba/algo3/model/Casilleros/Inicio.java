@@ -24,9 +24,8 @@ public class Inicio extends CasillaTransferidora {
         return TipoCasillero.INICIO;
     }
 
-    public HashMap<String, String> obtenerInfoCasillero(){
-        HashMap<String, String> infoCasillero = super.obtenerInfoCasillero();
+    public void obtenerInfoCasillero( HashMap<String, String> infoCasillero ){
+        super.obtenerInfoCasillero(infoCasillero);
         infoCasillero.put("tipo", "Inicio");
-        return infoCasillero;
     }
 }

@@ -23,9 +23,11 @@ public class Terreno {
     }
 
     public void edificar(Cartera cartera) throws CantidadInsuficiente {
-        Inmueble inmuebleAPoner = this.inmueblesPorPoner.removeFirst();
-        inmuebleAPoner.comprar(cartera);
-        this.inmueblesActuales.add(inmuebleAPoner);
+        if( !this.inmueblesPorPoner.isEmpty() ) {
+            Inmueble inmuebleAPoner = this.inmueblesPorPoner.removeFirst();
+            inmuebleAPoner.comprar(cartera);
+            this.inmueblesActuales.add(inmuebleAPoner);
+        }
     }
 
     public Double tasar( ){
@@ -33,8 +35,14 @@ public class Terreno {
     }
 
     public void venderInmueble(Transferible transferible){
+        if( !inmueblesActuales.isEmpty() ) {
             Inmueble inmueble = this.inmueblesActuales.removeLast();
             inmueble.vender(transferible);
             this.inmueblesPorPoner.addFirst(inmueble);
+        }
+    }
+
+    public String cantidadDeConstruccionesEdificadas() {
+        return String.valueOf(this.inmueblesActuales.size());
     }
 }

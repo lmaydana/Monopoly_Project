@@ -3,7 +3,6 @@ package org.fiuba.algo3.model.Jugador.Estado;
 import org.fiuba.algo3.model.Banco.Banco;
 import org.fiuba.algo3.model.Cartera.CantidadInsuficiente;
 import org.fiuba.algo3.model.Casilleros.CasillaComprable;
-import org.fiuba.algo3.model.Casilleros.Propiedad;
 import org.fiuba.algo3.model.Jugador.Jugador;
 
 import java.util.Map;
@@ -25,7 +24,6 @@ public class EstadoNormal implements Estado {
     @Override
     public void acordar(Jugador jugador, String propiedad, Map<String, CasillaComprable> propiedades) throws CantidadInsuficiente {
         Double precioACobrar = propiedades.get(propiedad).tasar();
-        System.out.println(">>>>>>>>>>>>>>>>>Entre, precio:"+precioACobrar+" (EstadoNormal->acordar)");
         jugador.transferir(precioACobrar, this.jugador);
     }
 }
