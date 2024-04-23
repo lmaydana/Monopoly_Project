@@ -4,8 +4,6 @@ import org.fiuba.algo3.model.Cartera.CantidadInsuficiente;
 import org.fiuba.algo3.model.Casilleros.Arrendador.Arrendador;
 import org.fiuba.algo3.model.Casilleros.Arrendador.ArrendadorDeVenta;
 import org.fiuba.algo3.model.Jugador.Jugador;
-import org.fiuba.algo3.model.Cartera.Cartera;
-
 import java.util.HashMap;
 
 public abstract class CasillaComprable extends Casillero implements Comprable {
@@ -15,7 +13,9 @@ public abstract class CasillaComprable extends Casillero implements Comprable {
     public CasillaComprable(String nombre, Double costoDeVenta){
         super();
         this.nombre = nombre;
-        this.arrendador = new ArrendadorDeVenta();
+        ArrendadorDeVenta arrendadorDeVenta= new ArrendadorDeVenta();
+        arrendadorDeVenta.agregarPropiedad(this.nombre, this);
+        this.arrendador = arrendadorDeVenta;
         this.costoDeVenta = costoDeVenta;
     }
 

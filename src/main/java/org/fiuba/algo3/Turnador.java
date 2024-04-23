@@ -16,8 +16,7 @@ public class Turnador {
     private Iterator<Jugador> iteradorJugadores;
 
 
-    public Turnador(Consola consola, Juego juego, List<Jugador> jugadores){
-        this.consola = consola;
+    public Turnador(Juego juego, List<Jugador> jugadores){
         this.juego = juego;
         this.jugadores = jugadores;
         this.iteradorJugadores = this.jugadores.iterator();
@@ -39,12 +38,11 @@ public class Turnador {
             if(!iteradorJugadores.hasNext())
                 iteradorJugadores = this.jugadores.iterator();
             Jugador jugador = iteradorJugadores.next();
-            juego.moverJugador(jugador);
+            juego.moverJugador();
             Integer opcion = 0;
             String nombrePropiedad;
             ArrayList<String> propiedades = jugador.getNombrePropiedades();
             while(opcion != 1 ) {
-                opcion = consola.mostrarOpciones();
                 switch (opcion) {
                     case 2:
                         nombrePropiedad = consola.pedirDato(propiedades, "Elija la propiedad a reformar o construir");
@@ -53,7 +51,7 @@ public class Turnador {
                     case 3:
                         nombrePropiedad = consola.pedirDato(propiedades, "Elija la propiedad desde la cual se venderan las construcciones:");
                         Integer cantidadAVender = consola.pedirDatoInt("Elija la cantidad de construccione a vender: ");
-                        jugador.venderPropiedades(nombrePropiedad, cantidadAVender);
+                        jugador.venderConstruccion(nombrePropiedad);
 
                     case 4:
                         nombrePropiedad = consola.pedirDato(propiedades, "Elija la propiedad a hipotecar");

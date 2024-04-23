@@ -21,9 +21,8 @@ public class TableroView extends BorderPane {
     public TableroView( Config config ){
         this.largoLadoTablero = (Screen.getPrimary().getBounds().getHeight() * factorCantidadUtilizable());
         this.setPrefSize(largoLadoTablero, largoLadoTablero);
-        this.llenarlistaCasilleros(config);
+        this.agregarBordesDelTablero(config);
         this.crearCentroDelTablero();
-        //this.crearLadosDelTablero();
     }
 
     private void crearCentroDelTablero() {
@@ -40,69 +39,7 @@ public class TableroView extends BorderPane {
         this.setCenter(contenedorCentral);
     }
 
-    private String obtenerDireccionImagenCentral() {
-        return "file:src/main/java/org/fiuba/algo3/view/imagenes/Monopoly-Logo-2008.png";
-    }
-
-    private void crearLadosDelTablero() {
-        Integer cantidadDeCasillasPorLado = this.casilleros.size() / ladosDelTablero();
-        BordeTablero borde = new FilaTablero(cantidadDeCasillasPorLado, 0, this);
-        for ( int i = 0; i < this.casilleros.size(); i++){
-            borde = borde.obtenerSiguienteBorde( this );
-            //borde.agregar(this.casilleros.get(i));
-            borde.darVuelta();
-            if( hayQueInvertir(i) ){
-
-            }
-            borde.posicionar();
-        }
-    }
-
-    private Double obtenerGrados( Integer indice ) {
-        return hayQueInvertir(indice) ? 180.0 : 0.0;
-    }
-
-    private boolean hayQueInvertir(Integer indice) {
-        return ladoActual(indice) >= 2;
-    }
-
-    private Integer ladoActual(Integer indice) {
-        Integer cantidadDeCasillasPorLado = this.casilleros.size() / ladosDelTablero();
-        return indice / cantidadDeCasillasPorLado;
-    }
-
-    private boolean cambioDeLado(int i, Integer cantidadDeCasillasPorLado) {
-
-        return i % cantidadDeCasillasPorLado == 1;
-    }
-
-    private Pane obtenerDisposicionAcorde(Integer indice) {
-        Integer lado = ladoActual(indice);
-        Pane disposicion;
-        Integer espaciosOcupadosEnLasFilas = this.espaciosQueSeOcupaEnFilas( this.casilleros.size() );
-        Double anchoCasilla = largoLadoTablero/espaciosOcupadosEnLasFilas;
-        Double altoCasilla = anchoCasilla * 2;
-
-        if(lado % 2 == 0){
-            disposicion = new HBox();
-            disposicion.setPrefHeight(altoCasilla);
-            return disposicion;
-        }
-
-        disposicion  = new VBox();
-        disposicion.setPrefWidth(altoCasilla);
-        return disposicion;
-    }
-
-    private double factorAnchoImagenCentral() {
-        return 0.25;
-    }
-
-    private double factorCantidadUtilizable() {
-        return 0.865740741;
-    }
-
-    private void llenarlistaCasilleros(Config config) {
+    private void agregarBordesDelTablero(Config config) {
         ListaCircular<Casillero> casillas = config.obtenerCasilleros();
         Integer cantidadDeCasillasPorLado = casillas.getLen() / ladosDelTablero();
         this.casilleros = new ArrayList<>();
@@ -110,22 +47,8 @@ public class TableroView extends BorderPane {
         for (int i = 0; i < casillas.getLen(); i++){
             bordeTablero = bordeTablero.obtenerSiguienteBorde(this);
             this.llenarConCasilleroCorrespondiente(casillas.get(i), casillas.getLen(), i, bordeTablero);
-
         }
 
-    }
-
-    private Double obtenerGrados( Integer cantidadDeCasillasPorLado,Integer indice ) {
-        return hayQueInvertir(cantidadDeCasillasPorLado, indice) ? 180.0 : 0.0;
-    }
-
-    private boolean hayQueInvertir( Integer cantidadDeCasillasPorLado, Integer indice) {
-        return ladoActual(cantidadDeCasillasPorLado, indice) == 1 && ladoActual(cantidadDeCasillasPorLado, indice) == 2;
-    }
-
-
-    private Integer ladoActual(Integer cantidadDeCasillasPorLado, Integer indice){
-        return indice / cantidadDeCasillasPorLado;
     }
 
     private void llenarConCasilleroCorrespondiente(Casillero casillero, Integer largoCasillas, Integer indice, BordeTablero bordeTablero){
@@ -159,17 +82,20 @@ public class TableroView extends BorderPane {
         bordeTablero.posicionar();
     }
 
+    private String obtenerDireccionImagenCentral() {
+        return "file:src/main/java/org/fiuba/algo3/view/imagenes/Monopoly-Logo-2008.png";
+    }
+
+    private double factorAnchoImagenCentral() {
+        return 0.25;
+    }
+
+    private double factorCantidadUtilizable() {
+        return 0.865740741;
+    }
+
     private int incrementoDeAncho() {
         return 2;
-    }
-
-    private Orientacion obtenerOrientacionCorrecta(Integer indice, Integer largoLadoTablero){
-         if( laCasillaActualEstaEnFila(indice, largoLadoTablero) ) return Orientacion.PORTRAIT;
-         return Orientacion.LANDSCAPE;
-    }
-
-    private boolean laCasillaActualEstaEnFila(Integer indice, Integer largoLadoTablero) {
-        return (indice / largoLadoTablero) % 2 == 0;
     }
 
     private Integer espaciosQueSeOcupaEnFilas(Integer totalDeCasillas){

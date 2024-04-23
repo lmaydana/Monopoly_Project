@@ -1,9 +1,11 @@
 package org.fiuba.algo3.model.Parsers;
 
 
+import org.fiuba.algo3.model.Banco.Banco;
 import org.fiuba.algo3.model.Casilleros.Casillero;
 import org.fiuba.algo3.model.Tablero.ListaCircular;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 
 public class RecursosExternos {
@@ -25,5 +27,13 @@ public class RecursosExternos {
 
     public HashMap<Casillero, HashMap<String, String>> obtenerInfoCasilleros() {
         return this.tableroJsonParser.obtenerInfoCasilleros();
+    }
+
+    public ArrayList<ArrayList<String>> obtenerInformacionInmueblesSobre( String nombrePropiedad){
+        return this.tableroJsonParser.obtenerInformacionInmueblesSobre(nombrePropiedad);
+    }
+
+    public Banco obtenerBanco(){
+        return this.tableroJsonParser.obtenerBanco();
     }
 }

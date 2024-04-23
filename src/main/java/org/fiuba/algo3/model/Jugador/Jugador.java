@@ -1,5 +1,6 @@
 package org.fiuba.algo3.model.Jugador;
 
+import javafx.scene.paint.Color;
 import org.fiuba.algo3.model.Banco.Banco;
 import org.fiuba.algo3.model.Cartera.Billetera;
 import org.fiuba.algo3.model.Cartera.CantidadInsuficiente;
@@ -19,19 +20,18 @@ public class Jugador implements Arrendador, Comprador{
 
     //faltaria un atributo para el color de cada jugador y el nombre
     private String nombreJugador;
-    private String color;
+    private Color color;
     private Cartera cartera;
     private Estado estado;
     private Map<String, Propiedad> propiedades;
     private Contrato contratoActual;
 
-    public Jugador(String nombreJugador, String color){
+    public Jugador(String nombreJugador, Color color, Config config){
         this.nombreJugador = nombreJugador;
         this.color = color;
         this.propiedades = new HashMap<>();
         this.contratoActual = new ContratoSinEfecto();
         this.estado = new EstadoNormal(this);
-        Config config = new Config();
         this.cartera = new Billetera(config.obtenerMontoDePlataIncial());
     }
 
@@ -85,8 +85,8 @@ public class Jugador implements Arrendador, Comprador{
         this.propiedades.get(nombrePropiedad).construirVivienda(cartera);
     }
 
-    public void venderPropiedades(String nombrePropiedad, Integer cantidadAVender){
-        this.propiedades.get(nombrePropiedad).venderConstrucciones(cantidadAVender);
+    public void venderConstruccion(String nombrePropiedad){
+        this.propiedades.get(nombrePropiedad).venderConstruccion();
     }
 
     public void hipotecar(String nombrePropiedad){
@@ -105,5 +105,9 @@ public class Jugador implements Arrendador, Comprador{
     }
     public void pagarFianza(double monto, Banco banco) throws CantidadInsuficiente{
         estado.pagarFianza(monto,banco);
+    }
+
+    public void cargarNombreDePropiedadesEnPosesion(ArrayList<String> propiedadesEnPosesion) {
+        propiedadesEnPosesion.addAll(this.propiedades.keySet());
     }
 }

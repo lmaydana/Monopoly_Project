@@ -14,13 +14,11 @@ public class Barrio {
     private String nombreBarrio;
     private ArrayList<Propiedad> propiedadesDelBarrio;
 
-    private Banco banco;
 
 
-    public Barrio(String nombreGrupo, Banco banco){
+    public Barrio(String nombreGrupo){
         this.nombreBarrio = nombreGrupo;
         this.propiedadesDelBarrio = new ArrayList<>();
-        this.banco = banco;
     }
 
     public void agregarPropiedad( Propiedad propiedad ){
@@ -35,9 +33,9 @@ public class Barrio {
         return true;
     }
 
-    public Constructor obtenerConstructorAprobado(Arrendador arrendador, Terreno terreno, ArrayList<Double> precios){
+    public Constructor obtenerConstructorAprobado(Arrendador arrendador, Terreno terreno){
         if( this.tienenElMismoArrendador(arrendador) ){
-            return new ConstructorDeInmuebles(this.banco, terreno, precios);
+            return new ConstructorDeInmuebles( terreno );
         }
         return new ConstructorNulo();
 

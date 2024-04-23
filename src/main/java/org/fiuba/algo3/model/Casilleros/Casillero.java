@@ -15,7 +15,6 @@ public class Casillero {
 
         public void recibirJugador(Jugador jugador) throws CantidadInsuficiente {
                 this.jugdoresEnCassila.add(jugador);
-                //jugador.posicionarEn(this);
         }
 
         public void sacarDeCasillero(Jugador jugador){

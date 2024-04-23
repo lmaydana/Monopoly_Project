@@ -38,10 +38,9 @@ public class FilaTablero extends BordeTableroBase{
     public BordeTablero obtenerSiguienteBorde(BorderPane disposicion) {
         if(!puedoAceptarMasHijos()){
             List<Node> hijos = this.disposicion.getChildren().reversed();
-            LinkedList<Node> hijoscp = new LinkedList<>(hijos);
+            LinkedList<Node> hijosCopia = new LinkedList<>(hijos);
             this.disposicion.getChildren().clear();
-            System.out.println("Hijos:"+hijos.size());
-            this.disposicion.getChildren().addAll(hijoscp);
+            this.disposicion.getChildren().addAll(hijosCopia);
         }
         return super.obtenerSiguienteBorde(disposicion);
     }

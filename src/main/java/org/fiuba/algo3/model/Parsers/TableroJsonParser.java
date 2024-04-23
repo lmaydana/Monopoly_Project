@@ -28,8 +28,11 @@ public class TableroJsonParser extends JsonParser {
 
     private Carcel carcel;
 
+    private HashMap<String,ArrayList<ArrayList<String>>> preciosInmueblesPorNombreDePropiedad;
+
     public TableroJsonParser(String fileName) throws InvalidJson {
         super(fileName);
+        this.preciosInmueblesPorNombreDePropiedad = new HashMap<>();
         this.infoCasilla = new HashMap<>();
         this.casilleros = new ListaCircular<>();
         this.banco = new Banco();
@@ -95,6 +98,14 @@ public class TableroJsonParser extends JsonParser {
         return this.casilleros;
     }
 
+    public Banco obtenerBanco(){
+        return this.banco;
+    }
+
+    public ArrayList<ArrayList<String>> obtenerInformacionInmueblesSobre(String nombrePropiedad){
+        return this.preciosInmueblesPorNombreDePropiedad.get(nombrePropiedad);
+    }
+
     private Casillero crearCasilleroInicio(JSONObject casilleroJson) {
         Double montoAlPasarPorInicio = casilleroJson.getDouble("monto");
         return new Inicio(montoAlPasarPorInicio, banco);
@@ -128,19 +139,17 @@ public class TableroJsonParser extends JsonParser {
         return transporte;
     }
 
-    private Casillero crearCasilleroPropiedad(JSONObject casilleroJson) {
+    private Casillero crearCasilleroPropiedad(JSONObject casilleroJson) throws InvalidJson {
         String nombrePropiedad = casilleroJson.getString("nombre");
         Double costoDeVenta = casilleroJson.getDouble("precio");
         String color = casilleroJson.getString("color");
-        this.barrios.putIfAbsent(color, new Barrio(color, banco));
+        this.barrios.putIfAbsent(color, new Barrio(color));
         Barrio barrio = this.barrios.get(color);
         JSONObject preciosDeVentaInmuebles = casilleroJson.getJSONObject("precio venta viviendas");
-        ArrayList<Inmueble> inmuebles = this.obtenerInmuebles(preciosDeVentaInmuebles);
         JSONObject preciosDeRentasPorCantidadDeInmuebles = casilleroJson.getJSONObject("rentas");
-        ArrayList<Double> preciosRentas = this.obtenerPrecios(preciosDeRentasPorCantidadDeInmuebles);
         JSONObject preciosDeCompraInmuebles = casilleroJson.getJSONObject("precio compra viviendas");
-        ArrayList<Double> preciosDeCompra = this.obtenerPrecios(preciosDeCompraInmuebles);
-        Propiedad propiedad = new Propiedad(nombrePropiedad, costoDeVenta,barrio,inmuebles,preciosRentas,preciosDeCompra, banco);
+        ArrayList<Inmueble> inmuebles = this.obtenerInmuebles(nombrePropiedad, preciosDeVentaInmuebles, preciosDeRentasPorCantidadDeInmuebles, preciosDeCompraInmuebles);
+        Propiedad propiedad = new Propiedad(nombrePropiedad, costoDeVenta,barrio,inmuebles, banco);
         barrio.agregarPropiedad(propiedad);
         HashMap<String, String> infoPropiedad = new HashMap<>();
         infoPropiedad.put("nombre", nombrePropiedad);
@@ -148,6 +157,14 @@ public class TableroJsonParser extends JsonParser {
         infoPropiedad.put("color", color);
         this.infoCasilla.put(propiedad, infoPropiedad);
         return propiedad;
+    }
+
+    private ArrayList<String> cambiarElementosACadena( ArrayList<Double> elementos ){
+        ArrayList<String> elementosEnCadenas = new ArrayList<>();
+        for ( Double elemento: elementos ){
+            elementosEnCadenas.add(elemento.toString());
+        }
+        return elementosEnCadenas;
     }
 
     private ArrayList<Double> obtenerPrecios(JSONObject preciosJson){
@@ -160,13 +177,53 @@ public class TableroJsonParser extends JsonParser {
         return preciosArray;
     }
 
-    private ArrayList<Inmueble> obtenerInmuebles(JSONObject preciosDeVentaInmuebles) {
+    private ArrayList<Inmueble> obtenerInmuebles(String nombrePropiedad, JSONObject preciosDeVentaInmuebles, JSONObject preciosDeRentasPorCantidadDeInmuebles, JSONObject preciosDeCompraInmuebles) throws InvalidJson {
         ArrayList<Inmueble> inmuebles = new ArrayList<>();
-        for ( Double precioDeVenta : this.obtenerPrecios(preciosDeVentaInmuebles) ){
-            Inmueble inmueble = new Vivienda(precioDeVenta);
+        ArrayList<Double> preciosDeVenta = this.obtenerPrecios(preciosDeVentaInmuebles);
+        ArrayList<Double> preciosDeCompra = this.obtenerPrecios(preciosDeCompraInmuebles);
+        ArrayList<Double> preciosDeRentas = this.obtenerPrecios(preciosDeRentasPorCantidadDeInmuebles);
+
+        agregarADiccionarioDePreciosInmuebles(nombrePropiedad, preciosDeRentas, preciosDeCompra, preciosDeVenta);
+
+        if( preciosDeVenta.size() != preciosDeRentas.size() || preciosDeRentas.size() != preciosDeVenta.size() ){
+            throw new InvalidJson("Las cantidades de datos de los precios de las viviendas son erroneos.");
+        }
+
+        Double precioRentaAcumulado = 0.0;
+        for ( int i = 0; i < preciosDeRentas.size(); i++ ) {
+            Double precioDeCompra = preciosDeCompra.get(i);
+            Double precioDeVenta = preciosDeVenta.get(i);
+            Double precioDeRenta = preciosDeRentas.get(i);
+            precioDeRenta = precioDeRenta - precioRentaAcumulado;
+            precioRentaAcumulado += precioDeRenta;
+            Inmueble inmueble = new Vivienda(precioDeVenta, precioDeCompra, precioDeRenta, this.banco);
             inmuebles.add(inmueble);
         }
         return inmuebles;
     }
+
+    private void agregarADiccionarioDePreciosInmuebles(String nombrePropiedad, ArrayList<Double> preciosDeRentas, ArrayList<Double> preciosDeCompra, ArrayList<Double> preciosDeVenta) {
+        ArrayList< ArrayList<String> > preciosInmuebles = new ArrayList<>();
+        ArrayList<String> preciosRenta = this.cambiarElementosACadena(preciosDeRentas);
+        ArrayList<String> preciosCompra = this.cambiarElementosACadena(preciosDeCompra);
+        ArrayList<String> preciosVenta = this.cambiarElementosACadena(preciosDeVenta);
+        ArrayList<String> columnaCantidadDeViviendas = new ArrayList<>();
+        columnaCantidadDeViviendas.add("Viviendas");
+        columnaCantidadDeViviendas.add("0 casas");
+        columnaCantidadDeViviendas.add("1 casa");
+        columnaCantidadDeViviendas.add("2 casas");
+        columnaCantidadDeViviendas.add("3 casas");
+        columnaCantidadDeViviendas.add("4 casas");
+        columnaCantidadDeViviendas.add("1 hotel");
+        preciosRenta.addFirst("Rentas");
+        preciosCompra.addFirst("P. Compra");
+        preciosVenta.addFirst("P. Venta");
+        preciosInmuebles.add(columnaCantidadDeViviendas);
+        preciosInmuebles.add(preciosRenta);
+        preciosInmuebles.add( preciosCompra);
+        preciosInmuebles.add( preciosVenta);
+        this.preciosInmueblesPorNombreDePropiedad.put(nombrePropiedad, preciosInmuebles);
+    }
+
 
 }

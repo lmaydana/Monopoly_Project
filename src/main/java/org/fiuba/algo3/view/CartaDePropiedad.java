@@ -2,19 +2,25 @@ package org.fiuba.algo3.view;
 
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
-import javafx.scene.Group;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.layout.*;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.paint.Color;
 import javafx.scene.text.TextAlignment;
+import org.fiuba.algo3.model.Cartera.CantidadInsuficiente;
+import org.fiuba.algo3.model.Juego;
 
 import java.util.ArrayList;
 
 public class CartaDePropiedad extends VBox {
 
-    public CartaDePropiedad(Double anchoCarta, Double altoCarta, Color color, String nombre, Image imagenDeFondo, ArrayList<String>... infoTabla) {
+    private final String nombre;
+    private final Juego juego;
+
+    public CartaDePropiedad(Double anchoCarta, Double altoCarta, Color color, String nombre, Juego juego, ArrayList<String>... infoTabla) {
+        this.nombre = nombre;
+        this.juego = juego;
         Rectangle marcoConColor = new Rectangle(0,0, anchoCarta, altoCarta*0.2);
         marcoConColor.setStroke(null);
         marcoConColor.setFill(color);
@@ -28,6 +34,7 @@ public class CartaDePropiedad extends VBox {
         this.getChildren().add(marcoConColor);
         this.getChildren().add(nombreEtiqueta);
         this.getChildren().add(tabla);
+        tabla.setAlignment(Pos.CENTER);
         Border borde = new Border(new BorderStroke(Color.BLACK, BorderStrokeStyle.SOLID, CornerRadii.EMPTY, new BorderWidths(3)));
         this.setBorder(borde);
         this.setAlignment(Pos.CENTER);
@@ -52,4 +59,27 @@ public class CartaDePropiedad extends VBox {
         return etiqueta;
     }
 
+    public void construirVivienda() {
+        try {
+            juego.construirEn(this.nombre);
+        } catch (CantidadInsuficiente e) {
+            System.out.println("Ver como avisar en caso de no poder construir en la vivienda seleccionada CartaDePropiedad-> construirVivienda (tambien ver si conviene extender la excepcion)");
+        }
+    }
+
+    public void venderConstruccion() {
+        this.juego.venderConstruccion(this.nombre);
+    }
+
+    public void hipotecar() {
+        this.juego.hipotecar(this.nombre);
+    }
+
+    public void deshipotecar() {
+        try {
+            this.juego.deshipotecar(this.nombre);
+        } catch (CantidadInsuficiente e) {
+            System.out.println("Ver como avisar en caso de no poder deshipotecar en la vivienda seleccionada CartaDePropiedad-> deshipotecar (tambien ver si conviene extender la excepcion)");
+        }
+    }
 }

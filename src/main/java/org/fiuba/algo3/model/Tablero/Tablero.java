@@ -11,8 +11,8 @@ public class Tablero {
     private ListaCircular<Casillero> tablero;
     private Config config;
     private HashMap<Jugador,Iterador<Casillero>> iteradores;
-    public Tablero(List<Jugador> jugadores){
-        this.config = new Config();
+    public Tablero(List<Jugador> jugadores, Config config){
+        this.config = config;
         this.tablero = this.config.obtenerCasilleros();
         this.iteradores = new HashMap<>();
         this.llenarIteradores(jugadores);

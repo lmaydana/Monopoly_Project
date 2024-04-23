@@ -1,8 +1,11 @@
 package org.fiuba.algo3.model;
+import javafx.scene.paint.Color;
+import org.fiuba.algo3.model.Banco.Banco;
 import org.fiuba.algo3.model.Casilleros.Casillero;
 import org.fiuba.algo3.model.Parsers.RecursosExternos;
 import org.fiuba.algo3.model.Tablero.ListaCircular;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 
 public class Config {
@@ -20,20 +23,53 @@ public class Config {
     protected Double cantDineroCasilleroInicial = 500.0;
 
     RecursosExternos parsers;
+    private Integer cantidadMaximaDeJugadores = 4;
+
+    private Double fianza = 50.0;
+
+    private ArrayList<Color> coloresJugadores;
 
     public Config(){
         this.parsers = new RecursosExternos();
+        this.coloresJugadores = new ArrayList<>();
+    }
+
+    private void cargarColoreJugadores(){
+        this.coloresJugadores.add(Color.BLUE);
+        this.coloresJugadores.add(Color.RED);
+        this.coloresJugadores.add(Color.GREEN);
+        this.coloresJugadores.add(Color.YELLOW);
+    }
+
+    public ArrayList<Color> obtenerColoresJugadores(){
+        return coloresJugadores;
     }
 
     public HashMap<Casillero, HashMap<String, String>> obtenerInfoCasilleros(){
         return this.parsers.obtenerInfoCasilleros();
     }
 
+    public Banco obtenerBanco(){
+        return this.parsers.obtenerBanco();
+    }
+
     public ListaCircular<Casillero> obtenerCasilleros(){
         return this.parsers.obtenerCasilleros();
     }
 
+    public ArrayList<ArrayList<String>> obtenerInformacionDeInmueblesSobre( String nombrePropiedad){
+        return this.parsers.obtenerInformacionInmueblesSobre(nombrePropiedad);
+    }
+
     public Double obtenerMontoDePlataIncial() {
         return this.cantDineroJugadorInicial;
+    }
+
+    public Integer obtenerCantidadMaximaDeJugagores(){
+        return this.cantidadMaximaDeJugadores;
+    }
+
+    public Double obtnerMontoFianza(){
+        return this.fianza;
     }
 }
