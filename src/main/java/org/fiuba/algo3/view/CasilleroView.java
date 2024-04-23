@@ -1,11 +1,13 @@
 package org.fiuba.algo3.view;
 
 import javafx.scene.Group;
+import javafx.scene.Node;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
+import javafx.scene.shape.Circle;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.TextAlignment;
 import org.fiuba.algo3.model.Casilleros.Casillero;
@@ -21,10 +23,14 @@ public class CasilleroView extends Pane {
 
     protected Casillero casillero;
 
+    protected ArrayList<Node> jugadoresEnCasilla;
+
     protected HashMap<String, String> informacionCasillero;
+
 
     public CasilleroView(Double anchoCasilla, Double altoCasilla, Casillero casillero, HashMap<String, String> informacionCasillero, String direccionImagen, Orientacion orientacion){
         this.orientacion = orientacion;
+        this.jugadoresEnCasilla = new ArrayList<>();
         this.anchoCasilla = anchoCasilla;
         this.informacionCasillero = informacionCasillero;
         this.casillero = casillero;
@@ -120,4 +126,36 @@ public class CasilleroView extends Pane {
         return altoCasilla * 0.8;
     }
 
+    public void dibujar() {
+        this.getChildren().removeAll(this.jugadoresEnCasilla);
+        this.jugadoresEnCasilla.clear();
+        ArrayList<String> coloresJugadores= this.casillero.obtenerColoresJugadores();
+        for ( String colorJugador : coloresJugadores){
+            Color color = Color.valueOf(colorJugador);
+            this.dibujarJugador(color);
+        }
+    }
+
+    private void dibujarJugador(Color color) {
+
+        Circle jugador = new Circle(posicionXJugador(), posicionYJugador(), radioCirculoJugador(), color);
+        this.getChildren().add(jugador);
+        this.jugadoresEnCasilla.add(jugador);
+    }
+
+    private double posicionYJugador() {
+        return this.getHeight() * 0.5 + diametroCirculoJugador() * this.jugadoresEnCasilla.size();
+    }
+
+    private double diametroCirculoJugador() {
+        return radioCirculoJugador() * 2;
+    }
+
+    private double posicionXJugador() {
+        return this.getWidth() * 0.5 + radioCirculoJugador();
+    }
+
+    private Double radioCirculoJugador(){
+        return 10.0;
+    }
 }

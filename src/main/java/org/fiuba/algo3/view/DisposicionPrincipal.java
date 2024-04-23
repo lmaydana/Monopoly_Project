@@ -23,22 +23,7 @@ public class DisposicionPrincipal extends BorderPane {
         Tablero tablero = new Tablero(jugadores, configuracion);
         this.juego = new Juego(jugadores, tablero, configuracion);
         this.setCenter(tableroVista);
-
-        //----------------Codigo para probar funcionalidad de cartas
-        /*
-        try {
-            ListaCircular<Casillero> casilleros = configuracion.obtenerCasilleros();
-            Jugador jugador = jugadores.getFirst();
-            casilleros.get(1).recibirJugador(jugador);
-            jugador.comprarPropiedadOfrecida();
-            casilleros.get(3).recibirJugador(jugador);
-            jugador.comprarPropiedadOfrecida();
-            casilleros.get(9).recibirJugador(jugador);
-            jugador.comprarPropiedadOfrecida();
-        } catch (CantidadInsuficiente e) {
-            throw new RuntimeException(e);
-        }*/
-        OpcionesView opcionesView = new OpcionesView(juego, configuracion);
+        OpcionesView opcionesView = new OpcionesView(juego, configuracion, tableroVista);
         this.setRight(opcionesView);
     }
 }

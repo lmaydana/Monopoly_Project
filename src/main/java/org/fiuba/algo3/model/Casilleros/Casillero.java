@@ -32,4 +32,11 @@ public class Casillero {
        }
 
 
+    public ArrayList<String> obtenerColoresJugadores() {
+            ArrayList<String> coloresJugadores = new ArrayList<>();
+            for (Jugador jugador: this.jugdoresEnCassila){
+                coloresJugadores.add(jugador.obtenerColor());
+            }
+            return coloresJugadores;
+    }
 }

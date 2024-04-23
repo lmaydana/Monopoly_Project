@@ -57,7 +57,7 @@ public class Jugador implements Arrendador, Comprador{
     }
 
     public void recibir(String nombrePropiedad,Propiedad propiedad) {
-        this.propiedades.put(nombrePropiedad, propiedad);
+        this.propiedades.putIfAbsent(nombrePropiedad, propiedad);
     }
 
     public void recibir(Contrato contratoDeVenta){
@@ -98,6 +98,7 @@ public class Jugador implements Arrendador, Comprador{
 
     public void comprarPropiedadOfrecida() throws CantidadInsuficiente{
         this.contratoActual.aceptar();
+        this.contratoActual = new ContratoSinEfecto();
     }
 
     public void moverse(int tirada) throws NoPuedeMoverse{
@@ -109,5 +110,17 @@ public class Jugador implements Arrendador, Comprador{
 
     public void cargarNombreDePropiedadesEnPosesion(ArrayList<String> propiedadesEnPosesion) {
         propiedadesEnPosesion.addAll(this.propiedades.keySet());
+    }
+
+    public String obtenerNombre() {
+        return this.nombreJugador;
+    }
+
+    public String obtenerColor() {
+        return this.color.toString();
+    }
+
+    public String obtenerPlataDisponible() {
+        return this.cartera.toString();
     }
 }

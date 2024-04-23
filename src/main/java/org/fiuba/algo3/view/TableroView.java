@@ -48,7 +48,6 @@ public class TableroView extends BorderPane {
             bordeTablero = bordeTablero.obtenerSiguienteBorde(this);
             this.llenarConCasilleroCorrespondiente(casillas.get(i), casillas.getLen(), i, bordeTablero);
         }
-
     }
 
     private void llenarConCasilleroCorrespondiente(Casillero casillero, Integer largoCasillas, Integer indice, BordeTablero bordeTablero){
@@ -75,7 +74,8 @@ public class TableroView extends BorderPane {
         }
 
         try {
-            bordeTablero.agregar(casilleroView);
+            bordeTablero.agregar(casilleroView);//Sacar el lanzamiento de excepcion en este metodo
+            this.casilleros.add(casilleroView);
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
@@ -111,4 +111,9 @@ public class TableroView extends BorderPane {
     }
 
 
+    public void dibujar() {
+        for (CasilleroView casillero : this.casilleros){
+            casillero.dibujar();
+        }
+    }
 }

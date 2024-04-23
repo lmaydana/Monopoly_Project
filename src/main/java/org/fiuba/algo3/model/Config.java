@@ -1,6 +1,7 @@
 package org.fiuba.algo3.model;
 import javafx.scene.paint.Color;
 import org.fiuba.algo3.model.Banco.Banco;
+import org.fiuba.algo3.model.Casilleros.Carcel;
 import org.fiuba.algo3.model.Casilleros.Casillero;
 import org.fiuba.algo3.model.Parsers.RecursosExternos;
 import org.fiuba.algo3.model.Tablero.ListaCircular;
@@ -47,6 +48,10 @@ public class Config {
 
     public HashMap<Casillero, HashMap<String, String>> obtenerInfoCasilleros(){
         return this.parsers.obtenerInfoCasilleros();
+    }
+
+    public Color obtenerColorDeProopiedad( String nombrePropiedad ){
+        return this.parsers.obtenerColorDeProopiedad(nombrePropiedad);
     }
 
     public Banco obtenerBanco(){

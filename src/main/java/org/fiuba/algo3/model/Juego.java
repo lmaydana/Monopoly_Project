@@ -76,4 +76,16 @@ public class Juego {
     public void cargarConNombresPropiedadesEnPosesion(ArrayList<String> propiedadesEnPosesion) {
         jugadorActual.cargarNombreDePropiedadesEnPosesion(propiedadesEnPosesion);
     }
+
+    public String obtenerNombreDelJugadorActual() {
+        return this.jugadorActual.obtenerNombre();
+    }
+
+    public String obtenerColorJugadorActual() {
+        return this.jugadorActual.obtenerColor();
+    }
+
+    public String obtenerPlataDisponibleDelJugadorActual() {
+        return this.jugadorActual.obtenerPlataDisponible();
+    }
 }

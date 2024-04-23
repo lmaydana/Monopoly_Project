@@ -21,4 +21,8 @@ public class Billetera implements Cartera{
     public void recibir(Double monto){
         this.montoDisponible += monto;
     }
+
+    public String toString(){
+        return this.montoDisponible.toString();
+    }
 }

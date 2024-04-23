@@ -38,6 +38,7 @@ public class Propiedad extends CasillaComprable{
     @Override
     public void seCompradaPor(Jugador jugador) throws CantidadInsuficiente {
         super.seCompradaPor(jugador);
+        jugador.recibir(this.nombre, this);
         this.controladorDeHipotecas = new ControladorDeHipotecaActivo(this.nombre, this.arrendador, this.banco);
     }
 
@@ -45,8 +46,9 @@ public class Propiedad extends CasillaComprable{
     @Override
     public void recibirJugador(Jugador jugador) throws CantidadInsuficiente{
         super.recibirJugador(jugador);
-        jugador.recibir(this.nombre, this);
     }
+
+
 
     public void hipotecar(Cartera cartera){
         this.arrendador = this.controladorDeHipotecas.hipotecar(cartera);

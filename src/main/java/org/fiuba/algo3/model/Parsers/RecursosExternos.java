@@ -1,6 +1,7 @@
 package org.fiuba.algo3.model.Parsers;
 
 
+import javafx.scene.paint.Color;
 import org.fiuba.algo3.model.Banco.Banco;
 import org.fiuba.algo3.model.Casilleros.Casillero;
 import org.fiuba.algo3.model.Tablero.ListaCircular;
@@ -31,6 +32,10 @@ public class RecursosExternos {
 
     public ArrayList<ArrayList<String>> obtenerInformacionInmueblesSobre( String nombrePropiedad){
         return this.tableroJsonParser.obtenerInformacionInmueblesSobre(nombrePropiedad);
+    }
+
+    public Color obtenerColorDeProopiedad(String nombrePropiedad ){
+        return this.tableroJsonParser.obtenerColorDeProopiedad(nombrePropiedad);
     }
 
     public Banco obtenerBanco(){

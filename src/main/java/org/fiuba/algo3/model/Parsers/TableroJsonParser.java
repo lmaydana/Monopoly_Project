@@ -1,5 +1,6 @@
 package org.fiuba.algo3.model.Parsers;
 
+import javafx.scene.paint.Color;
 import org.fiuba.algo3.model.Banco.Banco;
 import org.fiuba.algo3.model.Casilleros.*;
 import org.fiuba.algo3.model.Casilleros.Inmueble.Inmueble;
@@ -28,10 +29,12 @@ public class TableroJsonParser extends JsonParser {
 
     private Carcel carcel;
 
+    private HashMap<String, Color> coloresDePropiedades;
     private HashMap<String,ArrayList<ArrayList<String>>> preciosInmueblesPorNombreDePropiedad;
 
     public TableroJsonParser(String fileName) throws InvalidJson {
         super(fileName);
+        this.coloresDePropiedades =new HashMap<>();
         this.preciosInmueblesPorNombreDePropiedad = new HashMap<>();
         this.infoCasilla = new HashMap<>();
         this.casilleros = new ListaCircular<>();
@@ -106,6 +109,10 @@ public class TableroJsonParser extends JsonParser {
         return this.preciosInmueblesPorNombreDePropiedad.get(nombrePropiedad);
     }
 
+    public Color obtenerColorDeProopiedad( String nombrePropiedad ){
+        return this.coloresDePropiedades.get(nombrePropiedad);
+    }
+
     private Casillero crearCasilleroInicio(JSONObject casilleroJson) {
         Double montoAlPasarPorInicio = casilleroJson.getDouble("monto");
         return new Inicio(montoAlPasarPorInicio, banco);
@@ -143,6 +150,7 @@ public class TableroJsonParser extends JsonParser {
         String nombrePropiedad = casilleroJson.getString("nombre");
         Double costoDeVenta = casilleroJson.getDouble("precio");
         String color = casilleroJson.getString("color");
+        this.coloresDePropiedades.put(nombrePropiedad, Color.valueOf(color));
         this.barrios.putIfAbsent(color, new Barrio(color));
         Barrio barrio = this.barrios.get(color);
         JSONObject preciosDeVentaInmuebles = casilleroJson.getJSONObject("precio venta viviendas");

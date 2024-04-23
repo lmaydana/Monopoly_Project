@@ -53,6 +53,7 @@ public class DisposicionDeApertura extends VBox {
         this.getChildren().add(this.seleccionadorDeCantidadDeJugadores);
         ObservableList<Color> listaDeColoresPosibles = FXCollections.observableArrayList(configuracion.obtenerColoresJugadores());
         this.camposDeNombre.clear();
+        this.camposDeColores.clear();
         for ( int i = 0; i < cantidadDeTextFields; i ++){
             HBox campo = new HBox();
             Label etiquetaCampo = new Label( "Jugador " + (i + 1) + ": ");

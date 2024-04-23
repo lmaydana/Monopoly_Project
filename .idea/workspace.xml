@@ -4,32 +4,21 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="07dc97c6-3377-42b3-ade1-3be1d80c5067" name="Changes" comment="Agregado de json con parser. Tablero comunicado con el modelo.">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/fiuba/algo3/controller/IniciadorDeVistaPrincipal.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/fiuba/algo3/view/CartaDePropiedadVacia.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/fiuba/algo3/view/DisposicionDeApertura.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/fiuba/algo3/view/DisposicionPrincipal.java" afterDir="false" />
+    <list default="true" id="07dc97c6-3377-42b3-ade1-3be1d80c5067" name="Changes" comment="Agregado fuciones en los botones de la interfaz grafica y vista de las propiedades correctas que posea el jugador.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/fiuba/algo3/JuegoMaster.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/fiuba/algo3/JuegoMaster.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/fiuba/algo3/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/fiuba/algo3/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/fiuba/algo3/Turnador.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/fiuba/algo3/Turnador.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/fiuba/algo3/model/Casilleros/Barrio.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/fiuba/algo3/model/Casilleros/Barrio.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/fiuba/algo3/model/Casilleros/CasillaComprable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/fiuba/algo3/model/Casilleros/CasillaComprable.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/fiuba/algo3/model/Cartera/Billetera.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/fiuba/algo3/model/Cartera/Billetera.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/fiuba/algo3/model/Casilleros/Casillero.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/fiuba/algo3/model/Casilleros/Casillero.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/fiuba/algo3/model/Casilleros/Constructor/ConstructorDeInmuebles.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/fiuba/algo3/model/Casilleros/Constructor/ConstructorDeInmuebles.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/fiuba/algo3/model/Casilleros/Inmueble/Inmueble.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/fiuba/algo3/model/Casilleros/Inmueble/Inmueble.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/fiuba/algo3/model/Casilleros/Inmueble/Vivienda.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/fiuba/algo3/model/Casilleros/Inmueble/Vivienda.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/fiuba/algo3/model/Casilleros/IrALaCarcel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/fiuba/algo3/model/Casilleros/IrALaCarcel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/fiuba/algo3/model/Casilleros/Propiedad.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/fiuba/algo3/model/Casilleros/Propiedad.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/fiuba/algo3/model/Casilleros/Tasador.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/fiuba/algo3/model/Casilleros/Tasador.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/fiuba/algo3/model/Casilleros/Terreno.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/fiuba/algo3/model/Casilleros/Terreno.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/fiuba/algo3/model/Config.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/fiuba/algo3/model/Config.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/fiuba/algo3/model/JSONFiles/tablero.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/fiuba/algo3/model/JSONFiles/tablero.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/fiuba/algo3/model/Juego.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/fiuba/algo3/model/Juego.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/fiuba/algo3/model/Jugador/Jugador.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/fiuba/algo3/model/Jugador/Jugador.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/fiuba/algo3/model/Parsers/RecursosExternos.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/fiuba/algo3/model/Parsers/RecursosExternos.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/fiuba/algo3/model/Parsers/TableroJsonParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/fiuba/algo3/model/Parsers/TableroJsonParser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/fiuba/algo3/model/Tablero/Tablero.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/fiuba/algo3/model/Tablero/Tablero.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/fiuba/algo3/view/CartaDePropiedad.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/fiuba/algo3/view/CartaDePropiedad.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/fiuba/algo3/view/FilaTablero.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/fiuba/algo3/view/FilaTablero.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/fiuba/algo3/view/CasilleroView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/fiuba/algo3/view/CasilleroView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/fiuba/algo3/view/DisposicionDeApertura.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/fiuba/algo3/view/DisposicionDeApertura.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/fiuba/algo3/view/DisposicionPrincipal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/fiuba/algo3/view/DisposicionPrincipal.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/fiuba/algo3/view/OpcionesView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/fiuba/algo3/view/OpcionesView.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/fiuba/algo3/view/TableroView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/fiuba/algo3/view/TableroView.java" afterDir="false" />
     </list>
@@ -162,7 +151,7 @@
       <workItem from="1713446467238" duration="55080000" />
       <workItem from="1713621917207" duration="33953000" />
       <workItem from="1713711448264" duration="44388000" />
-      <workItem from="1713793441197" duration="33360000" />
+      <workItem from="1713793441197" duration="45215000" />
     </task>
     <task id="LOCAL-00001" summary="Guardando cambios al traer maven.">
       <option name="closed" value="true" />
@@ -212,7 +201,15 @@
       <option name="project" value="LOCAL" />
       <updated>1713748472098</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Agregado fuciones en los botones de la interfaz grafica y vista de las propiedades correctas que posea el jugador.">
+      <option name="closed" value="true" />
+      <created>1713831880703</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1713831880703</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -242,7 +239,8 @@
     <MESSAGE value="Cambiando ruta de imagenes a un path relativo." />
     <MESSAGE value="Modificando nombres de variables y las dimensiones iniciales de la ventana." />
     <MESSAGE value="Agregado de json con parser. Tablero comunicado con el modelo." />
-    <option name="LAST_COMMIT_MESSAGE" value="Agregado de json con parser. Tablero comunicado con el modelo." />
+    <MESSAGE value="Agregado fuciones en los botones de la interfaz grafica y vista de las propiedades correctas que posea el jugador." />
+    <option name="LAST_COMMIT_MESSAGE" value="Agregado fuciones en los botones de la interfaz grafica y vista de las propiedades correctas que posea el jugador." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

@@ -23,8 +23,6 @@
 
   {"tipo": "transporte", "nombre": "El coche del Señor Barriga", "precio": 200.0, "renta": 100.000},
 
-  {"tipo": "multa", "monto": 70.0},
-
   {"tipo": "propiedad",
     "nombre": "La fuente de la vecindad",
     "precio": 100.0,"hipoteca": 60.0,"deshipoteca": 90.0,
@@ -32,6 +30,8 @@
     "rentas": {"0 casas": 40.0, "1 casas": 60.0, "2 casas":75.0, "3 casas": 85.0, "4 casas": 100.0, "1 hotel": 120.0 },
     "precio compra viviendas": {"0 casas": 0.0, "1 casas": 20.0, "2 casas":  35.0, "3 casas": 50.0, "4 casas": 70.0, "1 hotel":  85.0},
     "precio venta viviendas":  {"0 casas":  0.0, "1 casas": 10.0, "2 casas": 20.0, "3 casas": 35.0, "4 casas":  60.0, "1 hotel": 70.0}},
+
+  {"tipo": "multa", "monto": 70.0},
 
   {"tipo": "propiedad",
     "nombre": "La casa de Jaimito El Cartero",
