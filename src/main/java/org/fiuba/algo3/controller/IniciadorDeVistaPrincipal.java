@@ -59,13 +59,11 @@ public class IniciadorDeVistaPrincipal implements EventHandler<ActionEvent> {
         camposDeColoresCopia.remove(campoDeColor);
         for ( ComboBox<Color> otroCampoDeColor: camposDeColoresCopia){
             campoDeColor.setBorder(new Border(new BorderStroke(Color.GRAY, BorderStrokeStyle.SOLID, new CornerRadii(5), BorderWidths.DEFAULT)));
-            System.out.println(otroCampoDeColor.getValue()+" vs."+campoDeColor.getValue());
             if( campoDeColor.getValue().equals(otroCampoDeColor.getValue()) ){
                 campoDeColor.setBorder(new Border(new BorderStroke(Color.RED, BorderStrokeStyle.SOLID, new CornerRadii(5), BorderWidths.DEFAULT)));
                 return true;
             }
         }
-        System.out.println("--------------------------------------------------------------------------------------------------");
         camposDeColoresCopia.add(campoDeColor);
         return false;
     }
