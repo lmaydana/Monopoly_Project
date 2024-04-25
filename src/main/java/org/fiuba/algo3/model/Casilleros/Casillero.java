@@ -25,17 +25,16 @@ public class Casillero {
                 return TipoCasillero.DE_PASO;
         }
 
-       public void obtenerInfoCasillero(HashMap<String, String> infoCasillero){
+       public void aportarInformacionCasillero(HashMap<String, String> infoCasillero){
                 infoCasillero.put("tipo", "De Paso");
        }
 
-
-    public ArrayList<String> obtenerColoresJugadores() {
-            ArrayList<String> coloresJugadores = new ArrayList<>();
-            for (Jugador jugador: this.jugdoresEnCassila){
-                coloresJugadores.add(jugador.obtenerColor());
-            }
-            return coloresJugadores;
-    }
+        public ArrayList<String> obtenerColoresJugadores() {
+                ArrayList<String> coloresJugadores = new ArrayList<>();
+                for (Jugador jugador: this.jugdoresEnCassila){
+                    coloresJugadores.add(jugador.obtenerColor());
+                }
+                return coloresJugadores;
+        }
 
 }

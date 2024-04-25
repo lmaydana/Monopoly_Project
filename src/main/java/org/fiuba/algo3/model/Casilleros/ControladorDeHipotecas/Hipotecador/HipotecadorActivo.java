@@ -4,6 +4,7 @@ import org.fiuba.algo3.model.Banco.Banco;
 import org.fiuba.algo3.model.Cartera.Cartera;
 import org.fiuba.algo3.model.Casilleros.Arrendador.Arrendador;
 import org.fiuba.algo3.model.Casilleros.Arrendador.ArrendadorSinAcuerdo;
+import org.fiuba.algo3.model.Jugador.Transferible;
 
 public class HipotecadorActivo implements Hipotecador{
 
@@ -19,7 +20,7 @@ public class HipotecadorActivo implements Hipotecador{
     }
 
     @Override
-    public Arrendador hipotecar(Cartera cartera) {
+    public Arrendador hipotecar(Transferible cartera) {
         this.banco.hipotecar( this.nombrePropiedad, cartera );
         return new ArrendadorSinAcuerdo(this.arrendador);
     }

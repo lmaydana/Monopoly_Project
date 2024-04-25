@@ -5,11 +5,9 @@ import org.fiuba.algo3.model.Cartera.CantidadInsuficiente;
 import org.fiuba.algo3.model.Cartera.Cartera;
 import org.fiuba.algo3.model.Casilleros.Constructor.Constructor;
 import org.fiuba.algo3.model.Casilleros.Constructor.ConstructorNulo;
-import org.fiuba.algo3.model.Casilleros.ControladorDeHipotecas.ControladorDeHipotecaActivo;
-import org.fiuba.algo3.model.Casilleros.ControladorDeHipotecas.ControladorDeHipotecaNulo;
-import org.fiuba.algo3.model.Casilleros.ControladorDeHipotecas.ControladorDeHipotecas;
 import org.fiuba.algo3.model.Casilleros.Inmueble.Inmueble;
 import org.fiuba.algo3.model.Jugador.Jugador;
+import org.fiuba.algo3.model.Terminable;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -19,15 +17,13 @@ public class Propiedad extends CasillaComprable{
     private Barrio barrio;
     private Constructor constructor;
     private Terreno terreno;
-    private ControladorDeHipotecas controladorDeHipotecas;
     private Banco banco;
     public Propiedad(String nombrePropiedad, Double costoDeVenta, Barrio barrio, ArrayList<Inmueble> inmueblesPorPoner, Banco banco) {
         super(nombrePropiedad, costoDeVenta);
         this.barrio = barrio;
         this.constructor = new ConstructorNulo();
-        this.terreno = new Terreno(inmueblesPorPoner);
-        this.controladorDeHipotecas = new ControladorDeHipotecaNulo(this.arrendador);
         this.banco = banco;
+        this.terreno = new Terreno(inmueblesPorPoner, this.arrendador, this.banco, this.nombre);
     }
 
     public void construirVivienda(Cartera cartera) throws CantidadInsuficiente {
@@ -39,7 +35,7 @@ public class Propiedad extends CasillaComprable{
     public void seCompradaPor(Jugador jugador) throws CantidadInsuficiente {
         super.seCompradaPor(jugador);
         jugador.recibir(this.nombre, this);
-        this.controladorDeHipotecas = new ControladorDeHipotecaActivo(this.nombre, this.arrendador, this.banco);
+        this.terreno.seCompradoPor(jugador);
     }
 
 
@@ -48,10 +44,8 @@ public class Propiedad extends CasillaComprable{
         super.recibir(jugador);
     }
 
-
-
-    public void hipotecar(Cartera cartera){
-        this.arrendador = this.controladorDeHipotecas.hipotecar(cartera);
+    public void hipotecar(){
+        this.arrendador = this.terreno.hipotecar();
     }
 
     public void venderConstruccion(){
@@ -59,7 +53,7 @@ public class Propiedad extends CasillaComprable{
     }
 
     public void deshipotecar(Cartera cartera) throws CantidadInsuficiente {
-        this.arrendador = this.controladorDeHipotecas.deshipotecar(cartera);
+        this.arrendador = this.terreno.deshipotecar(cartera);
     }
 
     @Override
@@ -71,11 +65,27 @@ public class Propiedad extends CasillaComprable{
         return TipoCasillero.PROPIEDAD;
     }
 
-    public void obtenerInfoCasillero(HashMap<String, String> infoCasillero){
-        super.obtenerInfoCasillero(infoCasillero);
-        infoCasillero.put("tipo", "Propiedad");
-        infoCasillero.put("cantidad de construcciones", this.terreno.cantidadDeConstruccionesEdificadas());
-        this.barrio.agegarInfoColor(infoCasillero);
+    public void desactivar(){
+        super.desactivar();
+        this.terreno.quitarInmuebles();
     }
 
+    public void aportarInformacionCasillero(HashMap<String, String> infoCasillero){
+        super.aportarInformacionCasillero(infoCasillero);
+        infoCasillero.put("tipo", "Propiedad");
+        infoCasillero.put("cantidad de construcciones", this.terreno.cantidadDeConstruccionesEdificadas());
+        this.barrio.agegarInformacionColor(infoCasillero);
+    }
+
+    public void terminarContrucciones(Terminable terminable) {
+        this.barrio.terminarReformas(terminable);
+    }
+
+    public boolean tieneCantidadDeConstruccionesAceptablesEnComparacionCon(Terreno terreno) {
+        return this.terreno.tieneCantidadDeConstruccionesAceptablesConRespectoA(terreno);
+    }
+
+    public void firmarFinalizacionDeObras(ListaDeFirmas listaDeFirmas) {
+        this.terreno.informarFinalizacionDeConstrucciones(listaDeFirmas);
+    }
 }

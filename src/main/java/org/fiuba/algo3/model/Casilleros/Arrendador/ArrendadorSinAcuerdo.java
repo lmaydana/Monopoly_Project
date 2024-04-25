@@ -3,6 +3,8 @@ package org.fiuba.algo3.model.Casilleros.Arrendador;
 import org.fiuba.algo3.model.Jugador.Comprador;
 import org.fiuba.algo3.model.Jugador.Jugador;
 
+import java.util.HashMap;
+
 public class ArrendadorSinAcuerdo implements Arrendador {
 
     private Arrendador arrendador;
@@ -22,7 +24,17 @@ public class ArrendadorSinAcuerdo implements Arrendador {
     }
 
     @Override
+    public void informarDetalles(HashMap<String, String> detalles) {
+        this.arrendador.informarDetalles(detalles);
+    }
+
+    @Override
     public void recibir(Double monto) {
         arrendador.recibir(monto);
+    }
+
+    @Override
+    public String toString() {
+        return this.arrendador.toString();
     }
 }

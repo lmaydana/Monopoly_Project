@@ -8,7 +8,7 @@ import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import org.fiuba.algo3.controller.IniciadorDeVistaPrincipal;
-import org.fiuba.algo3.model.Config;
+import org.fiuba.algo3.model.Configuracion;
 
 import java.util.ArrayList;
 
@@ -24,8 +24,8 @@ public class DisposicionDeApertura extends VBox {
 
     private Stage ventana;
 
-    private Config configuracion;
-    public DisposicionDeApertura(Config config, Stage ventana) {
+    private Configuracion configuracion;
+    public DisposicionDeApertura(Configuracion config, Stage ventana) {
         this.configuracion = config;
         this.ventana = ventana;
         ObservableList<Integer> cantidadesDeJugadoresSeleccionable = this.devolverListaConCantidadesDeJugadores();
@@ -42,7 +42,7 @@ public class DisposicionDeApertura extends VBox {
 
     private ObservableList<Integer> devolverListaConCantidadesDeJugadores( ){
         ObservableList<Integer> cantidadesDeJugadoresSeleccionable = FXCollections.observableArrayList();
-        for (int i = 1; i <= configuracion.obtenerCantidadMaximaDeJugagores(); i++){
+        for (int i = 2; i <= configuracion.obtenerCantidadMaximaDeJugadores(); i++){
             cantidadesDeJugadoresSeleccionable.add(i);
         }
         return cantidadesDeJugadoresSeleccionable;

@@ -60,11 +60,7 @@ public class CartaDePropiedad extends VBox {
     }
 
     public void construirVivienda() {
-        try {
             juego.construirEn(this.nombre);
-        } catch (CantidadInsuficiente e) {
-            this.juego.hacerPerderAlJugadorActual();
-        }
     }
 
     public void venderConstruccion() {
@@ -76,11 +72,7 @@ public class CartaDePropiedad extends VBox {
     }
 
     public void deshipotecar() {
-        try {
-            this.juego.deshipotecar(this.nombre);
-        } catch (CantidadInsuficiente e) {
-            this.juego.hacerPerderAlJugadorActual();
-        }
+        this.juego.deshipotecar(this.nombre);
     }
     
 }

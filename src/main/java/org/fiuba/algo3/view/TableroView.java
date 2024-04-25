@@ -7,7 +7,7 @@ import javafx.scene.layout.*;
 import javafx.scene.image.Image;
 import javafx.stage.Screen;
 import org.fiuba.algo3.model.Casilleros.Casillero;
-import org.fiuba.algo3.model.Config;
+import org.fiuba.algo3.model.Configuracion;
 import org.fiuba.algo3.model.Tablero.ListaCircular;
 
 import java.util.ArrayList;
@@ -18,7 +18,7 @@ public class TableroView extends BorderPane {
     private ArrayList<CasilleroView> casilleros;
     private Double largoLadoTablero;
 
-    public TableroView( Config config ){
+    public TableroView( Configuracion config ){
         this.largoLadoTablero = (Screen.getPrimary().getBounds().getHeight() * factorCantidadUtilizable());
         this.setPrefSize(largoLadoTablero, largoLadoTablero);
         this.agregarBordesDelTablero(config);
@@ -39,7 +39,7 @@ public class TableroView extends BorderPane {
         this.setCenter(contenedorCentral);
     }
 
-    private void agregarBordesDelTablero(Config config) {
+    private void agregarBordesDelTablero(Configuracion config) {
         ListaCircular<Casillero> casillas = config.obtenerCasilleros();
         Integer cantidadDeCasillasPorLado = casillas.getLen() / ladosDelTablero();
         this.casilleros = new ArrayList<>();
@@ -55,23 +55,23 @@ public class TableroView extends BorderPane {
         Double anchoCasilla = this.largoLadoTablero/espaciosOcupadosEnLasFilas;
         Double altoCasilla = anchoCasilla*incrementoDeAncho();
         HashMap<String, String> informacionCasillero = new HashMap<>();
-        casillero.obtenerInfoCasillero(informacionCasillero);
+        casillero.aportarInformacionCasillero(informacionCasillero);
         CasilleroView casilleroView;
         switch (casillero.obtenerTipoCasillero()){
             case TRANSPORTE:
-                casilleroView = new TransporteView(anchoCasilla, altoCasilla, casillero, informacionCasillero, bordeTablero.obtenerOrientacion());
+                casilleroView = new TransporteView(anchoCasilla, altoCasilla, casillero, bordeTablero.obtenerOrientacion());
                 break;
             case PROPIEDAD:
-                casilleroView = new PropiedadView(anchoCasilla, altoCasilla, casillero, informacionCasillero, bordeTablero.obtenerOrientacion());
+                casilleroView = new PropiedadView(anchoCasilla, altoCasilla, casillero, bordeTablero.obtenerOrientacion());
                 break;
             case MULTA:
-                casilleroView = new CasilleroView(anchoCasilla, altoCasilla, casillero, informacionCasillero, bordeTablero.obtenerOrientacion());
+                casilleroView = new CasilleroView(anchoCasilla, altoCasilla, casillero, bordeTablero.obtenerOrientacion());
                 break;
             case LOTERIA:
-                casilleroView = new CasilleroView(anchoCasilla, altoCasilla, casillero, informacionCasillero, bordeTablero.obtenerOrientacion());
+                casilleroView = new CasilleroView(anchoCasilla, altoCasilla, casillero, bordeTablero.obtenerOrientacion());
                 break;
             default :
-                casilleroView = new CasilleroView(altoCasilla, altoCasilla, casillero, informacionCasillero, bordeTablero.obtenerOrientacion());
+                casilleroView = new CasilleroView(altoCasilla, altoCasilla, casillero, bordeTablero.obtenerOrientacion());
         }
 
         try {

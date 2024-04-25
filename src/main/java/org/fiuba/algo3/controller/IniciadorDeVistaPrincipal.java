@@ -8,7 +8,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
-import org.fiuba.algo3.model.Config;
+import org.fiuba.algo3.model.Configuracion;
 import org.fiuba.algo3.model.Jugador.Jugador;
 import org.fiuba.algo3.view.DisposicionPrincipal;
 
@@ -20,11 +20,11 @@ public class IniciadorDeVistaPrincipal implements EventHandler<ActionEvent> {
 
     private Stage ventana;
 
-    private Config configuracion;
+    private Configuracion configuracion;
 
     private ArrayList<ColorPicker> camposDeColores;
 
-    public IniciadorDeVistaPrincipal(ArrayList<TextField> camposDeNombre, ArrayList<ColorPicker> camposDeColores, Stage ventana, Config configuracion) {
+    public IniciadorDeVistaPrincipal(ArrayList<TextField> camposDeNombre, ArrayList<ColorPicker> camposDeColores, Stage ventana, Configuracion configuracion) {
         this.camposDeNombre = camposDeNombre;
         this.camposDeColores = camposDeColores;
         this.ventana = ventana;

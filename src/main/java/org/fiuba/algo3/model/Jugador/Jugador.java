@@ -9,8 +9,9 @@ import org.fiuba.algo3.model.Casilleros.*;
 import org.fiuba.algo3.model.Casilleros.Arrendador.Arrendador;
 import org.fiuba.algo3.model.Casilleros.Contrato.Contrato;
 import org.fiuba.algo3.model.Casilleros.Contrato.ContratoSinEfecto;
-import org.fiuba.algo3.model.Config;
+import org.fiuba.algo3.model.Configuracion;
 import org.fiuba.algo3.model.Jugador.Estado.*;
+import org.fiuba.algo3.model.Terminable;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -19,29 +20,27 @@ import java.util.Map;
 
 public class Jugador implements Arrendador, Comprador{
 
-    //faltaria un atributo para el color de cada jugador y el nombre
     private String nombreJugador;
     private Color color;
     private Cartera cartera;
     private Estado estado;
     private Map<String, Propiedad> propiedades;
     private Contrato contratoActual;
-
     private HashMap<String, CasillaComprable> activos;
 
-    public Jugador(String nombreJugador, Color color, Config config){
+    public Jugador(String nombreJugador, Color color, Configuracion config){
         this.nombreJugador = nombreJugador;
         this.activos = new HashMap<>();
         this.color = color;
         this.propiedades = new HashMap<>();
         this.contratoActual = new ContratoSinEfecto();
-        this.estado = new EstadoNormal(this);
-        this.cartera = new Billetera(config.obtenerMontoDePlataIncial());
+        this.estado = new EstadoNormal(this, this.propiedades,this.cartera);
+        this.cartera = new Billetera();
     }
 
     @Override
     public void acordar(Jugador jugador, String propiedad) throws CantidadInsuficiente{
-        estado.acordar(jugador,propiedad,this.activos);
+        this.estado.acordar(jugador,propiedad,this.activos);
     }
 
     @Override
@@ -50,12 +49,19 @@ public class Jugador implements Arrendador, Comprador{
     }
 
     @Override
+    public void informarDetalles(HashMap<String, String> detalles) {
+            detalles.put("propietario", this.nombreJugador);
+            detalles.put("color jugador", this.color.toString());
+            detalles.put("dinero disponible", this.cartera.toString());
+    }
+
+    @Override
     public void recibir(Double monto) {
         this.cartera.recibir(monto);
     }
 
     @Override
-    public void transferir(Double monto, Transferible transferible) throws CantidadInsuficiente{
+    public void transferir(Double monto, org.fiuba.algo3.model.Jugador.Transferible transferible) throws CantidadInsuficiente{
         cartera.transferir(monto, transferible);
 
     }
@@ -73,28 +79,23 @@ public class Jugador implements Arrendador, Comprador{
     }
 
     public void encarcelar(Integer diasCondena) {
-        estado = new EstadoPreso(this, diasCondena);
+        this.estado = new EstadoPreso(this, diasCondena, this.propiedades, this.cartera);
     }
 
     public void setEstado(Estado estado) {
         this.estado = estado;
     }
 
-    public ArrayList<String> getNombrePropiedades(){
-        ArrayList<String> propiedadesNombres = new ArrayList<>(this.propiedades.keySet());
-        return propiedadesNombres;
-    }
-
     public void construirEn(String nombrePropiedad) throws CantidadInsuficiente {
-        this.propiedades.get(nombrePropiedad).construirVivienda(cartera);
+        this.estado.construirEn(nombrePropiedad);
     }
 
     public void venderConstruccion(String nombrePropiedad){
-        this.propiedades.get(nombrePropiedad).venderConstruccion();
+        this.estado.venderConstruccion(nombrePropiedad);
     }
 
     public void hipotecar(String nombrePropiedad){
-        this.propiedades.get(nombrePropiedad).hipotecar(cartera);
+        this.propiedades.get(nombrePropiedad).hipotecar();
     }
     public void deshipotecar(String nombrePropiedad) throws CantidadInsuficiente {
         this.propiedades.get(nombrePropiedad).deshipotecar(cartera);
@@ -106,18 +107,14 @@ public class Jugador implements Arrendador, Comprador{
     }
 
     public void moverse(int tirada) throws JugadorEncarcelado {
-        estado.moverse(tirada);
+        this.estado.moverse(tirada);
     }
     public void pagarFianza(double monto, Banco banco) throws CantidadInsuficiente{
-        estado.pagarFianza(monto,banco);
+        this.estado.pagarFianza(monto,banco);
     }
 
     public void cargarNombreDePropiedadesEnPosesion(ArrayList<String> propiedadesEnPosesion) {
         propiedadesEnPosesion.addAll(this.propiedades.keySet());
-    }
-
-    public String obtenerNombre() {
-        return this.nombreJugador;
     }
 
     public String obtenerColor() {
@@ -133,9 +130,20 @@ public class Jugador implements Arrendador, Comprador{
     }
 
     public void desactivarActivos() {
-        Iterator<String> clavesActvos = this.activos.keySet().iterator();
-        while (clavesActvos.hasNext()){
-            this.activos.get(clavesActvos.next()).desactivar();
+        Iterator<String> clavesActivos = this.activos.keySet().iterator();
+        while (clavesActivos.hasNext()){
+            this.activos.get(clavesActivos.next()).desactivar();
         }
+    }
+
+    public void terminarJuego(Terminable juego) {
+        for( Propiedad propiedad: this.propiedades.values() ){
+            propiedad.terminarContrucciones(juego);
+        }
+    }
+
+    @Override
+    public String toString() {
+        return this.nombreJugador;
     }
 }

@@ -11,6 +11,7 @@ import org.fiuba.algo3.model.Casilleros.ControladorDeHipotecas.Deshipotecador.De
 import org.fiuba.algo3.model.Casilleros.ControladorDeHipotecas.Hipotecador.Hipotecador;
 import org.fiuba.algo3.model.Casilleros.ControladorDeHipotecas.Hipotecador.HipotecadorActivo;
 import org.fiuba.algo3.model.Casilleros.ControladorDeHipotecas.Hipotecador.HipotecadorNulo;
+import org.fiuba.algo3.model.Jugador.Transferible;
 
 public class ControladorDeHipotecaActivo implements ControladorDeHipotecas {
 
@@ -37,8 +38,7 @@ public class ControladorDeHipotecaActivo implements ControladorDeHipotecas {
     }
 
     @Override
-    public Arrendador hipotecar(Cartera cartera) {
-        System.out.println(">>>>>>>>>>>>Entree<<<<<<<<<<<<<");
+    public Arrendador hipotecar(Transferible cartera) {
         Arrendador arrendadorHipotecado = this.hipotecador.hipotecar(cartera);
         this.hipotecador = new HipotecadorNulo(arrendadorHipotecado);
         this.deshipotecador = new DeshipotecadorActivo(this.nombrePropiedad, this.arrendador, this.banco);

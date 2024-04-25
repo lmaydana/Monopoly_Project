@@ -1,11 +1,10 @@
 package org.fiuba.algo3.model.Banco;
-import org.fiuba.algo3.model.Jugador.Transferible;
 import org.fiuba.algo3.model.Cartera.CantidadInsuficiente;
 import org.fiuba.algo3.model.Cartera.Cartera;
 
 import java.util.HashMap;
 
-public class Banco implements Transferible {
+public class Banco implements org.fiuba.algo3.model.Jugador.Transferible {
 
     private HashMap<String, Double> preciosHipotecas;
     private HashMap<String, Double> preciosDeshipotecas;
@@ -15,7 +14,7 @@ public class Banco implements Transferible {
         this.preciosDeshipotecas = new HashMap<>();
     }
 
-    public void transferir(Double monto, Transferible transferible){
+    public void transferir(Double monto, org.fiuba.algo3.model.Jugador.Transferible transferible){
         transferible.recibir(monto);
     }
     @Override
@@ -35,7 +34,7 @@ public class Banco implements Transferible {
         this.preciosDeshipotecas.putIfAbsent(nombrePropiedad, precioDeshipoteca);
     }
 
-    public void hipotecar(String nombrePropiedad, Cartera cartera) {
-        cartera.recibir(this.preciosHipotecas.get(nombrePropiedad));
+    public void hipotecar(String nombrePropiedad, org.fiuba.algo3.model.Jugador.Transferible transferible) {
+        transferible.recibir(this.preciosHipotecas.get(nombrePropiedad));
     }
 }

@@ -2,6 +2,7 @@ package org.fiuba.algo3.model.Casilleros.ControladorDeHipotecas;
 
 import org.fiuba.algo3.model.Cartera.Cartera;
 import org.fiuba.algo3.model.Casilleros.Arrendador.Arrendador;
+import org.fiuba.algo3.model.Jugador.Transferible;
 
 public class ControladorDeHipotecaNulo implements ControladorDeHipotecas {
 
@@ -12,7 +13,7 @@ public class ControladorDeHipotecaNulo implements ControladorDeHipotecas {
     }
 
     @Override
-    public Arrendador hipotecar( Cartera cartera ) {
+    public Arrendador hipotecar( Transferible cartera ) {
         return this.arrendador;
     }
 

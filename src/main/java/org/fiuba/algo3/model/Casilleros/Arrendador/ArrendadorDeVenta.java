@@ -32,8 +32,17 @@ public class ArrendadorDeVenta implements Arrendador{
 
     }
 
+    public String toString(){
+        return "Sr. Barriga";
+    }
+
     @Override
     public void despojarseDeCasilla(String propiedad, Comprador comprador) {
         this.propiedades.remove(propiedad);
+    }
+
+    @Override
+    public void informarDetalles(HashMap<String, String> detalles) {
+            detalles.put("propietario", "Sr. Barriga");
     }
 }

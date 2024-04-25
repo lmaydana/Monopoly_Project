@@ -3,7 +3,6 @@ package org.fiuba.algo3.model.Casilleros;
 import org.fiuba.algo3.model.Cartera.CantidadInsuficiente;
 import org.fiuba.algo3.model.Casilleros.Arrendador.Arrendador;
 import org.fiuba.algo3.model.Casilleros.Arrendador.ArrendadorDeVenta;
-import org.fiuba.algo3.model.Casilleros.Arrendador.ArrendadorSinAcuerdo;
 import org.fiuba.algo3.model.Jugador.Jugador;
 import java.util.HashMap;
 
@@ -36,10 +35,11 @@ public abstract class CasillaComprable extends Casillero implements Comprable {
         }
     }
 
-    public void obtenerInfoCasillero(HashMap<String, String> infoCasillero){
-        super.obtenerInfoCasillero(infoCasillero);
+    public void aportarInformacionCasillero(HashMap<String, String> infoCasillero){
+        super.aportarInformacionCasillero(infoCasillero);
         infoCasillero.put("precio", this.costoDeVenta.toString());
-        infoCasillero.put("nombre", new String(this.nombre));
+        infoCasillero.put("nombre", this.nombre);
+        this.arrendador.informarDetalles(infoCasillero);
     }
 
     public abstract Double tasar(  );
@@ -49,6 +49,6 @@ public abstract class CasillaComprable extends Casillero implements Comprable {
     }
 
     public void desactivar() {
-        this.arrendador = new ArrendadorSinAcuerdo(this.arrendador);
+        this.arrendador = new ArrendadorDesactivado();
     }
 }
