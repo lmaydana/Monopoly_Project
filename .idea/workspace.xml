@@ -4,64 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="07dc97c6-3377-42b3-ade1-3be1d80c5067" name="Changes" comment="Agregando vista de las construcciones y solventando bugs.">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/fiuba/algo3/model/Casilleros/ArrendadorDesactivado.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/fiuba/algo3/model/Casilleros/ListaDeFirmas.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/fiuba/algo3/model/EstadoJuego.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/fiuba/algo3/model/JuegoEnProgreso.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/fiuba/algo3/model/JuegoTerminado.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/fiuba/algo3/model/Terminable.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/fiuba/algo3/view/CartaInformacionJugador.java" afterDir="false" />
+    <list default="true" id="07dc97c6-3377-42b3-ade1-3be1d80c5067" name="Changes" comment="Agregando que solo se pueda construir si se tiene una diferencia de a lo mucho 1 en la cantidad de construcciones, en comparacion con el resto de las propiedades. Agregada funcionaliad de hipotecas, solo se puede hiotecar si no hay construcciones en la propiedad a hipotecar. Agregada informacion del resto de los usuarios en partida. Agregado que el banco reparta la cantidad de dinero inicial. Agregada aleatoriedad al elegir el orden al comienzo de la partida.&#10;Agregado finalizacion de partida.">
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/fiuba/algo3/view/SeleccionadorDeColores.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/fiuba/algo3/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/fiuba/algo3/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/fiuba/algo3/controller/IniciadorDeVistaPrincipal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/fiuba/algo3/controller/IniciadorDeVistaPrincipal.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/fiuba/algo3/model/Banco/Banco.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/fiuba/algo3/model/Banco/Banco.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/fiuba/algo3/model/Cartera/Billetera.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/fiuba/algo3/model/Cartera/Billetera.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/fiuba/algo3/model/Cartera/Cartera.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/fiuba/algo3/model/Cartera/Cartera.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/fiuba/algo3/model/Casilleros/Arrendador/Arrendador.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/fiuba/algo3/model/Casilleros/Arrendador/Arrendador.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/fiuba/algo3/model/Casilleros/Arrendador/ArrendadorDeVenta.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/fiuba/algo3/model/Casilleros/Arrendador/ArrendadorDeVenta.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/fiuba/algo3/model/Casilleros/Arrendador/ArrendadorSinAcuerdo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/fiuba/algo3/model/Casilleros/Arrendador/ArrendadorSinAcuerdo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/fiuba/algo3/model/Casilleros/Barrio.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/fiuba/algo3/model/Casilleros/Barrio.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/fiuba/algo3/model/Casilleros/Carcel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/fiuba/algo3/model/Casilleros/Carcel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/fiuba/algo3/model/Casilleros/CasillaComprable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/fiuba/algo3/model/Casilleros/CasillaComprable.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/fiuba/algo3/model/Casilleros/CasillaTransferidora.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/fiuba/algo3/model/Casilleros/CasillaTransferidora.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/fiuba/algo3/model/Casilleros/Casillero.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/fiuba/algo3/model/Casilleros/Casillero.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/fiuba/algo3/model/Casilleros/Constructor/ConstructorDeInmuebles.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/fiuba/algo3/model/Casilleros/Constructor/ConstructorDeInmuebles.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/fiuba/algo3/model/Casilleros/ControladorDeHipotecas/ControladorDeHipotecaActivo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/fiuba/algo3/model/Casilleros/ControladorDeHipotecas/ControladorDeHipotecaActivo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/fiuba/algo3/model/Casilleros/ControladorDeHipotecas/ControladorDeHipotecaNulo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/fiuba/algo3/model/Casilleros/ControladorDeHipotecas/ControladorDeHipotecaNulo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/fiuba/algo3/model/Casilleros/ControladorDeHipotecas/Hipotecador/Hipotecador.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/fiuba/algo3/model/Casilleros/ControladorDeHipotecas/Hipotecador/Hipotecador.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/fiuba/algo3/model/Casilleros/ControladorDeHipotecas/Hipotecador/HipotecadorActivo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/fiuba/algo3/model/Casilleros/ControladorDeHipotecas/Hipotecador/HipotecadorActivo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/fiuba/algo3/model/Casilleros/ControladorDeHipotecas/Hipotecador/HipotecadorNulo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/fiuba/algo3/model/Casilleros/ControladorDeHipotecas/Hipotecador/HipotecadorNulo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/fiuba/algo3/model/Casilleros/Inicio.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/fiuba/algo3/model/Casilleros/Inicio.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/fiuba/algo3/model/Casilleros/Inmueble/Inmueble.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/fiuba/algo3/model/Casilleros/Inmueble/Inmueble.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/fiuba/algo3/model/Casilleros/Inmueble/Vivienda.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/fiuba/algo3/model/Casilleros/Inmueble/Vivienda.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/fiuba/algo3/model/Casilleros/IrALaCarcel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/fiuba/algo3/model/Casilleros/IrALaCarcel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/fiuba/algo3/model/Casilleros/Loteria.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/fiuba/algo3/model/Casilleros/Loteria.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/fiuba/algo3/model/Casilleros/Multa.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/fiuba/algo3/model/Casilleros/Multa.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/fiuba/algo3/model/Casilleros/Propiedad.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/fiuba/algo3/model/Casilleros/Propiedad.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/fiuba/algo3/model/Casilleros/Terreno.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/fiuba/algo3/model/Casilleros/Terreno.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/fiuba/algo3/model/Casilleros/Transporte.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/fiuba/algo3/model/Casilleros/Transporte.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/fiuba/algo3/model/Config.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/fiuba/algo3/model/Configuracion.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/fiuba/algo3/model/JSONFiles/tablero.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/fiuba/algo3/model/JSONFiles/tablero.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/fiuba/algo3/model/Juego.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/fiuba/algo3/model/Juego.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/fiuba/algo3/model/Jugador/Estado/Estado.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/fiuba/algo3/model/Jugador/Estado/Estado.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/fiuba/algo3/model/Jugador/Estado/EstadoNormal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/fiuba/algo3/model/Jugador/Estado/EstadoNormal.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/fiuba/algo3/model/Configuracion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/fiuba/algo3/model/Configuracion.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/fiuba/algo3/model/Jugador/Estado/EstadoPreso.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/fiuba/algo3/model/Jugador/Estado/EstadoPreso.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/fiuba/algo3/model/Jugador/Jugador.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/fiuba/algo3/model/Jugador/Jugador.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/fiuba/algo3/model/Tablero/Tablero.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/fiuba/algo3/model/Tablero/Tablero.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/fiuba/algo3/view/CartaDePropiedad.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/fiuba/algo3/view/CartaDePropiedad.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/fiuba/algo3/view/CasilleroView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/fiuba/algo3/view/CasilleroView.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/fiuba/algo3/view/DisposicionDeApertura.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/fiuba/algo3/view/DisposicionDeApertura.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/fiuba/algo3/view/DisposicionPrincipal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/fiuba/algo3/view/DisposicionPrincipal.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/fiuba/algo3/view/OpcionesView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/fiuba/algo3/view/OpcionesView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/fiuba/algo3/view/PropiedadView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/fiuba/algo3/view/PropiedadView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/fiuba/algo3/view/TableroView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/fiuba/algo3/view/TableroView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/fiuba/algo3/view/TransporteView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/fiuba/algo3/view/TransporteView.java" afterDir="false" />
     </list>
-    <list id="bf751474-bb80-4bbc-9231-23f9f91d90de" name="Changes by Ariel" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/fiuba/algo3/model/Casilleros/Contrato/ContratoDeVenta.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/fiuba/algo3/model/Casilleros/Contrato/ContratoDeVenta.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/fiuba/algo3/model/Tablero/ListaCircular.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/fiuba/algo3/model/Tablero/ListaCircular.java" afterDir="false" />
-    </list>
+    <list id="bf751474-bb80-4bbc-9231-23f9f91d90de" name="Changes by Ariel" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -198,7 +149,7 @@
       <workItem from="1713873567062" duration="31579000" />
       <workItem from="1713926544570" duration="3741000" />
       <workItem from="1713966716293" duration="52217000" />
-      <workItem from="1714052145823" duration="2855000" />
+      <workItem from="1714052145823" duration="13487000" />
     </task>
     <task id="LOCAL-00001" summary="Guardando cambios al traer maven.">
       <option name="closed" value="true" />
@@ -280,7 +231,15 @@
       <option name="project" value="LOCAL" />
       <updated>1713906921241</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Agregando que solo se pueda construir si se tiene una diferencia de a lo mucho 1 en la cantidad de construcciones, en comparacion con el resto de las propiedades. Agregada funcionaliad de hipotecas, solo se puede hiotecar si no hay construcciones en la propiedad a hipotecar. Agregada informacion del resto de los usuarios en partida. Agregado que el banco reparta la cantidad de dinero inicial. Agregada aleatoriedad al elegir el orden al comienzo de la partida.&#10;Agregado finalizacion de partida.">
+      <option name="closed" value="true" />
+      <created>1714055554300</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1714055554300</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -315,7 +274,8 @@
     <MESSAGE value="Agregando representacion de la posicion actual de los jugadores en el tablero." />
     <MESSAGE value="Cambio de json precio de inmuebles y arreglo bugs." />
     <MESSAGE value="Agregando vista de las construcciones y solventando bugs." />
-    <option name="LAST_COMMIT_MESSAGE" value="Agregando vista de las construcciones y solventando bugs." />
+    <MESSAGE value="Agregando que solo se pueda construir si se tiene una diferencia de a lo mucho 1 en la cantidad de construcciones, en comparacion con el resto de las propiedades. Agregada funcionaliad de hipotecas, solo se puede hiotecar si no hay construcciones en la propiedad a hipotecar. Agregada informacion del resto de los usuarios en partida. Agregado que el banco reparta la cantidad de dinero inicial. Agregada aleatoriedad al elegir el orden al comienzo de la partida.&#10;Agregado finalizacion de partida." />
+    <option name="LAST_COMMIT_MESSAGE" value="Agregando que solo se pueda construir si se tiene una diferencia de a lo mucho 1 en la cantidad de construcciones, en comparacion con el resto de las propiedades. Agregada funcionaliad de hipotecas, solo se puede hiotecar si no hay construcciones en la propiedad a hipotecar. Agregada informacion del resto de los usuarios en partida. Agregado que el banco reparta la cantidad de dinero inicial. Agregada aleatoriedad al elegir el orden al comienzo de la partida.&#10;Agregado finalizacion de partida." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

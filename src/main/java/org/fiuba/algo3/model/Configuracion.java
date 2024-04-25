@@ -34,6 +34,7 @@ public class Configuracion {
     public Configuracion(){
         this.parsers = new RecursosExternos();
         this.coloresJugadores = new ArrayList<>();
+        this.cargarColoreJugadores();
     }
 
     private void cargarColoreJugadores(){

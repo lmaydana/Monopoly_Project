@@ -45,12 +45,12 @@ public class EstadoPreso implements Estado {
     }
 
     @Override
-    public void acordar(Jugador jugador, String propiedad, Map<String, CasillaComprable> propiedades) throws CantidadInsuficiente {
+    public void acordar(Jugador jugador, String propiedad, Map<String, CasillaComprable> propiedades){
 
     }
 
     @Override
-    public void construirEn(String nombrePropiedad) throws CantidadInsuficiente {
+    public void construirEn(String nombrePropiedad) {
 
     }
 
