@@ -45,7 +45,7 @@ public class IniciadorDeVistaPrincipal implements EventHandler<ActionEvent> {
         ArrayList<ComboBox<Color>> camposDeColoresCopia = new ArrayList<>(this.camposDeColores);
         for( ComboBox<Color> campoDeColor : this.camposDeColores ){
             campoDeColor.setBorder(new Border(new BorderStroke(Color.GRAY, BorderStrokeStyle.SOLID, new CornerRadii(5), BorderWidths.DEFAULT)));
-            if( campoDeColor.getValue().equals("") || this.seRepiteElColor(camposDeColoresCopia, campoDeColor) ){
+            if( campoDeColor.getValue() == null || this.seRepiteElColor(camposDeColoresCopia, campoDeColor) ){
                 campoDeColor.setBorder(new Border(new BorderStroke(Color.RED, BorderStrokeStyle.SOLID, new CornerRadii(5), BorderWidths.DEFAULT)));
                 todosLosCamposSonValidos = false;
             }
