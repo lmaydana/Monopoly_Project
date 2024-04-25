@@ -8,15 +8,17 @@ import javafx.scene.layout.*;
 import javafx.scene.shape.Rectangle;
 import javafx.stage.Screen;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.ListIterator;
 import javafx.scene.paint.Color;
-import org.fiuba.algo3.model.Cartera.CantidadInsuficiente;
-import org.fiuba.algo3.model.Config;
+import org.fiuba.algo3.model.Configuracion;
 import org.fiuba.algo3.model.Juego;
+import org.fiuba.algo3.model.JuegoTerminado;
+import org.fiuba.algo3.model.Jugador.Jugador;
 
 public class OpcionesView extends VBox {
     private Juego juego;
-    private final Config configuracion;
+    private final Configuracion configuracion;
 
     private ArrayList<CartaDePropiedad> cartasActuales;
 
@@ -32,45 +34,28 @@ public class OpcionesView extends VBox {
 
     private TableroView tableroVista;
 
-    public OpcionesView(Juego juego, Config configuracion, TableroView tableroVista){
+    private HBox contenedorInformacionJugadores;
+
+    private List<Jugador> jugadores;
+
+    public OpcionesView(Juego juego, Configuracion configuracion, TableroView tableroVista, List<Jugador> jugadores){
         this.juego = juego;
+        this.jugadores = jugadores;
         this.tableroVista = tableroVista;
         this.configuracion = configuracion;
         this.cartasActuales = new ArrayList<>();
         this.contenedorDeCartaActual = new VBox();
+        this.contenedorInformacionJugadores = new HBox();
         HBox sectorSeleccionDePropiedad = new HBox();
         Rectangle2D tamanioPantalla = Screen.getPrimary().getBounds();
         this.ancho = tamanioPantalla.getWidth() - tamanioPantalla.getHeight()*0.865740741;
         this.alto = tamanioPantalla.getHeight()*0.8;
         this.setPrefSize(this.ancho, this.alto );
-        try {
-            juego.moverJugador();
-        } catch (Exception e) {
-            throw new RuntimeException(e);
-        }
         this.actualizarCartas();
-
-        //--------------------Caja informacion jugador--------------------
-        this.actualizarInformacionJugador();
-        //---------------------------------------------------------------
+        this.actualizarInformacionJugadorActual();
 
         Button botonIrHaciaIzquierda = new Button("<");
-        botonIrHaciaIzquierda.setOnAction( e->{
-            if( this.iteradorDeCartas.hasPrevious() ){
-                 this.cartaActual = this.iteradorDeCartas.previous();
-                this.contenedorDeCartaActual.getChildren().clear();
-                this.contenedorDeCartaActual.getChildren().add(this.cartaActual);
-            }
-        });
         Button botonIrHaciaDerecha = new Button(">");
-        botonIrHaciaDerecha.setOnAction( e->{
-            if( this.iteradorDeCartas.hasNext() ){
-                this.cartaActual = this.iteradorDeCartas.next();
-                this.contenedorDeCartaActual.getChildren().clear();
-                this.contenedorDeCartaActual.getChildren().add(this.cartaActual);
-            }
-        });
-
         sectorSeleccionDePropiedad.getChildren().addAll(botonIrHaciaIzquierda, this.contenedorDeCartaActual, botonIrHaciaDerecha);
         sectorSeleccionDePropiedad.setMaxWidth(anchoCarta());
         Button pagarFianza = this.obtenerBotonDeOpcion("Pagar fianza");
@@ -80,70 +65,101 @@ public class OpcionesView extends VBox {
         Button hipotecar = this.obtenerBotonDeOpcion("Hipotecar");
         Button deshipotecar = this.obtenerBotonDeOpcion("Deshipotecar");
         Button comprarPropiedad = this.obtenerBotonDeOpcion("Comprar propiedad");
-        pagarFianza.setOnAction(e-> {
-            try {
-                juego.pagarFianza();
-                this.actualizarInformacionJugador();
-            } catch (CantidadInsuficiente ex) {
-                juego.hacerPerderAlJugadorActual();
-            }
-        });
-        terminarTurno.setOnAction(e-> {
-            juego.pasarTurno();
-            try {
-                juego.moverJugador();
-            } catch (CantidadInsuficiente ex) {
-                juego.hacerPerderAlJugadorActual();
-            }
-            this. actualizarCartas();
-            this.actualizarInformacionJugador();
-            this.tableroVista.dibujar();
-        });
-
-        construirReformar.setOnAction( e ->{
-            this.cartaActual.construirVivienda();
-            this.tableroVista.dibujar();
-            this.actualizarInformacionJugador();
-        });
-
-        venderConstruccion.setOnAction( e -> {
-            this.cartaActual.venderConstruccion();
-            this.actualizarInformacionJugador();
-            this.tableroVista.dibujar();
-        });
-
-        hipotecar.setOnAction( e-> {
-            this.cartaActual.hipotecar();
-            this.actualizarInformacionJugador();
-        });
-
-        deshipotecar.setOnAction( e->{
-            this.cartaActual.deshipotecar();
-            this.actualizarInformacionJugador();
-        });
-
-        comprarPropiedad.setOnAction( e-> {
-            try {
-                this.juego.comprarPropiedadOfrecida();
-                this.actualizarCartas();
-            } catch (CantidadInsuficiente ex) {
-                this.juego.hacerPerderAlJugadorActual();
-                this.juego.pasarTurno();
-            }
-            this.actualizarInformacionJugador();
-        });
+        setearEventoBotonesDeSeleccionDePropiedad(botonIrHaciaIzquierda, botonIrHaciaDerecha);
+        setearEventosDeBotonesDeOpciones(juego, pagarFianza, terminarTurno, construirReformar, venderConstruccion, hipotecar, deshipotecar, comprarPropiedad);
 
 
-        this.getChildren().addAll(pagarFianza, sectorSeleccionDePropiedad, terminarTurno, construirReformar, venderConstruccion, hipotecar, deshipotecar, comprarPropiedad);
+        this.actualizarInformacionJugadores();
+        this.getChildren().addAll(pagarFianza, sectorSeleccionDePropiedad, terminarTurno, construirReformar, venderConstruccion, hipotecar, deshipotecar, comprarPropiedad, this.contenedorInformacionJugadores);
         this.setAlignment(Pos.BASELINE_CENTER);
         this.setSpacing(20);
+
+        try {
+            juego.moverJugador();
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
         this.tableroVista.dibujar();
     }
 
-    private void actualizarInformacionJugador() {
+    private void actualizarInformacionJugadores(){
+        this.contenedorInformacionJugadores.getChildren().clear();
+        Double anchoCarta = this.ancho*0.25;
+        Double altoCarta = this.alto*0.25;
+        for( Jugador jugador: this.jugadores){
+            CartaInformacionJugador cartaInformacionJugador = new CartaInformacionJugador(anchoCarta,altoCarta,jugador);
+            this.contenedorInformacionJugadores.getChildren().add(cartaInformacionJugador);
+        }
+
+        this.actualizarInformacionJugadorActual();
+
+    }
+
+    private void setearEventoBotonesDeSeleccionDePropiedad(Button botonIrHaciaIzquierda, Button botonIrHaciaDerecha) {
+        botonIrHaciaIzquierda.setOnAction(e->{
+            if( this.iteradorDeCartas.hasPrevious() ){
+                this.cartaActual = this.iteradorDeCartas.previous();
+                this.contenedorDeCartaActual.getChildren().clear();
+                this.contenedorDeCartaActual.getChildren().add(this.cartaActual);
+            }
+        });
+        botonIrHaciaDerecha.setOnAction(e->{
+            if( this.iteradorDeCartas.hasNext() ){
+                this.cartaActual = this.iteradorDeCartas.next();
+                this.contenedorDeCartaActual.getChildren().clear();
+                this.contenedorDeCartaActual.getChildren().add(this.cartaActual);
+            }
+        });
+    }
+
+    private void setearEventosDeBotonesDeOpciones(Juego juego, Button pagarFianza, Button terminarTurno, Button construirReformar, Button venderConstruccion, Button hipotecar, Button deshipotecar, Button comprarPropiedad) {
+        pagarFianza.setOnAction(e-> {
+            juego.pagarFianza();
+            this.actualizarInformacionJugadores();
+        });
+        terminarTurno.setOnAction(e-> {
+            juego.pasarTurno();
+            juego.moverJugador();
+            this. actualizarCartas();
+            this.actualizarInformacionJugadores();
+            this.tableroVista.dibujar();
+        });
+
+        construirReformar.setOnAction(e ->{
+            this.cartaActual.construirVivienda();
+            this.tableroVista.dibujar();
+            this.actualizarInformacionJugadores();
+        });
+
+        venderConstruccion.setOnAction(e -> {
+            this.cartaActual.venderConstruccion();
+            this.actualizarInformacionJugadorActual();
+            this.tableroVista.dibujar();
+        });
+
+        hipotecar.setOnAction(e-> {
+            this.cartaActual.hipotecar();
+            this.actualizarInformacionJugadores();
+        });
+
+        deshipotecar.setOnAction(e->{
+            this.cartaActual.deshipotecar();
+            this.actualizarInformacionJugadores();
+        });
+
+        comprarPropiedad.setOnAction(e-> {
+            this.juego.comprarPropiedadOfrecida();
+            this.actualizarCartas();
+            this.tableroVista.dibujar();
+            this.actualizarInformacionJugadores();
+        });
+    }
+
+    private void actualizarInformacionJugadorActual() {
         HBox cajaInformacionJugador = new HBox();
         Label nombreJugador = new Label(this.juego.obtenerNombreDelJugadorActual());
         Rectangle marcoConColor = new Rectangle(0,0, 20, 20);
+        String estadoJuego = this.juego.estado();
         marcoConColor.setStroke(null);
         marcoConColor.setFill(Color.valueOf(this.juego.obtenerColorJugadorActual()));
         Label plataJugador = new Label("Dinero disponible: $" + this.juego.obtenerPlataDisponibleDelJugadorActual());
@@ -153,15 +169,26 @@ public class OpcionesView extends VBox {
         if( !this.getChildren().isEmpty()) {
             this.getChildren().removeFirst();
         }
+        if(estadoJuego.equals(new JuegoTerminado().obtenerEstado())){
+            Label etiquetaGanadora = this.obtenerEtiquetaGanadora();
+            cajaInformacionJugador.getChildren().add(etiquetaGanadora);
+        }
         this.getChildren().addFirst(cajaInformacionJugador);
+
+    }
+
+    private Label obtenerEtiquetaGanadora() {
+        String textoGanador = "Felicidades "+this.juego.obtenerNombreDelJugadorActual() + "!!! Usted gano el juego!!";
+        Label etiquetaGanadora = new Label(textoGanador);
+        return etiquetaGanadora;
     }
 
     private double altoCarta() {
-        return anchoCarta() * 0.5;
+        return anchoCarta() * 0.7;
     }
 
     private double anchoCarta() {
-        return this.ancho * 0.5;
+        return this.ancho * 0.3;
     }
 
     private void actualizarCartas() {

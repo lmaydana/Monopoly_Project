@@ -24,8 +24,8 @@ public class Transporte extends CasillaComprable{
         return TipoCasillero.TRANSPORTE;
     }
 
-    public void obtenerInfoCasillero(HashMap<String, String> infoCasillero){
-        super.obtenerInfoCasillero(infoCasillero);
+    public void aportarInformacionCasillero(HashMap<String, String> infoCasillero){
+        super.aportarInformacionCasillero(infoCasillero);
         infoCasillero.put("tipo", "Transporte");
     }
 

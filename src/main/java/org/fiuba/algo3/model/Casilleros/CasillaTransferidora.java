@@ -13,8 +13,8 @@ public abstract class CasillaTransferidora extends Casillero {
         this.montoACobrar = montoACobrar;
         this.banco = banco;
     }
-    public void obtenerInfoCasillero( HashMap<String, String> infoCasillero ){
-        super.obtenerInfoCasillero(infoCasillero);
+    public void aportarInformacionCasillero(HashMap<String, String> infoCasillero ){
+        super.aportarInformacionCasillero(infoCasillero);
         infoCasillero.put("monto", montoACobrar.toString());
     }
 }

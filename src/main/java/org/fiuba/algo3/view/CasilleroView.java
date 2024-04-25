@@ -1,14 +1,20 @@
 package org.fiuba.algo3.view;
 
+import javafx.geometry.Insets;
 import javafx.scene.Group;
 import javafx.scene.Node;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.Background;
+import javafx.scene.layout.BackgroundFill;
+import javafx.scene.layout.CornerRadii;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.Rectangle;
+import javafx.scene.shape.TriangleMesh;
+import javafx.scene.text.Font;
 import javafx.scene.text.TextAlignment;
 import org.fiuba.algo3.model.Casilleros.Casillero;
 import java.util.ArrayList;
@@ -16,8 +22,8 @@ import java.util.HashMap;
 
 public class CasilleroView extends Pane {
 
-    protected double anchoCasilla;
-    protected double altoCasilla;
+    protected Double anchoCasilla;
+    protected Double altoCasilla;
     protected Orientacion orientacion;
     protected Pane cajaInformacion;
 
@@ -28,12 +34,13 @@ public class CasilleroView extends Pane {
     protected HashMap<String, String> informacionCasillero;
 
 
-    public CasilleroView(Double anchoCasilla, Double altoCasilla, Casillero casillero, HashMap<String, String> informacionCasillero, String direccionImagen, Orientacion orientacion){
+    public CasilleroView(Double anchoCasilla, Double altoCasilla, Casillero casillero, String direccionImagen, Orientacion orientacion){
         this.orientacion = orientacion;
         this.jugadoresEnCasilla = new ArrayList<>();
         this.anchoCasilla = anchoCasilla;
-        this.informacionCasillero = informacionCasillero;
         this.casillero = casillero;
+        this.informacionCasillero = new HashMap<>();
+        this.casillero.aportarInformacionCasillero(this.informacionCasillero);
         this.altoCasilla = altoCasilla;
         this.cajaInformacion = this.orientacion.obtenerPaneAcorde();
         cajaInformacion.setLayoutX(obtenerProyeccion(comienzoSectorInformacionX(), comienzoSectorInformacionY()));
@@ -45,10 +52,12 @@ public class CasilleroView extends Pane {
         informacionDeLaCasilla.setFill(Color.WHITE);
         informacionDeLaCasilla.setStroke(Color.BLACK);
         Label nombreEtiqueta = new Label(this.obtenerTextoCasilla());
-        nombreEtiqueta.setMaxWidth(anchoMaximoNombre());
+        nombreEtiqueta.setMaxWidth(this.anchoCasilla);
         nombreEtiqueta.setMaxHeight(altoMaximoNombre());
         nombreEtiqueta.setTextAlignment(TextAlignment.CENTER);
         nombreEtiqueta.setWrapText(true);
+        nombreEtiqueta.setFont(new Font(10));
+        nombreEtiqueta.setStyle("-fx-text-fill: blue;");
         nombreEtiqueta.setRotate(this.orientacion.obtenerGrados());
         Image imagen = new Image(direccionImagen);
         ImageView imageView = new ImageView(imagen);
@@ -61,22 +70,26 @@ public class CasilleroView extends Pane {
         this.getChildren().add(new Group(cajaInformacion));
     }
 
-    public CasilleroView(Double anchoCasilla, Double altoCasilla, Casillero casillero, HashMap<String, String> informacionCasillero, Orientacion orientacion){
-        this(anchoCasilla, altoCasilla, casillero, informacionCasillero, rutaImagenPorDefecto(), orientacion);
+    public CasilleroView(Double anchoCasilla, Double altoCasilla, Casillero casillero, Orientacion orientacion){
+        this(anchoCasilla, altoCasilla, casillero, rutaImagenPorDefecto(), orientacion);
     }
 
-    protected String obtenerTextoCasilla(){
-        return this.informacionCasillero.get("tipo");
+    private String obtenerTextoCasilla(){
+        return this.informacionCasillero.get(this.claveTexto());
+    }
+
+    protected String claveTexto() {
+        return "tipo";
     }
 
     protected static String rutaImagenPorDefecto(){
         return "file:src/main/java/org/fiuba/algo3/view/imagenes/personaje_monopoly.png";
     }
 
-    protected Double obtenerProyeccion(Double portraitValor, Double landscapeValor){
+    protected Double obtenerProyeccion(Double portraitValor, Double landScapeValor){
         ArrayList<Double> valoresPosibles = new ArrayList<>();
         valoresPosibles.add(portraitValor);
-        valoresPosibles.add(landscapeValor);
+        valoresPosibles.add(landScapeValor);
         return valoresPosibles.get(this.obtenerIndice());
     }
 
@@ -118,10 +131,6 @@ public class CasilleroView extends Pane {
         return altoCasilla * 0.2;
     }
 
-    protected Double anchoMaximoNombre() {
-        return anchoCasilla * 0.75;
-    }
-
     protected Double altoSectorInformacion() {
         return altoCasilla * 0.8;
     }
@@ -129,7 +138,7 @@ public class CasilleroView extends Pane {
     public void dibujar() {
         this.getChildren().removeAll(this.jugadoresEnCasilla);
         this.jugadoresEnCasilla.clear();
-        ArrayList<String> coloresJugadores= this.casillero.obtenerColoresJugadores();
+        ArrayList<String> coloresJugadores = this.casillero.obtenerColoresJugadores();
         for ( String colorJugador : coloresJugadores){
             Color color = Color.valueOf(colorJugador);
             this.dibujarJugador(color);
@@ -137,7 +146,6 @@ public class CasilleroView extends Pane {
     }
 
     private void dibujarJugador(Color color) {
-
         Circle jugador = new Circle(posicionXJugador(), posicionYJugador(), radioCirculoJugador(), color);
         this.getChildren().add(jugador);
         this.jugadoresEnCasilla.add(jugador);
@@ -152,7 +160,7 @@ public class CasilleroView extends Pane {
     }
 
     private double posicionXJugador() {
-        return this.getWidth() * 0.5 + radioCirculoJugador();
+        return this.getWidth() * 0.5;
     }
 
     private Double radioCirculoJugador(){

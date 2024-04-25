@@ -3,7 +3,6 @@ package org.fiuba.algo3.model.Casilleros.Inmueble;
 import org.fiuba.algo3.model.Banco.Banco;
 import org.fiuba.algo3.model.Cartera.CantidadInsuficiente;
 import org.fiuba.algo3.model.Cartera.Cartera;
-import org.fiuba.algo3.model.Jugador.Transferible;
 
 public class Vivienda implements Inmueble {
 
@@ -21,7 +20,7 @@ public class Vivienda implements Inmueble {
     }
 
     @Override
-    public void vender(Transferible transferible) {
+    public void vender(org.fiuba.algo3.model.Jugador.Transferible transferible) {
         banco.transferir(this.precioDeVenta, transferible);
     }
 

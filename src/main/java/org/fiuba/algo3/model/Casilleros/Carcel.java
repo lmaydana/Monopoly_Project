@@ -24,8 +24,8 @@ public class Carcel extends Casillero{
         return TipoCasillero.CARCEL;
     }
 
-    public void obtenerInfoCasillero( HashMap<String, String> infoCasillero ){
-        super.obtenerInfoCasillero(infoCasillero);
+    public void aportarInformacionCasillero(HashMap<String, String> infoCasillero ){
+        super.aportarInformacionCasillero(infoCasillero);
         infoCasillero.put("tipo", "Carcel");
     }
 }

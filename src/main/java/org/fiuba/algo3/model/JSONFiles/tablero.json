@@ -2,7 +2,7 @@
   {"tipo": "inicio", "monto": 200.0},
 
   {"tipo": "propiedad",
-    "nombre": "La casa de Don Ramon",
+    "nombre": "Casa de Don Ramon",
     "precio": 60.0,"hipoteca": 30.0,"deshipoteca": 50.0,
     "color":"#8a220b",
     "rentas": [ 10.0,  20.0, 30.0,  40.0,  50.0,  75.0 ],
@@ -12,7 +12,7 @@
   {"tipo": "loteria", "monto": 50.0},
 
   {"tipo": "propiedad",
-    "nombre": "La casa de La Bruja del 71",
+    "nombre": "Casa de La Bruja del 71",
     "precio": 60.0,"hipoteca": 35.0,"deshipoteca": 60.0,
     "color":"#8a220b",
     "rentas": [ 12.0,  25.0, 35.0,  48.0,  60.0,  90.0 ],
@@ -21,10 +21,10 @@
 
   {"tipo": "multa", "monto": 200.0},
 
-  {"tipo": "transporte", "nombre": "El coche del Señor Barriga", "precio": 200.0, "renta": 100.000},
+  {"tipo": "transporte", "nombre": "Coche del Señor Barriga", "precio": 200.0, "renta": 100.000},
 
   {"tipo": "propiedad",
-    "nombre": "La fuente de la vecindad",
+    "nombre": "Fuente de la vecindad",
     "precio": 100.0,"hipoteca": 60.0,"deshipoteca": 90.0,
     "color":"#32e1e9",
     "rentas": [ 40.0,  60.0, 75.0,  85.0,  100.0,  120.0 ],
@@ -34,7 +34,7 @@
   {"tipo": "multa", "monto": 70.0},
 
   {"tipo": "propiedad",
-    "nombre": "La casa de Jaimito El Cartero",
+    "nombre": "Casa de Jaimito El Cartero",
     "precio": 100.0,"hipoteca": 80.0,"deshipoteca": 90.0,
     "color":"#32e1e9",
     "rentas": [ 45.0,  63.0,  79.0,  89.0,  108.0,  129.0 ],
@@ -42,7 +42,7 @@
     "precio venta viviendas":  [  0.0,  15.0,  35.0,  45.0,   65.0,  80.0]},
 
   {"tipo": "propiedad",
-    "nombre": "La casa del señor Hurtado",
+    "nombre": "Casa del señor Hurtado",
     "precio": 120.0,"hipoteca": 75.0,"deshipoteca": 110.0,
     "color":"#32e1e9",
     "rentas": [ 50.0,  65.0, 83.0,  94.0,  115.0,  138.0 ],
@@ -52,7 +52,7 @@
   {"tipo": "carcel", "fianza": 250.0},
 
   {"tipo": "propiedad",
-    "nombre": "La casa de Doña Florinda",
+    "nombre": "Casa de Doña Florinda",
     "precio": 140.0,"hipoteca": 95.0,"deshipoteca": 130.0,
     "color":"#ea63e6",
     "rentas": [ 70.0,  85.0, 103.0,  114.0,  135.0,  158.0 ],
@@ -60,7 +60,7 @@
     "precio venta viviendas":  [  0.0,  40.0,  60.0,  75.0,   90.0,  110.0]},
 
   {"tipo": "propiedad",
-    "nombre": "La tienda de aguas frescas de Quico",
+    "nombre": "Tienda de aguas frescas de Quico",
     "precio": 150.0,"hipoteca": 105.0,"deshipoteca": 140.0,
     "color":"#ffffff",
     "rentas": [ 80.0,  95.0, 113.0,  124.0,  145.0,  168.0 ],
@@ -68,7 +68,7 @@
     "precio venta viviendas":  [  0.0,  50.0,  70.0,  85.0,   100.0,  120.0]},
 
   {"tipo": "propiedad",
-    "nombre": "El escenario de la posada",
+    "nombre": "Escenario de la posada",
     "precio": 140.0,"hipoteca": 95.0,"deshipoteca": 130.0,
     "color":"#ea63e6",
     "rentas": [ 70.0,  85.0, 103.0,  114.0,  135.0,  158.0 ],
@@ -76,17 +76,17 @@
     "precio venta viviendas":  [  0.0,  40.0,  60.0,  75.0,   90.0,  110.0]},
 
   {"tipo": "propiedad",
-    "nombre": "La casa de las tias de la Chilindrina",
+    "nombre": "Casa de las tias de la Chilindrina",
     "precio": 160.0,"hipoteca": 115.0,"deshipoteca": 150.0,
     "color":"#ea63e6",
     "rentas": [ 90.0,  105.0, 123.0,  134.0,  155.0,  178.0 ],
     "precio compra viviendas": [ 0.0,  70.0,  100.0,  110.0,  125.0,  135.0],
     "precio venta viviendas":  [  0.0,  60.0,  80.0,  95.0,   110.0,  130.0]},
 
-  {"tipo": "transporte", "nombre": "La bicicleta del chavo", "precio": 200.0, "renta": 100.000},
+  {"tipo": "transporte", "nombre": "Bicicleta del chavo", "precio": 200.0, "renta": 100.000},
 
   {"tipo": "propiedad",
-    "nombre": "La cancha de atras de la vecindad",
+    "nombre": "Cancha de atras de la vecindad",
     "precio": 180.0,"hipoteca": 135.0,"deshipoteca": 170.0,
     "color":"#ef6c0c",
     "rentas": [ 110.0,  125.0, 143.0,  154.0,  175.0,  198.0 ],
@@ -96,7 +96,7 @@
   {"tipo": "loteria", "monto": 100.0},
 
   {"tipo": "propiedad",
-    "nombre": "El patio de la vecindad",
+    "nombre": "Patio de la vecindad",
     "precio": 180.0,"hipoteca": 145.0,"deshipoteca": 180.0,
     "color":"#ef6c0c",
     "rentas": [ 120.0,  135.0, 153.0,  164.0,  185.0,  208.0 ],
@@ -104,7 +104,7 @@
     "precio venta viviendas":  [  0.0,  90.0,  110.0,  125.0,   140.0,  160.0]},
 
   {"tipo": "propiedad",
-    "nombre": "La peluqueria de Don Ramon",
+    "nombre": "Peluqueria de Don Ramon",
     "precio": 200.0,"hipoteca": 155.0,"deshipoteca": 190.0,
     "color":"#ef6c0c",
     "rentas": [ 130.0,  145.0, 163.0,  174.0,  195.0,  208.0 ],
@@ -114,7 +114,7 @@
   {"tipo": "de paso"},
 
   {"tipo": "propiedad",
-    "nombre": "La Fonda de Doña Florinda",
+    "nombre": "Fonda de Doña Florinda",
     "precio": 220.0,"hipoteca": 175.0,"deshipoteca": 210.0,
     "color":"#ef0c0c",
     "rentas": [ 150.0,  165.0, 183.0,  194.0,  215.0,  228.0 ],
@@ -124,7 +124,7 @@
   {"tipo":  "multa", "monto": 120.0},
 
   {"tipo": "propiedad",
-    "nombre": "El circo de la abuelita de Don Ramon",
+    "nombre": "Circo de la abuelita de Don Ramon",
     "precio": 220.0,"hipoteca": 185.0,"deshipoteca": 220.0,
     "color":"#ef0c0c",
     "rentas": [ 160.0,  175.0, 193.0,  204.0,  225.0,  238.0 ],
@@ -132,14 +132,14 @@
     "precio venta viviendas":  [  0.0,  130.0,  150.0,  165.0,   180.0,  200.0]},
 
   {"tipo": "propiedad",
-    "nombre": "La floreria del profesor Jirafales",
+    "nombre": "Floreria del profesor Jirafales",
     "precio": 240.0,"hipoteca": 205.0,"deshipoteca": 240.0,
     "color":"#ef0c0c",
     "rentas": [ 180.0,  195.0, 203.0,  224.0,  245.0,  258.0 ],
     "precio compra viviendas": [ 0.0,  160.0,  190.0,  200.0,  215.0,  225.0],
     "precio venta viviendas":  [  0.0,  150.0,  170.0,  185.0,   200.0,  220.0]},
 
-  {"tipo":  "transporte", "nombre": "El triciclo de Quico", "precio":  200.0, "renta": 100.000},
+  {"tipo":  "transporte", "nombre": "Triciclo de Quico", "precio":  200.0, "renta": 100.000},
 
   {"tipo": "propiedad",
     "nombre": "El monte de piedad",
@@ -150,7 +150,7 @@
     "precio venta viviendas":  [  0.0,  170.0,  190.0,  205.0,   220.0,  240.0]},
 
   {"tipo": "propiedad",
-    "nombre": "La fabrica de tortas de jamon",
+    "nombre": "Fabrica de tortas de jamon",
     "precio": 260.0,"hipoteca": 235.0,"deshipoteca": 250.0,
     "color":"#efec0c",
     "rentas": [ 210.0,  225.0, 233.0,  254.0,  275.0,  288.0 ],
@@ -158,7 +158,7 @@
     "precio venta viviendas":  [  0.0,  180.0,  200.0,  215.0,   230.0,  250.0]},
 
   {"tipo": "propiedad",
-    "nombre": "La tienda de aguas frescas del Chavo.",
+    "nombre": "Tienda de aguas frescas del Chavo.",
     "precio": 150.0,"hipoteca": 125.0,"deshipoteca": 130.0,
     "color":"#ffffff",
     "rentas": [ 100.0,  115.0, 123.0,  144.0,  165.0,  178.0 ],
@@ -166,7 +166,7 @@
     "precio venta viviendas":  [  0.0,  70.0,  90.0,  105.0,   120.0,  140.0]},
 
   {"tipo": "propiedad",
-    "nombre": "El apartamento 8",
+    "nombre": "Apartamento 8",
     "precio": 280.0,"hipoteca": 255.0,"deshipoteca": 260.0,
     "color":"#efec0c",
     "rentas": [ 230.0,  245.0, 253.0,  274.0,  285.0,  308.0 ],
@@ -176,7 +176,7 @@
   {"tipo":  "ir a la carcel"},
 
   {"tipo": "propiedad",
-    "nombre": "La plaza",
+    "nombre": "Plaza",
     "precio": 300.0,"hipoteca": 275.0,"deshipoteca": 280.0,
     "color":"#1aef0c",
     "rentas": [ 250.0,  265.0, 273.0,  294.0,  305.0,  328.0 ],
@@ -184,7 +184,7 @@
     "precio venta viviendas":  [  0.0,  220.0,  240.0,  255.0,   270.0,  290.0]},
 
   {"tipo": "propiedad",
-    "nombre": "La casa del Señor Barriga",
+    "nombre": "Casa del Señor Barriga",
     "precio": 300.0,"hipoteca": 285.0,"deshipoteca": 280.0,
     "color":"#1aef0c",
     "rentas": [ 260.0,  275.0, 283.0,  304.0,  315.0,  338.0 ],
@@ -194,19 +194,19 @@
   {"tipo": "loteria", "monto": 200.0},
 
   {"tipo": "propiedad",
-    "nombre": "La pileta de Acapulco",
+    "nombre": "Pileta de Acapulco",
     "precio": 320.0,"hipoteca": 305.0,"deshipoteca": 300.0,
     "color":"#1aef0c",
     "rentas": [ 280.0,  295.0, 303.0,  324.0,  335.0,  358.0 ],
     "precio compra viviendas": [ 0.0,  260.0,  280.0,  300.0,  315.0,  325.0],
     "precio venta viviendas":  [  0.0,  250.0,  270.0,  285.0,   300.0,  320.0]},
 
-  {"tipo":  "transporte", "nombre": "El camion que se subio a la banqueta", "precio":  200.0, "renta": 100.000},
+  {"tipo":  "transporte", "nombre": "Camion que se subio a la banqueta", "precio":  200.0, "renta": 100.000},
 
   {"tipo":  "multa", "monto": 120.0},
 
   {"tipo": "propiedad",
-    "nombre": "La escuela del profesor Jirafales",
+    "nombre": "Escuela del profesor Jirafales",
     "precio": 350.0,"hipoteca": 335.0,"deshipoteca": 330.0,
     "color":"#2d30ec",
     "rentas": [ 310.0,  315.0, 333.0,  354.0,  365.0,  388.0 ],
@@ -216,7 +216,7 @@
   {"tipo":  "multa", "monto": 100.0},
 
   {"tipo": "propiedad",
-    "nombre": "El barril del chavo",
+    "nombre": "Barril del chavo",
     "precio": 400.0,"hipoteca": 385.0,"deshipoteca": 380.0,
     "color":"#2d30ec",
     "rentas": [ 360.0,  400.0,  430.0,  470.0,  500.0,  575.0 ],

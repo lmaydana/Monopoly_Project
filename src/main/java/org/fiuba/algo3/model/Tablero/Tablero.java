@@ -4,7 +4,7 @@ import org.fiuba.algo3.model.Cartera.CantidadInsuficiente;
 import org.fiuba.algo3.model.Casilleros.Carcel;
 import org.fiuba.algo3.model.Casilleros.Casillero;
 import org.fiuba.algo3.model.Casilleros.IrALaCarcel;
-import org.fiuba.algo3.model.Config;
+import org.fiuba.algo3.model.Configuracion;
 import org.fiuba.algo3.model.Jugador.Estado.JugadorEncarcelado;
 import org.fiuba.algo3.model.Jugador.Jugador;
 
@@ -15,11 +15,11 @@ import java.util.List;
 public class Tablero {
     private final Carcel carcel;
     private ListaCircular<Casillero> tablero;
-    private Config config;
+    private Configuracion config;
     private HashMap<Jugador,Iterador<Casillero>> iteradores;
 
     private ArrayList<IrALaCarcel> casillerosIrALaCarcel;
-    public Tablero(List<Jugador> jugadores, Config config){
+    public Tablero(List<Jugador> jugadores, Configuracion config){
         this.config = config;
         this.tablero = this.config.obtenerCasilleros();
         this.iteradores = new HashMap<>();
@@ -59,4 +59,10 @@ public class Tablero {
         }
     }
 
+    public void sacar(Jugador jugador) {
+        Iterador<Casillero> casaillerosEnOrden = this.iteradores.get(jugador);
+        Casillero casillero = casaillerosEnOrden.obtenerActual();
+        casillero.sacar(jugador);
+        this.iteradores.remove(jugador);
+    }
 }

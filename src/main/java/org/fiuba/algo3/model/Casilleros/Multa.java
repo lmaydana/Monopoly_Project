@@ -22,8 +22,8 @@ public class Multa extends CasillaTransferidora{
         return TipoCasillero.MULTA;
     }
 
-    public void obtenerInfoCasillero( HashMap<String, String> infoCasillero ){
-        super.obtenerInfoCasillero(infoCasillero);
+    public void aportarInformacionCasillero(HashMap<String, String> infoCasillero ){
+        super.aportarInformacionCasillero(infoCasillero);
         infoCasillero.put("tipo", "Multa");
     }
 }

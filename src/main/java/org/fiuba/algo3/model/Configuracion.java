@@ -10,7 +10,7 @@ import org.fiuba.algo3.model.Tablero.ListaCircular;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-public class Config {
+public class Configuracion {
 
     public Integer cantTotalCasillas = 50;
     protected Integer cantCasillasPaso = 16;
@@ -31,9 +31,10 @@ public class Config {
 
     private ArrayList<Color> coloresJugadores;
 
-    public Config(){
+    public Configuracion(){
         this.parsers = new RecursosExternos();
         this.coloresJugadores = new ArrayList<>();
+        this.cargarColoreJugadores();
     }
 
     private void cargarColoreJugadores(){
@@ -71,7 +72,7 @@ public class Config {
         return this.cantDineroJugadorInicial;
     }
 
-    public Integer obtenerCantidadMaximaDeJugagores(){
+    public Integer obtenerCantidadMaximaDeJugadores(){
         return this.cantidadMaximaDeJugadores;
     }
 

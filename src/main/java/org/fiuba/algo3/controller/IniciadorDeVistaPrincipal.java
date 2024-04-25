@@ -4,11 +4,12 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.Scene;
 import javafx.scene.control.ColorPicker;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
-import org.fiuba.algo3.model.Config;
+import org.fiuba.algo3.model.Configuracion;
 import org.fiuba.algo3.model.Jugador.Jugador;
 import org.fiuba.algo3.view.DisposicionPrincipal;
 
@@ -20,11 +21,11 @@ public class IniciadorDeVistaPrincipal implements EventHandler<ActionEvent> {
 
     private Stage ventana;
 
-    private Config configuracion;
+    private Configuracion configuracion;
 
-    private ArrayList<ColorPicker> camposDeColores;
+    private ArrayList<ComboBox<Color>> camposDeColores;
 
-    public IniciadorDeVistaPrincipal(ArrayList<TextField> camposDeNombre, ArrayList<ColorPicker> camposDeColores, Stage ventana, Config configuracion) {
+    public IniciadorDeVistaPrincipal(ArrayList<TextField> camposDeNombre, ArrayList<ComboBox<Color>> camposDeColores, Stage ventana, Configuracion configuracion) {
         this.camposDeNombre = camposDeNombre;
         this.camposDeColores = camposDeColores;
         this.ventana = ventana;
@@ -33,17 +34,38 @@ public class IniciadorDeVistaPrincipal implements EventHandler<ActionEvent> {
 
     @Override
     public void handle(ActionEvent actionEvent) {
-        boolean estanTodosLosCamposCompletos = true;
+        boolean todosLosCamposSonValidos = true;
         for( TextField campoDeNombre : this.camposDeNombre ){
             campoDeNombre.setBorder(new Border(new BorderStroke(Color.GRAY, BorderStrokeStyle.SOLID, new CornerRadii(5), BorderWidths.DEFAULT)));
             if( campoDeNombre.getText().equals("") ){
                 campoDeNombre.setBorder(new Border(new BorderStroke(Color.RED, BorderStrokeStyle.SOLID, new CornerRadii(5), BorderWidths.DEFAULT)));
-                estanTodosLosCamposCompletos = false;
+                todosLosCamposSonValidos = false;
             }
         }
-        if( estanTodosLosCamposCompletos ){
+        ArrayList<ComboBox<Color>> camposDeColoresCopia = new ArrayList<>(this.camposDeColores);
+        for( ComboBox<Color> campoDeColor : this.camposDeColores ){
+            campoDeColor.setBorder(new Border(new BorderStroke(Color.GRAY, BorderStrokeStyle.SOLID, new CornerRadii(5), BorderWidths.DEFAULT)));
+            if( campoDeColor.getValue() == null || this.seRepiteElColor(camposDeColoresCopia, campoDeColor) ){
+                campoDeColor.setBorder(new Border(new BorderStroke(Color.RED, BorderStrokeStyle.SOLID, new CornerRadii(5), BorderWidths.DEFAULT)));
+                todosLosCamposSonValidos = false;
+            }
+        }
+        if( todosLosCamposSonValidos ){
             iniciarEscena();
         }
+    }
+
+    private boolean seRepiteElColor(ArrayList<ComboBox<Color>> camposDeColoresCopia, ComboBox<Color> campoDeColor) {
+        camposDeColoresCopia.remove(campoDeColor);
+        for ( ComboBox<Color> otroCampoDeColor: camposDeColoresCopia){
+            campoDeColor.setBorder(new Border(new BorderStroke(Color.GRAY, BorderStrokeStyle.SOLID, new CornerRadii(5), BorderWidths.DEFAULT)));
+            if( campoDeColor.getValue().equals(otroCampoDeColor.getValue()) ){
+                campoDeColor.setBorder(new Border(new BorderStroke(Color.RED, BorderStrokeStyle.SOLID, new CornerRadii(5), BorderWidths.DEFAULT)));
+                return true;
+            }
+        }
+        camposDeColoresCopia.add(campoDeColor);
+        return false;
     }
 
     private void iniciarEscena() {
