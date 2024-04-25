@@ -1,19 +1,14 @@
 package org.fiuba.algo3.view;
 
-import javafx.geometry.Insets;
 import javafx.scene.Group;
 import javafx.scene.Node;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.Background;
-import javafx.scene.layout.BackgroundFill;
-import javafx.scene.layout.CornerRadii;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.Rectangle;
-import javafx.scene.shape.TriangleMesh;
 import javafx.scene.text.Font;
 import javafx.scene.text.TextAlignment;
 import org.fiuba.algo3.model.Casilleros.Casillero;
@@ -33,6 +28,8 @@ public class CasilleroView extends Pane {
 
     protected HashMap<String, String> informacionCasillero;
 
+    private Label nombreEtiqueta;
+
 
     public CasilleroView(Double anchoCasilla, Double altoCasilla, Casillero casillero, String direccionImagen, Orientacion orientacion){
         this.orientacion = orientacion;
@@ -51,7 +48,7 @@ public class CasilleroView extends Pane {
         informacionDeLaCasilla.setStrokeWidth(3);
         informacionDeLaCasilla.setFill(Color.WHITE);
         informacionDeLaCasilla.setStroke(Color.BLACK);
-        Label nombreEtiqueta = new Label(this.obtenerTextoCasilla());
+        this.nombreEtiqueta = new Label(this.obtenerTextoCasilla());
         nombreEtiqueta.setMaxWidth(this.anchoCasilla);
         nombreEtiqueta.setMaxHeight(altoMaximoNombre());
         nombreEtiqueta.setTextAlignment(TextAlignment.CENTER);
@@ -146,21 +143,23 @@ public class CasilleroView extends Pane {
     }
 
     private void dibujarJugador(Color color) {
-        Circle jugador = new Circle(posicionXJugador(), posicionYJugador(), radioCirculoJugador(), color);
+        Double posicionXJugador = this.obtenerProyeccion(posicionXJugadorCasillaVertical(), posicionYJugadorCasillaVertical());
+        Double posicionYJugador = this.obtenerProyeccion(posicionYJugadorCasillaVertical(), posicionXJugadorCasillaVertical());
+        Circle jugador = new Circle(posicionXJugador, posicionYJugador, radioCirculoJugador(), color);
         this.getChildren().add(jugador);
         this.jugadoresEnCasilla.add(jugador);
     }
 
-    private double posicionYJugador() {
-        return this.getHeight() * 0.5 + diametroCirculoJugador() * this.jugadoresEnCasilla.size();
+    private double posicionYJugadorCasillaVertical() {
+        return this.altoCasilla * 0.5 + diametroCirculoJugador() * this.jugadoresEnCasilla.size();
     }
 
     private double diametroCirculoJugador() {
         return radioCirculoJugador() * 2;
     }
 
-    private double posicionXJugador() {
-        return this.getWidth() * 0.5;
+    private double posicionXJugadorCasillaVertical() {
+        return this.anchoCasilla * 0.5;
     }
 
     private Double radioCirculoJugador(){

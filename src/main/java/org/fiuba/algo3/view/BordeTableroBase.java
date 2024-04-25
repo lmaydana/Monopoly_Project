@@ -58,7 +58,6 @@ public abstract class BordeTableroBase implements BordeTablero{
 
     @Override
     public void agregar(Node vista) throws Exception {
-        Integer hijos = this.disposicion.getChildren().size();
         if( !puedoAceptarMasHijos() ){
             throw new Exception("No se aceptan mas hijos");
         }
