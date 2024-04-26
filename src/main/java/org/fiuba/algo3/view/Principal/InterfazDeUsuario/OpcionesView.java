@@ -11,6 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.ListIterator;
 import javafx.scene.paint.Color;
+import javafx.stage.Stage;
 import org.fiuba.algo3.model.Configuracion;
 import org.fiuba.algo3.model.EstadoDeContinuidad;
 import org.fiuba.algo3.model.Juego;
@@ -41,8 +42,11 @@ public class OpcionesView extends VBox {
 
     private List<Jugador> jugadores;
 
-    public OpcionesView(Juego juego, Configuracion configuracion, TableroView tableroVista, List<Jugador> jugadores){
+    private Stage ventana;
+
+    public OpcionesView(Juego juego, Configuracion configuracion, TableroView tableroVista, List<Jugador> jugadores, Stage ventana){
         this.juego = juego;
+        this.ventana = ventana;
         this.jugadores = jugadores;
         this.tableroVista = tableroVista;
         this.configuracion = configuracion;
@@ -69,13 +73,14 @@ public class OpcionesView extends VBox {
         Button hipotecar = this.obtenerBotonDeOpcion("Hipotecar");
         Button deshipotecar = this.obtenerBotonDeOpcion("Deshipotecar");
         Button comprarPropiedad = this.obtenerBotonDeOpcion("Comprar propiedad");
+        Button cerrarJuego = this.obtenerBotonDeOpcion("Cerrar juego");
         setearEventoBotonesDeSeleccionDePropiedad(botonIrHaciaIzquierda, botonIrHaciaDerecha);
-        setearEventosDeBotonesDeOpciones(juego, pagarFianza, terminarTurno, construirReformar, venderConstruccion, hipotecar, deshipotecar, comprarPropiedad);
+        setearEventosDeBotonesDeOpciones(juego, pagarFianza, terminarTurno, construirReformar, venderConstruccion, hipotecar, deshipotecar, comprarPropiedad, cerrarJuego);
 
 
         this.contenedorInformacionJugadores.setAlignment(Pos.CENTER);
         sectorSeleccionDePropiedad.setAlignment(Pos.CENTER);
-        this.getChildren().addAll(this.cajaDeInformacionJugadorActual, pagarFianza, sectorSeleccionDePropiedad, terminarTurno, comprarPropiedad, construirReformar, venderConstruccion, hipotecar, deshipotecar, this.contenedorInformacionJugadores);
+        this.getChildren().addAll(this.cajaDeInformacionJugadorActual, pagarFianza, sectorSeleccionDePropiedad, terminarTurno, comprarPropiedad, construirReformar, venderConstruccion, hipotecar, deshipotecar, cerrarJuego, this.contenedorInformacionJugadores);
         this.setAlignment(Pos.BASELINE_CENTER);
         this.setSpacing(20);
 
@@ -115,7 +120,7 @@ public class OpcionesView extends VBox {
         });
     }
 
-    private void setearEventosDeBotonesDeOpciones(Juego juego, Button pagarFianza, Button terminarTurno, Button construirReformar, Button venderConstruccion, Button hipotecar, Button deshipotecar, Button comprarPropiedad) {
+    private void setearEventosDeBotonesDeOpciones(Juego juego, Button pagarFianza, Button terminarTurno, Button construirReformar, Button venderConstruccion, Button hipotecar, Button deshipotecar, Button comprarPropiedad, Button cerrarJuego) {
         pagarFianza.setOnAction(e-> {
             juego.pagarFianza();
             this.actualizarInformacionJugadores();
@@ -155,6 +160,10 @@ public class OpcionesView extends VBox {
             this.actualizarCartasDePropiedadDelJugadorActual();
             this.tableroVista.dibujar();
             this.actualizarInformacionJugadores();
+        });
+
+        cerrarJuego.setOnAction( e->{
+            this.ventana.close();
         });
     }
 

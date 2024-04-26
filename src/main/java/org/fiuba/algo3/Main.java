@@ -21,7 +21,8 @@ public class Main extends Application {
         Configuracion configuracion = new Configuracion();
         DisposicionDeApertura disposicionDeApertura = new DisposicionDeApertura(configuracion, stage);
         disposicionDeApertura.setAlignment(Pos.CENTER);
-        Scene scene = new Scene(disposicionDeApertura, anchoPantalla, altoPantalla*0.865740741);
+        Scene scene = new Scene(disposicionDeApertura, anchoPantalla, altoPantalla);
+        stage.setFullScreen(true);
         stage.setResizable(false);
         stage.setScene(scene);
         stage.show();

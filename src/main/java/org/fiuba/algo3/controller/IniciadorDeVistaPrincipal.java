@@ -69,7 +69,7 @@ public class IniciadorDeVistaPrincipal implements EventHandler<ActionEvent> {
 
     private void iniciarEscena() {
         Double anchoVentana = this.ventana.getWidth();
-        Double altoVentama = this.ventana.getHeight();
+        Double altoVentana = this.ventana.getHeight();
         List<String> nombresJugadores = new ArrayList<>();
         List<Color> coloresJugadores = new ArrayList<>();
         for ( int i = 0; i < this.camposDeNombre.size(); i++){
@@ -77,7 +77,8 @@ public class IniciadorDeVistaPrincipal implements EventHandler<ActionEvent> {
             nombresJugadores.add(this.camposDeNombre.get(i).getText());
         }
         List<Jugador> jugadores = this.crearJugadores(nombresJugadores, coloresJugadores);
-        this.ventana.setScene(new Scene(new DisposicionPrincipal(this.configuracion, jugadores), anchoVentana, altoVentama));
+        this.ventana.setScene(new Scene(new DisposicionPrincipal(this.configuracion, jugadores, this.ventana), anchoVentana, altoVentana));
+        this.ventana.setFullScreen(true);
     }
 
     private List<Jugador> crearJugadores(List<String> nombresJugadores, List<Color> coloresJugadores) {
