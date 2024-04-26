@@ -142,7 +142,7 @@ public class CasilleroView extends Pane {
         }
     }
 
-    private void dibujarJugador(Color color) {
+    private void dibujarJugador( Color color ) {
         Double posicionXJugador = this.obtenerProyeccion(posicionXJugadorCasillaVertical(), posicionYJugadorCasillaVertical());
         Double posicionYJugador = this.obtenerProyeccion(posicionYJugadorCasillaVertical(), posicionXJugadorCasillaVertical());
         Circle jugador = new Circle(posicionXJugador, posicionYJugador, radioCirculoJugador(), color);
