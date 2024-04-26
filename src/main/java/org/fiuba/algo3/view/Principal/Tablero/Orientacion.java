@@ -1,11 +1,10 @@
-package org.fiuba.algo3.view;
+package org.fiuba.algo3.view.Principal.Tablero;
 
 import javafx.geometry.Pos;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 
 public enum Orientacion {

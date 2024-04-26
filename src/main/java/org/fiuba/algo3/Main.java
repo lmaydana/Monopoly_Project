@@ -7,7 +7,7 @@ import javafx.scene.Scene;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
 import org.fiuba.algo3.model.Configuracion;
-import org.fiuba.algo3.view.DisposicionDeApertura;
+import org.fiuba.algo3.view.Apertura.DisposicionDeApertura;
 
 import javafx.geometry.Rectangle2D;
 

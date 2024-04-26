@@ -1,10 +1,9 @@
-package org.fiuba.algo3.view;
+package org.fiuba.algo3.view.Principal.Tablero.Casilleros;
 
 import javafx.geometry.Pos;
 import javafx.scene.Group;
 import javafx.scene.Node;
 import javafx.scene.control.Label;
-import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
@@ -14,6 +13,7 @@ import javafx.scene.text.Font;
 import javafx.scene.text.TextAlignment;
 import org.fiuba.algo3.model.Casilleros.Casillero;
 import org.fiuba.algo3.model.Configuracion;
+import org.fiuba.algo3.view.Principal.Tablero.Orientacion;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -24,11 +24,8 @@ public class CasilleroView extends Pane {
     protected Double altoCasilla;
     protected Orientacion orientacion;
     protected Pane cajaInformacion;
-
     protected Casillero casillero;
-
     protected ArrayList<Node> jugadoresEnCasilla;
-
     protected HashMap<String, String> informacionCasillero;
 
 
@@ -56,7 +53,6 @@ public class CasilleroView extends Pane {
         ImageView imagenCasillero = new ImageView(  configuracion.obtenerDireccionImagen(textoCasilla)  );
         imagenCasillero.setFitWidth(anchoImagen());
         imagenCasillero.setFitHeight(altoImagen());
-        //imagenCasillero.setPreserveRatio(true);
         imagenCasillero.setRotate(this.orientacion.obtenerGrados());
         cajaInformacion.getChildren().add(new Group(nombreEtiqueta));
         cajaInformacion.getChildren().add(new Group(imagenCasillero));
@@ -132,7 +128,7 @@ public class CasilleroView extends Pane {
     }
 
     protected Double anchoImagen(){
-        return anchoCasilla * 0.7;
+        return anchoCasilla * 0.9;
     }
 
     protected Double altoMaximoNombre() {

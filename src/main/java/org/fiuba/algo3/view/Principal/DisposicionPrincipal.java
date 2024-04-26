@@ -1,10 +1,12 @@
-package org.fiuba.algo3.view;
+package org.fiuba.algo3.view.Principal;
 
 import javafx.scene.layout.BorderPane;
 import org.fiuba.algo3.model.Configuracion;
 import org.fiuba.algo3.model.Juego;
 import org.fiuba.algo3.model.Jugador.Jugador;
 import org.fiuba.algo3.model.Tablero.Tablero;
+import org.fiuba.algo3.view.Principal.InterfazDeUsuario.OpcionesView;
+import org.fiuba.algo3.view.Principal.Tablero.TableroView;
 
 import java.util.List;
 

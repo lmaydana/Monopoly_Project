@@ -153,7 +153,7 @@ public class Juego implements Terminable {
         this.estadoJuego = new JuegoTerminado();
     }
 
-    public String estado(){
+    public EstadoDeContinuidad estado(){
         return this.estadoJuego.obtenerEstado();
     }
 

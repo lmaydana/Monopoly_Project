@@ -1,12 +1,10 @@
-package org.fiuba.algo3.view;
+package org.fiuba.algo3.view.Principal.Tablero.Casilleros;
 
-import javafx.geometry.Pos;
 import javafx.scene.Group;
 import javafx.scene.control.Label;
-import javafx.scene.text.Font;
-import javafx.scene.text.TextAlignment;
 import org.fiuba.algo3.model.Casilleros.Casillero;
 import org.fiuba.algo3.model.Configuracion;
+import org.fiuba.algo3.view.Principal.Tablero.Orientacion;
 
 public class TransporteView extends CasilleroView{
 

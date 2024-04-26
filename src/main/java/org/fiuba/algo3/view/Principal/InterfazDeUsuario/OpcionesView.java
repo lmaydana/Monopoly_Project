@@ -1,4 +1,4 @@
-package org.fiuba.algo3.view;
+package org.fiuba.algo3.view.Principal.InterfazDeUsuario;
 
 import javafx.geometry.Pos;
 import javafx.geometry.Rectangle2D;
@@ -12,9 +12,10 @@ import java.util.List;
 import java.util.ListIterator;
 import javafx.scene.paint.Color;
 import org.fiuba.algo3.model.Configuracion;
+import org.fiuba.algo3.model.EstadoDeContinuidad;
 import org.fiuba.algo3.model.Juego;
-import org.fiuba.algo3.model.JuegoTerminado;
 import org.fiuba.algo3.model.Jugador.Jugador;
+import org.fiuba.algo3.view.Principal.Tablero.TableroView;
 
 public class OpcionesView extends VBox {
     private Juego juego;
@@ -167,9 +168,9 @@ public class OpcionesView extends VBox {
         this.cajaDeInformacionJugadorActual.getChildren().addAll(marcoConColor, nombreJugador , plataJugador);
         this.cajaDeInformacionJugadorActual.setAlignment(Pos.CENTER);
         this.cajaDeInformacionJugadorActual.setSpacing(30);
-        String estadoJuego = this.juego.estado();
+        EstadoDeContinuidad estadoJuego = this.juego.estado();
 
-        if(estadoJuego.equals(new JuegoTerminado().obtenerEstado())){
+        if(estadoJuego == EstadoDeContinuidad.TERMINO){
             Label etiquetaGanadora = this.crearEtiquetaInformacionJugador("Felicidades " + this.juego.obtenerNombreDelJugadorActual() + "!!! Usted gano el juego!!");
             this.cajaDeInformacionJugadorActual.getChildren().add(etiquetaGanadora);
         }

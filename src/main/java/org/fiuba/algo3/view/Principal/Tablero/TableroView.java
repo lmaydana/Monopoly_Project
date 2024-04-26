@@ -1,4 +1,4 @@
-package org.fiuba.algo3.view;
+package org.fiuba.algo3.view.Principal.Tablero;
 
 import javafx.geometry.Pos;
 import javafx.scene.Group;
@@ -9,6 +9,10 @@ import javafx.stage.Screen;
 import org.fiuba.algo3.model.Casilleros.Casillero;
 import org.fiuba.algo3.model.Configuracion;
 import org.fiuba.algo3.model.Tablero.ListaCircular;
+import org.fiuba.algo3.view.Principal.Tablero.Casilleros.CasilleroView;
+import org.fiuba.algo3.view.Principal.Tablero.Casilleros.PropiedadView;
+import org.fiuba.algo3.view.Principal.Tablero.Casilleros.TransporteView;
+
 import java.util.ArrayList;
 
 public class TableroView extends BorderPane {

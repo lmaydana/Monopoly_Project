@@ -1,4 +1,4 @@
-package org.fiuba.algo3.view;
+package org.fiuba.algo3.view.Principal.InterfazDeUsuario;
 
 import javafx.scene.paint.Color;
 import org.fiuba.algo3.model.Juego;

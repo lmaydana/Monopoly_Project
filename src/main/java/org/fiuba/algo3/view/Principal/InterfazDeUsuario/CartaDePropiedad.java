@@ -1,4 +1,4 @@
-package org.fiuba.algo3.view;
+package org.fiuba.algo3.view.Principal.InterfazDeUsuario;
 
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;

@@ -10,7 +10,7 @@ import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import org.fiuba.algo3.model.Configuracion;
 import org.fiuba.algo3.model.Jugador.Jugador;
-import org.fiuba.algo3.view.DisposicionPrincipal;
+import org.fiuba.algo3.view.Principal.DisposicionPrincipal;
 
 import java.util.ArrayList;
 import java.util.List;

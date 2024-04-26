@@ -1,4 +1,4 @@
-package org.fiuba.algo3.view;
+package org.fiuba.algo3.view.Apertura;
 
 import javafx.scene.Group;
 import javafx.scene.Node;

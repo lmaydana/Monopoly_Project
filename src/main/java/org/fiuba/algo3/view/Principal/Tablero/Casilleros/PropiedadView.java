@@ -1,14 +1,13 @@
-package org.fiuba.algo3.view;
+package org.fiuba.algo3.view.Principal.Tablero.Casilleros;
 
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import org.fiuba.algo3.model.Casilleros.Casillero;
 import org.fiuba.algo3.model.Configuracion;
+import org.fiuba.algo3.view.Principal.Tablero.Orientacion;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 
 public class PropiedadView extends TransporteView {
 

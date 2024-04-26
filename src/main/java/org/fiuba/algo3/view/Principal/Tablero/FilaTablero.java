@@ -1,13 +1,10 @@
-package org.fiuba.algo3.view;
+package org.fiuba.algo3.view.Principal.Tablero;
 
-import javafx.beans.Observable;
-import javafx.collections.ObservableList;
 import javafx.scene.Node;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 
-import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
