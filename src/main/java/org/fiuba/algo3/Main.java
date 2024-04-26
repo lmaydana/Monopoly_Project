@@ -23,7 +23,6 @@ public class Main extends Application {
         disposicionDeApertura.setAlignment(Pos.CENTER);
         Scene scene = new Scene(disposicionDeApertura, anchoPantalla, altoPantalla);
         stage.setFullScreen(true);
-        stage.setResizable(false);
         stage.setScene(scene);
         stage.show();
     }

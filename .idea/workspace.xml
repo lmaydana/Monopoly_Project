@@ -4,11 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="07dc97c6-3377-42b3-ade1-3be1d80c5067" name="Changes" comment="Trabajando en la apariencia del juego principal.">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="07dc97c6-3377-42b3-ade1-3be1d80c5067" name="Changes" comment="Agregando salir y pantalla completa.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/fiuba/algo3/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/fiuba/algo3/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/fiuba/algo3/controller/IniciadorDeVistaPrincipal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/fiuba/algo3/controller/IniciadorDeVistaPrincipal.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/fiuba/algo3/view/Principal/DisposicionPrincipal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/fiuba/algo3/view/Principal/DisposicionPrincipal.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/fiuba/algo3/view/Principal/InterfazDeUsuario/OpcionesView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/fiuba/algo3/view/Principal/InterfazDeUsuario/OpcionesView.java" afterDir="false" />
     </list>
@@ -309,7 +307,15 @@
       <option name="project" value="LOCAL" />
       <updated>1714143037432</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="Agregando salir y pantalla completa.">
+      <option name="closed" value="true" />
+      <created>1714159925169</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1714159925169</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -351,6 +357,7 @@
     <MESSAGE value="Arreglando bug con la muestra del jugador inicial y con la muestra de aconglomeracion de jugadores en las columnas." />
     <MESSAGE value="Agregado de imgenes a los casilleros del tablero." />
     <MESSAGE value="Trabajando en la apariencia del juego principal." />
-    <option name="LAST_COMMIT_MESSAGE" value="Trabajando en la apariencia del juego principal." />
+    <MESSAGE value="Agregando salir y pantalla completa." />
+    <option name="LAST_COMMIT_MESSAGE" value="Agregando salir y pantalla completa." />
   </component>
 </project>

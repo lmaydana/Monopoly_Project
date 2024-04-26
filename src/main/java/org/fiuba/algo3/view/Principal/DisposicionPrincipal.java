@@ -18,6 +18,7 @@ public class DisposicionPrincipal extends BorderPane {
         Tablero tablero = new Tablero(jugadores, configuracion);
         Juego juego = new Juego(jugadores, tablero, configuracion);
         OpcionesView opcionesView = new OpcionesView(juego, configuracion, tableroVista, jugadores, ventana);
+        this.setStyle("-fx-background-color: linear-gradient(to bottom right, #20AAFA, #6E6EFA 100%)");
         this.setCenter(tableroVista);
         this.setRight(opcionesView);
     }

@@ -66,7 +66,7 @@ public class OpcionesView extends VBox {
         sectorSeleccionDePropiedad.getChildren().addAll(botonIrHaciaIzquierda, this.contenedorDeCartaActual, botonIrHaciaDerecha);
         botonIrHaciaDerecha.setPrefHeight(sectorSeleccionDePropiedad.getHeight());
         sectorSeleccionDePropiedad.setMaxWidth(anchoCarta());
-        Button pagarFianza = this.obtenerBotonDeOpcion("Pagar fianza");
+        Button pagarFianza = this.obtenerBotonDeOpcion("Pagar fianza: $"+configuracion.obtnerMontoFianza());
         Button terminarTurno = this.obtenerBotonDeOpcion("Terminar turno");
         Button construirReformar = this.obtenerBotonDeOpcion("Construir o reformar");
         Button venderConstruccion = this.obtenerBotonDeOpcion("Vender Construccion");
@@ -82,9 +82,8 @@ public class OpcionesView extends VBox {
         sectorSeleccionDePropiedad.setAlignment(Pos.CENTER);
         this.getChildren().addAll(this.cajaDeInformacionJugadorActual, pagarFianza, sectorSeleccionDePropiedad, terminarTurno, comprarPropiedad, construirReformar, venderConstruccion, hipotecar, deshipotecar, cerrarJuego, this.contenedorInformacionJugadores);
         this.setAlignment(Pos.BASELINE_CENTER);
-        this.setSpacing(20);
+        this.setSpacing(this.alto*0.01);
 
-        this.setStyle("-fx-background-color: linear-gradient(to bottom right, #20AAFA, #6E6EFA 100%)");
         juego.moverJugador();
         this.tableroVista.dibujar();
         this.actualizarInformacionJugadores();
@@ -225,7 +224,7 @@ public class OpcionesView extends VBox {
         botonDeOpcion.setPrefWidth(this.ancho*0.2);
         botonDeOpcion.setStyle("-fx-background-color: #0CFA83; " +
                 "-fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 10, 0, 0, 0); " +
-                "-fx-font-size: 16px;");
+                "-fx-font-size: "+this.alto*0.02+"px;");
         //-------------------------------------------------------
         return botonDeOpcion;
     }
