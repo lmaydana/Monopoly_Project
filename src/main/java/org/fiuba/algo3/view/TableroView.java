@@ -23,10 +23,10 @@ public class TableroView extends BorderPane {
         this.largoLadoTablero = (Screen.getPrimary().getBounds().getHeight() * factorCantidadUtilizable());
         this.setPrefSize(largoLadoTablero, largoLadoTablero);
         this.agregarBordesDelTablero(configuracion);
-        this.crearCentroDelTablero();
+        this.agregarCentroDelTablero();
     }
 
-    private void crearCentroDelTablero() {
+    private void agregarCentroDelTablero() {
         Image centroMonopolio = new Image(obtenerDireccionImagenCentral());
         ImageView centroMonopolioImageView = new ImageView(centroMonopolio);
         centroMonopolioImageView.setFitWidth(largoLadoTablero * factorAnchoImagenCentral());
@@ -51,20 +51,21 @@ public class TableroView extends BorderPane {
         }
     }
 
-    private void llenarConCasilleroCorrespondiente(Casillero casillero, Integer cantidadDeCasillerosEnElTablero, BordeTablero bordeTablero, Integer indice){
-        Integer espaciosOcupadosEnLasFilas = this.espaciosQueSeOcupaEnFilas( cantidadDeCasillerosEnElTablero );
-        Double anchoCasilla = this.largoLadoTablero/espaciosOcupadosEnLasFilas;
-        Double altoCasilla = anchoCasilla*incrementoDeAncho();
+    private void llenarConCasilleroCorrespondiente(Casillero casillero, Integer cantidadDeCasillerosEnElTablero, BordeTablero bordeTablero, Integer indice) {
+        Integer espaciosOcupadosEnLasFilas = this.espaciosQueSeOcupanEnFilas(cantidadDeCasillerosEnElTablero);
+        Double anchoCasilla = this.largoLadoTablero / espaciosOcupadosEnLasFilas;
+        Double altoCasilla = anchoCasilla * incrementoDeAncho();
+        anchoCasilla *= incrementoPorPosicion(indice, cantidadDeCasillerosEnElTablero);
         CasilleroView casilleroView;
         switch (casillero.obtenerTipoCasillero()){
             case TRANSPORTE:
-                casilleroView = new TransporteView(anchoCasilla*incrementoPorPosicion(indice, cantidadDeCasillerosEnElTablero), altoCasilla, casillero, bordeTablero.obtenerOrientacion(), this.configuracion);
+                casilleroView = new TransporteView(anchoCasilla, altoCasilla, casillero, bordeTablero.obtenerOrientacion(), this.configuracion);
                 break;
             case PROPIEDAD:
-                casilleroView = new PropiedadView(anchoCasilla*incrementoPorPosicion(indice, cantidadDeCasillerosEnElTablero), altoCasilla, casillero, bordeTablero.obtenerOrientacion(), this.configuracion);
+                casilleroView = new PropiedadView(anchoCasilla, altoCasilla, casillero, bordeTablero.obtenerOrientacion(), this.configuracion);
                 break;
             default :
-                casilleroView = new CasilleroView(anchoCasilla*incrementoPorPosicion(indice, cantidadDeCasillerosEnElTablero), altoCasilla, casillero, bordeTablero.obtenerOrientacion(), this.configuracion);
+                casilleroView = new CasilleroView(anchoCasilla, altoCasilla, casillero, bordeTablero.obtenerOrientacion(), this.configuracion);
         }
 
         bordeTablero.agregar(casilleroView);
@@ -99,8 +100,12 @@ public class TableroView extends BorderPane {
         return 2;
     }
 
-    private Integer espaciosQueSeOcupaEnFilas(Integer totalDeCasillas){
-        return cantidadDeEspaciosPorLado(totalDeCasillas) + 3;
+    private Integer espaciosQueSeOcupanEnFilas(Integer totalDeCasillas){
+        return cantidadDeEspaciosPorLado(totalDeCasillas) + espaciosDeMasOcupadosPorLasEsquinas();
+    }
+
+    private int espaciosDeMasOcupadosPorLasEsquinas() {
+        return 3;
     }
 
     private Integer cantidadDeEspaciosPorLado(Integer totalDeCasillas) {

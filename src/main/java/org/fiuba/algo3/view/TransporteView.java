@@ -23,16 +23,6 @@ public class TransporteView extends CasilleroView{
         this.cajaInformacion.getChildren().add(new Group(precio));
     }
 
-    protected void setearFormatoEtiqueta( Label etiqueta ){
-        etiqueta.setMaxWidth(this.anchoCasilla);
-        etiqueta.setMaxHeight(altoMaximoEtiqueta());
-        etiqueta.setWrapText(true);
-        etiqueta.setFont(new Font(10));
-        etiqueta.setAlignment(Pos.CENTER);
-        etiqueta.setTextAlignment(TextAlignment.CENTER);
-        etiqueta.setRotate(this.orientacion.obtenerGrados());
-    }
-
     @Override
     public void dibujar() {
         super.dibujar();
@@ -48,11 +38,8 @@ public class TransporteView extends CasilleroView{
         return "nombre";
     }
 
-    public Double altoMaximoEtiqueta() {
-        return super.altoMaximoNombre();
+    protected double factorDeCrecimientoImagen() {
+        return 0.4;
     }
 
-    protected Double anchoMaximoPrecio() {
-        return super.anchoImagen();
-    }
 }

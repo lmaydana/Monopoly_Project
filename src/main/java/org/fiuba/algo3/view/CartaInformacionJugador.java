@@ -8,7 +8,6 @@ import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.TextAlignment;
-import org.fiuba.algo3.model.Juego;
 import org.fiuba.algo3.model.Jugador.Jugador;
 
 import java.util.ArrayList;
@@ -36,16 +35,19 @@ public class CartaInformacionJugador extends VBox {
         Color color = Color.valueOf(informacionJugador.get("color jugador"));
         cabecera.setFill(color);
         this.getChildren().add(new Group(cabecera));
-        this.agregarEtiqueta(nombre);
-        this.agregarEtiqueta(dineroDisponible);
-        this.agregarEtiqueta("Propiedades:");
-        this.setBackground(new Background(new BackgroundFill(Color.WHITE,CornerRadii.EMPTY, Insets.EMPTY)));
+        VBox sectorInformacion = new VBox();
+        this.agregarEtiqueta(nombre, sectorInformacion);
+        this.agregarEtiqueta(dineroDisponible, sectorInformacion);
+        this.agregarEtiqueta("Propiedades:", sectorInformacion);
+        sectorInformacion.setBackground(new Background(new BackgroundFill(Color.WHITE,CornerRadii.EMPTY, Insets.EMPTY)));
         ArrayList<String> propiedades = new ArrayList<>();
         jugador.cargarNombreDePropiedadesEnPosesion(propiedades);
         for( String propiedad: propiedades){
-            this.agregarEtiqueta(propiedad, sectorNombrePropiedades);
+            this.agregarEtiqueta(" " + propiedad, sectorNombrePropiedades);
         }
-        this.getChildren().add(new ScrollPane(sectorNombrePropiedades));
+        sectorInformacion.setPrefHeight(this.alto*0.7);
+        sectorInformacion.getChildren().add(new ScrollPane(sectorNombrePropiedades));
+        this.getChildren().add(sectorInformacion);
 
     }
 

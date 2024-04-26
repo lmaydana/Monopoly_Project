@@ -45,10 +45,8 @@ public class CartaDePropiedad extends VBox {
         GridPane tabla = new GridPane(infoTabla.length,infoTabla[0].size());
         for( int i = 0; i < infoTabla.length; i++){
             ArrayList<String> campo = infoTabla[i];
-            int j = 0;
-            for(String informacion: campo) {
-                j++;
-                tabla.add(this.obtenerEtiqueta(informacion), i, j );
+            for(int  j = 0; j < campo.size(); j++) {
+                tabla.add(this.obtenerEtiqueta(campo.get(j)), i, j );
             }
         }
         Border borde = new Border(new BorderStroke(Color.BLACK, BorderStrokeStyle.SOLID, CornerRadii.EMPTY, new BorderWidths(1)));

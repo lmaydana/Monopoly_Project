@@ -1,5 +1,6 @@
 package org.fiuba.algo3.view;
 
+import javafx.geometry.Pos;
 import javafx.scene.Group;
 import javafx.scene.Node;
 import javafx.scene.control.Label;
@@ -50,21 +51,35 @@ public class CasilleroView extends Pane {
         informacionDeLaCasilla.setStroke(Color.BLACK);
         String textoCasilla = this.obtenerTextoCasilla();
         Label nombreEtiqueta = new Label(textoCasilla);
-        nombreEtiqueta.setMaxWidth(this.anchoCasilla);
-        nombreEtiqueta.setMaxHeight(altoMaximoNombre());
-        nombreEtiqueta.setTextAlignment(TextAlignment.CENTER);
-        nombreEtiqueta.setWrapText(true);
-        nombreEtiqueta.setFont(new Font(10));
+        this.setearFormatoEtiqueta(nombreEtiqueta);
         nombreEtiqueta.setStyle("-fx-text-fill: blue;");
-        nombreEtiqueta.setRotate(this.orientacion.obtenerGrados());
-        ImageView imagenCasillero = new ImageView(configuracion.obtenerDireccionImagen(textoCasilla));
+        ImageView imagenCasillero = new ImageView(  configuracion.obtenerDireccionImagen(textoCasilla)  );
         imagenCasillero.setFitWidth(anchoImagen());
         imagenCasillero.setFitHeight(altoImagen());
+        //imagenCasillero.setPreserveRatio(true);
         imagenCasillero.setRotate(this.orientacion.obtenerGrados());
         cajaInformacion.getChildren().add(new Group(nombreEtiqueta));
         cajaInformacion.getChildren().add(new Group(imagenCasillero));
         this.getChildren().add(new Group(informacionDeLaCasilla));
         this.getChildren().add(new Group(cajaInformacion));
+    }
+
+    protected void setearFormatoEtiqueta( Label etiqueta ){
+        etiqueta.setMaxWidth(this.anchoCasilla);
+        etiqueta.setMaxHeight(altoMaximoEtiqueta());
+        etiqueta.setWrapText(true);
+        etiqueta.setFont(new Font(tamanioFuente()));
+        etiqueta.setAlignment(Pos.CENTER);
+        etiqueta.setTextAlignment(TextAlignment.CENTER);
+        etiqueta.setRotate(this.orientacion.obtenerGrados());
+    }
+
+    protected Double altoMaximoEtiqueta() {
+        return this.altoMaximoNombre();
+    }
+
+    protected Double tamanioFuente(){
+        return this.altoCasilla * 0.06;
     }
 
     private String obtenerTextoCasilla(){
@@ -73,10 +88,6 @@ public class CasilleroView extends Pane {
 
     protected String claveTexto() {
         return "tipo";
-    }
-
-    protected static String rutaImagenPorDefecto(){
-        return "file:src/main/java/org/fiuba/algo3/view/imagenes/personaje_monopoly.png";
     }
 
     protected Double obtenerProyeccion(Double portraitValor, Double landScapeValor){
@@ -93,7 +104,11 @@ public class CasilleroView extends Pane {
     }
 
     protected Double altoImagen() {
-        return altoCasilla * 0.3;
+        return altoCasilla * factorDeCrecimientoImagen();
+    }
+
+    protected double factorDeCrecimientoImagen() {
+        return 0.5;
     }
 
     protected Double comienzoCasillaX(){
