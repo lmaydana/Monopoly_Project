@@ -129,8 +129,10 @@ public class TableroJsonParser extends JsonParser {
         return this.imagenesCasilleros.getOrDefault(nombreCasillero, "file:src/main/java/org/fiuba/algo3/view/imagenes/personaje_monopoly.png");
     }
 
-    public ArrayList<ArrayList<String>> obtenerInformacionInmueblesSobre(String nombrePropiedad){
-        return this.preciosInmueblesPorNombreDePropiedad.get(nombrePropiedad);
+    public ArrayList<String>[] obtenerInformacionInmueblesSobre(String nombrePropiedad){
+        ArrayList<ArrayList<String>> precios = this.preciosInmueblesPorNombreDePropiedad.get(nombrePropiedad);
+        ArrayList<String>[] arrayPrecios = new ArrayList[precios.size()];
+        return precios.toArray(arrayPrecios);
     }
 
     public Color obtenerColorDePropiedad(String nombrePropiedad ){
@@ -194,6 +196,7 @@ public class TableroJsonParser extends JsonParser {
         JSONArray preciosDeRentasPorCantidadDeInmuebles = casilleroJson.getJSONArray("rentas");
         JSONArray preciosDeCompraInmuebles = casilleroJson.getJSONArray("precio compra viviendas");
         ArrayList<Inmueble> inmuebles = this.obtenerInmuebles(nombrePropiedad, preciosDeVentaInmuebles, preciosDeRentasPorCantidadDeInmuebles, preciosDeCompraInmuebles);
+        this.agregarHipotecasAInformacion(nombrePropiedad, precioHipoteca, precioDehipoteca);
         Propiedad propiedad = new Propiedad(nombrePropiedad, costoDeVenta,barrio,inmuebles, banco);
         barrio.agregarPropiedad(propiedad);
         HashMap<String, String> infoPropiedad = new HashMap<>();
@@ -202,6 +205,18 @@ public class TableroJsonParser extends JsonParser {
         infoPropiedad.put("color", color);
         this.infoCasilla.put(propiedad, infoPropiedad);
         return propiedad;
+    }
+
+    private void agregarHipotecasAInformacion(String nombrePropiedad, Double precioHipoteca, Double precioDehipoteca) {
+        ArrayList<String> preciosHipotecas = new ArrayList<>();
+        preciosHipotecas.add("Hipoteca");
+        preciosHipotecas.add(precioHipoteca.toString());
+        ArrayList<String> preciosDeshipotecas = new ArrayList<>();
+        preciosDeshipotecas.add("Deshipoteca");
+        preciosDeshipotecas.add(precioDehipoteca.toString());
+        ArrayList<ArrayList<String>> precios = this.preciosInmueblesPorNombreDePropiedad.get(nombrePropiedad);
+        precios.add(preciosHipotecas);
+        precios.add(preciosDeshipotecas);
     }
 
     private ArrayList<String> cambiarElementosACadena( ArrayList<Double> elementos ){

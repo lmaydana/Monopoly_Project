@@ -35,8 +35,9 @@ public class CartaDePropiedad extends VBox {
         this.getChildren().add(nombreEtiqueta);
         this.getChildren().add(tabla);
         tabla.setAlignment(Pos.CENTER);
-        Border borde = new Border(new BorderStroke(Color.BLACK, BorderStrokeStyle.SOLID, CornerRadii.EMPTY, new BorderWidths(3)));
+        Border borde = new Border(new BorderStroke(Color.BLACK, BorderStrokeStyle.SOLID, CornerRadii.EMPTY, new BorderWidths(1)));
         this.setBorder(borde);
+        this.setBackground(new Background(new BackgroundFill(Color.WHITE, CornerRadii.EMPTY, Insets.EMPTY)));
         this.setAlignment(Pos.CENTER);
     }
 
@@ -44,11 +45,13 @@ public class CartaDePropiedad extends VBox {
         GridPane tabla = new GridPane(infoTabla.length,infoTabla[0].size());
         for( int i = 0; i < infoTabla.length; i++){
             ArrayList<String> campo = infoTabla[i];
-            for(int j = 0; j < campo.size(); j++) {
-                tabla.add(obtenerEtiqueta(campo.get(j)), i, j );
+            int j = 0;
+            for(String informacion: campo) {
+                j++;
+                tabla.add(this.obtenerEtiqueta(informacion), i, j );
             }
         }
-        Border borde = new Border(new BorderStroke(Color.BLACK, BorderStrokeStyle.SOLID, CornerRadii.EMPTY, new BorderWidths(3)));
+        Border borde = new Border(new BorderStroke(Color.BLACK, BorderStrokeStyle.SOLID, CornerRadii.EMPTY, new BorderWidths(1)));
         tabla.setBorder(borde);
         return tabla;
     }

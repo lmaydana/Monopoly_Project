@@ -64,7 +64,7 @@ public class Configuracion {
         return this.parsers.obtenerCasilleros();
     }
 
-    public ArrayList<ArrayList<String>> obtenerInformacionDeInmueblesSobre( String nombrePropiedad){
+    public ArrayList<String>[] obtenerInformacionDeInmueblesSobre( String nombrePropiedad){
         return this.parsers.obtenerInformacionInmueblesSobre(nombrePropiedad);
     }
 

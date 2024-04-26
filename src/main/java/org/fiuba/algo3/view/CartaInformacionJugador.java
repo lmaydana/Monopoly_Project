@@ -1,7 +1,9 @@
 package org.fiuba.algo3.view;
 
+import javafx.geometry.Insets;
 import javafx.scene.Group;
 import javafx.scene.control.Label;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
@@ -24,6 +26,7 @@ public class CartaInformacionJugador extends VBox {
         this.setHeight(alto);
         this.ancho = ancho;
         this.alto = alto;
+        VBox sectorNombrePropiedades = new VBox();
         HashMap<String, String> informacionJugador = new HashMap<>();
         jugador.informarDetalles(informacionJugador);
         Rectangle cabecera = new Rectangle(ancho, alto*0.3);
@@ -33,22 +36,28 @@ public class CartaInformacionJugador extends VBox {
         Color color = Color.valueOf(informacionJugador.get("color jugador"));
         cabecera.setFill(color);
         this.getChildren().add(new Group(cabecera));
-        this.agegarEtiqueta(nombre);
-        this.agegarEtiqueta(dineroDisponible);
-        this.agegarEtiqueta("Propiedades:");
+        this.agregarEtiqueta(nombre);
+        this.agregarEtiqueta(dineroDisponible);
+        this.agregarEtiqueta("Propiedades:");
+        this.setBackground(new Background(new BackgroundFill(Color.WHITE,CornerRadii.EMPTY, Insets.EMPTY)));
         ArrayList<String> propiedades = new ArrayList<>();
         jugador.cargarNombreDePropiedadesEnPosesion(propiedades);
         for( String propiedad: propiedades){
-            this.agegarEtiqueta(propiedad);
+            this.agregarEtiqueta(propiedad, sectorNombrePropiedades);
         }
+        this.getChildren().add(new ScrollPane(sectorNombrePropiedades));
 
     }
 
-    private void agegarEtiqueta(String textoEtiqueta ){
+    private void agregarEtiqueta(String textoEtiqueta ){
+        this.agregarEtiqueta(textoEtiqueta, this);
+    }
+
+    private void agregarEtiqueta(String textoEtiqueta, Pane disposicion){
         Label etiqueta = new Label(textoEtiqueta);
         etiqueta.setMaxWidth(this.ancho);
         etiqueta.setMaxHeight(this.alto*0.3);
         etiqueta.setTextAlignment(TextAlignment.CENTER);
-        this.getChildren().add(etiqueta);
+        disposicion.getChildren().add(etiqueta);
     }
 }

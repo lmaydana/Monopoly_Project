@@ -9,9 +9,7 @@ import javafx.stage.Screen;
 import org.fiuba.algo3.model.Casilleros.Casillero;
 import org.fiuba.algo3.model.Configuracion;
 import org.fiuba.algo3.model.Tablero.ListaCircular;
-
 import java.util.ArrayList;
-import java.util.HashMap;
 
 public class TableroView extends BorderPane {
 
@@ -69,12 +67,8 @@ public class TableroView extends BorderPane {
                 casilleroView = new CasilleroView(anchoCasilla*incrementoPorPosicion(indice, cantidadDeCasillerosEnElTablero), altoCasilla, casillero, bordeTablero.obtenerOrientacion(), this.configuracion);
         }
 
-        try {
-            bordeTablero.agregar(casilleroView);//Sacar el lanzamiento de excepcion en este metodo
-            this.casilleros.add(casilleroView);
-        } catch (Exception e) {
-            throw new RuntimeException(e);
-        }
+        bordeTablero.agregar(casilleroView);
+        this.casilleros.add(casilleroView);
         bordeTablero.posicionar();
     }
 

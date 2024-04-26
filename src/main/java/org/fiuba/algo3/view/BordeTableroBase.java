@@ -57,11 +57,11 @@ public abstract class BordeTableroBase implements BordeTablero{
     protected abstract BordeTablero devolverSiguienteBorde(Integer ladoActual, BorderPane disposicion);
 
     @Override
-    public void agregar(Node vista) throws Exception {
-        if( !puedoAceptarMasHijos() ){
-            throw new Exception("No se aceptan mas hijos");
+    public void agregar(Node vista) {
+        if( puedoAceptarMasHijos() ){
+            this.disposicion.getChildren().add(vista);
         }
-        this.disposicion.getChildren().add(vista);
+
     }
 
     @Override

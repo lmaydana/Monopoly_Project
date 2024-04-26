@@ -32,7 +32,7 @@ public class RecursosExternos {
         return this.tableroJsonParser.obtenerInfoCasilleros();
     }
 
-    public ArrayList<ArrayList<String>> obtenerInformacionInmueblesSobre( String nombrePropiedad){
+    public ArrayList<String>[] obtenerInformacionInmueblesSobre( String nombrePropiedad){
         return this.tableroJsonParser.obtenerInformacionInmueblesSobre(nombrePropiedad);
     }
 

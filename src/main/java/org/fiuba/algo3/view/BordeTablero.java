@@ -6,7 +6,7 @@ import javafx.scene.layout.BorderPane;
 public interface BordeTablero {
     BordeTablero obtenerSiguienteBorde(BorderPane disposicion);
 
-    void agregar(Node vista) throws Exception;
+    void agregar(Node vista);
 
     void darVuelta();
 
