@@ -1,6 +1,7 @@
 package org.fiuba.algo3.view.Principal.Tablero;
 
 import javafx.geometry.Pos;
+import javafx.geometry.Rectangle2D;
 import javafx.scene.Group;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
@@ -24,8 +25,9 @@ public class TableroView extends BorderPane {
 
     public TableroView( Configuracion configuracion ){
         this.configuracion = configuracion;
-        this.largoLadoTablero = (Screen.getPrimary().getBounds().getHeight() * factorCantidadUtilizable());
-        this.setPrefSize(largoLadoTablero, largoLadoTablero);
+        Rectangle2D dimensionesPantalla = Screen.getPrimary().getBounds();
+        this.largoLadoTablero = ( Math.min(dimensionesPantalla.getHeight(), dimensionesPantalla.getWidth())* factorCantidadUtilizable());
+        this.setMaxSize(largoLadoTablero, largoLadoTablero);
         this.agregarBordesDelTablero(configuracion);
         this.agregarCentroDelTablero();
     }

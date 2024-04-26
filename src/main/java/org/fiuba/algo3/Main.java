@@ -19,17 +19,10 @@ public class Main extends Application {
         Double altoPantalla = dimensionesPantalla.getHeight();
         Double anchoPantalla = dimensionesPantalla.getWidth();
         Configuracion configuracion = new Configuracion();
-        //--------------------Contenedor Principal-------------------------------
-        /*TableroView tablero = new TableroView(configuracion);
-        BorderPane disposicionPrincipal = new BorderPane();
-        disposicionPrincipal.setCenter(tablero);
-        OpcionesView opcionesView = new OpcionesView(juego);
-        disposicionPrincipal.setRight(opcionesView);*/
-        //--------------------------------------------------
         DisposicionDeApertura disposicionDeApertura = new DisposicionDeApertura(configuracion, stage);
         disposicionDeApertura.setAlignment(Pos.CENTER);
         Scene scene = new Scene(disposicionDeApertura, anchoPantalla, altoPantalla*0.865740741);
-        stage.setResizable(true);
+        stage.setResizable(false);
         stage.setScene(scene);
         stage.show();
     }

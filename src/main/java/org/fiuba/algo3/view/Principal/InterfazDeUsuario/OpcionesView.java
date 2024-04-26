@@ -215,7 +215,6 @@ public class OpcionesView extends VBox {
         //-------Estilos y decoraciones del boton----------------
         botonDeOpcion.setPrefWidth(this.ancho*0.2);
         botonDeOpcion.setStyle("-fx-background-color: #0CFA83; " +
-                "-fx-text-fill: white; " +
                 "-fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 10, 0, 0, 0); " +
                 "-fx-font-size: 16px;");
         //-------------------------------------------------------
