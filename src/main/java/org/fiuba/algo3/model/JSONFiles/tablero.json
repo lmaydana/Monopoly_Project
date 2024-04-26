@@ -1,40 +1,44 @@
 [
-  {"tipo": "inicio", "monto": 200.0},
+  {"tipo": "Inicio", "monto": 200.0, "imagen": "file:src/main/java/org/fiuba/algo3/view/imagenes/imagenesCasillas/inicio.jpg" },
 
   {"tipo": "propiedad",
     "nombre": "Casa de Don Ramon",
+    "imagen": "file:src/main/java/org/fiuba/algo3/view/imagenes/imagenesCasillas/casa_de_don_ramon.jpeg",
     "precio": 60.0,"hipoteca": 30.0,"deshipoteca": 50.0,
     "color":"#8a220b",
     "rentas": [ 10.0,  20.0, 30.0,  40.0,  50.0,  75.0 ],
     "precio compra viviendas": [ 0.0,  5.0,   10.0,  15.0,  20.0,   30.0],
     "precio venta viviendas":  [  0.0,  3.0,  7.0,  10.0,   15.0,  20.0]},
 
-  {"tipo": "loteria", "monto": 50.0},
+  {"tipo": "Loteria", "monto": 50.0, "imagen": "file:src/main/java/org/fiuba/algo3/view/imagenes/imagenesCasillas/loteria.png"},
 
   {"tipo": "propiedad",
     "nombre": "Casa de La Bruja del 71",
+    "imagen": "file:src/main/java/org/fiuba/algo3/view/imagenes/imagenesCasillas/la_casa_de_la_bruja_del_71_2.gif",
     "precio": 60.0,"hipoteca": 35.0,"deshipoteca": 60.0,
     "color":"#8a220b",
     "rentas": [ 12.0,  25.0, 35.0,  48.0,  60.0,  90.0 ],
     "precio compra viviendas": [ 0.0,  7.0,   13.0,  19.0,  24.0,   35.0],
     "precio venta viviendas":  [  0.0,  5.0,  9.0,  15.0,   20.0,  29.0]},
 
-  {"tipo": "multa", "monto": 200.0},
+  {"tipo": "Multa", "monto": 200.0, "imagen": "file:src/main/java/org/fiuba/algo3/view/imagenes/imagenesCasillas/multa.jpg"},
 
-  {"tipo": "transporte", "nombre": "Coche del Señor Barriga", "precio": 200.0, "renta": 100.000},
+  {"tipo": "transporte", "nombre": "Coche del Señor Barriga", "imagen":"file:src/main/java/org/fiuba/algo3/view/imagenes/imagenesCasillas/coche_del_senior_barriga.jpeg", "precio": 200.0, "renta": 100.000},
 
   {"tipo": "propiedad",
     "nombre": "Fuente de la vecindad",
+    "imagen": "file:src/main/java/org/fiuba/algo3/view/imagenes/imagenesCasillas/la_fuente_de_la_vecindad.jpeg",
     "precio": 100.0,"hipoteca": 60.0,"deshipoteca": 90.0,
     "color":"#32e1e9",
     "rentas": [ 40.0,  60.0, 75.0,  85.0,  100.0,  120.0 ],
     "precio compra viviendas": [ 0.0,  20.0,   35.0,  50.0,  70.0,   85.0],
     "precio venta viviendas":  [  0.0,  10.0,  20.0,  35.0,   60.0,  70.0]},
 
-  {"tipo": "multa", "monto": 70.0},
+  {"tipo": "Multa", "monto": 70.0, "imagen": "file:src/main/java/org/fiuba/algo3/view/imagenes/imagenesCasillas/multa.jpg"},
 
   {"tipo": "propiedad",
     "nombre": "Casa de Jaimito El Cartero",
+    "imagen": "file:src/main/java/org/fiuba/algo3/view/imagenes/imagenesCasillas/casa_de_jaimito.png",
     "precio": 100.0,"hipoteca": 80.0,"deshipoteca": 90.0,
     "color":"#32e1e9",
     "rentas": [ 45.0,  63.0,  79.0,  89.0,  108.0,  129.0 ],
@@ -43,16 +47,18 @@
 
   {"tipo": "propiedad",
     "nombre": "Casa del señor Hurtado",
+    "imagen": "file:src/main/java/org/fiuba/algo3/view/imagenes/imagenesCasillas/casa_del_senior_hurtado.jpg",
     "precio": 120.0,"hipoteca": 75.0,"deshipoteca": 110.0,
     "color":"#32e1e9",
     "rentas": [ 50.0,  65.0, 83.0,  94.0,  115.0,  138.0 ],
     "precio compra viviendas": [ 0.0,  30.0,   60.0,  70.0,  85.0,   95.0],
     "precio venta viviendas":  [  0.0,  20.0,  40.0,  55.0,   70.0,  90.0]},
 
-  {"tipo": "carcel", "fianza": 250.0},
+  {"tipo": "Carcel", "fianza": 250.0, "imagen": "file:src/main/java/org/fiuba/algo3/view/imagenes/imagenesCasillas/carcel.png"},
 
   {"tipo": "propiedad",
     "nombre": "Casa de Doña Florinda",
+    "imagen": "file:src/main/java/org/fiuba/algo3/view/imagenes/imagenesCasillas/casa_de_donia_florinda.jpg",
     "precio": 140.0,"hipoteca": 95.0,"deshipoteca": 130.0,
     "color":"#ea63e6",
     "rentas": [ 70.0,  85.0, 103.0,  114.0,  135.0,  158.0 ],
@@ -61,6 +67,7 @@
 
   {"tipo": "propiedad",
     "nombre": "Tienda de aguas frescas de Quico",
+    "imagen": "file:src/main/java/org/fiuba/algo3/view/imagenes/imagenesCasillas/tienda_de_aguas_frescas_de_quico.jpeg",
     "precio": 150.0,"hipoteca": 105.0,"deshipoteca": 140.0,
     "color":"#ffffff",
     "rentas": [ 80.0,  95.0, 113.0,  124.0,  145.0,  168.0 ],
@@ -69,6 +76,7 @@
 
   {"tipo": "propiedad",
     "nombre": "Escenario de la posada",
+    "imagen": "file:src/main/java/org/fiuba/algo3/view/imagenes/imagenesCasillas/escenario_de_la_vecindad.jpg",
     "precio": 140.0,"hipoteca": 95.0,"deshipoteca": 130.0,
     "color":"#ea63e6",
     "rentas": [ 70.0,  85.0, 103.0,  114.0,  135.0,  158.0 ],
@@ -77,26 +85,29 @@
 
   {"tipo": "propiedad",
     "nombre": "Casa de las tias de la Chilindrina",
+    "imagen": "file:src/main/java/org/fiuba/algo3/view/imagenes/imagenesCasillas/casa_de_las_tias_de_la_chilindrina.jpg",
     "precio": 160.0,"hipoteca": 115.0,"deshipoteca": 150.0,
     "color":"#ea63e6",
     "rentas": [ 90.0,  105.0, 123.0,  134.0,  155.0,  178.0 ],
     "precio compra viviendas": [ 0.0,  70.0,  100.0,  110.0,  125.0,  135.0],
     "precio venta viviendas":  [  0.0,  60.0,  80.0,  95.0,   110.0,  130.0]},
 
-  {"tipo": "transporte", "nombre": "Bicicleta del chavo", "precio": 200.0, "renta": 100.000},
+  {"tipo": "transporte", "nombre": "Bicicleta del chavo", "imagen":"file:src/main/java/org/fiuba/algo3/view/imagenes/imagenesCasillas/la_bicicleta_del_chavo.jpeg","precio": 200.0, "renta": 100.000},
 
   {"tipo": "propiedad",
     "nombre": "Cancha de atras de la vecindad",
+    "imagen": "file:src/main/java/org/fiuba/algo3/view/imagenes/imagenesCasillas/la_cancha_de_la_vecindad.jpg",
     "precio": 180.0,"hipoteca": 135.0,"deshipoteca": 170.0,
     "color":"#ef6c0c",
     "rentas": [ 110.0,  125.0, 143.0,  154.0,  175.0,  198.0 ],
     "precio compra viviendas": [ 0.0,  90.0,  120.0,  130.0,  145.0,  155.0],
     "precio venta viviendas":  [  0.0,  80.0,  100.0,  115.0,   130.0,  150.0]},
 
-  {"tipo": "loteria", "monto": 100.0},
+  {"tipo": "Loteria", "monto": 100.0, "imagen": "file:src/main/java/org/fiuba/algo3/view/imagenes/imagenesCasillas/loteria.png"},
 
   {"tipo": "propiedad",
     "nombre": "Patio de la vecindad",
+    "imagen": "file:src/main/java/org/fiuba/algo3/view/imagenes/imagenesCasillas/patio_de_la_vecindad.jpg",
     "precio": 180.0,"hipoteca": 145.0,"deshipoteca": 180.0,
     "color":"#ef6c0c",
     "rentas": [ 120.0,  135.0, 153.0,  164.0,  185.0,  208.0 ],
@@ -105,26 +116,29 @@
 
   {"tipo": "propiedad",
     "nombre": "Peluqueria de Don Ramon",
+    "imagen": "file:src/main/java/org/fiuba/algo3/view/imagenes/imagenesCasillas/peluqueria_de_don_ramon.jpg",
     "precio": 200.0,"hipoteca": 155.0,"deshipoteca": 190.0,
     "color":"#ef6c0c",
     "rentas": [ 130.0,  145.0, 163.0,  174.0,  195.0,  208.0 ],
     "precio compra viviendas": [ 0.0,  110.0,  140.0,  150.0,  165.0,  175.0],
     "precio venta viviendas":  [  0.0,  100.0,  120.0,  135.0,   150.0,  170.0]},
 
-  {"tipo": "de paso"},
+  {"tipo": "De Paso", "imagen": "file:src/main/java/org/fiuba/algo3/view/imagenes/imagenesCasillas/de_paso.png"},
 
   {"tipo": "propiedad",
     "nombre": "Fonda de Doña Florinda",
+    "imagen": "file:src/main/java/org/fiuba/algo3/view/imagenes/imagenesCasillas/la_fonda_de_donia_florinda.jpeg",
     "precio": 220.0,"hipoteca": 175.0,"deshipoteca": 210.0,
     "color":"#ef0c0c",
     "rentas": [ 150.0,  165.0, 183.0,  194.0,  215.0,  228.0 ],
     "precio compra viviendas": [ 0.0,  130.0,  160.0,  170.0,  185.0,  195.0],
     "precio venta viviendas":  [  0.0,  120.0,  140.0,  155.0,   170.0,  190.0]},
 
-  {"tipo":  "multa", "monto": 120.0},
+  {"tipo":  "Multa", "monto": 120.0, "imagen": "file:src/main/java/org/fiuba/algo3/view/imagenes/imagenesCasillas/multa.jpg"},
 
   {"tipo": "propiedad",
     "nombre": "Circo de la abuelita de Don Ramon",
+    "imagen": "file:src/main/java/org/fiuba/algo3/view/imagenes/imagenesCasillas/circo_de_la_abuelita_de_don_ramon.png",
     "precio": 220.0,"hipoteca": 185.0,"deshipoteca": 220.0,
     "color":"#ef0c0c",
     "rentas": [ 160.0,  175.0, 193.0,  204.0,  225.0,  238.0 ],
@@ -133,16 +147,18 @@
 
   {"tipo": "propiedad",
     "nombre": "Floreria del profesor Jirafales",
+    "imagen": "file:src/main/java/org/fiuba/algo3/view/imagenes/imagenesCasillas/floreria_del_profesor_jirafales.png",
     "precio": 240.0,"hipoteca": 205.0,"deshipoteca": 240.0,
     "color":"#ef0c0c",
     "rentas": [ 180.0,  195.0, 203.0,  224.0,  245.0,  258.0 ],
     "precio compra viviendas": [ 0.0,  160.0,  190.0,  200.0,  215.0,  225.0],
     "precio venta viviendas":  [  0.0,  150.0,  170.0,  185.0,   200.0,  220.0]},
 
-  {"tipo":  "transporte", "nombre": "Triciclo de Quico", "precio":  200.0, "renta": 100.000},
+  {"tipo":  "transporte", "nombre": "Triciclo de Quico", "imagen":"file:src/main/java/org/fiuba/algo3/view/imagenes/imagenesCasillas/el_triciclo_de_quico.jpg", "precio":  200.0, "renta": 100.000},
 
   {"tipo": "propiedad",
     "nombre": "El monte de piedad",
+    "imagen": "file:src/main/java/org/fiuba/algo3/view/imagenes/imagenesCasillas/monte_de_piedad.png",
     "precio": 260.0,"hipoteca": 225.0,"deshipoteca": 240.0,
     "color":"#efec0c",
     "rentas": [ 200.0,  215.0, 223.0,  244.0,  265.0,  278.0 ],
@@ -151,6 +167,7 @@
 
   {"tipo": "propiedad",
     "nombre": "Fabrica de tortas de jamon",
+    "imagen": "file:src/main/java/org/fiuba/algo3/view/imagenes/imagenesCasillas/fabrica_de_tortas_de_jamon.jpg",
     "precio": 260.0,"hipoteca": 235.0,"deshipoteca": 250.0,
     "color":"#efec0c",
     "rentas": [ 210.0,  225.0, 233.0,  254.0,  275.0,  288.0 ],
@@ -159,6 +176,7 @@
 
   {"tipo": "propiedad",
     "nombre": "Tienda de aguas frescas del Chavo.",
+    "imagen": "file:src/main/java/org/fiuba/algo3/view/imagenes/imagenesCasillas/tienda_de_aguas_frescas_del_chavo.png",
     "precio": 150.0,"hipoteca": 125.0,"deshipoteca": 130.0,
     "color":"#ffffff",
     "rentas": [ 100.0,  115.0, 123.0,  144.0,  165.0,  178.0 ],
@@ -167,16 +185,18 @@
 
   {"tipo": "propiedad",
     "nombre": "Apartamento 8",
+    "imagen": "file:src/main/java/org/fiuba/algo3/view/imagenes/imagenesCasillas/el_apartamento_8.png",
     "precio": 280.0,"hipoteca": 255.0,"deshipoteca": 260.0,
     "color":"#efec0c",
     "rentas": [ 230.0,  245.0, 253.0,  274.0,  285.0,  308.0 ],
     "precio compra viviendas": [ 0.0,  210.0,  240.0,  250.0,  265.0,  275.0],
     "precio venta viviendas":  [  0.0,  200.0,  220.0,  235.0,   250.0,  270.0]},
 
-  {"tipo":  "ir a la carcel"},
+  {"tipo":  "Ir A La Carcel", "imagen": "file:src/main/java/org/fiuba/algo3/view/imagenes/imagenesCasillas/ir_a_la_carcel.png"},
 
   {"tipo": "propiedad",
-    "nombre": "Plaza",
+    "nombre": "El parque",
+    "imagen": "file:src/main/java/org/fiuba/algo3/view/imagenes/imagenesCasillas/el_parque.jpg",
     "precio": 300.0,"hipoteca": 275.0,"deshipoteca": 280.0,
     "color":"#1aef0c",
     "rentas": [ 250.0,  265.0, 273.0,  294.0,  305.0,  328.0 ],
@@ -185,38 +205,42 @@
 
   {"tipo": "propiedad",
     "nombre": "Casa del Señor Barriga",
+    "imagen": "file:src/main/java/org/fiuba/algo3/view/imagenes/imagenesCasillas/la_casa_del_senior_barriga.png",
     "precio": 300.0,"hipoteca": 285.0,"deshipoteca": 280.0,
     "color":"#1aef0c",
     "rentas": [ 260.0,  275.0, 283.0,  304.0,  315.0,  338.0 ],
     "precio compra viviendas": [ 0.0,  240.0,  270.0,  280.0,  295.0,  305.0],
     "precio venta viviendas":  [  0.0,  230.0,  250.0,  265.0,   280.0,  300.0]},
 
-  {"tipo": "loteria", "monto": 200.0},
+  {"tipo": "Loteria", "monto": 200.0, "imagen": "file:src/main/java/org/fiuba/algo3/view/imagenes/imagenesCasillas/loteria.png"},
 
   {"tipo": "propiedad",
     "nombre": "Pileta de Acapulco",
+    "imagen": "file:src/main/java/org/fiuba/algo3/view/imagenes/imagenesCasillas/la_pileta_de_acapulco.jpeg",
     "precio": 320.0,"hipoteca": 305.0,"deshipoteca": 300.0,
     "color":"#1aef0c",
     "rentas": [ 280.0,  295.0, 303.0,  324.0,  335.0,  358.0 ],
     "precio compra viviendas": [ 0.0,  260.0,  280.0,  300.0,  315.0,  325.0],
     "precio venta viviendas":  [  0.0,  250.0,  270.0,  285.0,   300.0,  320.0]},
 
-  {"tipo":  "transporte", "nombre": "Camion que se subio a la banqueta", "precio":  200.0, "renta": 100.000},
+  {"tipo":  "transporte", "nombre": "Camion que se subio a la banqueta", "imagen":"file:src/main/java/org/fiuba/algo3/view/imagenes/imagenesCasillas/camion_que_se_subio_a_la_banqueta.png", "precio":  200.0, "renta": 100.000},
 
-  {"tipo":  "multa", "monto": 120.0},
+  {"tipo":  "Multa", "monto": 120.0, "imagen": "file:src/main/java/org/fiuba/algo3/view/imagenes/imagenesCasillas/multa.jpg"},
 
   {"tipo": "propiedad",
     "nombre": "Escuela del profesor Jirafales",
+    "imagen": "file:src/main/java/org/fiuba/algo3/view/imagenes/imagenesCasillas/escuela_del_profesor_jirafales.png",
     "precio": 350.0,"hipoteca": 335.0,"deshipoteca": 330.0,
     "color":"#2d30ec",
     "rentas": [ 310.0,  315.0, 333.0,  354.0,  365.0,  388.0 ],
     "precio compra viviendas": [ 0.0,  290.0,  310.0,  330.0,  345.0,  355.0],
     "precio venta viviendas":  [  0.0,  280.0,  300.0,  315.0,   330.0,  350.0]},
 
-  {"tipo":  "multa", "monto": 100.0},
+  {"tipo":  "Multa", "monto": 100.0, "imagen": "file:src/main/java/org/fiuba/algo3/view/imagenes/imagenesCasillas/multa.jpg"},
 
   {"tipo": "propiedad",
     "nombre": "Barril del chavo",
+    "imagen": "file:src/main/java/org/fiuba/algo3/view/imagenes/imagenesCasillas/el_barril_del_chavo.jpg",
     "precio": 400.0,"hipoteca": 385.0,"deshipoteca": 380.0,
     "color":"#2d30ec",
     "rentas": [ 360.0,  400.0,  430.0,  470.0,  500.0,  575.0 ],

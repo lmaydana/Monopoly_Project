@@ -18,10 +18,13 @@ public class TableroView extends BorderPane {
     private ArrayList<CasilleroView> casilleros;
     private Double largoLadoTablero;
 
-    public TableroView( Configuracion config ){
+    private Configuracion configuracion;
+
+    public TableroView( Configuracion configuracion ){
+        this.configuracion = configuracion;
         this.largoLadoTablero = (Screen.getPrimary().getBounds().getHeight() * factorCantidadUtilizable());
         this.setPrefSize(largoLadoTablero, largoLadoTablero);
-        this.agregarBordesDelTablero(config);
+        this.agregarBordesDelTablero(configuracion);
         this.crearCentroDelTablero();
     }
 
@@ -54,24 +57,16 @@ public class TableroView extends BorderPane {
         Integer espaciosOcupadosEnLasFilas = this.espaciosQueSeOcupaEnFilas( cantidadDeCasillerosEnElTablero );
         Double anchoCasilla = this.largoLadoTablero/espaciosOcupadosEnLasFilas;
         Double altoCasilla = anchoCasilla*incrementoDeAncho();
-        HashMap<String, String> informacionCasillero = new HashMap<>();
-        casillero.aportarInformacionCasillero(informacionCasillero);
         CasilleroView casilleroView;
         switch (casillero.obtenerTipoCasillero()){
             case TRANSPORTE:
-                casilleroView = new TransporteView(anchoCasilla*incrementoPorPosicion(indice, cantidadDeCasillerosEnElTablero), altoCasilla, casillero, bordeTablero.obtenerOrientacion());
+                casilleroView = new TransporteView(anchoCasilla*incrementoPorPosicion(indice, cantidadDeCasillerosEnElTablero), altoCasilla, casillero, bordeTablero.obtenerOrientacion(), this.configuracion);
                 break;
             case PROPIEDAD:
-                casilleroView = new PropiedadView(anchoCasilla*incrementoPorPosicion(indice, cantidadDeCasillerosEnElTablero), altoCasilla, casillero, bordeTablero.obtenerOrientacion());
-                break;
-            case MULTA:
-                casilleroView = new CasilleroView(anchoCasilla*incrementoPorPosicion(indice, cantidadDeCasillerosEnElTablero), altoCasilla, casillero, bordeTablero.obtenerOrientacion());
-                break;
-            case LOTERIA:
-                casilleroView = new CasilleroView(anchoCasilla*incrementoPorPosicion(indice, cantidadDeCasillerosEnElTablero), altoCasilla, casillero, bordeTablero.obtenerOrientacion());
+                casilleroView = new PropiedadView(anchoCasilla*incrementoPorPosicion(indice, cantidadDeCasillerosEnElTablero), altoCasilla, casillero, bordeTablero.obtenerOrientacion(), this.configuracion);
                 break;
             default :
-                casilleroView = new CasilleroView(anchoCasilla*incrementoPorPosicion(indice, cantidadDeCasillerosEnElTablero), altoCasilla, casillero, bordeTablero.obtenerOrientacion());
+                casilleroView = new CasilleroView(anchoCasilla*incrementoPorPosicion(indice, cantidadDeCasillerosEnElTablero), altoCasilla, casillero, bordeTablero.obtenerOrientacion(), this.configuracion);
         }
 
         try {

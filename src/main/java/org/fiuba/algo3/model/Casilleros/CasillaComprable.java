@@ -3,6 +3,7 @@ package org.fiuba.algo3.model.Casilleros;
 import org.fiuba.algo3.model.Cartera.CantidadInsuficiente;
 import org.fiuba.algo3.model.Casilleros.Arrendador.Arrendador;
 import org.fiuba.algo3.model.Casilleros.Arrendador.ArrendadorDeVenta;
+import org.fiuba.algo3.model.Casilleros.Arrendador.ArrendadorDesactivado;
 import org.fiuba.algo3.model.Jugador.Jugador;
 import java.util.HashMap;
 

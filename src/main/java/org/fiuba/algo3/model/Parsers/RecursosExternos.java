@@ -48,6 +48,10 @@ public class RecursosExternos {
         return this.tableroJsonParser.obtenerCarcel();
     }
 
+    public String obtenerDireccionImagen(String nombreCasillero){
+        return this.tableroJsonParser.obtenerDireccionImagen(nombreCasillero);
+    }
+
     public ArrayList<IrALaCarcel> obtenerCasillerosIrALacarcel() {
         return this.tableroJsonParser.obtenerCasillerosIrALa8Carcel();
     }

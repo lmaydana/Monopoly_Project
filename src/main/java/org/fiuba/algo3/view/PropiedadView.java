@@ -5,6 +5,8 @@ import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import org.fiuba.algo3.model.Casilleros.Casillero;
+import org.fiuba.algo3.model.Configuracion;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -14,8 +16,8 @@ public class PropiedadView extends TransporteView {
 
     private ArrayList<ImageView> viviendas;
 
-    public PropiedadView(Double anchoCasilla, Double altoCasilla, Casillero casillero, String direccionImagen, Orientacion orientacion) {
-        super(anchoCasilla, altoCasilla, casillero, direccionImagen, orientacion);
+    public PropiedadView(Double anchoCasilla, Double altoCasilla, Casillero casillero, Orientacion orientacion, Configuracion configuracion) {
+        super(anchoCasilla, altoCasilla, casillero, orientacion, configuracion);
         this.sectorViviendas = new Rectangle(0,0, obtenerProyeccion(anchoSectorViviendas(), altoSectorViviendas()), obtenerProyeccion(altoSectorViviendas(), anchoSectorViviendas()));
         sectorViviendas.setStroke(Color.BLACK);
         Color color = Color.valueOf(this.informacionCasillero.get("color"));
@@ -23,10 +25,6 @@ public class PropiedadView extends TransporteView {
         sectorViviendas.setStrokeWidth(3);
         this.getChildren().add(sectorViviendas);
         this.viviendas = new ArrayList<>();
-    }
-
-    public PropiedadView(Double anchoCasilla, Double altoCasilla, Casillero casillero, Orientacion orientacion) {
-        this(anchoCasilla, altoCasilla, casillero, rutaImagenPorDefecto(), orientacion);
     }
 
     @Override

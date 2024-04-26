@@ -29,6 +29,7 @@ public class TableroJsonParser extends JsonParser {
 
     private Carcel carcel;
 
+    private HashMap<String,String> imagenesCasilleros;
     private final Integer DIAS_DE_CONDENA = 5;
 
     private HashMap<String, Color> coloresDePropiedades;
@@ -42,6 +43,7 @@ public class TableroJsonParser extends JsonParser {
     public TableroJsonParser(String fileName) throws InvalidJson {
         super(fileName);
         this.coloresDePropiedades =new HashMap<>();
+        this.imagenesCasilleros = new HashMap<>();
         this.casillerosIrALaCarcel = new ArrayList<>();
         this.preciosInmueblesPorNombreDePropiedad = new HashMap<>();
         this.estadoCreacionCarcel = EstadoCreacionCarcel.NO_SE_CREO_UNA_CARCEL;
@@ -78,23 +80,24 @@ public class TableroJsonParser extends JsonParser {
 
     private Casillero crearCasillero( JSONObject casilleroJson ) throws InvalidJson {
         String tipoCasillero = casilleroJson.getString("tipo");
+        this.imagenesCasilleros.put(tipoCasillero, casilleroJson.getString("imagen"));
 
         switch (tipoCasillero){
             case "propiedad":
                 return this.crearCasilleroPropiedad(casilleroJson);
             case "transporte":
                 return this.crearCasilleroTransporte(casilleroJson);
-            case "de paso":
+            case "De Paso":
                 return new Casillero();
-            case "multa":
+            case "Multa":
                 return this.crearCasilleroMulta(casilleroJson);
-            case "loteria":
+            case "Loteria":
                 return this.crearCasilleroLoteria(casilleroJson);
-            case "carcel":
+            case "Carcel":
                 return this.crearCasilleroCarcel(casilleroJson);
-            case "ir a la carcel":
+            case "Ir A La Carcel":
                 return this.crearCasilleroIrALaCarcel();
-            case "inicio":
+            case "Inicio":
                 return this.crearCasilleroInicio(casilleroJson);
             default:
                 throw new InvalidJson("Al menos uno de los tipos especificados en el json, no existe");
@@ -120,6 +123,10 @@ public class TableroJsonParser extends JsonParser {
 
     public Banco obtenerBanco(){
         return this.banco;
+    }
+
+    public String obtenerDireccionImagen(String nombreCasillero){
+        return this.imagenesCasilleros.getOrDefault(nombreCasillero, "file:src/main/java/org/fiuba/algo3/view/imagenes/personaje_monopoly.png");
     }
 
     public ArrayList<ArrayList<String>> obtenerInformacionInmueblesSobre(String nombrePropiedad){
@@ -163,6 +170,7 @@ public class TableroJsonParser extends JsonParser {
 
     private Casillero crearCasilleroTransporte(JSONObject casilleroJson) {
         String nombreTransporte = casilleroJson.getString("nombre");
+        this.imagenesCasilleros.put(nombreTransporte, casilleroJson.getString("imagen"));
         Double precioCompraTransporte = casilleroJson.getDouble("precio");
         Double precioRentaTransporte = casilleroJson.getDouble("renta");
         Transporte transporte = new Transporte(nombreTransporte,precioCompraTransporte, precioRentaTransporte, centroDeTransportes);
@@ -172,6 +180,7 @@ public class TableroJsonParser extends JsonParser {
 
     private Casillero crearCasilleroPropiedad(JSONObject casilleroJson) throws InvalidJson {
         String nombrePropiedad = casilleroJson.getString("nombre");
+        this.imagenesCasilleros.put(nombrePropiedad, casilleroJson.getString("imagen"));
         Double costoDeVenta = casilleroJson.getDouble("precio");
         String color = casilleroJson.getString("color");
         Double precioHipoteca = casilleroJson.getDouble("hipoteca");

@@ -1,4 +1,4 @@
-package org.fiuba.algo3.model.Casilleros;
+package org.fiuba.algo3.model.Casilleros.Arrendador;
 
 import org.fiuba.algo3.model.Cartera.CantidadInsuficiente;
 import org.fiuba.algo3.model.Casilleros.Arrendador.Arrendador;

@@ -33,7 +33,7 @@ public class ArrendadorDeVenta implements Arrendador{
     }
 
     public String toString(){
-        return "Sr. Barriga";
+        return "Banco";
     }
 
     @Override
@@ -43,6 +43,6 @@ public class ArrendadorDeVenta implements Arrendador{
 
     @Override
     public void informarDetalles(HashMap<String, String> detalles) {
-            detalles.put("propietario", "Sr. Barriga");
+            detalles.put("propietario", "Banco");
     }
 }

@@ -12,6 +12,8 @@ import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Font;
 import javafx.scene.text.TextAlignment;
 import org.fiuba.algo3.model.Casilleros.Casillero;
+import org.fiuba.algo3.model.Configuracion;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -28,10 +30,8 @@ public class CasilleroView extends Pane {
 
     protected HashMap<String, String> informacionCasillero;
 
-    private Label nombreEtiqueta;
 
-
-    public CasilleroView(Double anchoCasilla, Double altoCasilla, Casillero casillero, String direccionImagen, Orientacion orientacion){
+    public CasilleroView(Double anchoCasilla, Double altoCasilla, Casillero casillero, Orientacion orientacion, Configuracion configuracion){
         this.orientacion = orientacion;
         this.jugadoresEnCasilla = new ArrayList<>();
         this.anchoCasilla = anchoCasilla;
@@ -48,7 +48,8 @@ public class CasilleroView extends Pane {
         informacionDeLaCasilla.setStrokeWidth(3);
         informacionDeLaCasilla.setFill(Color.WHITE);
         informacionDeLaCasilla.setStroke(Color.BLACK);
-        this.nombreEtiqueta = new Label(this.obtenerTextoCasilla());
+        String textoCasilla = this.obtenerTextoCasilla();
+        Label nombreEtiqueta = new Label(textoCasilla);
         nombreEtiqueta.setMaxWidth(this.anchoCasilla);
         nombreEtiqueta.setMaxHeight(altoMaximoNombre());
         nombreEtiqueta.setTextAlignment(TextAlignment.CENTER);
@@ -56,19 +57,14 @@ public class CasilleroView extends Pane {
         nombreEtiqueta.setFont(new Font(10));
         nombreEtiqueta.setStyle("-fx-text-fill: blue;");
         nombreEtiqueta.setRotate(this.orientacion.obtenerGrados());
-        Image imagen = new Image(direccionImagen);
-        ImageView imageView = new ImageView(imagen);
-        imageView.setFitWidth(anchoImagen());
-        imageView.setFitHeight(altoImagen());
-        imageView.setRotate(this.orientacion.obtenerGrados());
+        ImageView imagenCasillero = new ImageView(configuracion.obtenerDireccionImagen(textoCasilla));
+        imagenCasillero.setFitWidth(anchoImagen());
+        imagenCasillero.setFitHeight(altoImagen());
+        imagenCasillero.setRotate(this.orientacion.obtenerGrados());
         cajaInformacion.getChildren().add(new Group(nombreEtiqueta));
-        cajaInformacion.getChildren().add(new Group(imageView));
+        cajaInformacion.getChildren().add(new Group(imagenCasillero));
         this.getChildren().add(new Group(informacionDeLaCasilla));
         this.getChildren().add(new Group(cajaInformacion));
-    }
-
-    public CasilleroView(Double anchoCasilla, Double altoCasilla, Casillero casillero, Orientacion orientacion){
-        this(anchoCasilla, altoCasilla, casillero, rutaImagenPorDefecto(), orientacion);
     }
 
     private String obtenerTextoCasilla(){
@@ -121,7 +117,7 @@ public class CasilleroView extends Pane {
     }
 
     protected Double anchoImagen(){
-        return anchoCasilla * 0.5;
+        return anchoCasilla * 0.7;
     }
 
     protected Double altoMaximoNombre() {

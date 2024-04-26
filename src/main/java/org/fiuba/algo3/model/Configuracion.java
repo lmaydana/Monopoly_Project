@@ -84,6 +84,10 @@ public class Configuracion {
         return this.parsers.obtenerCarcel();
     }
 
+    public String obtenerDireccionImagen(String nombreCasillero){
+        return this.parsers.obtenerDireccionImagen(nombreCasillero);
+    }
+
     public ArrayList<IrALaCarcel> obtenerCasillerosIrALaCarcel() {
         return this.parsers.obtenerCasillerosIrALacarcel();
     }
