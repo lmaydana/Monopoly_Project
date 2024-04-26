@@ -49,7 +49,6 @@ public class CasilleroView extends Pane {
         String textoCasilla = this.obtenerTextoCasilla();
         Label nombreEtiqueta = new Label(textoCasilla);
         this.setearFormatoEtiqueta(nombreEtiqueta);
-        nombreEtiqueta.setStyle("-fx-text-fill: blue;");
         ImageView imagenCasillero = new ImageView(  configuracion.obtenerDireccionImagen(textoCasilla)  );
         imagenCasillero.setFitWidth(anchoImagen());
         imagenCasillero.setFitHeight(altoImagen());
@@ -75,7 +74,7 @@ public class CasilleroView extends Pane {
     }
 
     protected Double tamanioFuente(){
-        return this.altoCasilla * 0.06;
+        return this.altoCasilla * 0.1;
     }
 
     private String obtenerTextoCasilla(){
@@ -153,6 +152,7 @@ public class CasilleroView extends Pane {
         Double posicionXJugador = this.obtenerProyeccion(posicionXJugadorCasillaVertical(), posicionYJugadorCasillaVertical());
         Double posicionYJugador = this.obtenerProyeccion(posicionYJugadorCasillaVertical(), posicionXJugadorCasillaVertical());
         Circle jugador = new Circle(posicionXJugador, posicionYJugador, radioCirculoJugador(), color);
+        jugador.setStroke(Color.BLACK);
         this.getChildren().add(jugador);
         this.jugadoresEnCasilla.add(jugador);
     }

@@ -16,6 +16,7 @@ public class TransporteView extends CasilleroView{
         Label precio = new Label(this.informacionCasillero.get("precio"));
         this.setearFormatoEtiqueta(precio);
         this.propietario = new Label("Dueño: " +this.informacionCasillero.get("propietario"));
+        this.propietario.setStyle("-fx-text-fill: blue;");
         this.setearFormatoEtiqueta(this.propietario);
         cajaInformacion.getChildren().addFirst(new Group(propietario));
         this.cajaInformacion.getChildren().add(new Group(precio));
@@ -26,6 +27,10 @@ public class TransporteView extends CasilleroView{
         super.dibujar();
         this.casillero.aportarInformacionCasillero(this.informacionCasillero);
         this.dibujarEtiqueta();
+    }
+
+    protected Double tamanioFuente(){
+        return this.altoCasilla * 0.06;
     }
 
     public void dibujarEtiqueta(){

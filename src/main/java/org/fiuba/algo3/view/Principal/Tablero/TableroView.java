@@ -89,7 +89,7 @@ public class TableroView extends BorderPane {
     }
 
     private String obtenerDireccionImagenCentral() {
-        return "file:src/main/java/org/fiuba/algo3/view/imagenes/Monopoly-Logo-2008.png";
+        return "file:src/main/java/org/fiuba/algo3/view/imagenes/centro.png";
     }
 
     private double factorAnchoImagenCentral() {
