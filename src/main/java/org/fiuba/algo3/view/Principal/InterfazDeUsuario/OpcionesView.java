@@ -221,7 +221,7 @@ public class OpcionesView extends VBox {
     private Button obtenerBotonDeOpcion(String texto){
         Button botonDeOpcion = new Button(texto);
         //-------Estilos y decoraciones del boton----------------
-        botonDeOpcion.setPrefWidth(this.ancho*0.2);
+        botonDeOpcion.setPrefWidth(this.ancho*0.3);
         botonDeOpcion.setStyle("-fx-background-color: #0CFA83; " +
                 "-fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 10, 0, 0, 0); " +
                 "-fx-font-size: "+this.alto*0.02+"px;");
