@@ -13,7 +13,7 @@ import org.fiuba.algo3.model.Casilleros.ControladorDeHipotecas.Hipotecador.Hipot
 import org.fiuba.algo3.model.Casilleros.ControladorDeHipotecas.Hipotecador.HipotecadorNulo;
 import org.fiuba.algo3.model.Jugador.Transferible;
 
-public class ControladorDeHipotecaActivo implements ControladorDeHipotecas {
+public class ControladorDeHipotecaActivo implements Hipotecador, Deshipotecador {
 
     private String nombrePropiedad;
     private Arrendador arrendador;

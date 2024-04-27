@@ -84,7 +84,7 @@ public class IniciadorDeVistaPrincipal implements EventHandler<ActionEvent> {
     private List<Jugador> crearJugadores(List<String> nombresJugadores, List<Color> coloresJugadores) {
         List<Jugador> jugadores= new ArrayList<>();
         for(int i = 0; i < nombresJugadores.size(); i++){
-            jugadores.add(new Jugador(nombresJugadores.get(i), coloresJugadores.get(i), configuracion));
+            jugadores.add(new Jugador(nombresJugadores.get(i), coloresJugadores.get(i)));
         }
         return jugadores;
     }

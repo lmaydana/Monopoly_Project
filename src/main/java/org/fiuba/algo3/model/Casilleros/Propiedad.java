@@ -18,7 +18,7 @@ public class Propiedad extends CasillaComprable{
     private Constructor constructor;
     private Terreno terreno;
     private Banco banco;
-    public Propiedad(String nombrePropiedad, Double costoDeVenta, Barrio barrio, ArrayList<Inmueble> inmueblesPorPoner, Banco banco) {
+    public Propiedad(String nombrePropiedad, Double costoDeVenta, BarrioDePropiedades barrio, ArrayList<Inmueble> inmueblesPorPoner, Banco banco) {
         super(nombrePropiedad, costoDeVenta);
         this.barrio = barrio;
         this.constructor = new ConstructorNulo();
@@ -27,8 +27,12 @@ public class Propiedad extends CasillaComprable{
     }
 
     public void construirVivienda(Cartera cartera) throws CantidadInsuficiente {
-        this.constructor = this.barrio.obtenerConstructorAprobado(this.arrendador, this.terreno);
+        this.constructor = this.barrio.obtenerConstructorAprobado(this.arrendador, this.terreno, cantidadDeConstruccionesAConstruir());
         this.constructor.construir(cartera);
+    }
+
+    private int cantidadDeConstruccionesAConstruir() {
+        return 1;
     }
 
     @Override
@@ -49,7 +53,12 @@ public class Propiedad extends CasillaComprable{
     }
 
     public void venderConstruccion(){
-        this.terreno.venderInmueble(this.arrendador);
+        this.constructor = this.barrio.obtenerConstructorAprobado(this.arrendador, this.terreno, cantidadDeConstruccionesADemoler());
+        this.constructor.demoler(this.arrendador);
+    }
+
+    private int cantidadDeConstruccionesADemoler() {
+        return -1;
     }
 
     public void deshipotecar(Cartera cartera) throws CantidadInsuficiente {
@@ -81,8 +90,8 @@ public class Propiedad extends CasillaComprable{
         this.barrio.terminarReformas(terminable);
     }
 
-    public boolean tieneCantidadDeConstruccionesAceptablesEnComparacionCon(Terreno terreno) {
-        return this.terreno.tieneCantidadDeConstruccionesAceptablesConRespectoA(terreno);
+    public boolean tieneCantidadDeConstruccionesAceptablesEnComparacionCon(Terreno terreno, Integer cantidadDeConstruccionesAAgregar) {
+        return this.terreno.tieneCantidadDeConstruccionesAceptablesConRespectoA(terreno, cantidadDeConstruccionesAAgregar);
     }
 
     public void firmarFinalizacionDeObras(ListaDeFirmas listaDeFirmas) {

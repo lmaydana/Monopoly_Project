@@ -26,7 +26,7 @@ public class EstadoNormal implements Estado {
     }
 
     @Override
-    public void pagarFianza(double monto,Banco banco) {
+    public void pagarFianza(double monto, Banco banco) {
 
     }
 

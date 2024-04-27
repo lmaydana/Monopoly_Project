@@ -5,11 +5,12 @@ import org.fiuba.algo3.model.Cartera.CantidadInsuficiente;
 import org.fiuba.algo3.model.Cartera.Cartera;
 import org.fiuba.algo3.model.Casilleros.Arrendador.Arrendador;
 import org.fiuba.algo3.model.Casilleros.ControladorDeHipotecas.ControladorDeHipotecaActivo;
-import org.fiuba.algo3.model.Casilleros.ControladorDeHipotecas.ControladorDeHipotecaNulo;
-import org.fiuba.algo3.model.Casilleros.ControladorDeHipotecas.ControladorDeHipotecas;
+import org.fiuba.algo3.model.Casilleros.ControladorDeHipotecas.Deshipotecador.Deshipotecador;
+import org.fiuba.algo3.model.Casilleros.ControladorDeHipotecas.Deshipotecador.DeshipotecadorNulo;
+import org.fiuba.algo3.model.Casilleros.ControladorDeHipotecas.Hipotecador.Hipotecador;
+import org.fiuba.algo3.model.Casilleros.ControladorDeHipotecas.Hipotecador.HipotecadorNulo;
 import org.fiuba.algo3.model.Casilleros.Inmueble.Inmueble;
 import org.fiuba.algo3.model.Jugador.Transferible;
-import org.fiuba.algo3.model.Terminable;
 
 import java.util.ArrayList;
 
@@ -18,7 +19,9 @@ public class Terreno {
     private ArrayList<Inmueble> inmueblesPorPoner;
     private Tasador tasador;
 
-    private ControladorDeHipotecas controladorDeHipotecas;
+    private Hipotecador hipotecador;
+
+    private Deshipotecador deshipotecador;
 
     private Arrendador arrendador;
 
@@ -35,14 +38,17 @@ public class Terreno {
         this.banco = banco;
         this.rentaBase = 0.0;
         this.arrendador = arrendador;
-        this.controladorDeHipotecas = new ControladorDeHipotecaNulo(this.arrendador);
+        this.hipotecador = new HipotecadorNulo(this.arrendador);
+        this.deshipotecador = new DeshipotecadorNulo(this.arrendador);
         this.rentaBase = this.inmueblesPorPoner.removeFirst().devolverRentaSumadaA(this.rentaBase);
         this.tasador = new Tasador();
     }
 
     public void seCompradoPor( Arrendador arrendador ){
         this.arrendador = arrendador;
-        this.controladorDeHipotecas = new ControladorDeHipotecaActivo(this.nombrePropiedad, this.arrendador, this.banco);
+        ControladorDeHipotecaActivo controladorDeHipoteca = new ControladorDeHipotecaActivo(this.nombrePropiedad, this.arrendador, this.banco);
+        this.hipotecador = controladorDeHipoteca;
+        this.deshipotecador = controladorDeHipoteca;
     }
 
     public void edificar(Cartera cartera) throws CantidadInsuficiente {
@@ -74,19 +80,19 @@ public class Terreno {
         this.inmueblesPorPoner.clear();
     }
 
-    public boolean tieneCantidadDeConstruccionesAceptablesConRespectoA(Terreno terreno) {
-        return terreno.inmueblesActuales.size() <=  this.inmueblesActuales.size() ;
+    public boolean tieneCantidadDeConstruccionesAceptablesConRespectoA( Terreno terreno, Integer cantidadDeConstruccionesAAgregar ) {
+        return Math.abs(terreno.inmueblesActuales.size() + cantidadDeConstruccionesAAgregar - this.inmueblesActuales.size()) <= 1 ;
     }
 
     public Arrendador hipotecar(){
         if( this.inmueblesActuales.isEmpty() ){
-            return this.controladorDeHipotecas.hipotecar(this.arrendador);
+            return this.hipotecador.hipotecar(this.arrendador);
         }
         return this.arrendador;
     }
 
     public Arrendador deshipotecar(Cartera cartera) throws CantidadInsuficiente {
-        return this.controladorDeHipotecas.deshipotecar(cartera);
+        return this.deshipotecador.deshipotecar(cartera);
     }
 
     public void informarFinalizacionDeConstrucciones(ListaDeFirmas listaDeFirmas) {

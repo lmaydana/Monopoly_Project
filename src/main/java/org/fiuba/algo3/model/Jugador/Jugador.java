@@ -28,14 +28,14 @@ public class Jugador implements Arrendador, Comprador{
     private Contrato contratoActual;
     private HashMap<String, CasillaComprable> activos;
 
-    public Jugador(String nombreJugador, Color color, Configuracion config){
+    public Jugador(String nombreJugador, Color color){
         this.nombreJugador = nombreJugador;
         this.activos = new HashMap<>();
         this.color = color;
         this.propiedades = new HashMap<>();
         this.contratoActual = new ContratoSinEfecto();
-        this.estado = new EstadoNormal(this, this.propiedades,this.cartera);
         this.cartera = new Billetera();
+        this.estado = new EstadoNormal(this, this.propiedades,this.cartera);
     }
 
     @Override

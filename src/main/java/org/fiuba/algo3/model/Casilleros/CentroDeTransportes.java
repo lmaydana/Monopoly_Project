@@ -5,19 +5,19 @@ import org.fiuba.algo3.model.Casilleros.Arrendador.Arrendador;
 import java.util.ArrayList;
 
 public class CentroDeTransportes {
-    private ArrayList<Transporte> transportes;
+    private ArrayList<CasillaComprable> transportes;
 
     public CentroDeTransportes(){
         this.transportes = new ArrayList<>();
     }
 
-    public void agregarTransporte(Transporte transporte){
+    public void agregar(CasillaComprable transporte){
         this.transportes.add(transporte);
     }
 
     private int determinarMultiplicidadDeCosto(Arrendador arrendador){
         int multiplicidad = 0;
-        for (Transporte transporte: this.transportes){
+        for (CasillaComprable transporte: this.transportes){
             if( transporte.tieneArrendador(arrendador) )
                 multiplicidad++;
         }
@@ -27,7 +27,7 @@ public class CentroDeTransportes {
 
     private boolean esCompaniero(Arrendador arrendador) {
         boolean esCompaniero = false;
-        for (Transporte transporte: this.transportes){
+        for (CasillaComprable transporte: this.transportes){
             if (transporte.tieneArrendador(arrendador)){
                 esCompaniero = true;
             }

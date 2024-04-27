@@ -23,7 +23,7 @@ public class TableroJsonParser extends JsonParser {
 
     private CentroDeTransportes centroDeTransportes;
 
-    private HashMap<String, Barrio> barrios;
+    private HashMap<String, BarrioDePropiedades> barrios;
 
     private HashMap<Casillero, HashMap<String, String>> infoCasilla;
 
@@ -176,7 +176,7 @@ public class TableroJsonParser extends JsonParser {
         Double precioCompraTransporte = casilleroJson.getDouble("precio");
         Double precioRentaTransporte = casilleroJson.getDouble("renta");
         Transporte transporte = new Transporte(nombreTransporte,precioCompraTransporte, precioRentaTransporte, centroDeTransportes);
-        this.centroDeTransportes.agregarTransporte(transporte);
+        this.centroDeTransportes.agregar(transporte);
         return transporte;
     }
 
@@ -190,8 +190,8 @@ public class TableroJsonParser extends JsonParser {
         this.banco.agregarHipoteca(nombrePropiedad, precioHipoteca);
         this.banco.agregarDeshipoteca(nombrePropiedad, precioDehipoteca);
         this.coloresDePropiedades.put(nombrePropiedad, Color.valueOf(color));
-        this.barrios.putIfAbsent(color, new Barrio(color));
-        Barrio barrio = this.barrios.get(color);
+        this.barrios.putIfAbsent(color, new BarrioDePropiedades(color));
+        BarrioDePropiedades barrio = this.barrios.get(color);
         JSONArray preciosDeVentaInmuebles = casilleroJson.getJSONArray("precio venta viviendas");
         JSONArray preciosDeRentasPorCantidadDeInmuebles = casilleroJson.getJSONArray("rentas");
         JSONArray preciosDeCompraInmuebles = casilleroJson.getJSONArray("precio compra viviendas");
